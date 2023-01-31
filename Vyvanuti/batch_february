@@ -1,0 +1,17 @@
+#!/bin/bash
+#Initialization
+WORKING_DIRECTORY=$(echo $PWD)
+echo 'Working directory is: '$WORKING_DIRECTORY
+
+#MASTER parameters used across all models
+INPUT_FILE='../data/data_20221126.csv' #File to be converted in Convertool
+#INPUT_FILE='../data/test_input_2.csv' #File to be converted in Convertool
+
+#Model estimation in batch
+
+./cox/cox_batch --inputfile $INPUT_FILE --modelname 'FebPresent' --ctooltype 'iA' --modelformula 'VI';
+
+
+
+
+echo 'Group done'
