@@ -1,0 +1,33 @@
+$user
+[1] "smid"
+
+$computer
+[1] "daman.utia.cas.cz"
+
+$arguments
+[1] "../data/temp/FebOmicron30.csv"           
+[2] "VI"                                      
+[3] "outputs/FebOmicron30//convertool_log.txt"
+
+$time.start
+[1] "2023-02-03 12:28:43"
+
+$time.end
+[1] "2023-02-03 12:31:02"
+
+$model.spent
+Time difference of 2.316667 mins
+
+$model.concordance
+concordance 
+  0.7194919 
+
+$convertool.vignette
+[1] "version 2.0"                                                                            
+[2] "Usage convertool input output whattodo(ix) firstdate(rrrr-mm-dd) lastdate minage maxage"
+[3] "infections"                                                                             
+[4] "Input ../data/data_20221126.csv"                                                        
+[5] "Date range 2021-10-01 - 2022-02-01"                                                     
+[6] "Only every 10th record."                                                                
+[7] "Writing to temporary_full.csv"                                                          
+

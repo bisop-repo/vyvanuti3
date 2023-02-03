@@ -265,7 +265,7 @@ void addto(vector<string>& labels, vector<unsigned>& counts, const string lbl)
 }*/
 
 
-enum o2rmodes { einfections, ecovidproxy };
+enum o2rmodes { einfections, ecovidproxy, eseverity };
 
 
 
@@ -1478,7 +1478,8 @@ int _main(int argc, char *argv[], bool testrun = false)
         {
             ppp.isoutcome = vector<bool>(enumvariants,false);
             ppp.conditioning = vector<bool>(enumvariants,false);
-            switch(argv[3][1])
+            auto option = argv[3][1];
+            switch(option)
             {
             case '1':
                 ppp.isoutcome[evBA12] = true;
@@ -1499,12 +1500,25 @@ int _main(int argc, char *argv[], bool testrun = false)
 //ppp.conditioning = vector<bool>(enumvariants,true);
 //                ppp.everyn = 10;
                 break;
-            case 'A': // replicating
+            case 'A': // Brno workshop variant A
+            case 'C': // Brno workshop variant A
                 ppp.isoutcome[evDelta] = true;
                 firstdatestr = "2021-12-10";
                 lastdatestr = "2022-02-13";
 //ppp.conditioning = vector<bool>(enumvariants,true);
-                ppp.everyn = 5;
+                ppp.everyn = 10;
+                ppp.covreinfduration = ppp.regularcovvaccduration
+                        = option == 'A' ? 61 : 30;
+                break;
+            case 'B':                 ppp.isoutcome[evDelta] = true;
+            case 'D':                 ppp.isoutcome[evDelta] = true;
+                ppp.isoutcome[evOmicron] = true;
+                firstdatestr = "2021-10-01";
+                lastdatestr = "2022-02-01";
+//ppp.conditioning = vector<bool>(enumvariants,true);
+                ppp.covreinfduration = ppp.regularcovvaccduration
+                        = option == 'B' ? 61 : 30;
+                ppp.everyn = 10;
                 break;
             case '9':
                 ppp.isoutcome[evOmicron] = true;

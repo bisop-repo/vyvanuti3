@@ -1,0 +1,26 @@
+$`Median stats for VaccStatus at T1 == 0`
+         VaccStatus      N age_median LastVaccTime_median InfPriorTime_median
+ 1:   _unvaccinated 358765         27                  NA                  NA
+ 2:       full_091+ 439223         49                  NA                  NA
+ 3:   boost_001-030  79445         72                  NA                  NA
+ 4:    full_031-060  12365         36                  NA                  NA
+ 5:    full_001-030  24746         37                  NA                  NA
+ 6: partial_001-030  22585         34                  NA                  NA
+ 7:    full_061-090  24750         31                  NA                  NA
+ 8:    partial_031+   3033         43                  NA                  NA
+ 9:   boost_031-060  28447         75                  NA                  NA
+10:      boost_061+    958         53                  NA                  NA
+
+$`Median stats for VaccStatus at the respective T`
+         VaccStatus    N age_median LastVaccTime_median InfPriorTime_median
+ 1:   _unvaccinated 4807       30.0                  NA                  NA
+ 2:       full_091+ 2405       45.0                  NA                  NA
+ 3:   boost_031-060   73       62.0                  NA                  NA
+ 4: partial_001-030   69       33.0                  NA                  NA
+ 5:    full_061-090   59       38.0                  NA                  NA
+ 6:   boost_001-030  145       63.0                  NA                  NA
+ 7:    full_031-060   72       39.0                  NA                  NA
+ 8:    full_001-030   70       36.5                  NA                  NA
+ 9:      boost_061+   16       60.5                  NA                  NA
+10:    partial_031+   22       44.5                  NA                  NA
+
