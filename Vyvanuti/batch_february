@@ -9,8 +9,10 @@ INPUT_FILE='../data/data_20221126.csv' #File to be converted in Convertool
 
 #Model estimation in batch
 
-./cox/cox_batch --inputfile $INPUT_FILE --modelname 'FebPresent' --ctooltype 'iA' --modelformula 'VI';
-
+./cox/cox_batch --inputfile $INPUT_FILE --modelname 'FebDelta60' --ctooltype 'iA' --modelformula 'VI';
+#./cox/cox_batch --inputfile $INPUT_FILE --modelname 'FebDelta30' --ctooltype 'iC' --modelformula 'VI';
+#./cox/cox_batch --inputfile $INPUT_FILE --modelname 'FebOmicron60' --ctooltype 'iB' --modelformula 'VI';
+#./cox/cox_batch --inputfile $INPUT_FILE --modelname 'FebOmicron30' --ctooltype 'iD' --modelformula 'VI';
 
 
 

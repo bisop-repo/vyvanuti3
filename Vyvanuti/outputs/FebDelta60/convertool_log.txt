@@ -70,7 +70,7 @@ _40-44,167246,784
 30-34,128744,660
 
 covs=33, events=7738, eventspercov=234.5
-Writing to ../data/temp/FebPresent.csv
+Writing to ../data/temp/FebDelta60.csv
 Importing from input, total 8997136 records.
 Processing records from input, excluding inconsistent records:
 850012 individuals taken from the UZIS database

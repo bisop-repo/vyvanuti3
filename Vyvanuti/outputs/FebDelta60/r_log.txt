@@ -22,9 +22,9 @@ Type 'q()' to quit R.
 > #1.1 Parsing args (use the commented command below for inputing them wihout console run)
 > args = commandArgs(trailingOnly=TRUE) #args = c("data/temp/IOmicron.csv","I","temp.txt")
 > print(args)
-[1] "../data/temp/FebPresent.csv"           
+[1] "../data/temp/FebDelta60.csv"           
 [2] "VI"                                    
-[3] "outputs/FebPresent//convertool_log.txt"
+[3] "outputs/FebDelta60//convertool_log.txt"
 > 
 > #1.2 Loading libraries
 >   library(survival)
@@ -44,7 +44,7 @@ Type 'q()' to quit R.
 >   ptime = gsub(":","-",ptime)
 >   
 >   print(paste("Hello ",user," of ",computer,", it is ",time.start,".",sep=""))
-[1] "Hello smid of daman.utia.cas.cz, it is 2023-02-03 11:29:50."
+[1] "Hello smid of daman.utia.cas.cz, it is 2023-02-03 15:34:00."
 > 
 > #1.4 Checking the provided arguments. The following if-else goes through the whole script and stops if requested args are not provided.
 >   if(length(args) > 1){
@@ -210,7 +210,7 @@ Type 'q()' to quit R.
 +     print(data.input)
 +   }
 [1] "Inputs have been provided."
-[1] "I am using file: ../data/temp/FebPresent.csv"
+[1] "I am using file: ../data/temp/FebDelta60.csv"
 [1] "...and Cox formula: Surv(T1,T2,Infected) ~ InfPrior + VaccStatus + AgeGr + Sex"
 [1] "I can see a convertool log provided."
 [1] "The directory already exists, files will be rewritten."

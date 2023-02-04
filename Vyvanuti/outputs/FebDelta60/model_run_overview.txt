@@ -5,15 +5,15 @@ $computer
 [1] "daman.utia.cas.cz"
 
 $arguments
-[1] "../data/temp/FebPresent.csv"           
+[1] "../data/temp/FebDelta60.csv"           
 [2] "VI"                                    
-[3] "outputs/FebPresent//convertool_log.txt"
+[3] "outputs/FebDelta60//convertool_log.txt"
 
 $time.start
-[1] "2023-02-03 11:29:50"
+[1] "2023-02-03 15:34:00"
 
 $time.end
-[1] "2023-02-03 11:30:48"
+[1] "2023-02-03 15:34:58"
 
 $model.spent
 Time difference of 58 secs

@@ -1,0 +1,38 @@
+INPUT_FILE=../data/data_20221126.csv #File to be converted in Convertool
+MODEL_DATE_MAX='2022-02-15' #Upper boundary of the modeling horizon
+MODEL_AGE_LIM='0 650'
+OUTPUTS_LOCATION='outputs/logreg_test'
+TEMP_DIRECTORY='logreg_temp'
+#rm data/temp/$MODEL_NAME.csv
+mkdir $TEMP_DIRECTORY
+
+
+#MODEL_NAME='Feb_delta_omicron'
+#CONVERTOOL_TYPE='cE'
+#../convertool/bin/convertool $INPUT_FILE ../data/temp/$MODEL_NAME.csv $CONVERTOOL_TYPE > $TEMP_DIRECTORY/convertool_log.txt
+#mv ../data/temp/$MODEL_NAME.csv outputs/$MODEL_NAME.csv
+
+#MODEL_NAME='Feb_ba12_ba45'
+#CONVERTOOL_TYPE='cF'
+#../convertool/bin/convertool $INPUT_FILE ../data/temp/$MODEL_NAME.csv $CONVERTOOL_TYPE > $TEMP_DIRECTORY/convertool_log.txt
+#mv ../data/temp/$MODEL_NAME.csv outputs/$MODEL_NAME.csv
+
+#MODEL_NAME='Feb_delta_ba45'
+#CONVERTOOL_TYPE='cG'
+#../convertool/bin/convertool $INPUT_FILE ../data/temp/$MODEL_NAME.csv $CONVERTOOL_TYPE > $TEMP_DIRECTORY/convertool_log.txt
+#mv ../data/temp/$MODEL_NAME.csv outputs/$MODEL_NAME.csv
+
+MODEL_NAME='Feb_alpha_delta'
+CONVERTOOL_TYPE='cH'
+../convertool/bin/convertool $INPUT_FILE ../data/temp/$MODEL_NAME.csv $CONVERTOOL_TYPE > $TEMP_DIRECTORY/convertool_log.txt
+mv ../data/temp/$MODEL_NAME.csv outputs/$MODEL_NAME.csv
+
+
+#R < logreg/logreg_estimation.R --vanilla --args ../data/temp/$MODEL_NAME.csv B $TEMP_DIRECTORY/convertool_log.txt
+#rm -r outputs/logreg_OInteractions
+#mv $OUTPUTS_LOCATION outputs/logreg_delta_omi
+
+
+#rm -r  $TEMP_DIRECTORY
+
+exit 0
