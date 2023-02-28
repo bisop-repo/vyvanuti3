@@ -57,7 +57,7 @@ int date2int(const string s)
 }
 
 
-string int2date(reldate date)
+string int2date(int date)
 {
     time_t t = date * 86400;
     tm* ti = localtime(&t);
@@ -78,9 +78,10 @@ string int2date(reldate date)
 
 
 
-reldate date2int(const string s, reldate zerodate, reldate lastdate, bool& error, string& errormessage)
+int date2int(const string s, reldate zerodate, reldate lastdate, bool& error, string& errormessage, string& errordetail)
 {
     error = true;
+    errordetail = "";
     string errorstr;
     reldate di;
     if(s=="")
@@ -99,10 +100,11 @@ reldate date2int(const string s, reldate zerodate, reldate lastdate, bool& error
     }
     if(error)
     {
+        errormessage = "Error in conversion";
         ostringstream o;
-        o << "Error in conversion of '" << s << "' to date: " << errorstr;
+        o <<  "'" << s << "' to date: " << errorstr;
         o << "(min=" << int2date(zerodate) << ", max=" << int2date(lastdate) << ")";
-        errormessage = o.str();
+        errordetail = o.str();
         return maxreldate;
     }
     else
