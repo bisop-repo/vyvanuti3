@@ -1538,7 +1538,7 @@ int _main(int argc, char *argv[], bool testrun = false)
 //    cout << argv[i] << endl;
     bool onlyfirst = argv[2][0] == '-';
     cout << "version 2.0" << endl;
-    cout << "Usage convertool input output whattodo(ix) firstdate(rrrr-mm-dd) lastdate minage maxage" << endl;
+    cout << "Usage convertool input output whattodo(ixel) firstdate(rrrr-mm-dd) lastdate [minage maxage everyn]" << endl;
     if(!testrun  && argc < 4)
         throw "at least three arguments must be given";
     {
@@ -1574,8 +1574,9 @@ int _main(int argc, char *argv[], bool testrun = false)
 
         ppp.groupvaccs = true;
         string firstdatestr, lastdatestr;
+        string everynstr = "";
 
-        if(argv[3][0] >= 'a' && argv[3][0] <= 'z')
+        if((argv[3][1] >= 'a' && argv[3][1] <= 'z') || argv[3][1] == 0)
         {
             if(argc < 6)
             {
@@ -1584,6 +1585,8 @@ int _main(int argc, char *argv[], bool testrun = false)
             }
             firstdatestr = argv[4];
             lastdatestr = argv[5];
+            if(argc>8)
+                everynstr = argv[8];
             if(argv[3][1]==0)
                 ppp.isoutcome = vector<bool>(enumvariants,true);
             else
@@ -1679,6 +1682,17 @@ int _main(int argc, char *argv[], bool testrun = false)
                 firstdatestr = "2021-03-01";
                 lastdatestr = "2022-12-31";
                 break;
+            case 'L':
+                ppp.isoutcome = vector<bool>(enumvariants,true);
+                ppp.numpartialcovs = 3;
+                ppp.numfinalcovs = 7;
+                ppp.numboostercovs = 5;
+                ppp.numsecboostercovs = 2;
+                ppp.numinfcovariates = 10;
+                firstdatestr = "2021-01-06";
+                lastdatestr = "2022-09-30";
+                everynstr = "10";
+                break;
             case '9':
                 ppp.isoutcome[evOmicron] = true;
                 ppp.isoutcome[evBA12] = true;
@@ -1716,6 +1730,22 @@ int _main(int argc, char *argv[], bool testrun = false)
         {
             cerr << "Error converting last date string " << lastdatestr << endl;
             throw;
+        }
+
+
+        if(everynstr != "")
+        {
+            try
+            {
+                ppp.everyn = stoul(everynstr);
+                if(ppp.everyn==0)
+                    throw "Everyn cannot be zero";
+            }
+            catch(...)
+            {
+                cerr << "Error converting everyn string " << everynstr << endl;
+                throw;
+            }
         }
 
         cout << "Input " << argv[1]<< endl;
