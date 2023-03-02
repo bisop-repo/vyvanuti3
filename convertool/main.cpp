@@ -731,6 +731,7 @@ void ockodata2R(csv<','>& data, string outputlabel,
 
             if(infdate < maxreldate)
             {
+
                 string variantstr = data(j,Mutace);
                 unsigned k = 1; // zero is novariant
                 for(; k<variants.size(); k++)
@@ -769,8 +770,6 @@ void ockodata2R(csv<','>& data, string outputlabel,
                 else
                     upvecmodate = maxreldate;
                 reldate longcoviddate;
-if(id==46)
-    id = 46;
                 string longcoviddatestr = data(j,Long_COVID);
                 if(longcoviddatestr != "")
                 {
@@ -788,9 +787,17 @@ if(id==46)
                         ((data(i,bin_Kyslik) == "1" && oxygendate - infdate <= ppp.hosplimit)
                                    || (data(j,bin_UPV_ECMO) == "1" && upvecmodate - infdate <= ppp.hosplimit)) ;
                 bool longcovid = longcoviddate < maxreldate && longcoviddate - infdate <= ppp.longcovidlimit;
-                if(infections.size() && infdate <= infections[infections.size()-1].t)
+                if(infections.size())
                 {
-                    THROW("Wrong ordering of infections", break);
+                     if(infdate <= infections[infections.size()-1].t)
+                     {
+                        THROW("Wrong ordering of infections", break);
+                     }
+                     if(infdate - infections[infections.size()-1].t
+                            <= ppp.firstcovreinfduration )
+                     {
+                         THROW("Reinfection within administrative limit.", break);
+                     }
                 }
                 variantsfound[k].infections++;
                 int dateind = ppp.firstdate + infdate - ppp.zerodate;
@@ -1429,7 +1436,7 @@ if(id==46)
                             o << uninflabel << "," << uninflabel << "," << unvacclabel << ","
                               << a << ","
                               << agelabel << "," << gender2str(m)
-                              << ",,,"<< endl;
+                              << ",,"<< endl;
                             if(dostat)
                             {
                                 recordcov(uninflabel,0, stat.infprior);
@@ -1631,8 +1638,8 @@ int _main(int argc, char *argv[], bool testrun = false)
                 ppp.covreinfduration = ppp.regularcovvaccduration
                         = option == 'A' ? 61 : 30;
                 break;
-            case 'B':                 ppp.isoutcome[evDelta] = true;
-            case 'D':                 ppp.isoutcome[evDelta] = true;
+            case 'B':
+            case 'D':
                 ppp.isoutcome[evOmicron] = true;
                 firstdatestr = "2021-10-01";
                 lastdatestr = "2022-02-01";
@@ -1683,15 +1690,28 @@ int _main(int argc, char *argv[], bool testrun = false)
                 lastdatestr = "2022-12-31";
                 break;
             case 'L':
-                ppp.isoutcome = vector<bool>(enumvariants,true);
-                ppp.numpartialcovs = 3;
-                ppp.numfinalcovs = 7;
+                ppp.numpartialcovs = 8;
+                ppp.numfinalcovs = 8;
                 ppp.numboostercovs = 5;
                 ppp.numsecboostercovs = 2;
                 ppp.numinfcovariates = 10;
-                firstdatestr = "2021-01-06";
-                lastdatestr = "2022-09-30";
-                everynstr = "10";
+                if(argv[3][2] == 'o')
+                {
+                    ppp.isoutcome = vector<bool>(enumvariants,false);
+                    ppp.isoutcome[evOmicron] = true;
+                    ppp.isoutcome[evBA12] = true;
+                    ppp.isoutcome[evBA45] = true;
+                    firstdatestr = "2021-12-01";
+                    lastdatestr = "2022-09-30";
+                    // everynstr = "10";
+                }
+                else
+                {
+                    ppp.isoutcome = vector<bool>(enumvariants,true);
+                    firstdatestr = "2021-01-06";
+                    lastdatestr = "2022-09-30";
+                }
+//
                 break;
             case '9':
                 ppp.isoutcome[evOmicron] = true;
@@ -1708,7 +1728,7 @@ int _main(int argc, char *argv[], bool testrun = false)
 
         if(strlen(argv[3]) > 2)
         {
-            if(strlen(argv[3]) >= 2 || argv[3][2] == '+')
+            if(strlen(argv[3]) >= 2 && argv[3][2] == '+')
                 ppp.groupvaccs = false;
         }
 

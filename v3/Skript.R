@@ -49,8 +49,10 @@ gt::gtsave(as_gt(sum_tab), file = "sum_tab.png")
 
 #### COXOV MODEL ####
 
-m1_cox <- coxph(Surv(T1, T2, LongCovid) ~ InfPrior + VaccStatus + AgeGr + Sex, 
-                data = data)
+# m1_cox <- coxph(Surv(T1, T2, LongCovid) ~ InfPrior + VaccStatus + AgeGr + Sex,  data = data)
+
+m1_cox <- coxph(Surv(T1, T2, Seriouscovidproxy) ~ InfPrior + VaccStatus + AgeGr + Sex,  data = data)
+
 summary(m1_cox)
 
 #### VYTVORENIE TABULKY ####
@@ -78,39 +80,61 @@ cas_vakcinace <- dimnames(df)[[1]][grep("VaccStatusfull", dimnames(df)[[1]])] %>
   substring(16, 18) %>% as.numeric() %>% + 30
 cas_vakcinace
 
+cas_booster <- dimnames(df)[[1]][grep("VaccStatusboost", dimnames(df)[[1]])] %>% 
+  substring(17, 19) %>% as.numeric() %>% + 30
+cas_booster
+
+cas_partial <- dimnames(df)[[1]][grep("VaccStatuspartial", dimnames(df)[[1]])] %>% 
+  substring(19, 21) %>% as.numeric() %>% + 30
+cas_partial
+
 eff_infekce <- df$eff[grep("InfPrior", dimnames(df)[[1]])]
 eff_vakcinace <- df$eff[grep("VaccStatusfull", dimnames(df)[[1]])]
+eff_booster <- df$eff[grep("VaccStatusboost", dimnames(df)[[1]])]
+eff_partial <- df$eff[grep("VaccStatuspartial", dimnames(df)[[1]])]
 
 eff_CI_lower_infekce <- df$eff_CI_lower[grep("InfPrior", dimnames(df)[[1]])]
 eff_CI_lower_vakcinace <- df$eff_CI_lower[grep("VaccStatusfull", dimnames(df)[[1]])]
+eff_CI_lower_booster <- df$eff_CI_lower[grep("VaccStatusboost", dimnames(df)[[1]])]
+eff_CI_lower_partial <- df$eff_CI_lower[grep("VaccStatuspartial", dimnames(df)[[1]])]
 
 eff_CI_upper_infekce <- df$eff_CI_upper[grep("InfPrior", dimnames(df)[[1]])]
 eff_CI_upper_vakcinace <- df$eff_CI_upper[grep("VaccStatusfull", dimnames(df)[[1]])]
+eff_CI_upper_booster <- df$eff_CI_upper[grep("VaccStatusboost", dimnames(df)[[1]])]
+eff_CI_upper_partial <- df$eff_CI_upper[grep("VaccStatuspartial", dimnames(df)[[1]])]
 
 # graf / krivky vyvanutia 
-
+png(file = "graf_krivky_vyvanutia.png", width = 800, height = 500)
 par(mar = c(3.6, 3.6, 2, 1))
-plot(cas_infekce, eff_infekce, las = 1, xlim = c(0, 360), ylim = c(0, 1.1), xaxt = "n", 
+plot(cas_infekce, eff_infekce, las = 1, xlim = c(0,600), ylim = c(0, 1.1), xaxt = "n", 
      xlab = "", ylab = "", type = "n")
-axis(1, at=seq(0, 360, 90), seq(0, 360, 90))
+axis(1, at=seq(0, 600, 90), seq(0, 600, 90))
 abline(h = seq(0.2, 1, 0.2), col = "lightgray")
 
 plotCI(cas_infekce, eff_infekce, ui = eff_CI_upper_infekce, li = eff_CI_lower_infekce, 
        add = T, pch = NA)
 plotCI(cas_vakcinace, eff_vakcinace, ui = eff_CI_upper_vakcinace, li = eff_CI_lower_vakcinace, 
        add = T, pch = NA)
+plotCI(cas_booster, eff_booster, ui = eff_CI_upper_booster, li = eff_CI_lower_booster, 
+       add = T, pch = NA)
+plotCI(cas_partial, eff_partial, ui = eff_CI_upper_partial, li = eff_CI_lower_partial, 
+       add = T, pch = NA)
+
 
 lines(c(30, cas_infekce), c(1, eff_infekce), col = "darkblue", type = "b", pch = 15, lwd = 2)
 lines(cas_vakcinace, eff_vakcinace, col = "darkred", type = "b", pch = 19, lwd = 2)
+lines(cas_booster, eff_booster, col = "darkgreen", type = "b", pch = 19, lwd = 2)
+lines(cas_partial, eff_partial, col = "brown", type = "b", pch = 19, lwd = 2)
 
 mtext("Time from infection/vaccination [days]", side = 1, line = 2.5) 
 mtext("Effectiveness of immunity", side = 2, line = 2.5) 
 #title("Křivky vyvanutí")
 
-legend("bottomleft", legend = c("Infection", "Full vaccination"), col = c("darkblue", "darkred"), 
+legend("bottomleft", legend = c("Infection", "Full vaccination", "Booster", "Partial vaccination"), col = c("darkblue", "darkred", "darkgreen", "brown"), 
        lty = 1, pch = c(15, 19), lwd = 2, bty = "n")
 
-dev.copy(device = png, filename = 'graf_krivky_vyvanutia.png', width = 800, height = 500)
+# dev.copy nefunguje na serveru
+# dev.copy(device = png, filename = 'graf_krivky_vyvanutia.png', width = 800, height = 500)
 dev.off()
 
 #### TABULKY - HR a VE ####
@@ -127,9 +151,11 @@ gt::gtsave(as_gt(m1_cox_HR_plot), file = "m1_cox_HR_plot.png")
 # Forest plot - pomer rizik
 forest_plot <- m1_cox_HR_plot %>%
   plot()
+
+png(file = "forest_plot.png", width = 700, height = 900)
 forest_plot
 
-dev.copy(device = png, filename = 'forest_plot.png', width = 700, height = 900)
+# dev.copy(device = png, filename = 'forest_plot.png', width = 700, height = 900)
 dev.off()
 
 # VE - vakcinacna efektivita
