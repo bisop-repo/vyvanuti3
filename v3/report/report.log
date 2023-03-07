@@ -1,0 +1,394 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2022.2.17)  6 MAR 2023 09:41
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**report.tex
+(./report.tex
+LaTeX2e <2017-04-15>
+Babel <3.17> and hyphenation patterns for 3 language(s) loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count87
+\float@exts=\toks14
+\float@box=\box26
+\@float@everytoks=\toks15
+\@floatcapt=\box27
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count88
+\Gm@cntv=\count89
+\c@Gm@tempcnt=\count90
+\Gm@bindingoffset=\dimen105
+\Gm@wd@mp=\dimen106
+\Gm@odd@mp=\dimen107
+\Gm@even@mp=\dimen108
+\Gm@layoutwidth=\dimen109
+\Gm@layoutheight=\dimen110
+\Gm@layouthoffset=\dimen111
+\Gm@layoutvoffset=\dimen112
+\Gm@dimlist=\toks17
+) (./report.aux)
+\openout1 = `report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count91
+\scratchdimen=\dimen113
+\scratchbox=\box28
+\nofMPsegments=\count92
+\nofMParguments=\count93
+\everyMPshowfont=\toks18
+\MPscratchCnt=\count94
+\MPscratchDim=\dimen114
+\MPnumerator=\count95
+\makeMPintoPDFobject=\count96
+\everyMPtoPDFconversion=\toks19
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(89.62709pt, 418.25368pt, 89.6271pt)
+* v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=418.25368pt
+* \textheight=591.5302pt
+* \oddsidemargin=17.3571pt
+* \evensidemargin=17.3571pt
+* \topmargin=-7.86334pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 37.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 37.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 37.
+[1
+
+{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}]
+<../ProxyOmicron/graf_krivky_vyvanutia.png, id=9, 803.0pt x 501.875pt>
+File: ../ProxyOmicron/graf_krivky_vyvanutia.png Graphic file (type png)
+<use ../ProxyOmicron/graf_krivky_vyvanutia.png>
+Package pdftex.def Info: ../ProxyOmicron/graf_krivky_vyvanutia.png  used on inp
+ut line 41. on input line 41.
+Package pdftex.def Info: Requested size: 426.79134pt x 266.75061pt on input lin
+e 41.
+<../ProxyOmicronInts/graf_krivky_vyvanutia.png, id=10, 803.0pt x 501.875pt>
+File: ../ProxyOmicronInts/graf_krivky_vyvanutia.png Graphic file (type png)
+<use ../ProxyOmicronInts/graf_krivky_vyvanutia.png>
+Package pdftex.def Info: ../ProxyOmicronInts/graf_krivky_vyvanutia.png  used on
+ input line 41. on input line 41.
+Package pdftex.def Info: Requested size: 426.79134pt x 266.75061pt on input lin
+e 41.
+
+Overfull \hbox (8.53766pt too wide) in paragraph at lines 41--41
+[]
+ []
+
+
+Overfull \hbox (8.53766pt too wide) in paragraph at lines 41--41
+[] 
+ []
+
+[2 <../ProxyOmicron/graf_krivky_vyvanutia.png (PNG copy)> <../ProxyOmicronInts/
+graf_krivky_vyvanutia.png (PNG copy)>]
+<../ProxyOmicron/forest_plot.png, id=15, 702.625pt x 903.375pt>
+File: ../ProxyOmicron/forest_plot.png Graphic file (type png)
+<use ../ProxyOmicron/forest_plot.png>
+Package pdftex.def Info: ../ProxyOmicron/forest_plot.png  used on input line 41
+. on input line 41.
+Package pdftex.def Info: Requested size: 426.79134pt x 548.74217pt on input lin
+e 41.
+
+Overfull \hbox (23.53766pt too wide) in paragraph at lines 41--41
+[][] 
+ []
+
+[3 <../ProxyOmicron/forest_plot.png>]
+<../ProxyOmicronInts/forest_plot.png, id=20, 250.9375pt x 335.2525pt>
+File: ../ProxyOmicronInts/forest_plot.png Graphic file (type png)
+<use ../ProxyOmicronInts/forest_plot.png>
+Package pdftex.def Info: ../ProxyOmicronInts/forest_plot.png  used on input lin
+e 41. on input line 41.
+Package pdftex.def Info: Requested size: 426.79134pt x 570.25934pt on input lin
+e 41.
+
+Overfull \hbox (23.53766pt too wide) in paragraph at lines 41--42
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
+
+ []
+
+<../LongOmicron/graf_krivky_vyvanutia.png, id=22, 803.0pt x 501.875pt>
+File: ../LongOmicron/graf_krivky_vyvanutia.png Graphic file (type png)
+<use ../LongOmicron/graf_krivky_vyvanutia.png>
+Package pdftex.def Info: ../LongOmicron/graf_krivky_vyvanutia.png  used on inpu
+t line 44. on input line 44.
+Package pdftex.def Info: Requested size: 426.79134pt x 266.75061pt on input lin
+e 44.
+<../LongOmicronInts/graf_krivky_vyvanutia.png, id=23, 250.9375pt x 335.2525pt>
+File: ../LongOmicronInts/graf_krivky_vyvanutia.png Graphic file (type png)
+<use ../LongOmicronInts/graf_krivky_vyvanutia.png>
+Package pdftex.def Info: ../LongOmicronInts/graf_krivky_vyvanutia.png  used on 
+input line 44. on input line 44.
+Package pdftex.def Info: Requested size: 426.79134pt x 570.25934pt on input lin
+e 44.
+
+Overfull \hbox (8.53766pt too wide) in paragraph at lines 44--44
+[]
+ []
+
+
+Overfull \hbox (8.53766pt too wide) in paragraph at lines 44--44
+[] 
+ []
+
+[4 <../ProxyOmicronInts/forest_plot.png>]
+Overfull \vbox (270.1825pt too high) has occurred while \output is active []
+
+
+[5 <../LongOmicron/graf_krivky_vyvanutia.png (PNG copy)> <../LongOmicronInts/gr
+af_krivky_vyvanutia.png>]
+<../LongOmicron/forest_plot.png, id=32, 702.625pt x 903.375pt>
+File: ../LongOmicron/forest_plot.png Graphic file (type png)
+<use ../LongOmicron/forest_plot.png>
+Package pdftex.def Info: ../LongOmicron/forest_plot.png  used on input line 44.
+ on input line 44.
+Package pdftex.def Info: Requested size: 426.79134pt x 548.74217pt on input lin
+e 44.
+
+Overfull \hbox (23.53766pt too wide) in paragraph at lines 44--44
+[][] 
+ []
+
+[6 <../LongOmicron/forest_plot.png>]
+<../LongOmicronInts/forest_plot.png, id=37, 1154.3125pt x 4221.7725pt>
+File: ../LongOmicronInts/forest_plot.png Graphic file (type png)
+<use ../LongOmicronInts/forest_plot.png>
+Package pdftex.def Info: ../LongOmicronInts/forest_plot.png  used on input line
+ 44. on input line 44.
+Package pdftex.def Info: Requested size: 199.16928pt x 728.38539pt on input lin
+e 44.
+
+Overfull \vbox (136.8552pt too high) has occurred while \output is active []
+
+
+[7 <../LongOmicronInts/forest_plot.png>]
+<../InfOmicron/graf_krivky_vyvanutia.png, id=43, 803.0pt x 501.875pt>
+File: ../InfOmicron/graf_krivky_vyvanutia.png Graphic file (type png)
+<use ../InfOmicron/graf_krivky_vyvanutia.png>
+Package pdftex.def Info: ../InfOmicron/graf_krivky_vyvanutia.png  used on input
+ line 46. on input line 46.
+Package pdftex.def Info: Requested size: 426.79134pt x 266.75061pt on input lin
+e 46.
+<../InfOmicronInts/graf_krivky_vyvanutia.png, id=44, 803.0pt x 501.875pt>
+File: ../InfOmicronInts/graf_krivky_vyvanutia.png Graphic file (type png)
+<use ../InfOmicronInts/graf_krivky_vyvanutia.png>
+Package pdftex.def Info: ../InfOmicronInts/graf_krivky_vyvanutia.png  used on i
+nput line 46. on input line 46.
+Package pdftex.def Info: Requested size: 426.79134pt x 266.75061pt on input lin
+e 46.
+
+Overfull \hbox (8.53766pt too wide) in paragraph at lines 46--46
+[]
+ []
+
+
+Overfull \hbox (8.53766pt too wide) in paragraph at lines 46--46
+[] 
+ []
+
+[8 <../InfOmicron/graf_krivky_vyvanutia.png (PNG copy)> <../InfOmicronInts/graf
+_krivky_vyvanutia.png (PNG copy)>]
+<../InfOmicron/forest_plot.png, id=48, 702.625pt x 903.375pt>
+File: ../InfOmicron/forest_plot.png Graphic file (type png)
+<use ../InfOmicron/forest_plot.png>
+Package pdftex.def Info: ../InfOmicron/forest_plot.png  used on input line 46. 
+on input line 46.
+Package pdftex.def Info: Requested size: 426.79134pt x 548.74217pt on input lin
+e 46.
+
+Overfull \hbox (23.53766pt too wide) in paragraph at lines 46--46
+[][] 
+ []
+
+[9 <../InfOmicron/forest_plot.png>]
+<../InfOmicronInts/forest_plot.png, id=53, 702.625pt x 903.375pt>
+File: ../InfOmicronInts/forest_plot.png Graphic file (type png)
+<use ../InfOmicronInts/forest_plot.png>
+Package pdftex.def Info: ../InfOmicronInts/forest_plot.png  used on input line 
+46. on input line 46.
+Package pdftex.def Info: Requested size: 426.79134pt x 548.74217pt on input lin
+e 46.
+
+Overfull \hbox (23.53766pt too wide) in paragraph at lines 46--47
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
+
+ []
+
+[10 <../InfOmicronInts/forest_plot.png>] [11] [12] (./report.aux) ) 
+Here is how much of TeX's memory you used:
+ 2032 strings out of 494917
+ 30505 string characters out of 6180699
+ 90502 words of memory out of 5000000
+ 5335 multiletter control sequences out of 15000+600000
+ 7616 words of font info for 28 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 41i,6n,25p,273b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmtt8.pfb>
+Output written on report.pdf (12 pages, 935209 bytes).
+PDF statistics:
+ 83 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+

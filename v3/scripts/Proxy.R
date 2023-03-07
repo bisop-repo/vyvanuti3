@@ -122,8 +122,8 @@ plotCI(cas_partial, eff_partial, ui = eff_CI_upper_partial, li = eff_CI_lower_pa
 
 
 lines(c(30, cas_infekce), c(1, eff_infekce), col = "darkblue", type = "b", pch = 15, lwd = 2)
-lines(cas_vakcinace, eff_vakcinace, col = "darkred", type = "b", pch = 19, lwd = 2)
-lines(cas_booster, eff_booster, col = "darkgreen", type = "b", pch = 19, lwd = 2)
+lines(cas_vakcinace, eff_vakcinace, col = "darkred", type = "b", pch = 17, lwd = 2)
+lines(cas_booster, eff_booster, col = "darkgreen", type = "b", pch = 18, lwd = 2)
 lines(cas_partial, eff_partial, col = "brown", type = "b", pch = 19, lwd = 2)
 
 mtext("Time from infection/vaccination [days]", side = 1, line = 2.5) 
@@ -131,7 +131,7 @@ mtext("Effectiveness of immunity", side = 2, line = 2.5)
 #title("Křivky vyvanutí")
 
 legend("bottomleft", legend = c("Infection", "Full vaccination", "Booster", "Partial vaccination"), col = c("darkblue", "darkred", "darkgreen", "brown"), 
-       lty = 1, pch = c(15, 19), lwd = 2, bty = "n")
+       lty = 1, pch = c(15, 17, 18, 19), lwd = 2, bty = "n")
 
 # dev.copy nefunguje na serveru
 # dev.copy(device = png, filename = 'graf_krivky_vyvanutia.png', width = 800, height = 500)

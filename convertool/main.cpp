@@ -65,7 +65,7 @@ string severitylabel(eseverity s)
 
 string age2group(unsigned age)
 {
-    static vector<string> g = {		"0-11",	"0-11",	"0-11",	"0-11",	"0-11",	"0-11",	"0-11",	"0-11",	"0-11",	"0-11",	"0-11",	"0-11",	"12-15",	"12-15",	"12-15",	"12-15",	"16-17",	"16-17",	"18-24",	"18-24",	"18-24",	"18-24",	"18-24",	"18-24",	"18-24",	"25-29",	"25-29",	"25-29",	"25-29",	"25-29",	"30-34",	"30-34",	"30-34",	"30-34",	"30-34",	"35-39",	"35-39",	"35-39",	"35-39",	"35-39",	"_40-44",	"_40-44",	"_40-44",	"_40-44",	"_40-44",	"45-49",	"45-49",	"45-49",	"45-49",	"45-49",	"50-54",	"50-54",	"50-54",	"50-54",	"50-54",	"55-59",	"55-59",	"55-59",	"55-59",	"55-59",	"60-64",	"60-64",	"60-64",	"60-64",	"60-64",	"65-69",	"65-69",	"65-69",	"65-69",	"65-69",	"70-74",	"70-74",	"70-74",	"70-74",	"70-74",	"75-79",	"75-79",	"75-79",	"75-79",	"75-79",	"80+"	};
+    static vector<string> g = {"0-11",	"0-11",	"0-11",	"0-11",	"0-11",	"0-11",	"0-11",	"0-11",	"0-11",	"0-11",	"0-11",	"0-11",	"12-15",	"12-15",	"12-15",	"12-15",	"16-17",	"16-17",	"18-24",	"18-24",	"18-24",	"18-24",	"18-24",	"18-24",	"18-24",	"25-29",	"25-29",	"25-29",	"25-29",	"25-29",	"30-34",	"30-34",	"30-34",	"30-34",	"30-34",	"35-39",	"35-39",	"35-39",	"35-39",	"35-39",	"_40-44",	"_40-44",	"_40-44",	"_40-44",	"_40-44",	"45-49",	"45-49",	"45-49",	"45-49",	"45-49",	"50-54",	"50-54",	"50-54",	"50-54",	"50-54",	"55-59",	"55-59",	"55-59",	"55-59",	"55-59",	"60-64",	"60-64",	"60-64",	"60-64",	"60-64",	"65-69",	"65-69",	"65-69",	"65-69",	"65-69",	"70-74",	"70-74",	"70-74",	"70-74",	"70-74",	"75-79",	"75-79",	"75-79",	"75-79",	"75-79",	"80+"	};
     if(age >= g.size())
        return g[g.size()-1];
     else
@@ -156,19 +156,22 @@ struct variantrecord
   string codeincovariate;
   string commandlineid;
   string supcategory;
+  vector<string> startdates90;
+  vector<string> enddates90;
 };
 
-enum evariant {evNA,evDelta,evBA45,evBA12, evOmicron, evAlpha, evBeta, enumvariants};
+enum evariant {evNA,evDelta,evBA45,evBA12, evOmicron, evAlpha, evBeta, evEarly, enumvariants};
 
 vector<variantrecord> variants
 {
-    { "", "NA_Other","NA","n","NA"},
-    { "Delta", "Delta","Delta", "d", "DELTA"},
-    { "Omikron BA.4/5", "BA45", "BA45", "4", "OMICRON"},
-    { "Omikron BA.1/2", "BA12", "BA12", "1", "OMICRON"},
-    { "Omikron", "Omicron", "Omicron", "o", "OMICRON"},
-    { "Alfa", "Alpha", "Alpha", "a", "ALPHA"},
-    { "Beta", "Beta", "Beta", "b", "BETA"},
+    { "", "NA_Other","NA","n","NA",{},{}},
+    { "Delta", "Delta","Delta", "d", "DELTA",{"2021-07-01"}, {"2021-12-20"}},
+    { "Omikron BA.4/5", "BA45", "BA45", "y", "OMICRON",{"2022-06-04"},{"2022-11-17"}},
+    { "Omikron BA.1/2", "BA12", "BA12", "x", "OMICRON",{"2022-02-17"},{"2022-05-23"}},
+    { "Omikron", "Omicron", "Omicron", "o", "OMICRON",{"2022-05-24",},{"2022-06-03"}},
+    { "Alfa", "Alpha", "Alpha", "a", "ALPHA",{"2021-02-15"},{"2021-07-21"}},
+    { "Beta", "Beta", "Beta", "b", "NA",{},{}},
+    { "$$$" /*never happens */, "Early", "Early", "e", "EARLY",{"2020-01-01"},{"2021-01-04"}}
 };
 
 auto navariant = 0;
@@ -177,6 +180,12 @@ struct preprocessparams
 {
     /// least date possible (others reported as errors
     int zerodate = date2int("2020-01-01");
+
+    int vaccstartdate = date2int("2021-01-01");
+    int boosterstartdate = date2int("2021-11-01");
+    int secboosterstartdate = date2int("2022-07-18");
+    int reinfstartdate = date2int("2020-04-01");
+
 
     /// delay after the first, second, third and fourth shot takes effect
     int regulardelay = 14;
@@ -225,10 +234,16 @@ struct preprocessparams
     bool fourages = false;
 
     /// if true then vaccines are grouped in the VaccStatus field
-    bool groupvaccs = false;
+    bool groupvaccs = true;
 
+    // not used in the present time
     bool groupvariants = false;
 
+    /// using supcategory rather than codeincovariate
+    bool generalvariants = false;
+
+    ///
+    bool useintervalsofdominance = false;
 
     /// Inputs that should be provided
 
@@ -247,8 +262,8 @@ struct preprocessparams
     ///
     vector<bool> conditioning = vector<bool>(enumvariants,true);
     vector<bool> isoutcome = vector<bool>(enumvariants,true);
-    vector<bool> compared0 = vector<bool>(enumvariants,false);
-    vector<bool> compared1 = vector<bool>(enumvariants,false);
+//    vector<bool> compared0 = vector<bool>(enumvariants,false);
+//    vector<bool> compared1 = vector<bool>(enumvariants,false);
 };
 
 /*
@@ -268,9 +283,11 @@ void addto(vector<string>& labels, vector<unsigned>& counts, const string lbl)
 }*/
 
 
-enum o2rmodes { einfections, eseriouscovidproxy, elongcovidevent, elongcovidinfection, eseverity, enumo2rmodes };
+enum o2rmodes { einfections, eseriouscovidproxy, elongcovidevent, elongcovidinfection,
+                ecomparison, enumo2rmodes };
 
-vector<string> mdelabels = { "infections", "seriouscovidproxy", "longcovid", "severity" };
+vector<string> mdelabels = { "infections", "seriouscovidproxy", "longcovidevent",
+                             "longcovidinfection","comparison" };
 
 struct covstatrecord
 {
@@ -378,10 +395,8 @@ void ockodata2R(csv<','>& data, string outputlabel,
 
     ostringstream header;
 
-    header << "ID,T1,T2,Infected,Seriouscovidproxy,LongCovid, DeadByCovid,DeadByOther,VariantComp,";
-//    for(unsigned i=0; i<variants.size(); i++)
-//        header << variants[i].codeincovariate << "Inf,";
-    header << "VariantOfLast, InfPrior,VaccStatus,Age,AgeGr,Sex";
+    header << "ID,T1,T2,Infected,Seriouscovidproxy,LongCovid, DeadByCovid,DeadByOther,";
+    header << "VariantOfInf, InfPrior,VaccStatus,Age,AgeGr,Sex";
     header << ",InfPriorTime,LastVaccTime";
 
     o << header.str() << endl;
@@ -451,8 +466,6 @@ void ockodata2R(csv<','>& data, string outputlabel,
 
     vector<unsigned> men(lastage+1,0);
     vector<unsigned> women(lastage+1,0);
-
-
 
 
     vector<string> throwedvariants;
@@ -610,6 +623,9 @@ void ockodata2R(csv<','>& data, string outputlabel,
 
             reldate infdate;
             string infdatestr = data(j,Datum_pozitivity);
+if(id==665)
+    id = 665;
+
             if(infdatestr == "")
                 infdate = maxreldate;
             else
@@ -735,8 +751,27 @@ void ockodata2R(csv<','>& data, string outputlabel,
                 string variantstr = data(j,Mutace);
                 unsigned k = 1; // zero is novariant
                 for(; k<variants.size(); k++)
+                {
                     if(variantstr==variants[k].codeindata)
                         break;
+                    if(!ppp.useintervalsofdominance)
+                        continue;
+
+                    assert(variants[k].startdates90.size()==variants[k].enddates90.size());
+                    bool foundininterval = false;
+                    for(unsigned j=0; j<variants[k].startdates90.size(); j++)
+                    {
+                        reldate start = date2int(variants[k].startdates90[j])-ppp.firstdate;
+                        reldate stop = date2int(variants[k].enddates90[j])-ppp.firstdate;
+                        if(infdate >= start && infdate <= stop)
+                        {
+                            foundininterval = true;
+                            break;
+                        }
+                    }
+                    if(foundininterval)
+                        break;
+                }
                 assert(ppp.conditioning.size() == enumvariants);
                 if(k==variants.size())
                 {
@@ -910,12 +945,8 @@ void ockodata2R(csv<','>& data, string outputlabel,
 
         reldate enddate = T;
 
-        if(mode == eseriouscovidproxy)
-            enddate = min(enddate,T-ppp.hosplimit);
-        else if(mode == elongcovidevent)
+        if(mode == elongcovidevent)
             enddate = min(enddate,firstlongcoviddate);
-        else if(mode == elongcovidinfection)
-            enddate = min(enddate,T-ppp.longcovidlimit);
 
         enddate = min(min(deathcoviddate,deathotherdate),enddate);
         if(enddate <= 0)
@@ -1076,7 +1107,7 @@ void ockodata2R(csv<','>& data, string outputlabel,
              int longcovidevent;
 
              bool isevent;
-             string variantcompstring;
+//             string variantcompstring;
 
              infectionrecord* newinfection = 0;
 
@@ -1096,27 +1127,9 @@ void ockodata2R(csv<','>& data, string outputlabel,
                  seriouscovidproxy = infected * newinfection->seriouscovidproxy;
                  longcovidinfection = infected * newinfection->longcovid;
 
-                 if(mode == einfections)
+                 if(mode == einfections || mode == ecomparison)
                  {
                      isevent = infected;
-                 }
-                 else if(mode == eseverity)
-                 {
-                     isevent = false;
-                     if(infected)
-                     {
-                         if(ppp.compared1[newinfection->variantunadjusted])
-                         {
-                             variantcompstring = "1";
-                             isevent = true;
-                         }
-                         if(ppp.compared0[newinfection->variantunadjusted])
-                         {
-                             assert(!ppp.compared1[newinfection->variantunadjusted]);
-                             variantcompstring = "0";
-                             isevent = true;
-                         }
-                     }
                  }
                  else if(mode == eseriouscovidproxy)
                      isevent = seriouscovidproxy;
@@ -1145,9 +1158,6 @@ void ockodata2R(csv<','>& data, string outputlabel,
                  }
              }
 
-
-
-
              int deadbycovid = t2==deathcoviddate;
              int deadbyother = t2==deathotherdate;
 
@@ -1156,9 +1166,8 @@ void ockodata2R(csv<','>& data, string outputlabel,
                  int t1nonneg = max(0,t1);
 
                  string infpriorstr;
-                 string variantoflaststr;
                  if(currentinfstatus == 0)
-                     infpriorstr = variantoflaststr = uninflabel;
+                     infpriorstr = uninflabel;
                  else
                  {
                      ostringstream os;
@@ -1166,11 +1175,12 @@ void ockodata2R(csv<','>& data, string outputlabel,
                      os << "inf_";
                      if(!ppp.groupvariants)
                      {
-                         os << variants[lastinfection->variant].codeincovariate << "_";
-                         variantoflaststr = variants[lastinfection->variant].codeincovariate;
+                         if(ppp.generalvariants)
+                             os << variants[lastinfection->variant].supcategory;
+                         else
+                             os << variants[lastinfection->variant].codeincovariate;
+                         os << "_";
                      }
-                     else
-                         variantoflaststr = variants[evNA].codeincovariate;
                      int from,to;
                      switch(currentinfstatus)
                      {
@@ -1252,9 +1262,20 @@ void ockodata2R(csv<','>& data, string outputlabel,
                      if(ipr.events == 0 || vsr.events == 0 || ar.events == 0)
                          dooutput = false;
                  }
-                 if(mode == eseverity)
+
+                 string variantofinfstr = "";
+
+
+                 if(mode == ecomparison)
                  {
-                     if(!isevent)
+                     if(isevent)
+                     {
+                         auto v = newinfection->variantunadjusted;
+                         if(v==evDelta)
+                             variantofinfstr = "_";
+                         variantofinfstr += variants[v].codeincovariate;
+                     }
+                     else
                          dooutput = false;
                  }
                  if(dooutput)
@@ -1262,16 +1283,15 @@ void ockodata2R(csv<','>& data, string outputlabel,
                      string longcovidstr = "";
                      if(mode == elongcovidevent)
                          longcovidstr = longcovidevent ? "1" : "0";
-                     else if(mode == elongcovidinfection)
+                     else if(mode == elongcovidinfection || mode == ecomparison)
                          longcovidstr = longcovidinfection ? "1" : "0";
 
                      ostringstream os;
                      os << idstr << "," << t1nonneg << "," << t2 << ","
                         << infected << "," << seriouscovidproxy << ","
                         << longcovidstr << ","
-                        << deadbycovid  << "," << deadbyother << ","
-                        << variantcompstring << ",";
-                     os << variantoflaststr << "," << infpriorstr << ","
+                        << deadbycovid  << "," << deadbyother << ",";
+                     os << variantofinfstr << "," << infpriorstr << ","
                         << vaccstring << ","
                         << age << "," << grouplabel(agegroup) << ","
                         << gender2str(male)
@@ -1295,7 +1315,6 @@ void ockodata2R(csv<','>& data, string outputlabel,
                  }
                  if(dostat)
                  {
-
                      recordcov(infpriorstr,isevent, stat.infprior);
                      recordcov(vaccstring,isevent,stat.vaccstatus);
                      recordcov(grouplabel(agegroup),isevent,stat.agegroup);
@@ -1348,7 +1367,7 @@ void ockodata2R(csv<','>& data, string outputlabel,
     {
         cout << "Omitting adding CZSO records." << endl;
     }
-    else if(mode != eseverity)
+    else if(mode != ecomparison)
     {
 
         auto czsohalfyear = (ppp.firstdate - dateoffirstczsohalfyear) / (366 / 2);
@@ -1431,9 +1450,9 @@ void ockodata2R(csv<','>& data, string outputlabel,
                             o << ",0,0,,";
 
 
-    //                         header << "variantoflast InfPrior,VaccStatus,Age,AgeGr,Sex";
+    //                         header << " InfPrior,VaccStatus,Age,AgeGr,Sex";
 
-                            o << uninflabel << "," << uninflabel << "," << unvacclabel << ","
+                            o << uninflabel << "," << unvacclabel << ","
                               << a << ","
                               << agelabel << "," << gender2str(m)
                               << ",,"<< endl;
@@ -1471,7 +1490,7 @@ void ockodata2R(csv<','>& data, string outputlabel,
     }
 
     cout << endl << "Variants of infection found during study period" << endl;
-    cout << endl << "variant,infections,outcomes,discerned_in_condition,taken_as_outcome,comparedas0,comparedas1" << endl;
+    cout << endl << "variant,infections,outcomes,discerned_in_condition,taken_as_outcome" << endl;
     for(unsigned i=0;
         i<variantsfound.size();
         i++)
@@ -1480,9 +1499,7 @@ void ockodata2R(csv<','>& data, string outputlabel,
              << variantsfound[i].infections << ","
              << variantsfound[i].outcomes << ","
              << (ppp.conditioning[i] ? 1 : 0) << ","
-             << (ppp.isoutcome[i] ? 1 : 0) << ","
-             << (ppp.compared0[i] ? 1 : 0) << ","
-             << (ppp.compared1[i] ? 1 : 0)
+             << (ppp.isoutcome[i] ? 1 : 0)
              << endl;
         vs << variants[i].codeincovariate;
         unsigned chsum = 0;
@@ -1543,65 +1560,131 @@ int _main(int argc, char *argv[], bool testrun = false)
 {
 //for(unsigned i=0; i<argc; i++)
 //    cout << argv[i] << endl;
-    bool onlyfirst = argv[2][0] == '-';
+//    bool onlyfirst = argv[2][0] == '-';
     cout << "version 2.0" << endl;
-    cout << "Usage convertool input output whattodo(ixel) firstdate(rrrr-mm-dd) lastdate [minage maxage everyn]" << endl;
-    if(!testrun  && argc < 4)
-        throw "at least three arguments must be given";
+    cout << "Usage convertool input output whattodo(DVRW) firstdate(rrrr-mm-dd) lastdate [minage maxage everyn]" << endl;
+    if(argc < 6)
+        throw "at least five arguments must be given";
+    if(strlen(argv[3]) < 2)
+        throw "whattodo has to have at least two letters";
+
+    string firstdatestr = argv[4];
+    string lastdatestr = argv[5];
+    string everynstr = "";
+    if(argc>8)
+        everynstr = argv[8];
+
+    o2rmodes mode;
+    preprocessparams ppp;
+
+    switch(argv[3][0])
     {
-        o2rmodes mode;
-        preprocessparams ppp;
+    case 'i':
+        mode = einfections;
+        cout << "infections" << endl;
+        break;
+    case 'x':
+        mode = eseriouscovidproxy;
+        cout << "serious covid proxy" << endl;
+        break;
+    case 'l':
+        mode = elongcovidinfection;
+        cout << "long covid as infection" << endl;
+        break;
+    case 'e':
+        mode = elongcovidevent;
+        cout << "long covid as event" << endl;
+        break;
+    case 'c':
+        mode = ecomparison;
+        cout << "Comparison" << endl;
+        break;
+    default:
+       cerr << "Unknonn option " << argv[3][0] << endl;
+       throw;
+    }
 
-        switch(argv[3][0])
+    if(strlen(argv[3]) < 2 || argv[3][1] == '!')
+    {
+         ppp.isoutcome = vector<bool>(enumvariants,true);
+         cout << "All variants as outcomes" << endl;
+    }
+    else
+    {
+        ppp.isoutcome = vector<bool>(enumvariants,false);
+        if(argv[3][1] == 'O')
         {
-        case 'i':
-            mode = einfections;
-            cout << "infections" << endl;
-            break;
-        case 'x':
-            mode = eseriouscovidproxy;
-            cout << "serious covid proxy" << endl;
-            break;
-        case 'l':
-            mode = elongcovidinfection;
-            cout << "long covid as infection" << endl;
-            break;
-        case 'e':
-            mode = elongcovidevent;
-            cout << "long covid as event" << endl;
-            break;
-        case 'c':
-            mode = eseverity;
-            cout << "variant comparison" << endl;
-            break;
-        default:
-           cerr << "Unknonn option " << argv[4][0] << endl;
-           throw;
+            ppp.isoutcome[evBA12] = true;
+            ppp.isoutcome[evBA45] = true;
+            ppp.isoutcome[evOmicron] = true;
+            cout << "All Omicrons as outcomes" << endl;
         }
-
-        ppp.groupvaccs = true;
-        string firstdatestr, lastdatestr;
-        string everynstr = "";
-
-        if((argv[3][1] >= 'a' && argv[3][1] <= 'z') || argv[3][1] == 0)
+        else if(argv[3][1] == 'E')
         {
-            if(argc < 6)
+            ppp.isoutcome[evDelta] = true;
+            ppp.isoutcome[evBA12] = true;
+            ppp.isoutcome[evBA45] = true;
+            ppp.isoutcome[evOmicron] = true;
+            cout << "Delta and Omicrons as outcomes" << endl;
+        }
+        else
+        {
+            for(unsigned v=0; v<variants.size(); v++)
             {
-                cerr << "firstdate and lastdate have to be specified." << endl;
-                throw;
-            }
-            firstdatestr = argv[4];
-            lastdatestr = argv[5];
-            if(argc>8)
-                everynstr = argv[8];
-            if(argv[3][1]==0)
-                ppp.isoutcome = vector<bool>(enumvariants,true);
-            else
-                for(unsigned v=0; v<variants.size(); v++)
+                if(argv[3][1]==variants[v].commandlineid[0])
                 {
-                    ppp.isoutcome[v] = argv[3][1]==variants[v].commandlineid[0];
+                    ppp.isoutcome[v] = true;
+                    cout << variants[v].codeinoutput << " as outcome." << endl;
+                    break;
                 }
+            }
         }
+    }
+
+    ppp.generalvariants = false;
+
+    if(strlen(argv[3]) < 3 || argv[3][2] == '-')
+    {
+        ppp.conditioning = vector<bool>(enumvariants,false);
+        cout << "Variants not discerned in InfPrior" << endl;
+    }
+    else
+    {
+        ppp.conditioning = vector<bool>(enumvariants,true);
+        cout << "Variants discerned in InfPrior ";
+        if(argv[3][2] == 'g')
+        {
+            ppp.generalvariants = true;
+            cout << "(general versions)";
+        }
+        else if(argv[3][2] != 'a')
+        {
+            cerr << "Unknown option of conditioning!" << endl;
+            throw;
+        }
+        cout << endl;
+    }
+
+    if(strlen(argv[3]) < 4 || argv[3][3] == 'n')
+    {
+        ppp.useintervalsofdominance = false;
+        cout << "Not using intervals of dominance" << endl;
+    }
+    else if(argv[3][3] == 'i')
+    {
+        ppp.useintervalsofdominance = true;
+        cout << "Using intervals of dominance" << endl;
+    }
+    else
+    {
+        cerr << "Unknown W option " << argv[3][3] << endl;
+        throw;
+    }
+
+
+/*
+
+
         else
         {
             ppp.isoutcome = vector<bool>(enumvariants,false);
@@ -1725,98 +1808,107 @@ int _main(int argc, char *argv[], bool testrun = false)
                 throw "unknown option";
             }
         }
+*/
 
-        if(strlen(argv[3]) > 2)
-        {
-            if(strlen(argv[3]) >= 2 && argv[3][2] == '+')
-                ppp.groupvaccs = false;
-        }
+    try
+    {
+        ppp.firstdate = date2int(firstdatestr);
+    }
+    catch(...)
+    {
+        cerr << "Error converting first date string "  << firstdatestr << endl;
+        throw;
+    }
 
+    try
+    {
+        ppp.lastdate = date2int(lastdatestr);
+    }
+    catch(...)
+    {
+        cerr << "Error converting last date string " << lastdatestr << endl;
+        throw;
+    }
+
+    if(everynstr != "")
+    {
         try
         {
-            ppp.firstdate = date2int(firstdatestr);
+            ppp.everyn = stoul(everynstr);
+            if(ppp.everyn==0)
+                throw "Everyn cannot be zero";
         }
         catch(...)
         {
-            cerr << "Error converting first date string "  << firstdatestr << endl;
+            cerr << "Error converting everyn string " << everynstr << endl;
             throw;
         }
+    }
 
-        try
-        {
-            ppp.lastdate = date2int(lastdatestr);
-        }
-        catch(...)
-        {
-            cerr << "Error converting last date string " << lastdatestr << endl;
-            throw;
-        }
+    if(mode == eseriouscovidproxy)
+        ppp.lastdate -= ppp.hosplimit;
+    else if(mode == elongcovidinfection)
+        ppp.lastdate -= ppp.longcovidlimit;
+
+    cout << "Input " << argv[1] << endl;
 
 
-        if(everynstr != "")
-        {
-            try
-            {
-                ppp.everyn = stoul(everynstr);
-                if(ppp.everyn==0)
-                    throw "Everyn cannot be zero";
-            }
-            catch(...)
-            {
-                cerr << "Error converting everyn string " << everynstr << endl;
-                throw;
-            }
-        }
+    ppp.numinfcovariates = max(0,(ppp.lastdate-ppp.reinfstartdate)/ppp.covreinfduration + 2);
+    ppp.numinfcovariates = min(ppp.numinfcovariates, 999 / ppp.covreinfduration );
+    cout << "Number of InfPrior covariates: " << ppp.numinfcovariates << endl;
 
-        cout << "Input " << argv[1]<< endl;
 
-        csv<','> data(argv[1]);
-        covstat stat;
+    ppp.numfinalcovs = max(0,(ppp.lastdate-ppp.vaccstartdate)/ppp.regularcovvaccduration + 2);
+    ppp.numfinalcovs = min(ppp.numfinalcovs, 12 );
+    cout << "Number of VaccStatusFull covariates: " << ppp.numfinalcovs  << endl;
 
-        string firststageoutputfn;
-        if(testrun)
-        {
-            ostringstream os;
-            os << argv[2] << "_firstrun.csv";
-            firststageoutputfn = os.str();
-        }
-        else
-        {
-            firststageoutputfn =  "temporary";
-        }
+    ppp.numboostercovs = max(0,(ppp.lastdate-ppp.boosterstartdate)/ppp.regularcovvaccduration + 2);
+    ppp.numboostercovs = min(ppp.numboostercovs, 12 );
+    cout << "Number of VaccStatusBoost covariates: " << ppp.numboostercovs  << endl;
 
-        cout << "Date range " << firstdatestr
-             << " - " << lastdatestr << endl << endl;
+    ppp.numsecboostercovs = max(0,(ppp.lastdate-ppp.secboosterstartdate)/ppp.regularcovvaccduration + 2);
+    ppp.numsecboostercovs = min(ppp.numboostercovs, 12 );
+    cout << "Number of VaccStatusBoost covariates: " << ppp.numboostercovs  << endl;
 
-        if(ppp.everyn > 1)
-            cout << "Only every " << ppp.everyn << "th record." << endl;
+    csv<','> data(argv[1]);
+    covstat stat;
 
-        ockodata2R(data, firststageoutputfn, true, stat,
-                   mode,
-                   argc > 6 ? atoi(argv[6]) : 0,
-                   argc > 7 ? atoi(argv[7]) : 333,
-                   ppp, true);
+    string firststageoutputfn = "temporary";
+
+    cout << "Output " << argv[2] << endl;
+
+    cout << "Date range " << firstdatestr
+         << " - " << lastdatestr << endl << endl;
+
+    if(ppp.everyn > 1)
+        cout << "Only every " << ppp.everyn << "th record." << endl;
+
+    ockodata2R(data, firststageoutputfn, true, stat,
+               mode,
+               argc > 6 ? atoi(argv[6]) : 0,
+               argc > 7 ? atoi(argv[7]) : 333,
+               ppp, true);
 
 
 
-        displaystat(stat,cout,false);
+    displaystat(stat,cout,false);
 
-        if(onlyfirst)
-        {
-            cout << "Not running final conversion" << endl;
-        }
-        else
-        {
-            ockodata2R(data, argv[2], false, stat,
-                           mode,
-                           argc > 6 ? atoi(argv[6]) : 0,
-                           argc > 7 ? atoi(argv[7]) : 333,
-                           ppp, testrun);
+    bool onlyfirst = false; // TBD
+    if(onlyfirst)
+    {
+        cout << "Not running final conversion" << endl;
+    }
+    else
+    {
+        ockodata2R(data, argv[2], false, stat,
+                       mode,
+                       argc > 6 ? atoi(argv[6]) : 0,
+                       argc > 7 ? atoi(argv[7]) : 333,
+                       ppp, testrun);
 
-            displaystat(stat,cout,true);
-        }
+        displaystat(stat,cout,true);
+    }
 
-     }
     return 0;
 
 }
@@ -1830,7 +1922,7 @@ int main(int argc, char *argv[])
     {
         int testno = 0;
         if(argc == 1)
-            testno = 2;
+            testno = 4;
         if(argc == 2)
         {
             testno = argv[1][0] - '1' + 1;
@@ -1852,14 +1944,14 @@ int main(int argc, char *argv[])
         }
         else if(testno == 3)
         {
-            char *as[6] ={"foo", "test_input_long_1.csv","test3_output.csv","xd",
-                          "2021-06-01","2022-11-30"};
+            char *as[6] ={"foo", "test_input_long_1.csv","test3_output.csv","cO",
+                          "2021-12-01","2022-03-31"};
             return _main(6,as,true);
         }
         else if(testno == 4)
         {
-            char *as[6] ={"foo", "test_input_long_1.csv","test4_output.csv","id",
-                          "2021-12-01","2022-02-13"};
+            char *as[6] ={"foo", "test_input_long_1.csv","test4_output.csv","iOgi",
+                          "2021-12-01","2023-02-20"};
             return _main(6,as,true);
         }
         else if(testno == 5)
