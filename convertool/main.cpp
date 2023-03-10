@@ -469,6 +469,8 @@ void ockodata2R(csv<','>& data, string outputlabel,
     vector<unsigned> men(lastage+1,0);
     vector<unsigned> women(lastage+1,0);
 
+const int numweeks = 200;
+
 
     vector<string> throwedvariants;
 
@@ -501,6 +503,9 @@ void ockodata2R(csv<','>& data, string outputlabel,
         bool seriouscovidproxy = false;
         bool longcovid = false;
     };
+
+vector<statcounter> lclengths(numweeks);
+vector<statcounter> lccounts(numweeks);
 
     unsigned firstnext;
     unsigned maxid = 0;
@@ -844,6 +849,10 @@ void ockodata2R(csv<','>& data, string outputlabel,
                 if(mode == einfections || proxy)
                     variantsfound[k].outcomes++;
                 infections.push_back({ infdate, v, k, proxy, longcovid });
+auto week = (infdate-ppp.firstdate)/7;
+lccounts[week].add(longcovid);
+if(longcovid)
+    lclengths[week].add(longcoviddate-infdate);
             }
 
             string deathcoviddatestr = data(j,Umrti);
@@ -1650,7 +1659,12 @@ if(id==22)
     cout << "Mode " << mdelabels[mode] << endl;
     cout << "Age filter: " << minage << "-" << maxage << endl;
     cout << endl;
-
+ofstream lc("lc.csv");
+lc<<"Week,ratio,seratio,length,selength"<< endl;
+for(unsigned i=0; i<numweeks; i++)
+    lc << i << "," << lccounts[i].average() << "," << sqrt(lccounts[i].averagevar()) << ","
+          << lclengths[i].average() << "," << sqrt(lclengths[i].averagevar())
+          << endl;
 }
 
 
