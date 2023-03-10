@@ -8,6 +8,7 @@ string czfemalestr = "Z";
 
 string unvacclabel = "_unvaccinated";
 string uninflabel = "_uninfected";
+string noimmunitylabel = "_noimmunity";
 
 string gender2str(bool male)
 {
@@ -160,16 +161,16 @@ struct variantrecord
   vector<string> enddates90;
 };
 
-enum evariant {evNA,evDelta,evBA45,evBA12, evOmicron, evAlpha, evBeta, evEarly, enumvariants};
+enum evariant {evNA,evDelta,evBA12,evBA45, evOmicron, evAlpha, evBeta, evEarly, enumvariants};
 
 vector<variantrecord> variants
 {
     { "", "NA_Other","NA","n","NA",{},{}},
-    { "Delta", "Delta","Delta", "d", "DELTA",{"2021-07-01"}, {"2021-12-20"}},
-    { "Omikron BA.4/5", "BA45", "BA45", "y", "OMICRON",{"2022-06-04"},{"2022-11-17"}},
-    { "Omikron BA.1/2", "BA12", "BA12", "x", "OMICRON",{"2022-02-17"},{"2022-05-23"}},
-    { "Omikron", "Omicron", "Omicron", "o", "OMICRON",{"2022-05-24",},{"2022-06-03"}},
-    { "Alfa", "Alpha", "Alpha", "a", "ALPHA",{"2021-02-15"},{"2021-07-21"}},
+    { "Delta", "Delta","Delta", "d", "DELTA",{"2021-07-19"}, {"2021-12-20"}},
+    { "Omikron BA.1/2", "BA12", "BA12", "x", "OMICRON",{"2022-01-31"},{"2022-05-23"}},
+    { "Omikron BA.4/5", "BA45", "BA45", "y", "OMICRON",{"2022-08-01"},{"2022-10-24"}},
+    { "Omikron", "Omicron", "Omicron", "o", "OMICRON",{"2022-05-24","2022-10-25"},{"2022-07-31","2023-06-30"}},
+    { "Alfa", "Alpha", "Alpha", "a", "ALPHA",{"2021-02-15"},{"2021-06-21"}},
     { "Beta", "Beta", "Beta", "b", "NA",{},{}},
     { "$$$" /*never happens */, "Early", "Early", "e", "EARLY",{"2020-01-01"},{"2021-01-04"}}
 };
@@ -396,7 +397,7 @@ void ockodata2R(csv<','>& data, string outputlabel,
     ostringstream header;
 
     header << "ID,T1,T2,Infected,Seriouscovidproxy,LongCovid, DeadByCovid,DeadByOther,";
-    header << "VariantOfInf, InfPrior,VaccStatus,Age,AgeGr,Sex";
+    header << "VariantOfInf, InfPrior,VaccStatus,Immunity,Age,AgeGr,Sex";
     header << ",InfPriorTime,LastVaccTime";
 
     o << header.str() << endl;
@@ -623,8 +624,6 @@ void ockodata2R(csv<','>& data, string outputlabel,
 
             reldate infdate;
             string infdatestr = data(j,Datum_pozitivity);
-if(id==665)
-    id = 665;
 
             if(infdatestr == "")
                 infdate = maxreldate;
@@ -953,6 +952,10 @@ if(id==665)
         {
             THROW("Censored berore study started", continue);
         }
+        enum eimmunitystatus {enoimmunity, efullimmunity, eboostimmunity, esecboostimmunity,
+                              einfectedimmunity, einffullimmunity,efullinfimmunity,
+                              einfboostimmunity,eboostinfimmunity,
+                              eotherimmunity, enumimunitystauses};
         int currentinfstatus = 0;
 //        infectionrecord* lastinfection = 0;
 
@@ -960,13 +963,18 @@ if(id==665)
 //        reldate currentvaccdate = maxreldate;
         reldate lastvaccstatusdate = maxreldate;
 
+        eimmunitystatus currentimmunitystatus = enoimmunity;
+
         throwthisid = false;
 
         peopleexported++;
 
 //cout << "id " << id << " infs " << infections.size() << " vaccs " << vaccinations.size() << endl ;
 //  bool debug = (id % 100) == 0;
-         for(;;)
+
+if(id==22)
+    id = 22;
+        for(;;)
          {
              unsigned newinfstatus = currentinfstatus;
              reldate nextinfdate = nextinfptr == infections.size()
@@ -995,6 +1003,7 @@ if(id==665)
              reldate nextvaccstatusdate;
              vaccstatus candidatevaccstatus = currentvaccstatus;
 
+             eimmunitystatus newimmunitystatus = currentimmunitystatus;
 
              if(currentvaccstatus.order == novacc)
                  nextvaccstatusdate = maxreldate;
@@ -1058,7 +1067,10 @@ if(id==665)
              if(t2==nextinfstatusupdate)
                  newinfstatus++;
 
-             if(t2==nextvaccdate)
+             bool infectedont2 = t2 == nextinfdate;
+             bool vaccinatedont2 = t2 == nextvaccdate;
+
+             if(vaccinatedont2)
              {
                  vaccinationrecord e = vaccinations[nextvaccptr++];
                  assert(e.vac < vaccines.size());
@@ -1070,12 +1082,18 @@ if(id==665)
                      newvaccstatus.covno = 0;
                      newvaccstatus.order = firstdose;
                      newvaccstatus.vaccine = e.vac;
+                     newimmunitystatus = eotherimmunity;
                  }
                  else if(e.vaccorder == finaldose)
                  {
                      newvaccstatus.covno = 0;
                      newvaccstatus.order = finaldose;
                      newvaccstatus.vaccine = e.vac;
+                     if(infectedont2 || currentinfstatus > 0)
+                         newimmunitystatus = einffullimmunity;
+                     else
+                         newimmunitystatus = efullimmunity;
+
                  }
                  else if(e.vaccorder == firstbooster)
                  {
@@ -1084,6 +1102,11 @@ if(id==665)
                      newvaccstatus.covno = 0;
                      newvaccstatus.order = firstbooster;
                      newvaccstatus.vaccine = e.vac;
+                     if(infectedont2 || currentinfstatus > 0)
+                         newimmunitystatus = einfboostimmunity;
+                     else
+                         newimmunitystatus = eboostimmunity;
+
                  }
                  else if(e.vaccorder == secbooster)
                  {
@@ -1092,6 +1115,10 @@ if(id==665)
                      newvaccstatus.covno = 0;
                      newvaccstatus.order = secbooster;
                      newvaccstatus.vaccine = e.vac;
+                     if(infectedont2 || currentinfstatus > 0)
+                         newimmunitystatus = eotherimmunity;
+                     else
+                         newimmunitystatus = esecboostimmunity;
                  }
                  else
                      assert(0);
@@ -1112,9 +1139,31 @@ if(id==665)
              infectionrecord* newinfection = 0;
 
 
-             if(t2 == nextinfdate)
+             if(infectedont2)
              {
                  newinfstatus = 1;
+                 if(vaccinatedont2 || currentvaccstatus.order > novacc)
+                 {
+                     auto order = vaccinatedont2 ? newvaccstatus.order : currentvaccstatus.order;
+                     switch(order)
+                     {
+                     case firstdose:
+                     case secbooster:
+                         newimmunitystatus = eotherimmunity;
+                         break;
+                     case finaldose:
+                         newimmunitystatus = efullinfimmunity;
+                         break;
+                     case firstbooster:
+                         newimmunitystatus = eboostinfimmunity;
+                          break;
+                     default:
+                         assert(0);
+                     }
+                 }
+                 else
+                     newimmunitystatus = einfectedimmunity;
+
 
                  newinfection = &(infections[nextinfptr++]);
                  infected = 0;
@@ -1165,6 +1214,14 @@ if(id==665)
              {
                  int t1nonneg = max(0,t1);
 
+                 string immunitystring;
+                 if(currentimmunitystatus == enoimmunity)
+                    immunitystring = noimmunitylabel;
+                 else if(currentimmunitystatus == eotherimmunity)
+                     immunitystring = "other";
+                 else
+                     immunitystring = "ERROR"; // should be filled later
+
                  string infpriorstr;
                  if(currentinfstatus == 0)
                      infpriorstr = uninflabel;
@@ -1198,13 +1255,45 @@ if(id==665)
                                    + ppp.covreinfduration * (currentinfstatus-2) + 1;
                              to = from + ppp.covreinfduration-1;
                         }
+
                      }
+
+                     ostringstream is;
+                     bool fillimmunity = true;
+
+                     switch(currentimmunitystatus)
+                     {
+                     case einfectedimmunity:
+                         is << "inf_";
+                         break;
+                     case efullinfimmunity:
+                         is << "hybridfull_";
+                         break;
+                     case eboostinfimmunity:
+                         is <<  "hybridboost_";
+                         break;
+                         break;
+                     default:
+                         fillimmunity = false;
+                     }
+
                      os << threedigits(from);
+                     is << threedigits(from);
                      if(currentinfstatus == ppp.numinfcovariates)
+                     {
+                         is << "+";
                          os << "+";
+                     }
                      else
+                     {
+                         is << "-" << threedigits(to);
                          os << "-" << threedigits(to);
+                     }
+
                      infpriorstr = os.str();
+
+                     if(fillimmunity)
+                         immunitystring = is.str();
                  }
 
                  string vaccstring;
@@ -1215,6 +1304,20 @@ if(id==665)
                  else
                  {
                      ostringstream os;
+                     ostringstream is;
+                     bool fillimmunity = true;
+                     switch(currentimmunitystatus)
+                     {
+                     case efullimmunity:
+                     case eboostimmunity:
+                     case esecboostimmunity:
+                     case einffullimmunity:
+                     case einfboostimmunity:
+                         fillimmunity = true;
+                         break;
+                     default:
+                         fillimmunity = false;
+                     }
                      unsigned nc;
                      switch(currentvaccstatus.order)
                      {
@@ -1224,10 +1327,19 @@ if(id==665)
                          break;
                      case finaldose:
                          os << "full";
+                         if(currentimmunitystatus == einffullimmunity)
+                            is << "hybridfull";
+                         else if(currentimmunitystatus == efullimmunity)
+                            is << "full";
                          nc = ppp.numfinalcovs;
                          break;
                      case firstbooster:
                          os << "boost";
+                         if(currentimmunitystatus == einfboostimmunity)
+                             is << "hybridboost";
+                         else if(currentimmunitystatus == eboostimmunity)
+                            is << "boost";
+
                          nc = ppp.numboostercovs;
                          break;
                      case secbooster:
@@ -1238,18 +1350,28 @@ if(id==665)
                          assert(0);
                      }
                      os << "_";
+                     is << "_";
                      if(!ppp.groupvaccs)
-                         os << vaccines[currentvaccstatus.vaccine].code << "_";
+                         os << vaccines[currentvaccstatus.vaccine].abbrev << "_";
 
                      int from, to;
                      from = currentvaccstatus.covno * ppp.regularcovvaccduration + 1;
                      to = from + ppp.regularcovvaccduration - 1;
                      os << threedigits(from);
+                     is << threedigits(from);
                      if(currentvaccstatus.covno+1 < nc)
+                     {
+                         is << "-" << threedigits(to);
                          os << "-" << threedigits(to);
+                     }
                      else
+                     {
                          os << "+";
+                         is << "+";
+                     }
                      vaccstring = os.str();
+                     if(fillimmunity)
+                         immunitystring = is.str();
                  }
 
 
@@ -1292,7 +1414,7 @@ if(id==665)
                         << longcovidstr << ","
                         << deadbycovid  << "," << deadbyother << ",";
                      os << variantofinfstr << "," << infpriorstr << ","
-                        << vaccstring << ","
+                        << vaccstring << "," << immunitystring << ","
                         << age << "," << grouplabel(agegroup) << ","
                         << gender2str(male)
                         << ",,";   // tbd add lastvacctime and infpriortime
@@ -1335,6 +1457,7 @@ if(id==665)
                 lastinfection = newinfection;
 //              lastvaccdate = currentvaccdate;
               currentvaccstatus = newvaccstatus;
+              currentimmunitystatus = newimmunitystatus;
               t1 = t2;
               if(t1 > enddate)
               {
@@ -1450,9 +1573,10 @@ if(id==665)
                             o << ",0,0,,";
 
 
-    //                         header << " InfPrior,VaccStatus,Age,AgeGr,Sex";
+    //                         header << " InfPrior,VaccStatus,Immunity,Age,AgeGr,Sex";
 
                             o << uninflabel << "," << unvacclabel << ","
+                              << noimmunitylabel << ","
                               << a << ","
                               << agelabel << "," << gender2str(m)
                               << ",,"<< endl;
@@ -1551,8 +1675,6 @@ void displaystat(const covstat& stat, ostream& os, bool filter)
          << infpriorevents << ", eventspercov="
          << (static_cast<double>(infpriorevents) + 0.5) / totalcovs
          << endl;
-
-
 }
 
 
@@ -1922,7 +2044,7 @@ int main(int argc, char *argv[])
     {
         int testno = 0;
         if(argc == 1)
-            testno = 4;
+            testno = 1;
         if(argc == 2)
         {
             testno = argv[1][0] - '1' + 1;
@@ -1932,7 +2054,7 @@ int main(int argc, char *argv[])
             return _main(argc,argv);
         else if(testno == 1)
         {
-            char *as[6] ={"foo", "test_input_long_1.csv","test1_output.csv","i",
+            char *as[6] ={"foo", "test_input_long_1.csv","test1_output.csv","xO",
                           "2022-01-01","2022-11-01"};
             return _main(6,as,true);
         }
