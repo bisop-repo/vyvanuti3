@@ -301,6 +301,7 @@ struct covstat
 {
     vector<covstatrecord> infprior;
     vector<covstatrecord> vaccstatus;
+    vector<covstatrecord> immunity;
     vector<covstatrecord> agegroup;
 };
 
@@ -1381,6 +1382,8 @@ if(id==22)
                      covstatrecord ipr = findcov(infpriorstr,stat.infprior);
                      covstatrecord vsr = findcov(vaccstring,stat.vaccstatus);
                      covstatrecord ar = findcov(grouplabel(agegroup) ,stat.agegroup);
+                     // the same functionality of Immunity follows
+
                      if(ipr.events == 0 || vsr.events == 0 || ar.events == 0)
                          dooutput = false;
                  }
@@ -1439,6 +1442,7 @@ if(id==22)
                  {
                      recordcov(infpriorstr,isevent, stat.infprior);
                      recordcov(vaccstring,isevent,stat.vaccstatus);
+                     recordcov(immunitystring,isevent, stat.immunity);
                      recordcov(grouplabel(agegroup),isevent,stat.agegroup);
                  }
 
@@ -1660,6 +1664,10 @@ void displaystat(const covstat& stat, ostream& os, bool filter)
     unsigned vaccstatusevents;
     output("vaccstatus",os,stat.vaccstatus,filter,
            vaccstatuscovs, vaccstatusevents);
+    unsigned immunitycovs;
+    unsigned immunityevents;
+    output("immunity",os,stat.immunity,filter,
+           immunitycovs, immunityevents);
     unsigned agegrcovs;
     unsigned agegrevents;
     output("agegr",os,stat.agegroup,filter,
@@ -1669,11 +1677,13 @@ void displaystat(const covstat& stat, ostream& os, bool filter)
     assert(vaccstatusevents == agegrevents);
 
     unsigned totalcovs = infpriorcovs + vaccstatuscovs + agegrcovs;
-    cout << "covs="
-         << totalcovs
+    cout << "covs (immunity version)="
+         << totalcovs << " (" << immunitycovs + agegrcovs << ")"
          << ", events="
          << infpriorevents << ", eventspercov="
          << (static_cast<double>(infpriorevents) + 0.5) / totalcovs
+         << "(" << (static_cast<double>(infpriorevents) + 0.5) / (immunitycovs + agegrcovs)
+         << ")"
          << endl;
 }
 
