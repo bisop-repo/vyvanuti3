@@ -224,6 +224,9 @@ struct preprocessparams
 
     int numsecboostercovs = 2;
 
+    int maxvacccovs = 7;
+    int maxinfcovs = 13;
+
 
     /// time after the test for the treatment to be assigned to the test
     ///
@@ -397,7 +400,7 @@ void ockodata2R(csv<','>& data, string outputlabel,
 
     ostringstream header;
 
-    header << "ID,T1,T2,Infected,Seriouscovidproxy,LongCovid, DeadByCovid,DeadByOther,";
+    header << "ID,T1,T2,Infected,SeriousCovidProxy,LongCovid, DeadByCovid,DeadByOther,";
     header << "VariantOfInf, InfPrior,VaccStatus,Immunity,Age,AgeGr,Sex";
     header << ",InfPriorTime,LastVaccTime";
 
@@ -826,7 +829,9 @@ vector<statcounter> lccounts(numweeks);
                 bool proxy = data(i,PrimPricinaHospCOVID)=="1" &&
                         ((data(i,bin_Kyslik) == "1" && oxygendate - infdate <= ppp.hosplimit)
                                    || (data(j,bin_UPV_ECMO) == "1" && upvecmodate - infdate <= ppp.hosplimit)) ;
-                bool longcovid = longcoviddate < maxreldate && longcoviddate - infdate <= ppp.longcovidlimit;
+                bool longcovid = longcoviddate < maxreldate && longcoviddate - infdate <= ppp.longcovidlimit && longcoviddate - infdate >= -10;
+//if(longcovid && longcoviddate < infdate)
+//    cout <<id << " - " << longcoviddatestr << " vs " << infdatestr << endl;
                 if(infections.size())
                 {
                      if(infdate <= infections[infections.size()-1].t)
@@ -849,7 +854,10 @@ vector<statcounter> lccounts(numweeks);
                 if(mode == einfections || proxy)
                     variantsfound[k].outcomes++;
                 infections.push_back({ infdate, v, k, proxy, longcovid });
-auto week = (infdate-ppp.firstdate)/7;
+auto week = (infdate+ppp.firstdate-ppp.zerodate)/7;
+assert(week >= 0);
+assert(week < lccounts.size());
+assert(week < lclengths.size());
 lccounts[week].add(longcovid);
 if(longcovid)
     lclengths[week].add(longcoviddate-infdate);
@@ -982,8 +990,8 @@ if(longcovid)
 //cout << "id " << id << " infs " << infections.size() << " vaccs " << vaccinations.size() << endl ;
 //  bool debug = (id % 100) == 0;
 
-if(id==22)
-    id = 22;
+if(id==52)
+    id = 52;
         for(;;)
          {
              unsigned newinfstatus = currentinfstatus;
@@ -1227,10 +1235,8 @@ if(id==22)
                  string immunitystring;
                  if(currentimmunitystatus == enoimmunity)
                     immunitystring = noimmunitylabel;
-                 else if(currentimmunitystatus == eotherimmunity)
-                     immunitystring = "other";
                  else
-                     immunitystring = "ERROR"; // should be filled later
+                     immunitystring = "other";
 
                  string infpriorstr;
                  if(currentinfstatus == 0)
@@ -1291,8 +1297,8 @@ if(id==22)
                      is << threedigits(from);
                      if(currentinfstatus == ppp.numinfcovariates)
                      {
-                         is << "+";
                          os << "+";
+                         fillimmunity = false;
                      }
                      else
                      {
@@ -1354,6 +1360,10 @@ if(id==22)
                          break;
                      case secbooster:
                          os << "secboost";
+                         if(currentimmunitystatus == esecboostimmunity)
+                             is << "secboost";
+                         else
+                             fillimmunity = false;
                          nc = ppp.numsecboostercovs;
                          break;
                      default:
@@ -1377,7 +1387,7 @@ if(id==22)
                      else
                      {
                          os << "+";
-                         is << "+";
+                         fillimmunity = false;
                      }
                      vaccstring = os.str();
                      if(fillimmunity)
@@ -1660,11 +1670,20 @@ if(id==22)
     cout << "Age filter: " << minage << "-" << maxage << endl;
     cout << endl;
 ofstream lc("lc.csv");
-lc<<"Week,ratio,seratio,length,selength"<< endl;
+lc<<"day,count, ratio,seratio,length,selength"<< endl;
 for(unsigned i=0; i<numweeks; i++)
-    lc << i << "," << lccounts[i].average() << "," << sqrt(lccounts[i].averagevar()) << ","
-          << lclengths[i].average() << "," << sqrt(lclengths[i].averagevar())
-          << endl;
+{
+    lc << i*7 << "," << lccounts[i].sum << ",";
+    if(lccounts[i].num > 0)
+       lc << lccounts[i].average() << "," << sqrt(lccounts[i].averagevar()) << ",";
+    else
+       lc << ",,";
+    if(lclengths[i].num > 0)
+        lc << lclengths[i].average() << "," << sqrt(lclengths[i].averagevar());
+    else
+        lc << ",,";
+    lc << endl;
+}
 }
 
 
@@ -1998,22 +2017,23 @@ int _main(int argc, char *argv[], bool testrun = false)
 
     cout << "Input " << argv[1] << endl;
 
-
+ppp.maxinfcovs = ppp.maxvacccovs;
+ppp.firstcovreinfduration = 61;
     ppp.numinfcovariates = max(0,(ppp.lastdate-ppp.reinfstartdate)/ppp.covreinfduration + 2);
-    ppp.numinfcovariates = min(ppp.numinfcovariates, 999 / ppp.covreinfduration );
+    ppp.numinfcovariates = min(ppp.numinfcovariates, ppp.maxinfcovs );
     cout << "Number of InfPrior covariates: " << ppp.numinfcovariates << endl;
 
 
     ppp.numfinalcovs = max(0,(ppp.lastdate-ppp.vaccstartdate)/ppp.regularcovvaccduration + 2);
-    ppp.numfinalcovs = min(ppp.numfinalcovs, 12 );
+    ppp.numfinalcovs = min(ppp.numfinalcovs, ppp.maxvacccovs );
     cout << "Number of VaccStatusFull covariates: " << ppp.numfinalcovs  << endl;
 
     ppp.numboostercovs = max(0,(ppp.lastdate-ppp.boosterstartdate)/ppp.regularcovvaccduration + 2);
-    ppp.numboostercovs = min(ppp.numboostercovs, 12 );
+    ppp.numboostercovs = min(ppp.numboostercovs, ppp.maxvacccovs );
     cout << "Number of VaccStatusBoost covariates: " << ppp.numboostercovs  << endl;
 
     ppp.numsecboostercovs = max(0,(ppp.lastdate-ppp.secboosterstartdate)/ppp.regularcovvaccduration + 2);
-    ppp.numsecboostercovs = min(ppp.numboostercovs, 12 );
+    ppp.numsecboostercovs = min(ppp.numboostercovs, ppp.maxvacccovs );
     cout << "Number of VaccStatusBoost covariates: " << ppp.numboostercovs  << endl;
 
     csv<','> data(argv[1]);

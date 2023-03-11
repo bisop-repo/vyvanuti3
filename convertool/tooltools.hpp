@@ -127,5 +127,17 @@ string threedigits(unsigned i)
     return s.str();
 }
 
+struct statcounter
+{
+    double sum = 0.0;
+    double sumsq = 0.0;
+    unsigned num = 0;
+    void add(double x) { sum += x; sumsq += x*x; num++;}
+    double average() const { return sum / num; }
+    double var() const { return sumsq/num - average()*average(); }
+    double averagevar() const  { return var() / num; }
+
+};
+
 
 #endif // TOOLTOOLS_HPP

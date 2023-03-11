@@ -1,0 +1,18 @@
+﻿A. Potřeboval bych rozšířit skript tak, aby mohl fungovat variantně. Ideální by bylo, kdyby se ty varianty mohly předávat parametry skriptu (jako to dělal Jakub). Parametry by byly
+1. Input: zdrojovej soubor (místo zzz.csv)
+2. Outcome: Infected nebo SeriousCovidProxy nebo LongCovid nebo Hospitalized (to se myslím projeví jenom v tom “coxph”)
+3. Covariates: InfPrior+VaccStatus nebo Immunity (to se projeví v coxph a pak někde u tý tabulky VE)
+
+
+B. Grafy vyvanutí bych prosil čtyři separátní (nemusej bejt variantně, protože když třeba nebude Immunity, tak to prostě nespočítá)
+1. Immunity: -inf, -full, -boost, -secboost, -hybridfull, -hybridboost
+2. VaccStatus: -full, -boost, -secboost, -partial
+3. InfPrior: inf_NA 
+4. InfPrior: inf_ALPHA nebo inf_DELTA nebo inf_OMICRON
+Body 2 a 4 jsou již víceméně v zdrojovém skriptu, stačí rozdělit. Potřeboval bych ale ještě jednu věc, a to aby se nezobrazovaly kovariáty XXX_YYY+ (prostě ty poslední, nicméně nemůžeš spoléhat na to, že jsou poslední, protože ta plusová může teoreticky chybět). Snad to nějak půjde jednoduše.
+
+
+C. Prosil bych uložit navíc textovej výstup z Coxe, pokud možno co nejpodrobnější (jakože s parametrama i jejich exponenciálama, u obojího CI).
+
+
+(D. Dalo by se dělat něco s obrácenejma CI u VE? (když ne, tak prostě nebudene to VE publikovat).)
