@@ -43,4 +43,4 @@ Ešte by bola cesta publikovat iba bodove odhady VE bez CI, aj ked to mi pride o
 
 E. vseobecne otazky
 - asi by som rovno mala skript upravit tak aby vytvaral output directory pre rozne nastavenia parametrov a tam ukladal vysledky, nie?
-
+- rozsah osy x u grafov?
