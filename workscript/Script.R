@@ -86,6 +86,12 @@ names(df)[c(3:4, 6:7)] <- c("HR_CI_lower", "HR_CI_upper","eff_CI_upper", "eff_CI
 
 #### GRAF - KRIVKY VYVANUTIA ####
 
+# odstranime kovariáty XXX_YYY+ z tabulky df 
+odstranit <- c(dimnames(df)[[1]][grep("367+", dimnames(df)[[1]])], 
+               dimnames(df)[[1]][grep("VaccStatuspartial_062+", dimnames(df)[[1]])])
+
+df <- df[!dimnames(df)[[1]] %in% odstranit, ]
+
 #### GRAF 1 ####
 # 1. Immunity: -inf, -full, -boost, -secboost, -hybridfull, -hybridboost
 dimnames(df)
