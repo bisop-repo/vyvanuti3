@@ -74,15 +74,21 @@ summary(m1_cox)
 
 df <- data.frame(
   beta = coef(m1_cox), # koeficienty coxovho modelu
+  beta_CI = confint(m1_cox), # CI ku koeficientom
   HR = exp(coef(m1_cox)), # pomer rizik
-  CI   = exp(confint(m1_cox)), # CI k pomeru rizik
+  HR_CI   = exp(confint(m1_cox)), # CI k pomeru rizik
   eff = 1 - exp(coef(m1_cox)), # efektivita vakcinacie / imunity ako 1 - HR
   eff_CI = 1 - exp(confint(m1_cox)) # CI k efektivite
 )
 
-names(df)[c(3:4, 6:7)] <- c("HR_CI_lower", "HR_CI_upper","eff_CI_upper", "eff_CI_lower")
+# names(df)[c(3:4, 6:7)] <- c("HR_CI_lower", "HR_CI_upper","eff_CI_upper", "eff_CI_lower")
+names(df)[c(2:3, 5:6, 8:9)] <- c("beta_CI_lower", "beta_CI_upper", 
+                                 "HR_CI_lower", "HR_CI_upper",
+                                 "eff_CI_upper", "eff_CI_lower")
+# df
+write.table(df, "cox_model_summary.txt")
+
 #### View Nefunguje na serveru v příkazové řádce
-#### View(df)
 
 #### GRAF - KRIVKY VYVANUTIA ####
 
