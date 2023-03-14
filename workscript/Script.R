@@ -1,11 +1,16 @@
+#### verze 1.1
 #### VOLBA PARAMETROV SKRIPTU ####
 rm(list = ls())
-args <- c("zzz.csv", "Infected", "InfPrior + VaccStatus")
-
+# args <- c("zzz.csv", "Infected", "InfPrior+VaccStatus")
+args <- commandArgs(trailingOnly=TRUE) 
 # args <- c("Input", "Outcome", "Covariates"), kde: 
 # 1. Input: zdrojovej csv soubor 
 # 2. Outcome: Infected nebo SeriousCovidProxy nebo LongCovid nebo Hospitalized 
 # 3. Covariates: InfPrior + VaccStatus nebo Immunity
+
+# šířka grafů křivek vyvanutí
+plot_width <- 400
+
 
 #### NACITANIE BALICKOV ####
 
@@ -150,9 +155,9 @@ eff_CI_upper_hybridboost <- df$eff_CI_upper[grep("Immunityhybridboost", dimnames
 
 png(file = "graf_krivky_vyvanutia_Immunity.png", width = 800, height = 500)
 par(mar = c(3.6, 3.6, 2, 1))
-plot(cas_inf, cas_inf, las = 1, xlim = c(0,1000), ylim = c(0, 1.1), xaxt = "n", 
+plot(cas_inf, cas_inf, las = 1, xlim = c(0,plot_width), ylim = c(0, 1.1), xaxt = "n", 
      xlab = "", ylab = "", type = "n")
-axis(1, at=seq(0, 1000, 90), seq(0, 1000, 90))
+axis(1, at=seq(0, plot_width, 90), seq(0, plot_width, 90))
 abline(h = seq(0.2, 1, 0.2), col = "lightgray")
 
 plotCI(cas_inf, cas_inf, ui = eff_CI_upper_full, li = eff_CI_lower_full, 
@@ -208,6 +213,7 @@ cas_partial <- dimnames(df)[[1]][grep("VaccStatuspartial", dimnames(df)[[1]])] %
   substring(19, 21) %>% as.numeric() %>% + 30
 # cas_partial
 
+
 eff_full <- df$eff[grep("VaccStatusfull", dimnames(df)[[1]])]
 eff_boost <- df$eff[grep("VaccStatusboost", dimnames(df)[[1]])]
 eff_secboost <- df$eff[grep("VaccStatussecboost", dimnames(df)[[1]])]
@@ -225,9 +231,9 @@ eff_CI_upper_partial <- df$eff_CI_upper[grep("VaccStatuspartial", dimnames(df)[[
 
 png(file = "graf_krivky_vyvanutia_VaccStatus.png", width = 800, height = 500)
 par(mar = c(3.6, 3.6, 2, 1))
-plot(cas_full, eff_full, las = 1, xlim = c(0,1000), ylim = c(0, 1.1), xaxt = "n", 
+plot(cas_full, eff_full, las = 1, xlim = c(0,plot_width), ylim = c(0, 1.1), xaxt = "n", 
      xlab = "", ylab = "", type = "n")
-axis(1, at=seq(0, 1000, 90), seq(0, 1000, 90))
+axis(1, at=seq(0, plot_width, 90), seq(0, plot_width, 90))
 abline(h = seq(0.2, 1, 0.2), col = "lightgray")
 
 plotCI(cas_full, eff_full, ui = eff_CI_upper_full, li = eff_CI_lower_full, 
@@ -271,9 +277,9 @@ eff_CI_upper_NA <- df$eff_CI_upper[grep("InfPriorinf_NA", dimnames(df)[[1]])]
 # graf / krivky vyvanutia 
 png(file = "graf_krivky_vyvanutia_InfPriorinf_NA.png", width = 800, height = 500)
 par(mar = c(3.6, 3.6, 2, 1))
-plot(cas_NA, eff_NA, las = 1, xlim = c(0, 1000), ylim = c(0, 1.1), xaxt = "n", 
+plot(cas_NA, eff_NA, las = 1, xlim = c(0, plot_width), ylim = c(0, 1.1), xaxt = "n", 
      xlab = "", ylab = "", type = "n")
-axis(1, at = seq(0, 1000, 90), seq(0, 1000, 90))
+axis(1, at = seq(0, plot_width, 90), seq(0, plot_width, 90))
 abline(h = seq(0.2, 1, 0.2), col = "lightgray")
 
 plotCI(cas_NA, eff_NA, ui = eff_CI_upper_NA, li = eff_CI_lower_NA, 
@@ -320,9 +326,9 @@ eff_CI_upper_omicron <- df$eff_CI_upper[grep("InfPriorinf_OMICRON", dimnames(df)
 # graf / krivky vyvanutia 
 png(file = "graf_krivky_vyvanutia_InfPrior.png", width = 800, height = 500)
 par(mar = c(3.6, 3.6, 2, 1))
-plot(cas_alpha, eff_alpha, las = 1, xlim = c(0,1000), ylim = c(0, 1.1), xaxt = "n", 
+plot(cas_alpha, eff_alpha, las = 1, xlim = c(0,plot_width), ylim = c(0, 1.1), xaxt = "n", 
      xlab = "", ylab = "", type = "n")
-axis(1, at=seq(0, 1000, 90), seq(0, 1000, 90))
+axis(1, at=seq(0, plot_width, 90), seq(0, plot_width, 90))
 abline(h = seq(0.2, 1, 0.2), col = "lightgray")
 
 plotCI(cas_alpha, eff_alpha, ui = eff_CI_upper_alpha, li = eff_CI_lower_alpha, 
@@ -370,7 +376,7 @@ dev.off()
 
 # VE - vakcinacna efektivita
 
-if (f.input.covariates == "InfPrior + VaccStatus") {
+if (f.input.covariates == "InfPrior+VaccStatus") {
   include <- c("InfPrior", "VaccStatus") 
   } else if (f.input.covariates == "Immunity") {
     include <- f.input.covariates
