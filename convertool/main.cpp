@@ -287,10 +287,11 @@ void addto(vector<string>& labels, vector<unsigned>& counts, const string lbl)
 }*/
 
 
-enum o2rmodes { einfections, eseriouscovidproxy, elongcovidevent, elongcovidinfection,
+enum o2rmodes { einfections, eseriouscovidproxy, ehospitalization, elongcovidevent, elongcovidinfection,
                 ecomparison, enumo2rmodes };
 
-vector<string> mdelabels = { "infections", "seriouscovidproxy", "longcovidevent",
+vector<string> mdelabels = { "infections", "seriouscovidproxy",
+                             "hospitalization", "longcovidevent",
                              "longcovidinfection","comparison" };
 
 struct covstatrecord
@@ -400,7 +401,7 @@ void ockodata2R(csv<','>& data, string outputlabel,
 
     ostringstream header;
 
-    header << "ID,T1,T2,Infected,SeriousCovidProxy,LongCovid, DeadByCovid,DeadByOther,";
+    header << "ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid, DeadByCovid,DeadByOther,";
     header << "VariantOfInf, InfPrior,VaccStatus,Immunity,Age,AgeGr,Sex";
     header << ",InfPriorTime,LastVaccTime";
 
@@ -503,6 +504,7 @@ const int numweeks = 200;
         int t;
         unsigned variant;
         unsigned variantunadjusted;
+        bool hospitalized = false;
         bool seriouscovidproxy = false;
         bool longcovid = false;
     };
@@ -796,6 +798,15 @@ vector<statcounter> lccounts(numweeks);
                 }
                 unsigned v = ppp.conditioning[k] ? k : navariant;
 
+                reldate hospdate;
+                string hospdatestr = data(j,min_Hospitalizace);
+                if(hospdatestr != "")
+                {
+                    GETDATE(hospdate,hospdatestr,break)
+                }
+                else
+                    hospdate = maxreldate;
+
                 reldate oxygendate;
                 string oxygendatestr = data(j,min_Kyslik);
                 if(oxygendatestr != "")
@@ -826,7 +837,9 @@ vector<statcounter> lccounts(numweeks);
                 else
                     longcoviddate = maxreldate;
 
-                bool proxy = data(i,PrimPricinaHospCOVID)=="1" &&
+                bool hosp = data(i,PrimPricinaHospCOVID)=="1" && hospdate - infdate <= ppp.hosplimit;
+                bool proxy = 
+                // data(i,PrimPricinaHospCOVID)=="1" &&
                         ((data(i,bin_Kyslik) == "1" && oxygendate - infdate <= ppp.hosplimit)
                                    || (data(j,bin_UPV_ECMO) == "1" && upvecmodate - infdate <= ppp.hosplimit)) ;
                 bool longcovid = longcoviddate < maxreldate && longcoviddate - infdate <= ppp.longcovidlimit && longcoviddate - infdate >= -10;
@@ -851,9 +864,12 @@ vector<statcounter> lccounts(numweeks);
                     assert(dateind >= 0);
                     variantsfound[k].calendar[dateind]++;
                 }
-                if(mode == einfections || proxy)
+                if((mode == einfections) ||
+                    (mode == eseriouscovidproxy && proxy) ||
+                    (mode == ehospitalization && hosp) ||
+                    (mode == elongcovidinfection && longcovid))
                     variantsfound[k].outcomes++;
-                infections.push_back({ infdate, v, k, proxy, longcovid });
+                infections.push_back({ infdate, v, k, hosp, proxy, longcovid });
 auto week = (infdate+ppp.firstdate-ppp.zerodate)/7;
 assert(week >= 0);
 assert(week < lccounts.size());
@@ -1148,6 +1164,7 @@ if(id==52)
 
              int infected;
              int seriouscovidproxy;
+             int hospitalized;
              int longcovidinfection;
              int longcovidevent;
 
@@ -1192,6 +1209,7 @@ if(id==52)
                        break;
                     }
                  seriouscovidproxy = infected * newinfection->seriouscovidproxy;
+                 hospitalized = infected * newinfection->hospitalized;
                  longcovidinfection = infected * newinfection->longcovid;
 
                  if(mode == einfections || mode == ecomparison)
@@ -1200,6 +1218,8 @@ if(id==52)
                  }
                  else if(mode == eseriouscovidproxy)
                      isevent = seriouscovidproxy;
+                 else if(mode == ehospitalization)
+                     isevent = hospitalized;
                  else if(mode == elongcovidinfection)
                      isevent = longcovidinfection;
              }
@@ -1207,6 +1227,7 @@ if(id==52)
              {
                  infected = 0;
                  seriouscovidproxy = 0;
+                 hospitalized = 0;
                  longcovidinfection = 0;
                  isevent = false;
              }
@@ -1432,9 +1453,20 @@ if(id==52)
 
                      ostringstream os;
                      os << idstr << "," << t1nonneg << "," << t2 << ","
-                        << infected << "," << seriouscovidproxy << ","
-                        << longcovidstr << ","
-                        << deadbycovid  << "," << deadbyother << ",";
+                        << infected << ",";
+                     if(mode == ehospitalization)
+                        os << hospitalized << ",";
+                     else
+                        os << ",";
+                     if(mode == eseriouscovidproxy)
+                        os << seriouscovidproxy << ",";
+                     else
+                        os << ",";
+                     if(mode == elongcovidevent || mode == elongcovidinfection)
+                        os << longcovidstr << ",";
+                     else
+                        os << ",";
+                     os << deadbycovid  << "," << deadbyother << ",";
                      os << variantofinfstr << "," << infpriorstr << ","
                         << vaccstring << "," << immunitystring << ","
                         << age << "," << grouplabel(agegroup) << ","
@@ -1587,13 +1619,21 @@ if(id==52)
                             if(++outputcounter % ppp.everyn)
                                 continue;
                             peopleexported++;
-    //                        "ID,T1,T2,Infected,seriouscovidproxy,longcovid,DeadByCovid, DeadByOther, VariantComp";
-                            o << i << "," << 0 << "," << T << ",0,0,";
-                            if(mode == elongcovidevent || mode == elongcovidinfection)
-                                o << "0";
+    //                        "ID,T1,T2,Infected,hospitalized,seriouscovidproxy,longcovid,DeadByCovid, DeadByOther, VariantComp";
+                            o << i << "," << 0 << "," << T << ",0,";
+                            if(mode == ehospitalization)
+                                o << "0,";
                             else
-                                o << "";
-                            o << ",0,0,,";
+                                o << ",";
+                            if(mode == eseriouscovidproxy)
+                                o << "0,";
+                            else
+                                o << ",";
+                            if(mode == elongcovidevent || mode == elongcovidinfection)
+                                o << "0,";
+                            else
+                                o << ",";
+                            o << "0,0,,";
 
 
     //                         header << " InfPrior,VaccStatus,Immunity,Age,AgeGr,Sex";
@@ -1751,6 +1791,10 @@ int _main(int argc, char *argv[], bool testrun = false)
     case 'x':
         mode = eseriouscovidproxy;
         cout << "serious covid proxy" << endl;
+        break;
+    case 'h':
+        mode = ehospitalization;
+        cout << "hospitalization" << endl;
         break;
     case 'l':
         mode = elongcovidinfection;
@@ -2010,7 +2054,7 @@ int _main(int argc, char *argv[], bool testrun = false)
         }
     }
 
-    if(mode == eseriouscovidproxy)
+    if(mode == eseriouscovidproxy || mode == ehospitalization)
         ppp.lastdate -= ppp.hosplimit;
     else if(mode == elongcovidinfection)
         ppp.lastdate -= ppp.longcovidlimit;
@@ -2088,7 +2132,7 @@ int main(int argc, char *argv[])
     {
         int testno = 0;
         if(argc == 1)
-            testno = 1;
+            testno = 2;
         if(argc == 2)
         {
             testno = argv[1][0] - '1' + 1;
@@ -2104,7 +2148,7 @@ int main(int argc, char *argv[])
         }
         else if(testno == 2)
         {
-            char *as[6] ={"foo", "test_input_long_1.csv","test2_output.csv","l",
+            char *as[6] ={"foo", "test_input_long_1.csv","test2_output.csv","hO",
                           "2021-05-01","2022-09-30"};
             return _main(6,as,true);
         }
