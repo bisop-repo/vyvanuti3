@@ -1,0 +1,227 @@
+version 2.0
+Usage convertool input output whattodo(DVRW) firstdate(rrrr-mm-dd) lastdate [minage maxage everyn]
+serious covid proxy
+All Omicrons as outcomes
+Variants not discerned in InfPrior
+Using intervals of dominance
+Input ../../convertool/test/test_input_long_1.csv
+Number of InfPrior covariates: 7
+Number of VaccStatusFull covariates: 7
+Number of VaccStatusBoost covariates: 7
+Number of VaccStatusBoost covariates: 7
+Output rinput.csv
+Date range 2021-12-01 - 2023-02-20
+
+Writing to temporary_full.csv
+Importing from input, total 99999 records.
+Processing records from input, excluding inconsistent records:
+94394 individuals taken from the UZIS database
+Omitting adding CZSO records.
+Total 94394 individuals.
+
+Variants of infection found during study period
+
+variant,infections,outcomes,discerned_in_condition,taken_as_outcome
+NA,8386,238,0,0
+Delta,9003,242,0,0
+BA12,12691,131,0,1
+BA45,2704,53,0,1
+Omicron,3627,55,0,1
+Alpha,6522,370,0,0
+Beta,0,0,0,0
+Early,8440,453,0,0
+
+Untracked variants (joinded into NA)
+(empty)
+JIN
+
+Mode seriouscovidproxy
+Age filter: 0-333
+
+infprior,N,events
+inf_NA_001-061,48617,0
+inf_NA_062-122,47945,0
+inf_NA_123-183,44523,2
+inf_NA_184-244,41124,0
+inf_NA_245-305,45481,2
+inf_NA_306-366,48555,2
+inf_NA_367+,92579,5
+_uninfected,412965,222
+
+vaccstatus,N,events
+_unvaccinated,112226,85
+partial_062+,2873,3
+full_245-305,40557,10
+full_306-366,36797,3
+full_367+,45650,7
+full_123-183,72739,6
+full_184-244,53788,9
+boost_001-061,55635,12
+boost_062-122,54699,20
+boost_123-183,53741,12
+boost_184-244,53202,10
+boost_245-305,51718,23
+boost_306-366,46259,21
+full_062-122,32763,3
+full_001-061,12884,1
+boost_367+,28766,2
+partial_001-061,7692,2
+secboost_001-061,9678,2
+secboost_062-122,7747,1
+secboost_123-183,2375,1
+
+immunity,N,events
+inf_001-061,14577,0
+inf_062-122,14403,0
+inf_123-183,13753,1
+inf_184-244,13623,0
+inf_245-305,15654,1
+inf_306-366,15989,1
+other,70093,15
+full_245-305,17996,10
+full_306-366,15265,3
+_noimmunity,13022,80
+full_123-183,48464,4
+full_184-244,29902,8
+boost_001-061,39277,11
+boost_062-122,37103,20
+hybridboost_001-061,27002,1
+hybridboost_062-122,23453,0
+hybridboost_123-183,20260,1
+hybridboost_184-244,17547,0
+hybridboost_245-305,15105,0
+boost_123-183,35281,12
+boost_184-244,34389,9
+boost_245-305,32789,23
+full_062-122,20978,3
+hybridfull_001-061,24020,0
+hybridfull_062-122,27756,0
+hybridfull_123-183,32495,2
+hybridfull_184-244,22844,1
+hybridfull_245-305,15430,1
+hybridfull_306-366,12252,0
+boost_306-366,28773,21
+hybridboost_306-366,10545,0
+full_001-061,7664,1
+secboost_001-061,6681,2
+secboost_062-122,5613,1
+secboost_123-183,1791,1
+
+agegr,N,events
+16-17,16206,1
+80+,35992,90
+60-64,49721,12
+45-49,75605,3
+25-29,44265,1
+18-24,55358,0
+12-15,32091,0
+0-11,33286,1
+_40-44,68500,1
+35-39,56940,3
+30-34,52819,1
+65-69,55544,19
+75-79,38157,52
+50-54,59287,4
+70-74,50889,39
+55-59,57129,6
+
+covs (immunity version)=44 (51), events=233, eventspercov=5.30682(4.57843)
+Writing to rinput.csv
+Importing from input, total 99999 records.
+Processing records from input, excluding inconsistent records:
+94394 individuals taken from the UZIS database
+Omitting adding CZSO records.
+Total 94394 individuals.
+
+Variants of infection found during study period
+
+variant,infections,outcomes,discerned_in_condition,taken_as_outcome
+NA,8386,238,0,0
+Delta,9003,242,0,0
+BA12,12691,131,0,1
+BA45,2704,53,0,1
+Omicron,3627,55,0,1
+Alpha,6522,370,0,0
+Beta,0,0,0,0
+Early,8440,453,0,0
+
+Untracked variants (joinded into NA)
+(empty)
+JIN
+
+Mode seriouscovidproxy
+Age filter: 0-333
+
+infprior,N,events
+inf_NA_123-183,44523,2
+inf_NA_245-305,45481,2
+inf_NA_306-366,48555,2
+inf_NA_367+,92579,5
+_uninfected,412965,222
+
+vaccstatus,N,events
+_unvaccinated,112226,85
+partial_062+,2873,3
+full_245-305,40557,10
+full_306-366,36797,3
+full_367+,45650,7
+full_123-183,72739,6
+full_184-244,53788,9
+boost_001-061,55635,12
+boost_062-122,54699,20
+boost_123-183,53741,12
+boost_184-244,53202,10
+boost_245-305,51718,23
+boost_306-366,46259,21
+full_062-122,32763,3
+full_001-061,12884,1
+boost_367+,28766,2
+partial_001-061,7692,2
+secboost_001-061,9678,2
+secboost_062-122,7747,1
+secboost_123-183,2375,1
+
+immunity,N,events
+inf_123-183,13753,1
+inf_245-305,15654,1
+inf_306-366,15989,1
+other,70093,15
+full_245-305,17996,10
+full_306-366,15265,3
+_noimmunity,13022,80
+full_123-183,48464,4
+full_184-244,29902,8
+boost_001-061,39277,11
+boost_062-122,37103,20
+hybridboost_001-061,27002,1
+hybridboost_123-183,20260,1
+boost_123-183,35281,12
+boost_184-244,34389,9
+boost_245-305,32789,23
+full_062-122,20978,3
+hybridfull_123-183,32495,2
+hybridfull_184-244,22844,1
+hybridfull_245-305,15430,1
+boost_306-366,28773,21
+full_001-061,7664,1
+secboost_001-061,6681,2
+secboost_062-122,5613,1
+secboost_123-183,1791,1
+
+agegr,N,events
+16-17,16206,1
+80+,35992,90
+60-64,49721,12
+45-49,75605,3
+25-29,44265,1
+0-11,33286,1
+_40-44,68500,1
+35-39,56940,3
+30-34,52819,1
+65-69,55544,19
+75-79,38157,52
+50-54,59287,4
+70-74,50889,39
+55-59,57129,6
+
+covs (immunity version)=39 (39), events=233, eventspercov=5.98718(5.98718)

@@ -1540,7 +1540,6 @@ if(id==52)
 
     assert(ppp.firstdate >= dateoffirstczsohalfyear);
 
-
     if(omitczso)
     {
         cout << "Omitting adding CZSO records." << endl;
