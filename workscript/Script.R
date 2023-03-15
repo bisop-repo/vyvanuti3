@@ -383,15 +383,33 @@ if (f.input.covariates == "InfPrior+VaccStatus") {
   } else {include <- NA
     }
 
-m1_cox_VE_plot <- tbl_regression(m1_cox, include = include, 
-                                 estimate_fun = function(x) {round(1 - exp(x) , 2)}, 
-                                 conf.int = F) %>% 
+# m1_cox_VE_plot <- tbl_regression(m1_cox, include = include, 
+#                                  estimate_fun = function(x) {round(1 - exp(x) , 2)}, 
+#                                  conf.int = F) %>% 
+#   bold_p() %>% bold_labels() %>% 
+#   add_n(location = "level") %>%
+#   add_nevent(location = "level") %>%
+#   modify_header(estimate ~ "**VE (95% CI)**") %>% 
+#   modify_footnote(estimate ~ "Vaccine Effectiveness, CI = Confidence Interval", 
+                  abbreviation = TRUE)
+
+m1_cox_VE_plot <- m1_cox |> 
+  tbl_regression(include = include, estimate_fun = function(x) style_ratio(1 - exp(x), 2)) |> 
+  modify_column_hide(ci) |>                                   # hide the current confidence interval
+  modify_column_merge(pattern = "({conf.high}, {conf.low})") |> # re-construct a CI reversing the order
   bold_p() %>% bold_labels() %>% 
   add_n(location = "level") %>%
   add_nevent(location = "level") %>%
-  modify_header(estimate ~ "**VE (95% CI)**") %>% 
-  modify_footnote(estimate ~ "Vaccine Effectiveness, CI = Confidence Interval", 
-                  abbreviation = TRUE)
+  modify_header(                                              # update the headers to match the new estimates
+    conf.high = "**95% CI**",
+    estimate = "**VE**"
+  ) |> 
+  modify_footnote(                                            # update the abbreviation footnotes
+    estimate = "VE = Vaccine Effectiveness",
+    conf.high = "CI = Confidence Interval",
+    abbreviation = TRUE
+  ) 
+
 m1_cox_VE_plot
 
 gt::gtsave(as_gt(m1_cox_VE_plot), file = "m1_cox_VE_plot.png")
