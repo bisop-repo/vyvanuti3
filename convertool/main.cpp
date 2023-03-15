@@ -188,6 +188,11 @@ struct preprocessparams
     int reinfstartdate = date2int("2020-04-01");
 
 
+    bool discernsecboosts = false;
+
+    /// in number of covs
+    int secboostlatetreshold = 3;
+
     /// delay after the first, second, third and fourth shot takes effect
     int regulardelay = 14;
     int boostdelay = 7;
@@ -205,7 +210,7 @@ struct preprocessparams
     int numinfcovariates = 6;
 
     /// duration of 1st  postinf covariate (event not regarded as reinfections)
-    int firstcovreinfduration = 60;
+    int firstcovreinfduration = 61;
 
     /// duration of 2nd ... \p (naxinfstatus-1)-th - postinf covariate (the last one lasts till infty)
     int covreinfduration = 61;
@@ -225,7 +230,7 @@ struct preprocessparams
     int numsecboostercovs = 2;
 
     int maxvacccovs = 7;
-    int maxinfcovs = 13;
+    int maxinfcovs = 7;
 
 
     /// time after the test for the treatment to be assigned to the test
@@ -987,6 +992,7 @@ if(longcovid)
             THROW("Censored berore study started", continue);
         }
         enum eimmunitystatus {enoimmunity, efullimmunity, eboostimmunity, esecboostimmunity,
+                              esecboostlateimmunity,
                               einfectedimmunity, einffullimmunity,efullinfimmunity,
                               einfboostimmunity,eboostinfimmunity,
                               eotherimmunity, enumimunitystauses};
@@ -1152,7 +1158,17 @@ if(id==52)
                      if(infectedont2 || currentinfstatus > 0)
                          newimmunitystatus = eotherimmunity;
                      else
-                         newimmunitystatus = esecboostimmunity;
+                     {
+                         if(ppp.discernsecboosts)
+                         {
+                             if(currentvaccstatus.covno < ppp.secboostlatetreshold )
+                                 newimmunitystatus = esecboostimmunity;
+                             else
+                                 newimmunitystatus = esecboostlateimmunity;
+                         }
+                         else
+                             newimmunitystatus = esecboostimmunity;
+                     }
                  }
                  else
                      assert(0);
@@ -1348,6 +1364,7 @@ if(id==52)
                      case efullimmunity:
                      case eboostimmunity:
                      case esecboostimmunity:
+                     case esecboostlateimmunity:
                      case einffullimmunity:
                      case einfboostimmunity:
                          fillimmunity = true;
@@ -1382,7 +1399,9 @@ if(id==52)
                      case secbooster:
                          os << "secboost";
                          if(currentimmunitystatus == esecboostimmunity)
-                             is << "secboost";
+                             is << (ppp.discernsecboosts ? "secboostearly":"secboost");
+                         else if(currentimmunitystatus == esecboostlateimmunity)
+                             is << "secboostlate";
                          else
                              fillimmunity = false;
                          nc = ppp.numsecboostercovs;
@@ -1766,7 +1785,13 @@ int _main(int argc, char *argv[], bool testrun = false)
 //    cout << argv[i] << endl;
 //    bool onlyfirst = argv[2][0] == '-';
     cout << "version 2.0" << endl;
-    cout << "Usage convertool input output whattodo(DVRW) firstdate(rrrr-mm-dd) lastdate [minage maxage everyn]" << endl;
+    cout << "Usage convertool input output whattodo(DVRW) firstdate(rrrr-mm-dd) lastdate(rrrr-mm-dd) [minage maxage everyn]" << endl;
+    cout << "D=i-infection/x-covidproxy/h-hospitalization/l-longcovid" << endl;
+    cout << "V=!-all variants/O-all Omicrons/E-O+Delta/x-variant x" << endl;
+    cout << "R=-variants... --not discerned in InfPrior/a all discerned/g general discerned" << endl;
+    cout << "W=i-intervals uded for variant determination/--not used" << endl;
+    cout << endl;
+
     if(argc < 6)
         throw "at least five arguments must be given";
     if(strlen(argv[3]) < 2)
@@ -1873,7 +1898,7 @@ int _main(int argc, char *argv[], bool testrun = false)
         cout << endl;
     }
 
-    if(strlen(argv[3]) < 4 || argv[3][3] == 'n')
+    if(strlen(argv[3]) < 4 || argv[3][3] == '-')
     {
         ppp.useintervalsofdominance = false;
         cout << "Not using intervals of dominance" << endl;
@@ -1889,134 +1914,19 @@ int _main(int argc, char *argv[], bool testrun = false)
         throw;
     }
 
-
-/*
-
-
-        else
+    for(unsigned i=4; i<strlen(argv[3]); i++)
+    {
+        switch(argv[3][i])
         {
-            ppp.isoutcome = vector<bool>(enumvariants,false);
-            ppp.conditioning = vector<bool>(enumvariants,false);
-            auto option = argv[3][1];
-            switch(option)
-            {
-            case '1':
-                ppp.isoutcome[evBA12] = true;
-                ppp.conditioning[evBA12] = true;
-                ppp.conditioning[evDelta] = true;
-                firstdatestr = "2021-10-01";
-                lastdatestr = "2022-09-30";
-//ppp.conditioning = vector<bool>(enumvariants,true);
-//                ppp.everyn = 10;
-                break;
-            case '2':
-                ppp.isoutcome[evBA45] = true;
-                ppp.conditioning[evBA12] = true;
-                ppp.conditioning[evDelta] = true;
-                ppp.conditioning[evBA45] = true;
-                firstdatestr = "2022-06-30";
-                lastdatestr = "2022-12-01";
-//ppp.conditioning = vector<bool>(enumvariants,true);
-//                ppp.everyn = 10;
-                break;
-            case 'A': // Brno workshop variant A
-            case 'C': // Brno workshop variant A
-                ppp.isoutcome[evDelta] = true;
-                firstdatestr = "2021-12-10";
-                lastdatestr = "2022-02-13";
-//ppp.conditioning = vector<bool>(enumvariants,true);
-                ppp.everyn = 10;
-                ppp.covreinfduration = ppp.regularcovvaccduration
-                        = option == 'A' ? 61 : 30;
-                break;
-            case 'B':
-            case 'D':
-                ppp.isoutcome[evOmicron] = true;
-                firstdatestr = "2021-10-01";
-                lastdatestr = "2022-02-01";
-//ppp.conditioning = vector<bool>(enumvariants,true);
-                ppp.covreinfduration = ppp.regularcovvaccduration
-                        = option == 'B' ? 61 : 30;
-                ppp.everyn = 10;
-                break;
-            case 'E':
-                if(mode != eseverity)
-                    throw "Option E only with c";
-                ppp.isoutcome[evDelta] = ppp.isoutcome[evBA45]
-                        = ppp.isoutcome[evBA12] = ppp.isoutcome[evOmicron]
-                        = true;
-                ppp.compared0[evDelta] = true;
-                ppp.compared1[evBA12] = ppp.compared1[evBA45]
-                        = ppp.compared1[evOmicron] = true;
-                firstdatestr = "2021-12-10";
-                lastdatestr = "2022-04-13";
-//ppp.conditioning = vector<bool>(enumvariants,true);
-//                ppp.everyn = 10;
-                break;
-            case 'F':
-                if(mode != eseverity)
-                    throw "Option F only with c";
-                ppp.isoutcome[evBA12] = ppp.isoutcome[evBA45] = true;
-                ppp.compared0[evBA12] = true;
-                ppp.compared1[evBA45] = true;
-                firstdatestr = "2022-02-01";
-                lastdatestr = "2022-11-10";
-                break;
-            case 'G':
-                if(mode != eseverity)
-                    throw "Option F only with c";
-                ppp.isoutcome[evBA12] = ppp.isoutcome[evDelta] = true;
-                ppp.compared0[evDelta] = true;
-                ppp.compared1[evBA12] = true;
-                firstdatestr = "2021-12-01";
-                lastdatestr = "2022-06-30";
-                break;
-            case 'H':
-                if(mode != eseverity)
-                    throw "Option F only with c";
-                ppp.isoutcome[evAlpha] = ppp.isoutcome[evDelta] = true;
-                ppp.compared0[evAlpha] = true;
-                ppp.compared1[evDelta] = true;
-                firstdatestr = "2021-03-01";
-                lastdatestr = "2022-12-31";
-                break;
-            case 'L':
-                ppp.numpartialcovs = 8;
-                ppp.numfinalcovs = 8;
-                ppp.numboostercovs = 5;
-                ppp.numsecboostercovs = 2;
-                ppp.numinfcovariates = 10;
-                if(argv[3][2] == 'o')
-                {
-                    ppp.isoutcome = vector<bool>(enumvariants,false);
-                    ppp.isoutcome[evOmicron] = true;
-                    ppp.isoutcome[evBA12] = true;
-                    ppp.isoutcome[evBA45] = true;
-                    firstdatestr = "2021-12-01";
-                    lastdatestr = "2022-09-30";
-                    // everynstr = "10";
-                }
-                else
-                {
-                    ppp.isoutcome = vector<bool>(enumvariants,true);
-                    firstdatestr = "2021-01-06";
-                    lastdatestr = "2022-09-30";
-                }
-//
-                break;
-            case '9':
-                ppp.isoutcome[evOmicron] = true;
-                ppp.isoutcome[evBA12] = true;
-                firstdatestr = "2021-12-10";
-                lastdatestr = "2022-02-13";
-//ppp.conditioning = vector<bool>(enumvariants,true);
-                ppp.everyn = 1;
-                break;
-            default:
-                throw "unknown option";
-            }
+        case 'l':
+            ppp.discernsecboosts = true;
+            cout << "secboost previous vacc time discerned" << endl;
+            break;
+        default:
+            cerr << "Unknown option " << argv[3][i] << endl;
+            throw;
         }
-*/
+    }
 
     try
     {
@@ -2060,8 +1970,8 @@ int _main(int argc, char *argv[], bool testrun = false)
 
     cout << "Input " << argv[1] << endl;
 
-ppp.maxinfcovs = ppp.maxvacccovs;
-ppp.firstcovreinfduration = 61;
+
+
     ppp.numinfcovariates = max(0,(ppp.lastdate-ppp.reinfstartdate)/ppp.covreinfduration + 2);
     ppp.numinfcovariates = min(ppp.numinfcovariates, ppp.maxinfcovs );
     cout << "Number of InfPrior covariates: " << ppp.numinfcovariates << endl;
@@ -2147,8 +2057,8 @@ int main(int argc, char *argv[])
         }
         else if(testno == 2)
         {
-            char *as[6] ={"foo", "test_input_long_1.csv","test2_output.csv","hO",
-                          "2021-05-01","2022-09-30"};
+            char *as[6] ={"foo", "test_input_long_1.csv","test2_output.csv","hO--l",
+                          "2022-07-01","2023-02-20"};
             return _main(6,as,true);
         }
         else if(testno == 3)
