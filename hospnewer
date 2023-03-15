@@ -10,11 +10,11 @@ INPUT_FILE='../../data/data_20230220.csv' #File to be converted in Convertool
 #Model estimation in batch
 
 cd v3
-cd Proxy
+cd HospNewer
 rm *
-../../convertool/bin/convertool $INPUT_FILE rinput.csv xO-i 2021-12-01 2023-02-20  > convertool.log
+../../convertool/bin/convertool $INPUT_FILE rinput.csv hO-i 2022-09-01 2023-02-20  > convertool.log
 cp ../../workscript/cox_estimation_formulas.txt .
-Rscript ../../workscript/Script.R rinput.csv SeriousCovidProxy Immunity  > script.log
+Rscript ../../workscript/Script.R rinput.csv Hospitalized Immunity  > script.log
 ../../clean 
 cd ..
 
