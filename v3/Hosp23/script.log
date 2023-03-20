@@ -1,0 +1,1478 @@
+<div id="ctogovovps" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+  <style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#ctogovovps .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ctogovovps .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ctogovovps .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ctogovovps .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ctogovovps .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ctogovovps .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ctogovovps .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ctogovovps .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ctogovovps .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ctogovovps .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ctogovovps .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ctogovovps .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ctogovovps .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ctogovovps .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ctogovovps .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ctogovovps .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ctogovovps .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ctogovovps .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ctogovovps .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ctogovovps .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ctogovovps .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ctogovovps .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ctogovovps .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ctogovovps .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ctogovovps .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ctogovovps .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ctogovovps .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ctogovovps .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ctogovovps .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ctogovovps .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ctogovovps .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ctogovovps .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ctogovovps .gt_left {
+  text-align: left;
+}
+
+#ctogovovps .gt_center {
+  text-align: center;
+}
+
+#ctogovovps .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ctogovovps .gt_font_normal {
+  font-weight: normal;
+}
+
+#ctogovovps .gt_font_bold {
+  font-weight: bold;
+}
+
+#ctogovovps .gt_font_italic {
+  font-style: italic;
+}
+
+#ctogovovps .gt_super {
+  font-size: 65%;
+}
+
+#ctogovovps .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#ctogovovps .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ctogovovps .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ctogovovps .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ctogovovps .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ctogovovps .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ctogovovps .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+  <table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;N = 45,553,898&lt;/strong&gt;"><strong>N = 45,553,898</strong></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Number of unique patients, n</td>
+<td headers="stat_0" class="gt_row gt_center">10,585,137</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">T1, Median (IQR)</td>
+<td headers="stat_0" class="gt_row gt_center">86 (11 – 165)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">T2, Median (IQR)</td>
+<td headers="stat_0" class="gt_row gt_center">158 (80 – 254)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Infected, n (%)</td>
+<td headers="stat_0" class="gt_row gt_center">343,860 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Hospitalized, n (%)</td>
+<td headers="stat_0" class="gt_row gt_center">10,139 (&lt;0.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SeriousCovidProxy, n (%)</td>
+<td headers="stat_0" class="gt_row gt_center">0 (NA%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    (Missing Observations)</td>
+<td headers="stat_0" class="gt_row gt_center">45,553,898</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">LongCovid, n (%)</td>
+<td headers="stat_0" class="gt_row gt_center">0 (NA%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    (Missing Observations)</td>
+<td headers="stat_0" class="gt_row gt_center">45,553,898</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DeadByCovid, n (%)</td>
+<td headers="stat_0" class="gt_row gt_center">226 (&lt;0.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DeadByOther, n (%)</td>
+<td headers="stat_0" class="gt_row gt_center">60,647 (0.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">VariantOfInf, n (%)</td>
+<td headers="stat_0" class="gt_row gt_center">0 (NA%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    (Missing Observations)</td>
+<td headers="stat_0" class="gt_row gt_center">45,553,898</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">InfPrior, n (%)</td>
+<td headers="stat_0" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    _uninfected</td>
+<td headers="stat_0" class="gt_row gt_center">23,682,100 (52%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_NA_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">2,813,312 (6.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_NA_123-183</td>
+<td headers="stat_0" class="gt_row gt_center">3,686,911 (8.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_NA_184-244</td>
+<td headers="stat_0" class="gt_row gt_center">3,483,599 (7.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_NA_245-305</td>
+<td headers="stat_0" class="gt_row gt_center">3,081,099 (6.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_NA_306-366</td>
+<td headers="stat_0" class="gt_row gt_center">2,589,425 (5.7%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_NA_367+</td>
+<td headers="stat_0" class="gt_row gt_center">6,217,452 (14%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">VaccStatus, n (%)</td>
+<td headers="stat_0" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    _unvaccinated</td>
+<td headers="stat_0" class="gt_row gt_center">8,411,704 (18%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_001-061</td>
+<td headers="stat_0" class="gt_row gt_center">467,361 (1.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">2,246,016 (4.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_123-183</td>
+<td headers="stat_0" class="gt_row gt_center">4,397,737 (9.7%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_184-244</td>
+<td headers="stat_0" class="gt_row gt_center">4,612,177 (10%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_245-305</td>
+<td headers="stat_0" class="gt_row gt_center">4,487,917 (9.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_306-366</td>
+<td headers="stat_0" class="gt_row gt_center">4,033,885 (8.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_367+</td>
+<td headers="stat_0" class="gt_row gt_center">2,539,336 (5.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">354,560 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_123-183</td>
+<td headers="stat_0" class="gt_row gt_center">893,196 (2.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_184-244</td>
+<td headers="stat_0" class="gt_row gt_center">1,420,597 (3.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_245-305</td>
+<td headers="stat_0" class="gt_row gt_center">2,742,410 (6.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_306-366</td>
+<td headers="stat_0" class="gt_row gt_center">3,124,876 (6.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_367+</td>
+<td headers="stat_0" class="gt_row gt_center">4,033,841 (8.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    partial_001-061</td>
+<td headers="stat_0" class="gt_row gt_center">29,645 (&lt;0.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    partial_062+</td>
+<td headers="stat_0" class="gt_row gt_center">198,116 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    secboost_001-061</td>
+<td headers="stat_0" class="gt_row gt_center">861,778 (1.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    secboost_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">698,746 (1.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Immunity, n (%)</td>
+<td headers="stat_0" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    _noimmunity</td>
+<td headers="stat_0" class="gt_row gt_center">2,184,789 (4.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_001-061</td>
+<td headers="stat_0" class="gt_row gt_center">112,910 (0.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">1,383,067 (3.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_123-183</td>
+<td headers="stat_0" class="gt_row gt_center">3,000,829 (6.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_184-244</td>
+<td headers="stat_0" class="gt_row gt_center">3,063,315 (6.7%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_245-305</td>
+<td headers="stat_0" class="gt_row gt_center">2,947,864 (6.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_306-366</td>
+<td headers="stat_0" class="gt_row gt_center">2,591,661 (5.7%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost23_001-061</td>
+<td headers="stat_0" class="gt_row gt_center">81,859 (0.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost23_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">75,986 (0.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">216,093 (0.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_123-183</td>
+<td headers="stat_0" class="gt_row gt_center">506,430 (1.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_184-244</td>
+<td headers="stat_0" class="gt_row gt_center">756,412 (1.7%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_245-305</td>
+<td headers="stat_0" class="gt_row gt_center">1,307,712 (2.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_306-366</td>
+<td headers="stat_0" class="gt_row gt_center">1,351,402 (3.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_001-061</td>
+<td headers="stat_0" class="gt_row gt_center">272,592 (0.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">1,642,730 (3.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_123-183</td>
+<td headers="stat_0" class="gt_row gt_center">1,775,616 (3.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_184-244</td>
+<td headers="stat_0" class="gt_row gt_center">1,552,590 (3.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_245-305</td>
+<td headers="stat_0" class="gt_row gt_center">1,332,699 (2.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_306-366</td>
+<td headers="stat_0" class="gt_row gt_center">933,167 (2.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">1,100,408 (2.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_123-183</td>
+<td headers="stat_0" class="gt_row gt_center">1,600,636 (3.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_184-244</td>
+<td headers="stat_0" class="gt_row gt_center">1,509,693 (3.3%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_245-305</td>
+<td headers="stat_0" class="gt_row gt_center">1,289,292 (2.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_306-366</td>
+<td headers="stat_0" class="gt_row gt_center">1,090,517 (2.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">758,112 (1.7%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_123-183</td>
+<td headers="stat_0" class="gt_row gt_center">1,156,042 (2.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_184-244</td>
+<td headers="stat_0" class="gt_row gt_center">1,156,793 (2.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_245-305</td>
+<td headers="stat_0" class="gt_row gt_center">1,132,893 (2.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_306-366</td>
+<td headers="stat_0" class="gt_row gt_center">1,077,692 (2.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    other</td>
+<td headers="stat_0" class="gt_row gt_center">5,479,236 (12%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    secboost_001-061</td>
+<td headers="stat_0" class="gt_row gt_center">602,427 (1.3%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    secboost_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">510,434 (1.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Age, Median (IQR)</td>
+<td headers="stat_0" class="gt_row gt_center">46 (30 – 63)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">AgeGr, n (%)</td>
+<td headers="stat_0" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    _40-44</td>
+<td headers="stat_0" class="gt_row gt_center">3,935,836 (8.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    0-11</td>
+<td headers="stat_0" class="gt_row gt_center">2,802,998 (6.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    12-15</td>
+<td headers="stat_0" class="gt_row gt_center">1,935,242 (4.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    16-17</td>
+<td headers="stat_0" class="gt_row gt_center">949,110 (2.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    18-24</td>
+<td headers="stat_0" class="gt_row gt_center">3,083,933 (6.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    25-29</td>
+<td headers="stat_0" class="gt_row gt_center">2,486,114 (5.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    30-34</td>
+<td headers="stat_0" class="gt_row gt_center">3,037,271 (6.7%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    35-39</td>
+<td headers="stat_0" class="gt_row gt_center">3,257,063 (7.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    45-49</td>
+<td headers="stat_0" class="gt_row gt_center">4,360,188 (9.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    50-54</td>
+<td headers="stat_0" class="gt_row gt_center">3,359,668 (7.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    55-59</td>
+<td headers="stat_0" class="gt_row gt_center">3,182,531 (7.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    60-64</td>
+<td headers="stat_0" class="gt_row gt_center">2,820,960 (6.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    65-69</td>
+<td headers="stat_0" class="gt_row gt_center">3,121,461 (6.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    70-74</td>
+<td headers="stat_0" class="gt_row gt_center">2,951,573 (6.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    75-79</td>
+<td headers="stat_0" class="gt_row gt_center">2,172,671 (4.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    80+</td>
+<td headers="stat_0" class="gt_row gt_center">2,097,279 (4.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Sex, n (%)</td>
+<td headers="stat_0" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    F</td>
+<td headers="stat_0" class="gt_row gt_center">23,359,093 (51%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    M</td>
+<td headers="stat_0" class="gt_row gt_center">22,194,805 (49%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">InfPriorTime, n (%)</td>
+<td headers="stat_0" class="gt_row gt_center">0 (NA%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    (Missing Observations)</td>
+<td headers="stat_0" class="gt_row gt_center">45,553,898</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">LastVaccTime, n (%)</td>
+<td headers="stat_0" class="gt_row gt_center">0 (NA%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    (Missing Observations)</td>
+<td headers="stat_0" class="gt_row gt_center">45,553,898</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+Call:
+coxph(formula = f.input, data = data)
+
+  n= 45553898, number of events= 10139 
+
+                                coef exp(coef) se(coef)       z Pr(>|z|)    
+Immunityboost_001-061       -0.10309   0.90204  0.50217  -0.205  0.83734    
+Immunityboost_062-122       -0.69224   0.50045  0.15752  -4.395 1.11e-05 ***
+Immunityboost_123-183       -0.66318   0.51521  0.06317 -10.499  < 2e-16 ***
+Immunityboost_184-244       -0.55327   0.57507  0.03534 -15.657  < 2e-16 ***
+Immunityboost_245-305       -0.43205   0.64917  0.02966 -14.568  < 2e-16 ***
+Immunityboost_306-366       -0.41902   0.65769  0.04156 -10.082  < 2e-16 ***
+Immunityboost23_001-061     -0.99898   0.36825  0.31694  -3.152  0.00162 ** 
+Immunityboost23_062-122     -1.63865   0.19424  0.57780  -2.836  0.00457 ** 
+Immunityfull_062-122        -0.21404   0.80731  0.33532  -0.638  0.52327    
+Immunityfull_123-183         0.03694   1.03763  0.14248   0.259  0.79545    
+Immunityfull_184-244        -0.02711   0.97325  0.09045  -0.300  0.76438    
+Immunityfull_245-305        -0.20623   0.81365  0.08604  -2.397  0.01654 *  
+Immunityfull_306-366        -0.19722   0.82101  0.08189  -2.408  0.01602 *  
+Immunityhybridboost_001-061 -1.44817   0.23500  0.35419  -4.089 4.34e-05 ***
+Immunityhybridboost_062-122 -2.53764   0.07905  0.25104 -10.109  < 2e-16 ***
+Immunityhybridboost_123-183 -2.54758   0.07827  0.18099 -14.076  < 2e-16 ***
+Immunityhybridboost_184-244 -1.94871   0.14246  0.10994 -17.725  < 2e-16 ***
+Immunityhybridboost_245-305 -1.82202   0.16170  0.11679 -15.600  < 2e-16 ***
+Immunityhybridboost_306-366 -1.64495   0.19302  0.21972  -7.487 7.07e-14 ***
+Immunityhybridfull_062-122  -1.71452   0.18005  0.37899  -4.524 6.07e-06 ***
+Immunityhybridfull_123-183  -1.55286   0.21164  0.21006  -7.393 1.44e-13 ***
+Immunityhybridfull_184-244  -1.69655   0.18332  0.16829 -10.081  < 2e-16 ***
+Immunityhybridfull_245-305  -1.90250   0.14920  0.19031  -9.997  < 2e-16 ***
+Immunityhybridfull_306-366  -1.64719   0.19259  0.21937  -7.509 5.97e-14 ***
+Immunityinf_062-122         -3.02540   0.04854  0.70759  -4.276 1.91e-05 ***
+Immunityinf_123-183         -1.74165   0.17523  0.22483  -7.746 9.45e-15 ***
+Immunityinf_184-244         -1.15723   0.31435  0.13101  -8.833  < 2e-16 ***
+Immunityinf_245-305         -1.52991   0.21655  0.17306  -8.840  < 2e-16 ***
+Immunityinf_306-366         -1.46175   0.23183  0.25948  -5.633 1.77e-08 ***
+Immunityother               -0.31125   0.73253  0.03739  -8.325  < 2e-16 ***
+Immunitysecboost_001-061    -1.31581   0.26826  0.08024 -16.398  < 2e-16 ***
+Immunitysecboost_062-122    -1.20058   0.30102  0.19149  -6.270 3.62e-10 ***
+AgeGr0-11                    0.53636   1.70978  0.10626   5.048 4.47e-07 ***
+AgeGr12-15                  -1.27088   0.28059  0.24835  -5.117 3.10e-07 ***
+AgeGr16-17                  -0.37561   0.68687  0.24826  -1.513  0.13028    
+AgeGr18-24                  -0.74727   0.47366  0.17663  -4.231 2.33e-05 ***
+AgeGr25-29                  -0.23266   0.79243  0.15524  -1.499  0.13396    
+AgeGr30-34                  -0.09998   0.90486  0.14204  -0.704  0.48152    
+AgeGr35-39                  -0.24524   0.78252  0.14749  -1.663  0.09636 .  
+AgeGr45-49                   0.15933   1.17273  0.12678   1.257  0.20886    
+AgeGr50-54                   0.58516   1.79528  0.12188   4.801 1.58e-06 ***
+AgeGr55-59                   0.93280   2.54162  0.11490   8.118 4.72e-16 ***
+AgeGr60-64                   1.47739   4.38150  0.10797  13.684  < 2e-16 ***
+AgeGr65-69                   2.13471   8.45457  0.10112  21.110  < 2e-16 ***
+AgeGr70-74                   2.77025  15.96265  0.09860  28.095  < 2e-16 ***
+AgeGr75-79                   3.42734  30.79459  0.09777  35.056  < 2e-16 ***
+AgeGr80+                     4.09048  59.76870  0.09645  42.409  < 2e-16 ***
+SexM                         0.38953   1.47629  0.02010  19.380  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+                            exp(coef) exp(-coef) lower .95 upper .95
+Immunityboost_001-061         0.90204    1.10859   0.33712    2.4137
+Immunityboost_062-122         0.50045    1.99820   0.36752    0.6815
+Immunityboost_123-183         0.51521    1.94095   0.45522    0.5831
+Immunityboost_184-244         0.57507    1.73893   0.53658    0.6163
+Immunityboost_245-305         0.64917    1.54042   0.61252    0.6880
+Immunityboost_306-366         0.65769    1.52047   0.60624    0.7135
+Immunityboost23_001-061       0.36825    2.71552   0.19787    0.6854
+Immunityboost23_062-122       0.19424    5.14821   0.06259    0.6028
+Immunityfull_062-122          0.80731    1.23868   0.41842    1.5577
+Immunityfull_123-183          1.03763    0.96374   0.78480    1.3719
+Immunityfull_184-244          0.97325    1.02748   0.81514    1.1620
+Immunityfull_245-305          0.81365    1.22904   0.68738    0.9631
+Immunityfull_306-366          0.82101    1.21801   0.69927    0.9639
+Immunityhybridboost_001-061   0.23500    4.25531   0.11738    0.4705
+Immunityhybridboost_062-122   0.07905   12.64983   0.04833    0.1293
+Immunityhybridboost_123-183   0.07827   12.77609   0.05490    0.1116
+Immunityhybridboost_184-244   0.14246    7.01964   0.11484    0.1767
+Immunityhybridboost_245-305   0.16170    6.18434   0.12862    0.2033
+Immunityhybridboost_306-366   0.19302    5.18077   0.12548    0.2969
+Immunityhybridfull_062-122    0.18005    5.55399   0.08566    0.3784
+Immunityhybridfull_123-183    0.21164    4.72497   0.14022    0.3194
+Immunityhybridfull_184-244    0.18332    5.45507   0.13181    0.2549
+Immunityhybridfull_245-305    0.14920    6.70261   0.10275    0.2166
+Immunityhybridfull_306-366    0.19259    5.19239   0.12529    0.2960
+Immunityinf_062-122           0.04854   20.60223   0.01213    0.1943
+Immunityinf_123-183           0.17523    5.70674   0.11278    0.2723
+Immunityinf_184-244           0.31435    3.18112   0.24317    0.4064
+Immunityinf_245-305           0.21655    4.61777   0.15426    0.3040
+Immunityinf_306-366           0.23183    4.31349   0.13941    0.3855
+Immunityother                 0.73253    1.36513   0.68077    0.7882
+Immunitysecboost_001-061      0.26826    3.72777   0.22922    0.3139
+Immunitysecboost_062-122      0.30102    3.32204   0.20682    0.4381
+AgeGr0-11                     1.70978    0.58487   1.38832    2.1057
+AgeGr12-15                    0.28059    3.56397   0.17245    0.4565
+AgeGr16-17                    0.68687    1.45588   0.42224    1.1174
+AgeGr18-24                    0.47366    2.11123   0.33506    0.6696
+AgeGr25-29                    0.79243    1.26195   0.58454    1.0742
+AgeGr30-34                    0.90486    1.10515   0.68498    1.1953
+AgeGr35-39                    0.78252    1.27793   0.58607    1.0448
+AgeGr45-49                    1.17273    0.85271   0.91470    1.5035
+AgeGr50-54                    1.79528    0.55702   1.41381    2.2797
+AgeGr55-59                    2.54162    0.39345   2.02913    3.1836
+AgeGr60-64                    4.38150    0.22823   3.54586    5.4141
+AgeGr65-69                    8.45457    0.11828   6.93449   10.3079
+AgeGr70-74                   15.96265    0.06265  13.15748   19.3659
+AgeGr75-79                   30.79459    0.03247  25.42465   37.2987
+AgeGr80+                     59.76870    0.01673  49.47356   72.2062
+SexM                          1.47629    0.67737   1.41926    1.5356
+
+Concordance= 0.882  (se = 0.002 )
+Likelihood ratio test= 25120  on 48 df,   p=<2e-16
+Wald test            = 18323  on 48 df,   p=<2e-16
+Score (logrank) test = 43786  on 48 df,   p=<2e-16
+
+[[1]]
+ [1] "Immunityboost_001-061"       "Immunityboost_062-122"      
+ [3] "Immunityboost_123-183"       "Immunityboost_184-244"      
+ [5] "Immunityboost_245-305"       "Immunityboost_306-366"      
+ [7] "Immunityboost23_001-061"     "Immunityboost23_062-122"    
+ [9] "Immunityfull_062-122"        "Immunityfull_123-183"       
+[11] "Immunityfull_184-244"        "Immunityfull_245-305"       
+[13] "Immunityfull_306-366"        "Immunityhybridboost_001-061"
+[15] "Immunityhybridboost_062-122" "Immunityhybridboost_123-183"
+[17] "Immunityhybridboost_184-244" "Immunityhybridboost_245-305"
+[19] "Immunityhybridboost_306-366" "Immunityhybridfull_062-122" 
+[21] "Immunityhybridfull_123-183"  "Immunityhybridfull_184-244" 
+[23] "Immunityhybridfull_245-305"  "Immunityhybridfull_306-366" 
+[25] "Immunityinf_062-122"         "Immunityinf_123-183"        
+[27] "Immunityinf_184-244"         "Immunityinf_245-305"        
+[29] "Immunityinf_306-366"         "Immunityother"              
+[31] "Immunitysecboost_001-061"    "Immunitysecboost_062-122"   
+[33] "AgeGr0-11"                   "AgeGr12-15"                 
+[35] "AgeGr16-17"                  "AgeGr18-24"                 
+[37] "AgeGr25-29"                  "AgeGr30-34"                 
+[39] "AgeGr35-39"                  "AgeGr45-49"                 
+[41] "AgeGr50-54"                  "AgeGr55-59"                 
+[43] "AgeGr60-64"                  "AgeGr65-69"                 
+[45] "AgeGr70-74"                  "AgeGr75-79"                 
+[47] "AgeGr80+"                    "SexM"                       
+
+[[2]]
+[1] "beta"          "beta_CI_lower" "beta_CI_upper" "HR"           
+[5] "HR_CI_lower"   "HR_CI_upper"   "eff"           "eff_CI_upper" 
+[9] "eff_CI_lower" 
+
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+<div id="yszzopvpuf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+  <style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#yszzopvpuf .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#yszzopvpuf .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#yszzopvpuf .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#yszzopvpuf .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#yszzopvpuf .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#yszzopvpuf .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yszzopvpuf .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#yszzopvpuf .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#yszzopvpuf .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#yszzopvpuf .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#yszzopvpuf .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#yszzopvpuf .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#yszzopvpuf .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#yszzopvpuf .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#yszzopvpuf .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#yszzopvpuf .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#yszzopvpuf .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#yszzopvpuf .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yszzopvpuf .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#yszzopvpuf .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#yszzopvpuf .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yszzopvpuf .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#yszzopvpuf .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#yszzopvpuf .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yszzopvpuf .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yszzopvpuf .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#yszzopvpuf .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#yszzopvpuf .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yszzopvpuf .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#yszzopvpuf .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yszzopvpuf .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#yszzopvpuf .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yszzopvpuf .gt_left {
+  text-align: left;
+}
+
+#yszzopvpuf .gt_center {
+  text-align: center;
+}
+
+#yszzopvpuf .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#yszzopvpuf .gt_font_normal {
+  font-weight: normal;
+}
+
+#yszzopvpuf .gt_font_bold {
+  font-weight: bold;
+}
+
+#yszzopvpuf .gt_font_italic {
+  font-style: italic;
+}
+
+#yszzopvpuf .gt_super {
+  font-size: 65%;
+}
+
+#yszzopvpuf .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#yszzopvpuf .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#yszzopvpuf .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#yszzopvpuf .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#yszzopvpuf .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#yszzopvpuf .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#yszzopvpuf .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+  <table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;N&lt;/strong&gt;"><strong>N</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Event N&lt;/strong&gt;"><strong>Event N</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;HR&lt;/strong&gt; &lt;strong&gt;(95% CI)&lt;/strong&gt;&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>HR</strong> <strong>(95% CI)</strong><sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;p-value&lt;/strong&gt;"><strong>p-value</strong></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Immunity</td>
+<td headers="stat_n" class="gt_row gt_center"></td>
+<td headers="stat_nevent" class="gt_row gt_center"></td>
+<td headers="estimate" class="gt_row gt_center"></td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    _noimmunity</td>
+<td headers="stat_n" class="gt_row gt_center">2,184,789</td>
+<td headers="stat_nevent" class="gt_row gt_center">2661</td>
+<td headers="estimate" class="gt_row gt_center">—</td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_001-061</td>
+<td headers="stat_n" class="gt_row gt_center">112,910</td>
+<td headers="stat_nevent" class="gt_row gt_center">4</td>
+<td headers="estimate" class="gt_row gt_center">0.90 (0.34 to 2.41)</td>
+<td headers="p.value" class="gt_row gt_center">0.84</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_062-122</td>
+<td headers="stat_n" class="gt_row gt_center">1,383,067</td>
+<td headers="stat_nevent" class="gt_row gt_center">44</td>
+<td headers="estimate" class="gt_row gt_center">0.50 (0.37 to 0.68)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_123-183</td>
+<td headers="stat_n" class="gt_row gt_center">3,000,829</td>
+<td headers="stat_nevent" class="gt_row gt_center">358</td>
+<td headers="estimate" class="gt_row gt_center">0.52 (0.46 to 0.58)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_184-244</td>
+<td headers="stat_n" class="gt_row gt_center">3,063,315</td>
+<td headers="stat_nevent" class="gt_row gt_center">1457</td>
+<td headers="estimate" class="gt_row gt_center">0.58 (0.54 to 0.62)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_245-305</td>
+<td headers="stat_n" class="gt_row gt_center">2,947,864</td>
+<td headers="stat_nevent" class="gt_row gt_center">2459</td>
+<td headers="estimate" class="gt_row gt_center">0.65 (0.61 to 0.69)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_306-366</td>
+<td headers="stat_n" class="gt_row gt_center">2,591,661</td>
+<td headers="stat_nevent" class="gt_row gt_center">927</td>
+<td headers="estimate" class="gt_row gt_center">0.66 (0.61 to 0.71)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost23_001-061</td>
+<td headers="stat_n" class="gt_row gt_center">81,859</td>
+<td headers="stat_nevent" class="gt_row gt_center">10</td>
+<td headers="estimate" class="gt_row gt_center">0.37 (0.20 to 0.69)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;">0.002</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost23_062-122</td>
+<td headers="stat_n" class="gt_row gt_center">75,986</td>
+<td headers="stat_nevent" class="gt_row gt_center">3</td>
+<td headers="estimate" class="gt_row gt_center">0.19 (0.06 to 0.60)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;">0.005</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_062-122</td>
+<td headers="stat_n" class="gt_row gt_center">216,093</td>
+<td headers="stat_nevent" class="gt_row gt_center">9</td>
+<td headers="estimate" class="gt_row gt_center">0.81 (0.42 to 1.56)</td>
+<td headers="p.value" class="gt_row gt_center">0.52</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_123-183</td>
+<td headers="stat_n" class="gt_row gt_center">506,430</td>
+<td headers="stat_nevent" class="gt_row gt_center">51</td>
+<td headers="estimate" class="gt_row gt_center">1.04 (0.78 to 1.37)</td>
+<td headers="p.value" class="gt_row gt_center">0.80</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_184-244</td>
+<td headers="stat_n" class="gt_row gt_center">756,412</td>
+<td headers="stat_nevent" class="gt_row gt_center">130</td>
+<td headers="estimate" class="gt_row gt_center">0.97 (0.82 to 1.16)</td>
+<td headers="p.value" class="gt_row gt_center">0.76</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_245-305</td>
+<td headers="stat_n" class="gt_row gt_center">1,307,712</td>
+<td headers="stat_nevent" class="gt_row gt_center">145</td>
+<td headers="estimate" class="gt_row gt_center">0.81 (0.69 to 0.96)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;">0.017</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_306-366</td>
+<td headers="stat_n" class="gt_row gt_center">1,351,402</td>
+<td headers="stat_nevent" class="gt_row gt_center">163</td>
+<td headers="estimate" class="gt_row gt_center">0.82 (0.70 to 0.96)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;">0.016</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_001-061</td>
+<td headers="stat_n" class="gt_row gt_center">272,592</td>
+<td headers="stat_nevent" class="gt_row gt_center">8</td>
+<td headers="estimate" class="gt_row gt_center">0.24 (0.12 to 0.47)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_062-122</td>
+<td headers="stat_n" class="gt_row gt_center">1,642,730</td>
+<td headers="stat_nevent" class="gt_row gt_center">16</td>
+<td headers="estimate" class="gt_row gt_center">0.08 (0.05 to 0.13)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_123-183</td>
+<td headers="stat_n" class="gt_row gt_center">1,775,616</td>
+<td headers="stat_nevent" class="gt_row gt_center">31</td>
+<td headers="estimate" class="gt_row gt_center">0.08 (0.05 to 0.11)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_184-244</td>
+<td headers="stat_n" class="gt_row gt_center">1,552,590</td>
+<td headers="stat_nevent" class="gt_row gt_center">86</td>
+<td headers="estimate" class="gt_row gt_center">0.14 (0.11 to 0.18)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_245-305</td>
+<td headers="stat_n" class="gt_row gt_center">1,332,699</td>
+<td headers="stat_nevent" class="gt_row gt_center">76</td>
+<td headers="estimate" class="gt_row gt_center">0.16 (0.13 to 0.20)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_306-366</td>
+<td headers="stat_n" class="gt_row gt_center">933,167</td>
+<td headers="stat_nevent" class="gt_row gt_center">21</td>
+<td headers="estimate" class="gt_row gt_center">0.19 (0.13 to 0.30)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_062-122</td>
+<td headers="stat_n" class="gt_row gt_center">1,100,408</td>
+<td headers="stat_nevent" class="gt_row gt_center">7</td>
+<td headers="estimate" class="gt_row gt_center">0.18 (0.09 to 0.38)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_123-183</td>
+<td headers="stat_n" class="gt_row gt_center">1,600,636</td>
+<td headers="stat_nevent" class="gt_row gt_center">23</td>
+<td headers="estimate" class="gt_row gt_center">0.21 (0.14 to 0.32)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_184-244</td>
+<td headers="stat_n" class="gt_row gt_center">1,509,693</td>
+<td headers="stat_nevent" class="gt_row gt_center">36</td>
+<td headers="estimate" class="gt_row gt_center">0.18 (0.13 to 0.25)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_245-305</td>
+<td headers="stat_n" class="gt_row gt_center">1,289,292</td>
+<td headers="stat_nevent" class="gt_row gt_center">28</td>
+<td headers="estimate" class="gt_row gt_center">0.15 (0.10 to 0.22)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_306-366</td>
+<td headers="stat_n" class="gt_row gt_center">1,090,517</td>
+<td headers="stat_nevent" class="gt_row gt_center">21</td>
+<td headers="estimate" class="gt_row gt_center">0.19 (0.13 to 0.30)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_062-122</td>
+<td headers="stat_n" class="gt_row gt_center">758,112</td>
+<td headers="stat_nevent" class="gt_row gt_center">2</td>
+<td headers="estimate" class="gt_row gt_center">0.05 (0.01 to 0.19)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_123-183</td>
+<td headers="stat_n" class="gt_row gt_center">1,156,042</td>
+<td headers="stat_nevent" class="gt_row gt_center">20</td>
+<td headers="estimate" class="gt_row gt_center">0.18 (0.11 to 0.27)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_184-244</td>
+<td headers="stat_n" class="gt_row gt_center">1,156,793</td>
+<td headers="stat_nevent" class="gt_row gt_center">60</td>
+<td headers="estimate" class="gt_row gt_center">0.31 (0.24 to 0.41)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_245-305</td>
+<td headers="stat_n" class="gt_row gt_center">1,132,893</td>
+<td headers="stat_nevent" class="gt_row gt_center">34</td>
+<td headers="estimate" class="gt_row gt_center">0.22 (0.15 to 0.30)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_306-366</td>
+<td headers="stat_n" class="gt_row gt_center">1,077,692</td>
+<td headers="stat_nevent" class="gt_row gt_center">15</td>
+<td headers="estimate" class="gt_row gt_center">0.23 (0.14 to 0.39)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    other</td>
+<td headers="stat_n" class="gt_row gt_center">5,479,236</td>
+<td headers="stat_nevent" class="gt_row gt_center">1036</td>
+<td headers="estimate" class="gt_row gt_center">0.73 (0.68 to 0.79)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    secboost_001-061</td>
+<td headers="stat_n" class="gt_row gt_center">602,427</td>
+<td headers="stat_nevent" class="gt_row gt_center">170</td>
+<td headers="estimate" class="gt_row gt_center">0.27 (0.23 to 0.31)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    secboost_062-122</td>
+<td headers="stat_n" class="gt_row gt_center">510,434</td>
+<td headers="stat_nevent" class="gt_row gt_center">28</td>
+<td headers="estimate" class="gt_row gt_center">0.30 (0.21 to 0.44)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">AgeGr</td>
+<td headers="stat_n" class="gt_row gt_center"></td>
+<td headers="stat_nevent" class="gt_row gt_center"></td>
+<td headers="estimate" class="gt_row gt_center"></td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    _40-44</td>
+<td headers="stat_n" class="gt_row gt_center">3,935,836</td>
+<td headers="stat_nevent" class="gt_row gt_center">112</td>
+<td headers="estimate" class="gt_row gt_center">—</td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    0-11</td>
+<td headers="stat_n" class="gt_row gt_center">2,802,998</td>
+<td headers="stat_nevent" class="gt_row gt_center">469</td>
+<td headers="estimate" class="gt_row gt_center">1.71 (1.39 to 2.11)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    12-15</td>
+<td headers="stat_n" class="gt_row gt_center">1,935,242</td>
+<td headers="stat_nevent" class="gt_row gt_center">19</td>
+<td headers="estimate" class="gt_row gt_center">0.28 (0.17 to 0.46)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    16-17</td>
+<td headers="stat_n" class="gt_row gt_center">949,110</td>
+<td headers="stat_nevent" class="gt_row gt_center">19</td>
+<td headers="estimate" class="gt_row gt_center">0.69 (0.42 to 1.12)</td>
+<td headers="p.value" class="gt_row gt_center">0.13</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    18-24</td>
+<td headers="stat_n" class="gt_row gt_center">3,083,933</td>
+<td headers="stat_nevent" class="gt_row gt_center">45</td>
+<td headers="estimate" class="gt_row gt_center">0.47 (0.34 to 0.67)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    25-29</td>
+<td headers="stat_n" class="gt_row gt_center">2,486,114</td>
+<td headers="stat_nevent" class="gt_row gt_center">66</td>
+<td headers="estimate" class="gt_row gt_center">0.79 (0.58 to 1.07)</td>
+<td headers="p.value" class="gt_row gt_center">0.13</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    30-34</td>
+<td headers="stat_n" class="gt_row gt_center">3,037,271</td>
+<td headers="stat_nevent" class="gt_row gt_center">89</td>
+<td headers="estimate" class="gt_row gt_center">0.90 (0.68 to 1.20)</td>
+<td headers="p.value" class="gt_row gt_center">0.48</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    35-39</td>
+<td headers="stat_n" class="gt_row gt_center">3,257,063</td>
+<td headers="stat_nevent" class="gt_row gt_center">78</td>
+<td headers="estimate" class="gt_row gt_center">0.78 (0.59 to 1.04)</td>
+<td headers="p.value" class="gt_row gt_center">0.10</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    45-49</td>
+<td headers="stat_n" class="gt_row gt_center">4,360,188</td>
+<td headers="stat_nevent" class="gt_row gt_center">140</td>
+<td headers="estimate" class="gt_row gt_center">1.17 (0.91 to 1.50)</td>
+<td headers="p.value" class="gt_row gt_center">0.21</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    50-54</td>
+<td headers="stat_n" class="gt_row gt_center">3,359,668</td>
+<td headers="stat_nevent" class="gt_row gt_center">169</td>
+<td headers="estimate" class="gt_row gt_center">1.80 (1.41 to 2.28)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    55-59</td>
+<td headers="stat_n" class="gt_row gt_center">3,182,531</td>
+<td headers="stat_nevent" class="gt_row gt_center">235</td>
+<td headers="estimate" class="gt_row gt_center">2.54 (2.03 to 3.18)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    60-64</td>
+<td headers="stat_n" class="gt_row gt_center">2,820,960</td>
+<td headers="stat_nevent" class="gt_row gt_center">372</td>
+<td headers="estimate" class="gt_row gt_center">4.38 (3.55 to 5.41)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    65-69</td>
+<td headers="stat_n" class="gt_row gt_center">3,121,461</td>
+<td headers="stat_nevent" class="gt_row gt_center">815</td>
+<td headers="estimate" class="gt_row gt_center">8.45 (6.93 to 10.3)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    70-74</td>
+<td headers="stat_n" class="gt_row gt_center">2,951,573</td>
+<td headers="stat_nevent" class="gt_row gt_center">1433</td>
+<td headers="estimate" class="gt_row gt_center">16.0 (13.2 to 19.4)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    75-79</td>
+<td headers="stat_n" class="gt_row gt_center">2,172,671</td>
+<td headers="stat_nevent" class="gt_row gt_center">1963</td>
+<td headers="estimate" class="gt_row gt_center">30.8 (25.4 to 37.3)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    80+</td>
+<td headers="stat_n" class="gt_row gt_center">2,097,279</td>
+<td headers="stat_nevent" class="gt_row gt_center">4115</td>
+<td headers="estimate" class="gt_row gt_center">59.8 (49.5 to 72.2)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Sex</td>
+<td headers="stat_n" class="gt_row gt_center"></td>
+<td headers="stat_nevent" class="gt_row gt_center"></td>
+<td headers="estimate" class="gt_row gt_center"></td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    F</td>
+<td headers="stat_n" class="gt_row gt_center">23,359,093</td>
+<td headers="stat_nevent" class="gt_row gt_center">5081</td>
+<td headers="estimate" class="gt_row gt_center">—</td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    M</td>
+<td headers="stat_n" class="gt_row gt_center">22,194,805</td>
+<td headers="stat_nevent" class="gt_row gt_center">5058</td>
+<td headers="estimate" class="gt_row gt_center">1.48 (1.42 to 1.54)</td>
+<td headers="p.value" class="gt_row gt_center" style="font-weight: bold;"><0.001</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="5"><sup class="gt_footnote_marks">1</sup> HR = Hazard Ratio, CI = Confidence Interval</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+null device 
+          1 

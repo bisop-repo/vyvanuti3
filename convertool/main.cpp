@@ -161,7 +161,7 @@ struct variantrecord
   vector<string> enddates90;
 };
 
-enum evariant {evNA,evDelta,evBA12,evBA45, evOmicron, evAlpha, evBeta, evEarly, enumvariants};
+enum evariant {evNA,evDelta,evBA12,evBA45, evOmicron, evAlpha, evBeta, evEarly, ev2023, enumvariants};
 
 vector<variantrecord> variants
 {
@@ -169,10 +169,11 @@ vector<variantrecord> variants
     { "Delta", "Delta","Delta", "d", "DELTA",{"2021-07-19"}, {"2021-12-20"}},
     { "Omikron BA.1/2", "BA12", "BA12", "x", "OMICRON",{"2022-01-31"},{"2022-05-23"}},
     { "Omikron BA.4/5", "BA45", "BA45", "y", "OMICRON",{"2022-08-01"},{"2022-10-24"}},
-    { "Omikron", "Omicron", "Omicron", "o", "OMICRON",{"2022-05-24","2022-10-25"},{"2022-07-31","2023-06-30"}},
+    { "Omikron", "Omicron", "Omicron", "o", "OMICRON",{"2022-05-24"},{"2022-07-31"}},
     { "Alfa", "Alpha", "Alpha", "a", "ALPHA",{"2021-02-15"},{"2021-06-21"}},
     { "Beta", "Beta", "Beta", "b", "NA",{},{}},
-    { "$$$" /*never happens */, "Early", "Early", "e", "EARLY",{"2020-01-01"},{"2021-01-04"}}
+    { "$$$" /*never happens */, "Early", "Early", "e", "EARLY",{"2020-01-01"},{"2021-01-04"}},
+    { "$$$" /*never happens */, "2023", "2023", "z", "OMICRON",{"2022-10-25"},{"2023-12-31"}}
 };
 
 auto navariant = 0;
@@ -187,11 +188,15 @@ struct preprocessparams
     int secboosterstartdate = date2int("2022-07-18");
     int reinfstartdate = date2int("2020-04-01");
 
-
+    /// sensitivity parameters
     bool discernsecboosts = false;
 
     /// in number of covs
-    int secboostlatetreshold = 3;
+    int secboostlatedatetreshold = 9*31;
+    bool discern23boost = false;
+
+    bool checkzeroimmunitycovs = false;
+
 
     /// delay after the first, second, third and fourth shot takes effect
     int regulardelay = 14;
@@ -625,8 +630,7 @@ vector<statcounter> lccounts(numweeks);
         reldate disttofirst = maxreldate;
         unsigned relevantrecord;
 
-        reldate firstlongcoviddate = maxreldate;
-        unsigned firstlongcovidvariant = navariant;
+        reldate longcoviddate = maxreldate;
 
 
         unsigned oldi=i;
@@ -656,7 +660,6 @@ vector<statcounter> lccounts(numweeks);
             reldate relevantvaccdate = maxreldate;
             if(firstrecord)
             {
-
                 reldate firstvaccdate;
                 string firstvaccdatestr = data(j,PrvniDavka);
                 if(firstvaccdatestr == "")
@@ -757,6 +760,9 @@ vector<statcounter> lccounts(numweeks);
                         THROW("Wrong odering of shot dates.", break);
                     }
 
+                string longcoviddatestr = data(j,Long_COVID);
+                GETDATE(longcoviddate,longcoviddatestr,break);
+
             }
 
 
@@ -832,12 +838,7 @@ vector<statcounter> lccounts(numweeks);
                 string longcoviddatestr = data(j,Long_COVID);
                 if(longcoviddatestr != "")
                 {
-                    { GETDATE(longcoviddate,longcoviddatestr,break) }
-                    if(firstlongcoviddate == maxreldate || firstlongcoviddate+ppp.zerodate < ppp.firstdate)
-                    {
-                        firstlongcoviddate = longcoviddate;
-                        firstlongcovidvariant = v;
-                    }
+                    GETDATE(longcoviddate,longcoviddatestr,break)
                 }
                 else
                     longcoviddate = maxreldate;
@@ -937,7 +938,7 @@ if(longcovid)
                 age = stoul(agestr);
                 if(age < minage || age > maxage)
                 {
-                    THROWS("Age out of range", agestr,continue);
+                   continue;
                 }
                 if(deathcoviddate >= ppp.firstdate && deathotherdate>= ppp.firstdate)
                 {
@@ -969,6 +970,7 @@ if(longcovid)
             evaccorder order;
             unsigned vaccine;
             unsigned covno;
+            reldate vaccdate;
         };
 
 //         eseverity lastinfseverity = enotsevereorunknown;
@@ -984,7 +986,7 @@ if(longcovid)
         reldate enddate = T;
 
         if(mode == elongcovidevent)
-            enddate = min(enddate,firstlongcoviddate);
+            enddate = min(enddate,longcoviddate);
 
         enddate = min(min(deathcoviddate,deathotherdate),enddate);
         if(enddate <= 0)
@@ -992,10 +994,11 @@ if(longcovid)
             THROW("Censored berore study started", continue);
         }
         enum eimmunitystatus {enoimmunity, efullimmunity, eboostimmunity, esecboostimmunity,
-                              esecboostlateimmunity,
                               einfectedimmunity, einffullimmunity,efullinfimmunity,
                               einfboostimmunity,eboostinfimmunity,
-                              eotherimmunity, enumimunitystauses};
+                              einfsecboostimmunity,esecboostinfimmunity,
+                              eotherimmunity, enumregularimmunitystatusts = eotherimmunity,
+                              esecboostlateimmunity,eboost23immunity, enumimunitystauses};
         int currentinfstatus = 0;
 //        infectionrecord* lastinfection = 0;
 
@@ -1122,6 +1125,7 @@ if(id==52)
                      newvaccstatus.covno = 0;
                      newvaccstatus.order = firstdose;
                      newvaccstatus.vaccine = e.vac;
+                     newvaccstatus.vaccdate = nextvaccdate;
                      newimmunitystatus = eotherimmunity;
                  }
                  else if(e.vaccorder == finaldose)
@@ -1129,6 +1133,7 @@ if(id==52)
                      newvaccstatus.covno = 0;
                      newvaccstatus.order = finaldose;
                      newvaccstatus.vaccine = e.vac;
+                     newvaccstatus.vaccdate = nextvaccdate;
                      if(infectedont2 || currentinfstatus > 0)
                          newimmunitystatus = einffullimmunity;
                      else
@@ -1142,10 +1147,21 @@ if(id==52)
                      newvaccstatus.covno = 0;
                      newvaccstatus.order = firstbooster;
                      newvaccstatus.vaccine = e.vac;
+                     newvaccstatus.vaccdate = nextvaccdate;
                      if(infectedont2 || currentinfstatus > 0)
                          newimmunitystatus = einfboostimmunity;
                      else
-                         newimmunitystatus = eboostimmunity;
+                     {
+                         if(ppp.discern23boost)
+                         {
+                             if(nextvaccdate + ppp.firstdate < ppp.secboosterstartdate - 60)
+                                 newimmunitystatus = eboostimmunity;
+                             else
+                                 newimmunitystatus = eboost23immunity;
+                         }
+                         else
+                             newimmunitystatus = eboostimmunity;
+                     }
 
                  }
                  else if(e.vaccorder == secbooster)
@@ -1155,16 +1171,21 @@ if(id==52)
                      newvaccstatus.covno = 0;
                      newvaccstatus.order = secbooster;
                      newvaccstatus.vaccine = e.vac;
+                     newvaccstatus.vaccdate = nextvaccdate;
                      if(infectedont2 || currentinfstatus > 0)
-                         newimmunitystatus = eotherimmunity;
+                         newimmunitystatus = einfsecboostimmunity;
                      else
                      {
                          if(ppp.discernsecboosts)
                          {
-                             if(currentvaccstatus.covno < ppp.secboostlatetreshold )
+/*                             if(currentvaccstatus.covno < ppp.secboostlatetreshold )
                                  newimmunitystatus = esecboostimmunity;
                              else
-                                 newimmunitystatus = esecboostlateimmunity;
+                                 newimmunitystatus = esecboostlateimmunity;*/
+                             if(nextvaccdate - currentvaccstatus.vaccdate < ppp.secboostlatedatetreshold)
+                                  newimmunitystatus = esecboostimmunity;
+                              else
+                                  newimmunitystatus = esecboostlateimmunity;
                          }
                          else
                              newimmunitystatus = esecboostimmunity;
@@ -1199,7 +1220,6 @@ if(id==52)
                      switch(order)
                      {
                      case firstdose:
-                     case secbooster:
                          newimmunitystatus = eotherimmunity;
                          break;
                      case finaldose:
@@ -1207,6 +1227,9 @@ if(id==52)
                          break;
                      case firstbooster:
                          newimmunitystatus = eboostinfimmunity;
+                          break;
+                     case secbooster:
+                         newimmunitystatus = esecboostinfimmunity;
                           break;
                      default:
                          assert(0);
@@ -1250,7 +1273,7 @@ if(id==52)
 
              if(mode==elongcovidevent)
              {
-                 if(t2==firstlongcoviddate) // == enddate if less than the horizon
+                 if(t2==longcoviddate) // == enddate if less than the horizon
                  {
                      isevent = true;
                      longcovidevent = 1;
@@ -1273,7 +1296,7 @@ if(id==52)
                  if(currentimmunitystatus == enoimmunity)
                     immunitystring = noimmunitylabel;
                  else
-                     immunitystring = "other";
+                     immunitystring = "_other";
 
                  string infpriorstr;
                  if(currentinfstatus == 0)
@@ -1323,8 +1346,8 @@ if(id==52)
                          is << "hybridfull_";
                          break;
                      case eboostinfimmunity:
+                     case esecboostinfimmunity:
                          is <<  "hybridboost_";
-                         break;
                          break;
                      default:
                          fillimmunity = false;
@@ -1364,9 +1387,12 @@ if(id==52)
                      case efullimmunity:
                      case eboostimmunity:
                      case esecboostimmunity:
-                     case esecboostlateimmunity:
                      case einffullimmunity:
                      case einfboostimmunity:
+                     case einfsecboostimmunity:
+                     // sensitivity
+                     case esecboostlateimmunity:
+                     case eboost23immunity:
                          fillimmunity = true;
                          break;
                      default:
@@ -1393,12 +1419,16 @@ if(id==52)
                              is << "hybridboost";
                          else if(currentimmunitystatus == eboostimmunity)
                             is << "boost";
+                         else if(currentimmunitystatus == eboost23immunity)
+                             is << "boost23";
 
                          nc = ppp.numboostercovs;
                          break;
                      case secbooster:
                          os << "secboost";
-                         if(currentimmunitystatus == esecboostimmunity)
+                         if(currentimmunitystatus == einfsecboostimmunity)
+                             is << "hybridboost";
+                         else if(currentimmunitystatus == esecboostimmunity)
                              is << (ppp.discernsecboosts ? "secboostearly":"secboost");
                          else if(currentimmunitystatus == esecboostlateimmunity)
                              is << "secboostlate";
@@ -1445,6 +1475,13 @@ if(id==52)
 
                      if(ipr.events == 0 || vsr.events == 0 || ar.events == 0)
                          dooutput = false;
+                     if(ppp.checkzeroimmunitycovs)
+                     {
+                         covstatrecord ir = findcov(immunitystring ,stat.immunity);
+                         if(ir.events == 0)
+                             dooutput = false;
+                     }
+
                  }
 
                  string variantofinfstr = "";
@@ -1850,6 +1887,7 @@ int _main(int argc, char *argv[], bool testrun = false)
             ppp.isoutcome[evBA12] = true;
             ppp.isoutcome[evBA45] = true;
             ppp.isoutcome[evOmicron] = true;
+            ppp.isoutcome[ev2023] = true;
             cout << "All Omicrons as outcomes" << endl;
         }
         else if(argv[3][1] == 'E')
@@ -1858,7 +1896,14 @@ int _main(int argc, char *argv[], bool testrun = false)
             ppp.isoutcome[evBA12] = true;
             ppp.isoutcome[evBA45] = true;
             ppp.isoutcome[evOmicron] = true;
+            ppp.isoutcome[ev2023] = true;
             cout << "Delta and Omicrons as outcomes" << endl;
+        }
+        else if(argv[3][1] == 'F')
+        {
+            ppp.isoutcome[evBA45] = true;
+            ppp.isoutcome[ev2023] = true;
+            cout << "Omicrons since BA45 dominance" << endl;
         }
         else
         {
@@ -1920,7 +1965,17 @@ int _main(int argc, char *argv[], bool testrun = false)
         {
         case 'l':
             ppp.discernsecboosts = true;
+            ppp.checkzeroimmunitycovs = true;
             cout << "secboost previous vacc time discerned" << endl;
+            break;
+        case '2':
+            ppp.discern23boost = true;
+            ppp.checkzeroimmunitycovs = true;
+            cout << "Boosts simultaneous to secboosts discerned" << endl;
+            break;
+        case 'c':
+            ppp.checkzeroimmunitycovs = true;
+            cout << "Checking immunity covariates for zeros" << endl;
             break;
         default:
             cerr << "Unknown option " << argv[3][i] << endl;
@@ -2037,6 +2092,10 @@ int main(int argc, char *argv[])
 {
     double startt = time(0);
 
+    for(unsigned i=0; i<argc; i++)
+        cout << argv[i] << " ";
+    cout << endl;
+
     try
     {
         int testno = 0;
@@ -2048,36 +2107,36 @@ int main(int argc, char *argv[])
         }
 
         if(testno == 0)
-            return _main(argc,argv);
+            _main(argc,argv);
         else if(testno == 1)
         {
             char *as[6] ={"foo", "test_input_long_1.csv","test1_output.csv","xO",
                           "2022-01-01","2022-11-01"};
-            return _main(6,as,true);
+            _main(6,as,true);
         }
         else if(testno == 2)
         {
-            char *as[6] ={"foo", "test_input_long_1.csv","test2_output.csv","hO--l",
-                          "2022-07-01","2023-02-20"};
-            return _main(6,as,true);
+            char *as[6] ={"foo", "test_input_long_1.csv","test2_output.csv","eO-i",
+                          "2020-07-01","2022-09-30"};
+            _main(6,as,true);
         }
         else if(testno == 3)
         {
             char *as[6] ={"foo", "test_input_long_1.csv","test3_output.csv","cO",
                           "2021-12-01","2022-03-31"};
-            return _main(6,as,true);
+            _main(6,as,true);
         }
         else if(testno == 4)
         {
             char *as[6] ={"foo", "test_input_long_1.csv","test4_output.csv","iOgi",
                           "2021-12-01","2023-02-20"};
-            return _main(6,as,true);
+            _main(6,as,true);
         }
         else if(testno == 5)
         {
             char *as[6] ={"foo", "test_input_long_1.csv","test5_output.csv","cE",
                           "2021-12-01","2022-02-13"};
-            return _main(6,as,true);
+            _main(6,as,true);
         }
 
     }
