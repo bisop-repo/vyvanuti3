@@ -242,7 +242,6 @@ struct preprocessparams
     ///
     int hosplimit = 30;
 
-    int longcovidlimit = 183; // half a year
 
     /// if true, then only four age categories are used instead of the finer division
     bool fourages = false;
@@ -838,14 +837,6 @@ vector<statcounter> lccounts(numweeks);
                 }
                 else
                     upvecmodate = maxreldate;
-                reldate longcoviddate;
-                string longcoviddatestr = data(j,Long_COVID);
-                if(longcoviddatestr != "")
-                {
-                    GETDATE(longcoviddate,longcoviddatestr,break)
-                }
-                else
-                    longcoviddate = maxreldate;
 
                 bool hosp = (data(i,PrimPricinaHospCOVID)=="1" ||
                              ppp.ignorehospcovidflag) && hospdate - infdate <= ppp.hosplimit;
@@ -853,9 +844,10 @@ vector<statcounter> lccounts(numweeks);
                  ( data(i,PrimPricinaHospCOVID)=="1" || ppp.ignorehospcovidflag) &&
                         ((data(i,bin_Kyslik) == "1" && oxygendate - infdate <= ppp.hosplimit)
                                    || (data(j,bin_UPV_ECMO) == "1" && upvecmodate - infdate <= ppp.hosplimit)) ;
-                bool longcovid = longcoviddate < maxreldate && longcoviddate - infdate <= ppp.longcovidlimit && longcoviddate - infdate >= -10;
 //if(longcovid && longcoviddate < infdate)
 //    cout <<id << " - " << longcoviddatestr << " vs " << infdatestr << endl;
+if(id==407)
+    id = 407;
                 if(infections.size())
                 {
                      if(infdate <= infections[infections.size()-1].t)
@@ -877,19 +869,10 @@ vector<statcounter> lccounts(numweeks);
                 }
                 if((mode == einfections) ||
                     (mode == eseriouscovidproxy && proxy) ||
-                    (mode == ehospitalization && hosp) ||
-                    (mode == elongcovidinfection && longcovid))
+                    (mode == ehospitalization && hosp))
                     variantsfound[k].outcomes++;
-                infections.push_back({ infdate, v, k, hosp, proxy, longcovid });
-auto week = (infdate+ppp.firstdate-ppp.zerodate)/7;
-assert(week >= 0);
-assert(week < lccounts.size());
-assert(week < lclengths.size());
-lccounts[week].add(longcovid);
-if(longcovid)
-    lclengths[week].add(longcoviddate-infdate);
+                infections.push_back({ infdate, v, k, hosp, proxy, false });
             }
-
             string deathcoviddatestr = data(j,Umrti);
             if(deathcoviddatestr != "")
             {
@@ -918,6 +901,35 @@ if(longcovid)
         }
         if(throwthisid)
             continue;
+
+        bool longcovid = longcoviddate < maxreldate;
+
+        bool lcassigned = false;
+        if(longcovid && infections.size())
+        {
+            for(int j=infections.size()-1; j>=0; j--)
+            {
+                if(infections[j].t <= longcoviddate)
+                {
+                    infections[j].longcovid = true;
+                    lcassigned = true;
+                    break;
+                }
+            }
+        }
+
+        for(int j=infections.size()-1; j>=0; j--)
+        {
+            auto week = (infections[j].t+ppp.firstdate-ppp.zerodate)/7;
+            assert(week >= 0);
+            assert(week < lccounts.size());
+            assert(week < lclengths.size());
+            auto lc = infections[j].longcovid;
+            lccounts[week].add(lc);
+            if(lc)
+                lclengths[week].add(longcoviddate-infections[j].t);
+        }
+
 
         string gstr = data(oldi,pohlavi);
 
@@ -1020,8 +1032,7 @@ if(longcovid)
 //cout << "id " << id << " infs " << infections.size() << " vaccs " << vaccinations.size() << endl ;
 //  bool debug = (id % 100) == 0;
 
-if(id==52)
-    id = 52;
+
         for(;;)
          {
              unsigned newinfstatus = currentinfstatus;
@@ -2029,8 +2040,6 @@ int _main(int argc, char *argv[], bool testrun = false)
 
     if(mode == eseriouscovidproxy || mode == ehospitalization)
         ppp.lastdate -= ppp.hosplimit;
-    else if(mode == elongcovidinfection)
-        ppp.lastdate -= ppp.longcovidlimit;
 
     cout << "Input " << argv[1] << endl;
 
@@ -2131,8 +2140,8 @@ int main(int argc, char *argv[])
         }
         else if(testno == 3)
         {
-            char *as[6] ={"foo", "test_input_long_1.csv","test3_output.csv","e!-ic",
-                          "2020-06-01", "2022-09-30"};
+            char *as[6] ={"foo", "test_input_long_1.csv","test3_output.csv","l!-ic",
+                          "2020-01-01", "2022-09-30"};
             _main(6,as,true);
         }
         else if(testno == 4)
