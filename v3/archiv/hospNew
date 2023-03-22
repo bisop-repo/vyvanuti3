@@ -1,0 +1,6 @@
+#!/bin/bash
+#Initialization
+
+./cox HospNew hF-i 2022-07-01 2023-02-20 Hospitalized Immunity
+
+echo 'Group done'

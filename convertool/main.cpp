@@ -234,8 +234,8 @@ struct preprocessparams
 
     int numsecboostercovs = 2;
 
-    int maxvacccovs = 7;
-    int maxinfcovs = 7;
+    int maxvacccovs = 10;
+    int maxinfcovs = 10;
 
 
     /// time after the test for the treatment to be assigned to the test
@@ -256,8 +256,11 @@ struct preprocessparams
     /// using supcategory rather than codeincovariate
     bool generalvariants = false;
 
+
     ///
     bool useintervalsofdominance = false;
+
+    bool ignorehospcovidflag = false;
 
     /// Inputs that should be provided
 
@@ -761,7 +764,8 @@ vector<statcounter> lccounts(numweeks);
                     }
 
                 string longcoviddatestr = data(j,Long_COVID);
-                GETDATE(longcoviddate,longcoviddatestr,break);
+                if(longcoviddatestr != "")
+                    GETDATE(longcoviddate,longcoviddatestr,break);
 
             }
 
@@ -843,9 +847,10 @@ vector<statcounter> lccounts(numweeks);
                 else
                     longcoviddate = maxreldate;
 
-                bool hosp = data(i,PrimPricinaHospCOVID)=="1" && hospdate - infdate <= ppp.hosplimit;
+                bool hosp = (data(i,PrimPricinaHospCOVID)=="1" ||
+                             ppp.ignorehospcovidflag) && hospdate - infdate <= ppp.hosplimit;
                 bool proxy = 
-                // data(i,PrimPricinaHospCOVID)=="1" &&
+                 ( data(i,PrimPricinaHospCOVID)=="1" || ppp.ignorehospcovidflag) &&
                         ((data(i,bin_Kyslik) == "1" && oxygendate - infdate <= ppp.hosplimit)
                                    || (data(j,bin_UPV_ECMO) == "1" && upvecmodate - infdate <= ppp.hosplimit)) ;
                 bool longcovid = longcoviddate < maxreldate && longcoviddate - infdate <= ppp.longcovidlimit && longcoviddate - infdate >= -10;
@@ -1977,6 +1982,10 @@ int _main(int argc, char *argv[], bool testrun = false)
             ppp.checkzeroimmunitycovs = true;
             cout << "Checking immunity covariates for zeros" << endl;
             break;
+        case 'n':
+            ppp.ignorehospcovidflag = true;
+            cout << "Not using confirmation of covid as a reason for hospitalization" << endl;
+            break;
         default:
             cerr << "Unknown option " << argv[3][i] << endl;
             throw;
@@ -2100,7 +2109,7 @@ int main(int argc, char *argv[])
     {
         int testno = 0;
         if(argc == 1)
-            testno = 2;
+            testno = 3;
         if(argc == 2)
         {
             testno = argv[1][0] - '1' + 1;
@@ -2122,8 +2131,8 @@ int main(int argc, char *argv[])
         }
         else if(testno == 3)
         {
-            char *as[6] ={"foo", "test_input_long_1.csv","test3_output.csv","cO",
-                          "2021-12-01","2022-03-31"};
+            char *as[6] ={"foo", "test_input_long_1.csv","test3_output.csv","e!-ic",
+                          "2020-06-01", "2022-09-30"};
             _main(6,as,true);
         }
         else if(testno == 4)
