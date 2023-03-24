@@ -362,7 +362,7 @@ dev.off()
 #### TABULKY - HR a VE ####
 
 # # HR - pomer rizik
-# m1_cox_HR_plot <- tbl_regression(m1_cox, exponentiate = T) %>% 
+m1_cox_HR_plot <- tbl_regression(m1_cox, exponentiate = T)# %>% 
 #   bold_p() %>% bold_labels() %>% 
 #   add_n(location = "level") %>% 
 #   add_nevent(location = "level")
