@@ -361,14 +361,14 @@ dev.off()
 
 #### TABULKY - HR a VE ####
 
-# HR - pomer rizik
-m1_cox_HR_plot <- tbl_regression(m1_cox, exponentiate = T) %>% 
-  bold_p() %>% bold_labels() %>% 
-  add_n(location = "level") %>% 
-  add_nevent(location = "level")
-m1_cox_HR_plot
-
-gt::gtsave(as_gt(m1_cox_HR_plot), file = "m1_cox_HR_plot.png")
+# # HR - pomer rizik
+# m1_cox_HR_plot <- tbl_regression(m1_cox, exponentiate = T) %>% 
+#   bold_p() %>% bold_labels() %>% 
+#   add_n(location = "level") %>% 
+#   add_nevent(location = "level")
+# m1_cox_HR_plot
+# 
+# gt::gtsave(as_gt(m1_cox_HR_plot), file = "m1_cox_HR_plot.png")
 
 # Forest plot - pomer rizik
 forest_plot <- m1_cox_HR_plot %>%
@@ -382,13 +382,13 @@ dev.off()
 
 # VE - vakcinacna efektivita
 
-if (f.input.covariates == "InfPrior + VaccStatus") {
-  include <- c("InfPrior", "VaccStatus") 
-  } else if (f.input.covariates == "Immunity") {
-    include <- f.input.covariates
-  } else {include <- NA
-    }
-# 
+# if (f.input.covariates == "InfPrior + VaccStatus") {
+#   include <- c("InfPrior", "VaccStatus") 
+#   } else if (f.input.covariates == "Immunity") {
+#     include <- f.input.covariates
+#   } else {include <- NA
+#     }
+# # 
 # m1_cox_VE_plot <- tbl_regression(m1_cox, include = include, 
 #                                  estimate_fun = function(x) {round(1 - exp(x) , 2)}, 
 #                                  conf.int = F) %>% 
@@ -401,26 +401,26 @@ if (f.input.covariates == "InfPrior + VaccStatus") {
 # m1_cox_VE_plot
 
 # packageVersion("gtsummary")
-
-m1_cox_VE_plot <- m1_cox |> 
-  tbl_regression(include = include, estimate_fun = function(x) style_ratio(1 - exp(x), 2)) |> 
-  modify_column_hide(ci) |>                                   # hide the current confidence interval
-  modify_column_merge(pattern = "({conf.high}, {conf.low})") |> # re-construct a CI reversing the order
-  bold_p() %>% bold_labels() %>% 
-  add_n(location = "level") %>%
-  add_nevent(location = "level") %>%
-  modify_header(                                              # update the headers to match the new estimates
-    conf.high = "**95% CI**",
-    estimate = "**VE**"
-  ) |> 
-  modify_footnote(                                            # update the abbreviation footnotes
-    estimate = "VE = Vaccine Effectiveness",
-    conf.high = "CI = Confidence Interval",
-    abbreviation = TRUE
-  ) 
-m1_cox_VE_plot
-
-gt::gtsave(as_gt(m1_cox_VE_plot), file = "m1_cox_VE_plot.png")
+# 
+# m1_cox_VE_plot <- m1_cox |> 
+#   tbl_regression(include = include, estimate_fun = function(x) style_ratio(1 - exp(x), 2)) |> 
+#   modify_column_hide(ci) |>                                   # hide the current confidence interval
+#   modify_column_merge(pattern = "({conf.high}, {conf.low})") |> # re-construct a CI reversing the order
+#   bold_p() %>% bold_labels() %>% 
+#   add_n(location = "level") %>%
+#   add_nevent(location = "level") %>%
+#   modify_header(                                              # update the headers to match the new estimates
+#     conf.high = "**95% CI**",
+#     estimate = "**VE**"
+#   ) |> 
+#   modify_footnote(                                            # update the abbreviation footnotes
+#     estimate = "VE = Vaccine Effectiveness",
+#     conf.high = "CI = Confidence Interval",
+#     abbreviation = TRUE
+#   ) 
+# m1_cox_VE_plot
+# 
+# gt::gtsave(as_gt(m1_cox_VE_plot), file = "m1_cox_VE_plot.png")
 
 # ggforest(m1_cox, data = data, fontsize = 1)
 # gsave("m1_cox_risks_log.jpg", units = "px", width = 3840, height = 3840)
