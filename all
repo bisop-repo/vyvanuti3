@@ -1,0 +1,9 @@
+#!/bin/bash
+
+./proxyNew
+./hospNew
+./proxyBA12
+./hospBA12
+./lcall
+
+

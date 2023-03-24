@@ -9,7 +9,7 @@ args <- commandArgs(trailingOnly=TRUE)
 # 3. Covariates: InfPrior + VaccStatus nebo Immunity
 
 # šířka grafů křivek vyvanutí
-plot_width <- 400
+plot_width <- 550
 
 
 #### NACITANIE BALICKOV ####

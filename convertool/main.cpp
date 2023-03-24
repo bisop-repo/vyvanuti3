@@ -261,6 +261,9 @@ struct preprocessparams
 
     bool ignorehospcovidflag = false;
 
+    bool discern45booster = false;
+    string abbrev45 = "PO4";
+
     /// Inputs that should be provided
 
     /// start of the sutedy (time 0)
@@ -1015,7 +1018,7 @@ if(id==407)
                               einfboostimmunity,eboostinfimmunity,
                               einfsecboostimmunity,esecboostinfimmunity,
                               eotherimmunity, enumregularimmunitystatusts = eotherimmunity,
-                              esecboostlateimmunity,eboost23immunity, enumimunitystauses};
+                              esecboostaltimmunity,eboostaltimmunity, enumimunitystauses};
         int currentinfstatus = 0;
 //        infectionrecord* lastinfection = 0;
 
@@ -1173,7 +1176,14 @@ if(id==407)
                              if(nextvaccdate + ppp.firstdate < ppp.secboosterstartdate - 60)
                                  newimmunitystatus = eboostimmunity;
                              else
-                                 newimmunitystatus = eboost23immunity;
+                                 newimmunitystatus = eboostaltimmunity;
+                         }
+                         else if(ppp.discern45booster)
+                         {
+                              if(vaccines[e.vac].abbrev == ppp.abbrev45)
+                                  newimmunitystatus = eboostaltimmunity;
+                              else
+                                  newimmunitystatus = eboostimmunity;
                          }
                          else
                              newimmunitystatus = eboostimmunity;
@@ -1194,14 +1204,17 @@ if(id==407)
                      {
                          if(ppp.discernsecboosts)
                          {
-/*                             if(currentvaccstatus.covno < ppp.secboostlatetreshold )
-                                 newimmunitystatus = esecboostimmunity;
-                             else
-                                 newimmunitystatus = esecboostlateimmunity;*/
                              if(nextvaccdate - currentvaccstatus.vaccdate < ppp.secboostlatedatetreshold)
                                   newimmunitystatus = esecboostimmunity;
                               else
-                                  newimmunitystatus = esecboostlateimmunity;
+                                  newimmunitystatus = esecboostaltimmunity;
+                         }
+                         else if(ppp.discern45booster)
+                         {
+                             if(vaccines[e.vac].abbrev == ppp.abbrev45)
+                                 newimmunitystatus = esecboostaltimmunity;
+                             else
+                                 newimmunitystatus = esecboostimmunity;
                          }
                          else
                              newimmunitystatus = esecboostimmunity;
@@ -1407,8 +1420,8 @@ if(id==407)
                      case einfboostimmunity:
                      case einfsecboostimmunity:
                      // sensitivity
-                     case esecboostlateimmunity:
-                     case eboost23immunity:
+                     case esecboostaltimmunity:
+                     case eboostaltimmunity:
                          fillimmunity = true;
                          break;
                      default:
@@ -1435,8 +1448,8 @@ if(id==407)
                              is << "hybridboost";
                          else if(currentimmunitystatus == eboostimmunity)
                             is << "boost";
-                         else if(currentimmunitystatus == eboost23immunity)
-                             is << "boost23";
+                         else if(currentimmunitystatus == eboostaltimmunity)
+                             is << (ppp.discern45booster ? "boost45":"boost23");
 
                          nc = ppp.numboostercovs;
                          break;
@@ -1446,8 +1459,8 @@ if(id==407)
                              is << "hybridboost";
                          else if(currentimmunitystatus == esecboostimmunity)
                              is << (ppp.discernsecboosts ? "secboostearly":"secboost");
-                         else if(currentimmunitystatus == esecboostlateimmunity)
-                             is << "secboostlate";
+                         else if(currentimmunitystatus == esecboostaltimmunity)
+                             is << (ppp.discern45booster ? "secboost45":"secboostlate");
                          else
                              fillimmunity = false;
                          nc = ppp.numsecboostercovs;
@@ -1997,6 +2010,10 @@ int _main(int argc, char *argv[], bool testrun = false)
             ppp.ignorehospcovidflag = true;
             cout << "Not using confirmation of covid as a reason for hospitalization" << endl;
             break;
+        case 'b':
+            ppp.discern45booster = true;
+            cout << "Discerning BA45 booster" << endl;
+            break;
         default:
             cerr << "Unknown option " << argv[3][i] << endl;
             throw;
@@ -2060,7 +2077,7 @@ int _main(int argc, char *argv[], bool testrun = false)
 
     ppp.numsecboostercovs = max(0,(ppp.lastdate-ppp.secboosterstartdate)/ppp.regularcovvaccduration + 2);
     ppp.numsecboostercovs = min(ppp.numboostercovs, ppp.maxvacccovs );
-    cout << "Number of VaccStatusBoost covariates: " << ppp.numboostercovs  << endl;
+    cout << "Number of VaccStatusSecBoost covariates: " << ppp.numsecboostercovs  << endl;
 
     csv<','> data(argv[1]);
     covstat stat;
