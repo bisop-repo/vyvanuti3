@@ -75,6 +75,18 @@ m1_cox <- coxph(f.input,  data = data)
 
 summary(m1_cox)
 
+#### export varianční matice
+
+cov <- m1_cox$var
+names <- names(m1_cox$coefficients)
+V_matrix <- data.frame(cov)
+names(V_matrix) <- names
+V_matrix <- cbind(names, V_matrix)
+write_csv(V_matrix,"Cov_variance.csv")
+print("Variance matrix  been saved (csv).")
+
+
+
 #### VYTVORENIE TABULKY ####
 
 df <- data.frame(
