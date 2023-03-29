@@ -100,78 +100,217 @@ and the estimate
 \end_inset
 
 .
+ Asymptotically, 
+\begin_inset Formula $b\sim\mathcal{N}(\beta,V)$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection*
 1.
- Average covariate change
+ Average covariate change - trend in covariates 
 \end_layout
 
 \begin_layout Standard
-Say that 
+Let 
 \begin_inset Formula $\beta_{1},\dots,\beta_{n}$
 \end_inset
 
- form a time series and our goal is to estimate its average decrease 
-\begin_inset Formula $\delta=\frac{1}{n-1}\sum_{i=1}^{n-1}(\beta_{i}-\beta_{i+1})=\frac{1}{n-1}(\beta_{1}-\beta_{n})$
+ be a series of coefficients (HRs) corresponding to a certain source of
+ immunity where the index stands for time distance from the instant of obtaining
+ the immunity.
+ Denote 
+\begin_inset Formula $\eta_{t}=\exp\{\beta_{t}\}$
+\end_inset
+
+, 
+\begin_inset Formula $h_{t}=\exp\{b_{t}\}$
+\end_inset
+
+ the corresponding hazard ratios.
+ Asymptotically by Delta Theorem
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+https://www.jepusto.com/multivariate-delta-method/)
+\end_layout
+
+\end_inset
+
+ and Continuous mapping theorem 
+\begin_inset Formula 
+\[
+\mathrm{var}(h)\doteq W_{n}:=T'V_{n}T,\qquad T=\mathrm{\mathrm{diag}}(\exp\{b_{1}\},\dots,\exp\{b_{n}\})
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $V_{n}$
+\end_inset
+
+ is a corresponding sub-matrix of 
+\begin_inset Formula $V$
 \end_inset
 
 .
- Its natural (ML) estimator is 
+ We assume a linear trend in 
+\begin_inset Formula $\eta$
+\end_inset
+
+,, i.e.
+ 
 \begin_inset Formula 
 \[
-d=\frac{1}{1-n}(b_{1}-b_{n})=kb,\qquad k=\left[\begin{array}{c}
-\frac{1}{1-n}\\
-0_{n-2}\\
--\frac{1}{1-n}\\
-0
+h_{t}=\eta_{0}+\delta t+\epsilon_{t},\qquad\mathrm{var}(\epsilon)\doteq W.
+\]
+
+\end_inset
+
+Teh GLS estimates 
+\begin_inset Formula $(v,d)$
+\end_inset
+
+' of the estimate of (
+\begin_inset Formula $\eta_{0},\delta)$
+\end_inset
+
+' is given by 
+\begin_inset Formula 
+\[
+\left[\begin{array}{c}
+v\\
+d
+\end{array}\right]=(X'W^{-1}X)^{-1}XW^{-1}b,\qquad X=\left[\begin{array}{cc}
+1 & 1\\
+1 & 2\\
+\vdots & \vdots\\
+1 & n
 \end{array}\right]
 \]
 
 \end_inset
 
-with variance 
-\begin_inset Formula $k'Vk$
+with 
+\begin_inset Formula 
+\[
+\mathrm{var}\left[\begin{array}{c}
+v\\
+d
+\end{array}\right]=(X'W^{-1}X)^{-1}
+\]
+
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Subsubsection*
-1.
- Average covariate change
+3.
+ Comparison of immunities
 \end_layout
 
 \begin_layout Standard
-Say that we want to compare 
-\begin_inset Formula $\beta_{1},\dots,\beta_{n}$
+Say that we want to compare HR's 
+\begin_inset Formula $\eta_{1},\dots,\eta_{n}$
 \end_inset
 
  with another vector, say 
-\begin_inset Formula $\beta_{n+1},\dots,\beta_{2n}.$
+\begin_inset Formula $\eta_{n+1},\dots,\eta_{2n}$
 \end_inset
 
-The average difference can be estimated by 
-\end_layout
-
-\begin_layout Standard
+ and assume both follow a linear trend as above, so 
 \begin_inset Formula 
 \[
-e=\frac{1}{n}\sum_{i=1}^{n}(b_{i}-b_{n+i})=mb,\qquad m=\left[\begin{array}{c}
-\frac{1}{n}\\
-\vdots\\
-\frac{1}{n}\\
--\frac{1}{n}\\
-\vdots\\
--\frac{1}{n}\\
-0
-\end{array}\right]
+h_{t}-h_{n+t}=\omega+\alpha t+\epsilon,\qquad\alpha=\delta_{1}-\delta_{2},
 \]
 
 \end_inset
 
-And, again, variance is 
-\begin_inset Formula $m'Vm.$
+Our goal is the estimate 
+\begin_inset Formula $\Delta=\frac{1}{n}\sum_{t=1}^{n}(\mathbb{E}h_{t}-\mathbb{E}h_{n+t})=\omega+\frac{1}{n}\sum_{t=1}^{n}\alpha t=\omega+\frac{1}{n}\alpha\sum_{t=1}^{n}t$
+\end_inset
+
+.
+ Denote 
+\begin_inset Formula $r=\left[\begin{array}{c}
+h_{1}-h_{n+1}\\
+\vdots\\
+h_{n}-h_{2n}
+\end{array}\right].$
+\end_inset
+
+ As 
+\begin_inset Formula $r=T\left[\begin{array}{c}
+h_{1}\\
+\vdots\\
+h_{2n}
+\end{array}\right]$
+\end_inset
+
+, where 
+\begin_inset Formula $T=\left[\begin{array}{cccccc}
+1 & \cdots & 0 & -1 & \cdots & 0\\
+\vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
+0 & \cdots & 1 & 0 & \cdots & -1
+\end{array}\right]$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathrm{var}(r)=U:=TWT',
+\]
+
+\end_inset
+
+ we have that the GLS estimate 
+\begin_inset Formula $(g,a)$
+\end_inset
+
+ of 
+\begin_inset Formula $(\omega,\alpha)$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\left[\begin{array}{c}
+g\\
+a
+\end{array}\right]=(X'U^{-1}X)^{-1}XU^{-1}r,
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula 
+\[
+\mathrm{var}\left[\begin{array}{c}
+g\\
+a
+\end{array}\right]=(X'U^{-1}X)^{-1}
+\]
+
+\end_inset
+
+ hence the estimate of 
+\begin_inset Formula $D$
+\end_inset
+
+ of 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+D=g+\frac{1}{n}a\sum_{t=1}^{n}t,\qquad\mathrm{var}(D)=Z(X'U^{-1}X)^{-1}Z',\qquad Z=\left[\begin{array}{cc}
+1, & \frac{1}{n}\sum_{t=1}^{n}t\end{array}\right]
+\]
+
 \end_inset
 
 
