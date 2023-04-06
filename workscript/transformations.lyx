@@ -188,7 +188,7 @@ Teh GLS estimate of (
 \left[\begin{array}{c}
 v\\
 d
-\end{array}\right]=(X'W^{-1}X)^{-1}XW^{-1}h,\qquad X=\left[\begin{array}{cc}
+\end{array}\right]=(X'W^{-1}X)^{-1}X'W^{-1}h,\qquad X=\left[\begin{array}{cc}
 1 & t_{1}\\
 1 & t_{2}\\
 \vdots & \vdots\\
@@ -294,7 +294,7 @@ The GLS estimator of
  is 
 \begin_inset Formula 
 \[
-r=(1_{n}'U^{-1}1_{n})^{-1}1_{n}U^{-1}(h-k)
+r=(1_{n}'U^{-1}1_{n})^{-1}1'_{n}U^{-1}(h-k)
 \]
 
 \end_inset
