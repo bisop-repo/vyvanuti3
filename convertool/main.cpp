@@ -1039,6 +1039,7 @@ if(id==407)
 //cout << "id " << id << " infs " << infections.size() << " vaccs " << vaccinations.size() << endl ;
 //  bool debug = (id % 100) == 0;
 
+        string immunityatinfstring = "";
 
         for(;;)
          {
@@ -1134,6 +1135,7 @@ if(id==407)
                  newinfstatus++;
 
              bool infectedont2 = t2 == nextinfdate;
+
              bool vaccinatedont2 = t2 == nextvaccdate;
 
              if(vaccinatedont2)
@@ -1534,6 +1536,8 @@ if(id==407)
                  }
                  if(dooutput)
                  {
+                     if(infected)
+                         immunityatinfstring = immunitystring;
                      string longcovidstr = "";
                      if(mode == elongcovidevent)
                          longcovidstr = longcovidevent ? "1" : "0";
@@ -1557,7 +1561,8 @@ if(id==407)
                         os << ",";
                      os << deadbycovid  << "," << deadbyother << ",";
                      os << variantofinfstr << "," << infpriorstr << ","
-                        << vaccstring << "," << immunitystring << ","
+                        << vaccstring << ","
+                        << (mode == elongcovidevent ? immunityatinfstring : immunitystring) << ","
                         << age << "," << grouplabel(agegroup) << ","
                         << gender2str(male)
                         << ",,";   // tbd add lastvacctime and infpriortime
@@ -1727,7 +1732,8 @@ if(id==407)
     //                         header << " InfPrior,VaccStatus,Immunity,Age,AgeGr,Sex";
 
                             o << uninflabel << "," << unvacclabel << ","
-                              << noimmunitylabel << ","
+                              << (mode == elongcovidevent ? noimmunitylabel : "") << ","
+                              << ","
                               << a << ","
                               << agelabel << "," << gender2str(m)
                               << ",,"<< endl;
@@ -2161,7 +2167,7 @@ int main(int argc, char *argv[])
         }
         else if(testno == 3)
         {
-            char *as[6] ={"foo", "../data/data_20230329.csv","test3_output.csv","l!-ic",
+            char *as[6] ={"foo", "test_input_long_1.csv","test3_output.csv","e!-ic",
                           "2020-01-01", "2022-09-30"};
             _main(6,as,true);
         }
