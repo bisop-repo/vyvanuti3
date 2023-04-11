@@ -1,6 +1,7 @@
 #### VOLBA PARAMETROV SKRIPTU ####
 rm(list = ls())
-args <- c("zzz.csv", "Infected", "InfPrior + VaccStatus")
+args <-  commandArgs(trailingOnly=TRUE)
+# args <- c("zzz.csv", "Infected", "InfPrior + VaccStatus")
 
 # args <- c("Input", "Outcome", "Covariates"), kde: 
 # 1. Input: zdrojovej csv soubor 

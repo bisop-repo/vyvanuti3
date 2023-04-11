@@ -101,7 +101,7 @@ hybridboost_062-122,999872,37
 hybridboost_123-183,1604763,24
 hybridboost_184-244,1759352,78
 hybridboost_245-305,1403820,102
-boost_062-122,188431,11
+boost_062-122,179018,11
 boost_123-183,1431822,55
 boost_184-244,3002665,668
 boost_245-305,2950869,2294
@@ -135,7 +135,9 @@ inf_001-061,101391,0
 full_123-183,210301,18
 inf_489-549,264973,12
 hybridboost_428-488,25577,3
-boost_001-061,97784,14
+boost_001-061,84368,14
+boost45_001-061,13416,0
+boost45_062-122,9413,0
 full_001-061,10897,0
 full_062-122,32736,1
 secboost45_123-183,1,0
@@ -158,7 +160,7 @@ _40-44,3695004,109
 70-74,2637952,1564
 55-59,2962851,252
 
-covs (immunity version)=52 (67), events=10964, eventspercov=210.856(163.649)
+covs (immunity version)=52 (69), events=10964, eventspercov=210.856(158.906)
 Writing to rinput.csv
 Importing from input, total 9020732 records.
 Processing records from input, excluding inconsistent records:
@@ -254,7 +256,7 @@ hybridboost_062-122,999872,37
 hybridboost_123-183,1604763,24
 hybridboost_184-244,1759352,78
 hybridboost_245-305,1403820,102
-boost_062-122,188431,11
+boost_062-122,179018,11
 boost_123-183,1431822,55
 boost_184-244,3002665,668
 boost_245-305,2950869,2294
@@ -286,7 +288,7 @@ _noimmunity,62806,2842
 full_123-183,210301,18
 inf_489-549,264973,12
 hybridboost_428-488,25577,3
-boost_001-061,97784,14
+boost_001-061,84368,14
 full_062-122,32736,1
 
 agegr,N,events
@@ -308,4 +310,4 @@ _40-44,3695004,109
 55-59,2962851,252
 
 covs (immunity version)=49 (63), events=10964, eventspercov=223.765(174.04)
-time: 634 seconds.
+time: 633 seconds.
