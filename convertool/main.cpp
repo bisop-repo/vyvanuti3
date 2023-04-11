@@ -364,11 +364,11 @@ covstatrecord findcov(const string cov, const vector<covstatrecord>& s)
         if(cov == s[i].label)
             return s[i];
     }
-    cerr << "Cannot find covariate label " << cov << " in list" << endl;
+    cout << "Cannot find covariate label " << cov << " in list" << endl;
     throw;
 }
 
-void ockodata2R(csv<','>& data, string outputlabel,
+void ockodata2R(csv<';'>& data, string outputlabel,
                 bool dostat,
                 covstat& stat,
                 o2rmodes mode,
@@ -386,21 +386,21 @@ void ockodata2R(csv<','>& data, string outputlabel,
     ofstream o(output);
     if(!o)
     {
-        cerr << "Cannot open " + output << endl;
+        cout << "Cannot open " + output << endl;
         throw;
     }
 
     ofstream oe(output + ".events.csv");
     if(!oe)
     {
-        cerr << "Cannot open " + output + ".events.csv" << endl;
+        cout << "Cannot open " + output + ".events.csv" << endl;
         throw;
     }
 
     ofstream ou(output + ".unprocessed.csv");
     if(!ou)
     {
-        cerr << "Cannot open " + output + ".unprocessed.csv" << endl;
+        cout << "Cannot open " + output + ".unprocessed.csv" << endl;
         throw;
     }
 
@@ -410,7 +410,7 @@ void ockodata2R(csv<','>& data, string outputlabel,
 /*    ofstream tex(output + ".tex");
     if(!tex)
     {
-       cerr << "Cannot open " + output + ".tex" << endl;
+       cout << "Cannot open " + output + ".tex" << endl;
        throw;
     }*/
 
@@ -436,11 +436,15 @@ void ockodata2R(csv<','>& data, string outputlabel,
 
     static vector<string> labels = {
        "PripadId",   "ID", "NovyHash",	"infekce",	"pohlavi",	"vek",	"Kraj_bydliste",	"ORP_Bydliste",	"Datum_pozitivity",	"DatumVysledku",	"Vylecen",	"Umrti",	"symptom",	"typ_testu",	"PrvniDavka",	"DruhaDavka",	"Ukoncene_ockovani",	"Extra_davka",	"Druha_extra_davka",	"OckovaciLatkaKod1",	"OckovaciLatkaKod2",	"OckovaciLatkaKod3",	"OckovaciLatkaKod4", "PrimPricinaHospCOVID",
-       "bin_Hospitalizace",	"min_Hospitalizace",	"dni_Hospitalizace",	"max_Hospitalizace",	"bin_JIP",	"min_JIP",	"dni_JIP",	"max_JIP",	"bin_STAN",	"min_STAN",	"dni_STAN",	"max_STAN",	"bin_Kyslik",	"min_Kyslik",	"dni_Kyslik",	"max_Kyslik",	"bin_HFNO",	"min_HFNO",	"dni_HFNO",	"max_HFNO",	"bin_UPV_ECMO",	"min_UPV_ECMO",	"dni_UPV_ECMO",	"max_UPV_ECMO",	"Mutace",	"DatumUmrtiLPZ", "Long_COVID"
+       "bin_Hospitalizace",	"min_Hospitalizace",	"dni_Hospitalizace",	"max_Hospitalizace",	"bin_JIP",	"min_JIP",	"dni_JIP",	"max_JIP",	"bin_STAN",	"min_STAN",	"dni_STAN",	"max_STAN",	"bin_Kyslik",	"min_Kyslik",	"dni_Kyslik",	"max_Kyslik",	"bin_HFNO",	"min_HFNO",	"dni_HFNO",	"max_HFNO",	"bin_UPV_ECMO",	"min_UPV_ECMO",	"dni_UPV_ECMO",	"max_UPV_ECMO",	"Mutace",	"DatumUmrtiLPZ", "Long_COVID",
+       "ODB_Long_COVID","kraj_icz_Long_COVID","kraj_pacient_Long_COVID","DCCI_r2010","DCCI_r2011","DCCI_r2012","DCCI_r2013","DCCI_r2014","DCCI_r2015","DCCI_r2016","DCCI_r2017","DCCI_r2018","DCCI_r2019","DCCI_r2020","DCCI_r2021","DCCI_r2022"
+
     };
 
 
-    enum elabels {PripadId, ID,	NovyHash, infekce,	pohlavi,	vek,	Kraj_bydliste,	ORP_Bydliste,	Datum_pozitivity,	DatumVysledku,	Vylecen,	Umrti,	symptom,	typ_testu,	PrvniDavka,	DruhaDavka,	Ukoncene_ockovani,	Extra_davka,	Druha_extra_davka,	OckovaciLatkaKod1,	OckovaciLatkaKod2,	OckovaciLatkaKod3,	OckovaciLatkaKod4,	PrimPricinaHospCOVID, bin_Hospitalizace,	min_Hospitalizace,	dni_Hospitalizace,	max_Hospitalizace,	bin_JIP,	min_JIP,	dni_JIP,	max_JIP,	bin_STAN,	min_STAN,	dni_STAN,	max_STAN,	bin_Kyslik,	min_Kyslik,	dni_Kyslik,	max_Kyslik,	bin_HFNO,	min_HFNO,	dni_HFNO,	max_HFNO,	bin_UPV_ECMO,	min_UPV_ECMO,	dni_UPV_ECMO,	max_UPV_ECMO,	Mutace,	DatumUmrtiLPZ, Long_COVID, enumlabels};
+    enum elabels {PripadId, ID,	NovyHash, infekce,	pohlavi,	vek,	Kraj_bydliste,	ORP_Bydliste,	Datum_pozitivity,	DatumVysledku,	Vylecen,	Umrti,	symptom,	typ_testu,	PrvniDavka,	DruhaDavka,	Ukoncene_ockovani,	Extra_davka,	Druha_extra_davka,	OckovaciLatkaKod1,	OckovaciLatkaKod2,	OckovaciLatkaKod3,	OckovaciLatkaKod4,	PrimPricinaHospCOVID, bin_Hospitalizace,	min_Hospitalizace,	dni_Hospitalizace,	max_Hospitalizace,	bin_JIP,	min_JIP,	dni_JIP,	max_JIP,	bin_STAN,	min_STAN,	dni_STAN,	max_STAN,	bin_Kyslik,	min_Kyslik,	dni_Kyslik,	max_Kyslik,	bin_HFNO,	min_HFNO,	dni_HFNO,	max_HFNO,	bin_UPV_ECMO,	min_UPV_ECMO,	dni_UPV_ECMO,	max_UPV_ECMO,	Mutace,	DatumUmrtiLPZ, Long_COVID,
+                  ODB_Long_COVID,kraj_icz_Long_COVID,kraj_pacient_Long_COVID,DCCI_r2010,DCCI_r2011,DCCI_r2012,DCCI_r2013,DCCI_r2014,DCCI_r2015,DCCI_r2016,DCCI_r2017,DCCI_r2018,DCCI_r2019,DCCI_r2020,DCCI_r2021,DCCI_r2022,
+                  enumlabels};
 
     for(unsigned i=0; i<enumlabels; i++)
     {
@@ -453,7 +457,7 @@ void ockodata2R(csv<','>& data, string outputlabel,
     bool openerror = false;
     if(data.c(0) != enumlabels)
     {
-        cerr << "Wrong number of columns. Expected "
+        cout << "Wrong number of columns. Expected "
              << enumlabels << " found " << data.c(0) << endl;
         openerror = true;
     }
@@ -463,7 +467,7 @@ void ockodata2R(csv<','>& data, string outputlabel,
         {
             if(data(0,i) != labels[i])
             {
-                cerr << "Wrong format: " << labels[i]
+                cout << "Wrong format: " << labels[i]
                      << " expected, " << data(0,i) << " found."
                      << endl;
                 openerror = true;
@@ -473,14 +477,14 @@ void ockodata2R(csv<','>& data, string outputlabel,
 
     if(openerror)
     {
-        cerr << "Expected header is:" << endl;
+        cout << "Expected header is:" << endl;
         for(unsigned i=0; i<enumlabels; i++)
-            cerr << " " << labels[i];
-        cerr << endl;
-        cerr << "Actual header is:" << endl;
+            cout << " " << labels[i];
+        cout << endl;
+        cout << "Actual header is:" << endl;
         for(unsigned i=0; i<enumlabels; i++)
-            cerr << " " << data(0,i);
-        cerr << endl;
+            cout << " " << data(0,i);
+        cout << endl;
         throw;
     }
 
@@ -564,7 +568,7 @@ vector<statcounter> lccounts(numweeks);
         }
         catch (...)
         {
-            cerr << "Cannot convert ID '" << idstr << "' to unsigned" << endl;
+            cout << "Cannot convert ID '" << idstr << "' to unsigned" << endl;
             throw;
         }
         constexpr int norecord = -1;
@@ -586,12 +590,12 @@ vector<statcounter> lccounts(numweeks);
             {
                 if(emptyfound)
                 {
-                    cerr << "row " << j << " two empty lines" << endl;
+                    cout << "row " << j << " two empty lines" << endl;
                     throw;
                 }
                 if(j!=i)
                 {
-                    cerr << "row" << j << "empty line on non-first place" << endl;
+                    cout << "row" << j << "empty line on non-first place" << endl;
                     throw;
                 }
                 emptyfound = true;
@@ -602,7 +606,7 @@ vector<statcounter> lccounts(numweeks);
                 int infindex = data(j,infekce)[0] - '1';
                 if(infindex < 0 || infindex >= is.size())
                 {
-                    cerr << "field infekce = " << data(j,infekce) << endl;
+                    cout << "field infekce = " << data(j,infekce) << endl;
                     throw;
                 }
                 is[infindex] = j;
@@ -611,7 +615,7 @@ vector<statcounter> lccounts(numweeks);
         for(unsigned k=0; k<is.size(); k++)
             if(is[k] == norecord)
             {
-                cerr << "invalid record group starting at " << i << endl;
+                cout << "invalid record group starting at " << i << endl;
                 throw;
             }
 
@@ -1559,7 +1563,7 @@ if(id==407)
                         << ",,";   // tbd add lastvacctime and infpriortime
                      if(os.str().size()>1000)
                      {
-                         cerr << "Invalid output line" << endl;
+                         cout << "Invalid output line" << endl;
                          REPORT("Invalid output line","");
                          throw;
                      }
@@ -1587,7 +1591,7 @@ if(id==407)
                      break;
                  if(t1 >= t2)
                  {
-                     cerr << "t1 >= t2 id =" << id << endl;
+                     cout << "t1 >= t2 id =" << id << endl;
                      throw;
                  }
 
@@ -1601,7 +1605,7 @@ if(id==407)
               t1 = t2;
               if(t1 > enddate)
               {
-                  cerr << "t1 > enddate=" << enddate << endl;
+                  cout << "t1 > enddate=" << enddate << endl;
                   throw;
               }
 
@@ -1680,7 +1684,7 @@ if(id==407)
                         int n = numpeopleofage(a,m,czsohalfyear)-vs[a] * ppp.everyn;
                         if(n < 0)
                         {
-                            cerr << "More of " << (m ? "men" : "women") << " ( " << vs[a]
+                            cout << "More of " << (m ? "men" : "women") << " ( " << vs[a]
                                     << ") treated then exist of age " << a
                                     << " (" << numpeopleofage(a,m,czsohalfyear) << ")" << endl;
 
@@ -1756,7 +1760,7 @@ if(id==407)
     ofstream vs(output + "_variants.csv");
     if(!vs)
     {
-        cerr << "Cannot open " << output << "_variants.csv" << endl;
+        cout << "Cannot open " << output << "_variants.csv" << endl;
         throw;
     }
 
@@ -1899,7 +1903,7 @@ int _main(int argc, char *argv[], bool testrun = false)
         cout << "Comparison" << endl;
         break;
     default:
-       cerr << "Unknonn option " << argv[3][0] << endl;
+       cout << "Unknonn option " << argv[3][0] << endl;
        throw;
     }
 
@@ -1966,7 +1970,7 @@ int _main(int argc, char *argv[], bool testrun = false)
         }
         else if(argv[3][2] != 'a')
         {
-            cerr << "Unknown option of conditioning!" << endl;
+            cout << "Unknown option of conditioning!" << endl;
             throw;
         }
         cout << endl;
@@ -1984,7 +1988,7 @@ int _main(int argc, char *argv[], bool testrun = false)
     }
     else
     {
-        cerr << "Unknown W option " << argv[3][3] << endl;
+        cout << "Unknown W option " << argv[3][3] << endl;
         throw;
     }
 
@@ -2015,7 +2019,7 @@ int _main(int argc, char *argv[], bool testrun = false)
             cout << "Discerning BA45 booster" << endl;
             break;
         default:
-            cerr << "Unknown option " << argv[3][i] << endl;
+            cout << "Unknown option " << argv[3][i] << endl;
             throw;
         }
     }
@@ -2026,7 +2030,7 @@ int _main(int argc, char *argv[], bool testrun = false)
     }
     catch(...)
     {
-        cerr << "Error converting first date string "  << firstdatestr << endl;
+        cout << "Error converting first date string "  << firstdatestr << endl;
         throw;
     }
 
@@ -2036,7 +2040,7 @@ int _main(int argc, char *argv[], bool testrun = false)
     }
     catch(...)
     {
-        cerr << "Error converting last date string " << lastdatestr << endl;
+        cout << "Error converting last date string " << lastdatestr << endl;
         throw;
     }
 
@@ -2050,7 +2054,7 @@ int _main(int argc, char *argv[], bool testrun = false)
         }
         catch(...)
         {
-            cerr << "Error converting everyn string " << everynstr << endl;
+            cout << "Error converting everyn string " << everynstr << endl;
             throw;
         }
     }
@@ -2079,7 +2083,7 @@ int _main(int argc, char *argv[], bool testrun = false)
     ppp.numsecboostercovs = min(ppp.numboostercovs, ppp.maxvacccovs );
     cout << "Number of VaccStatusSecBoost covariates: " << ppp.numsecboostercovs  << endl;
 
-    csv<','> data(argv[1]);
+    csv<';'> data(argv[1]);
     covstat stat;
 
     string firststageoutputfn = "temporary";
@@ -2157,7 +2161,7 @@ int main(int argc, char *argv[])
         }
         else if(testno == 3)
         {
-            char *as[6] ={"foo", "test_input_long_1.csv","test3_output.csv","l!-ic",
+            char *as[6] ={"foo", "../data/data_20230329.csv","test3_output.csv","l!-ic",
                           "2020-01-01", "2022-09-30"};
             _main(6,as,true);
         }
@@ -2176,22 +2180,22 @@ int main(int argc, char *argv[])
 
     }
     catch (std::exception& e) {
-        std::cerr << e.what() << endl;
+        std::cout << e.what() << endl;
         return 1;
     }
     catch (const char* m)
     {
-           cerr << m << endl;
+           cout << m << endl;
            return 1;
     }
     catch (const string& m)
     {
-           cerr << m << endl;
+           cout << m << endl;
            return 1;
     }
     catch(...)
     {
-        cerr << "unknown exception" << endl;
+        cout << "unknown exception" << endl;
         return 1;
     }
 
