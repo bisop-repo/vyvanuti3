@@ -1,7 +1,7 @@
 #### VOLBA PARAMETROV SKRIPTU ####
 rm(list = ls())
-args <-  commandArgs(trailingOnly=TRUE)
-# args <- c("zzz.csv", "Infected", "InfPrior + VaccStatus")
+# args <-  commandArgs(trailingOnly=TRUE)
+args <- c("zzz.csv", "Infected", "InfPrior + VaccStatus")
 
 # args <- c("Input", "Outcome", "Covariates"), kde: 
 # 1. Input: zdrojovej csv soubor 
@@ -29,7 +29,7 @@ invisible(lapply(packages, library, character.only = TRUE))
 
 #### NACITANIE DAT A POPISNA STATISTIKA ####
 
-data <- read_labelled_csv(args[1])
+data_cox <- read_labelled_csv(args[1])
 # cox.f <- fread("cox_estimation_formulas.txt", stringsAsFactors = FALSE)
 cox.f <- data.frame(Outcome = c("Infected", "Infected", "SeriousCovidProxy", "SeriousCovidProxy", 
                                 "LongCovid", "LongCovid", "Hospitalized", "Hospitalized"), 
@@ -59,7 +59,7 @@ f.input <- cox.f[cox.f$Outcome == f.input.outcome
 # summary(data)
 
 #### COXOV MODEL ####
-m1_cox <- coxph(f.input,  data = data)
+m1_cox <- coxph(f.input,  data = data_cox)
 
 # summary(m1_cox)
 
@@ -70,10 +70,31 @@ HR <- exp(coef(m1_cox))
 
 names(HR)
 
-# toto by sa malo dako zautomatizovat ale neviem ako
-# zatial si tam proste rucne men dake tie oné :D
-names <- names(HR[grep("VaccStatusboost", names(HR))])
-names
+# odstranit levely s XXX+ na konci
+odstranit <- c(names(HR)[grep("367+", names(HR))], 
+               names(HR)[grep("VaccStatuspartial_062+", names(HR))])
+
+HR <- HR[!names(HR) %in% odstranit]
+
+if (f.input.covariates == "InfPrior + VaccStatus") {
+im_level <- c("InfPriorinf_ALPHA", "InfPriorinf_DELTA", "InfPriorinf_EARLY",
+              "InfPriorinf_NA", "VaccStatusboost", "VaccStatusfull",
+              "VaccStatuspartial", "VaccStatussecboost")
+  } else if (f.input.covariates == "Immunity") {
+im_level <- c("Immunityboost", "Immunityfull", "Immunityhybridboost", 
+              "Immunityhybridfull", "Immunityinf", "Immunityother", "Immunitysecboost")
+  } 
+
+eff_tau <- NA
+eff_tau_fin <- NA
+names_fin <- NA
+
+# names <- names(HR[grep("Immunityother", names(HR))])
+for (i in 1 : length(im_level)) {
+names <- names(HR[grep(im_level[i], names(HR))])
+# names
+
+if (length(names) > 1) {
 
 # series of HR corresponding to a certain source of immunity (subvector of HR)
 HR_sub <- HR[names]
@@ -90,7 +111,7 @@ cas <- as.numeric(gsub("\\D", "", names))
 cas <-  ifelse(cas > 1000, cas %>% substring(nchar(cas) - 2, nchar(cas)) %>% 
   as.numeric() %>% - 30, 
   cas + 30)
-cas
+# cas
 
 T_mat <- matrix(diag(HR_sub), ncol = length(HR_sub))
 
@@ -105,12 +126,18 @@ GLS_est <- inv(t(X_mat) %*% inv(W_mat) %*% X_mat) %*%
 
 v <- GLS_est[1]
 d <- GLS_est[2]
-v
-d
 
 # the estimate of the 1 - trend
 eff_tau <- NA
 for (i in 1 : length(cas)) {
   eff_tau[i] <- 1 - (v + d * cas[i])
 }
-eff_tau
+
+# eff_tau
+names_fin <- append(names_fin, names)
+eff_tau_fin <- append(eff_tau_fin, eff_tau)
+}
+}
+
+df_fin <- data.frame(names_fin, eff_tau_fin)[-1, ] 
+df_fin
