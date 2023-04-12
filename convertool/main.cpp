@@ -1729,7 +1729,6 @@ if(id==407)
 
                             o << uninflabel << "," << unvacclabel << ","
                               << (mode == elongcovidevent ? noimmunitylabel : "") << ","
-                              << ","
                               << a << ","
                               << agelabel << "," << gender2str(m)
                               << ",,"<< endl;

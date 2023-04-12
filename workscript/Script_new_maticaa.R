@@ -81,8 +81,8 @@ im_level <- c("InfPriorinf_ALPHA", "InfPriorinf_DELTA", "InfPriorinf_EARLY",
               "InfPriorinf_NA", "VaccStatusboost", "VaccStatusfull",
               "VaccStatuspartial", "VaccStatussecboost")
   } else if (f.input.covariates == "Immunity") {
-im_level <- c("Immunityboost", "Immunityfull", "Immunityhybridboost", 
-              "Immunityhybridfull", "Immunityinf", "Immunityother", "Immunitysecboost")
+im_level <- c("Immunitysecboost"); #im_level <- c("Immunityboost", "Immunityfull", "Immunityhybridboost", 
+#              "Immunityhybridfull", "Immunityinf", "Immunityother", "Immunitysecboost")
   } 
 
 eff_tau <- NA
