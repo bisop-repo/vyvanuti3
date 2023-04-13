@@ -32,7 +32,7 @@ data <- read_labelled_csv(args[1])
 # cox.f <- fread("cox_estimation_formulas.txt", stringsAsFactors = FALSE)
 cox.f <- data.frame(Outcome = c("Infected", "Infected", "SeriousCovidProxy", "SeriousCovidProxy", 
                              "LongCovid", "LongCovid", "Hospitalized", "Hospitalized"), 
-                    Covariates = c(rep(c("InfPrior + VaccStatus", "Immunity"), times = 4)), 
+                    Covariates = c(rep(c("InfPrior+VaccStatus", "Immunity"), times = 4)), 
                     Eq = c("Surv(T1, T2, Infected) ~ InfPrior + VaccStatus + AgeGr + Sex", 
                            "Surv(T1, T2, Infected) ~ Immunity + AgeGr + Sex", 
                            "Surv(T1, T2, SeriousCovidProxy) ~ InfPrior + VaccStatus + AgeGr + Sex", 

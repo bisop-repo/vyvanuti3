@@ -1535,7 +1535,7 @@ if(id==407)
                          dooutput = false;
                  }
                  if(dooutput)
-                 {
+          {
                      if(infected)
                          immunityatinfstring = immunitystring;
                      string longcovidstr = "";
@@ -2144,7 +2144,7 @@ int main(int argc, char *argv[])
     {
         int testno = 0;
         if(argc == 1)
-            testno = 3;
+            testno = 2;
         if(argc == 2)
         {
             testno = argv[1][0] - '1' + 1;
@@ -2155,13 +2155,13 @@ int main(int argc, char *argv[])
         else if(testno == 1)
         {
             char *as[6] ={"foo", "test_input_long_1.csv","test1_output.csv","xO",
-                          "2022-01-01","2022-11-01"};
+                          "2022-07-01", "2023-02-20"};
             _main(6,as,true);
         }
         else if(testno == 2)
         {
-            char *as[6] ={"foo", "test_input_long_1.csv","test2_output.csv","eO-i",
-                          "2020-07-01","2022-09-30"};
+            char *as[9] ={"foo", "../data/data_20230329.csv","test2_output.csv","hF-i",
+                          "2022-07-01", "2023-02-20", "0", "333", "10" };
             _main(6,as,true);
         }
         else if(testno == 3)

@@ -1,7 +1,7 @@
 #### VOLBA PARAMETROV SKRIPTU ####
 rm(list = ls())
-# args <-  commandArgs(trailingOnly=TRUE)
-args <- c("zzz.csv", "Infected", "InfPrior + VaccStatus")
+args <-  commandArgs(trailingOnly=TRUE)
+# args <- c("zzz.csv", "Infected", "InfPrior + VaccStatus")
 
 # args <- c("Input", "Outcome", "Covariates"), kde: 
 # 1. Input: zdrojovej csv soubor 
@@ -63,6 +63,25 @@ m1_cox <- coxph(f.input,  data = data_cox)
 
 # summary(m1_cox)
 
+#### VYTVORENIE TABULKY ####
+
+df <- data.frame(
+  beta = coef(m1_cox), # koeficienty coxovho modelu
+  beta_CI = confint(m1_cox), # CI ku koeficientom
+  HR = exp(coef(m1_cox)), # pomer rizik
+  HR_CI   = exp(confint(m1_cox)), # CI k pomeru rizik
+  eff = 1 - exp(coef(m1_cox)), # efektivita vakcinacie / imunity ako 1 - HR
+  eff_CI = 1 - exp(confint(m1_cox)) # CI k efektivite
+)
+
+# names(df)[c(3:4, 6:7)] <- c("HR_CI_lower", "HR_CI_upper","eff_CI_upper", "eff_CI_lower")
+names(df)[c(2:3, 5:6, 8:9)] <- c("beta_CI_lower", "beta_CI_upper", 
+                                 "HR_CI_lower", "HR_CI_upper",
+                                 "eff_CI_upper", "eff_CI_lower")
+# df
+write.table(df, "cox_model_summary.txt")
+
+
 #### TREND ####
 
 # Hazard ratios
@@ -81,27 +100,34 @@ im_level <- c("InfPriorinf_ALPHA", "InfPriorinf_DELTA", "InfPriorinf_EARLY",
               "InfPriorinf_NA", "VaccStatusboost", "VaccStatusfull",
               "VaccStatuspartial", "VaccStatussecboost")
   } else if (f.input.covariates == "Immunity") {
-im_level <- c("Immunitysecboost"); #im_level <- c("Immunityboost", "Immunityfull", "Immunityhybridboost", 
-#              "Immunityhybridfull", "Immunityinf", "Immunityother", "Immunitysecboost")
+im_level <- c("Immunityboost", "Immunityfull", "Immunityhybridboost", 
+              "Immunityhybridfull", "Immunityinf", "Immunityother", "Immunitysecboost")
   } 
 
 eff_tau <- NA
 eff_tau_fin <- NA
 names_fin <- NA
 
+V_mat <- vcov(m1_cox)
+write.table(V_mat, "vmat.txt")
+
+
 # names <- names(HR[grep("Immunityother", names(HR))])
 for (i in 1 : length(im_level)) {
 names <- names(HR[grep(im_level[i], names(HR))])
-# names
+names
 
 if (length(names) > 1) {
 
 # series of HR corresponding to a certain source of immunity (subvector of HR)
 HR_sub <- HR[names]
 
+names
+
 # Variance matrix
 # V_mat <- m1_cox[["var"]]
 V_mat <- vcov(m1_cox)
+
 
 # corresponding submatrix of V
 V_mat_sub <- V_mat[names, names]
@@ -140,4 +166,4 @@ eff_tau_fin <- append(eff_tau_fin, eff_tau)
 }
 
 df_fin <- data.frame(names_fin, eff_tau_fin)[-1, ] 
-df_fin
+write.table(df_fin,'df_fin.txt')
