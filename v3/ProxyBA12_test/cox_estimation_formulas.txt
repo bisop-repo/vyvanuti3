@@ -1,9 +1,0 @@
-Outcome	Covariates	Eq
-Infected	InfPrior+VaccStatus	Surv(T1, T2, Infected) ~ InfPrior + VaccStatus + AgeGr + Sex
-Infected	Immunity	Surv(T1, T2, Infected) ~ Immunity + AgeGr + Sex
-SeriousCovidProxy	InfPrior+VaccStatus	Surv(T1, T2, SeriousCovidProxy) ~ InfPrior + VaccStatus + AgeGr + Sex
-SeriousCovidProxy	Immunity	Surv(T1, T2, SeriousCovidProxy) ~ Immunity + AgeGr + Sex
-LongCovid	InfPrior+VaccStatus	Surv(T1, T2, LongCovid) ~ InfPrior + VaccStatus + AgeGr + Sex
-LongCovid	Immunity	Surv(T1, T2, LongCovid) ~ Immunity + AgeGr + Sex
-Hospitalized	InfPrior+VaccStatus	Surv(T1, T2, Hospitalized) ~ InfPrior + VaccStatus + AgeGr + Sex
-Hospitalized	Immunity	Surv(T1, T2, Hospitalized) ~ Immunity + AgeGr + Sex

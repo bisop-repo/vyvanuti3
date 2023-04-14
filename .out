@@ -1,0 +1,9 @@
+mkdir: cannot create directory ‘ProxyBA12_test’: File exists
+Installing packages into ‘/usr/lib64/R/library’
+(as ‘lib’ is unspecified)
+Warning in install.packages(packages[!installed_packages]) :
+  'lib = "/usr/lib64/R/library"' is not writable
+Error in install.packages(packages[!installed_packages]) : 
+  unable to install packages
+Execution halted
+Group done
