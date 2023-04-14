@@ -1,0 +1,5 @@
+#!/bin/bash
+
+./cox_test ProxyBA12_test xx-ic 2022-01-01 2022-08-21 SeriousCovidProxy Immunity
+
+

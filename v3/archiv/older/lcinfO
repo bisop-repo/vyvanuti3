@@ -1,0 +1,4 @@
+#!/bin/bash
+
+./cox LCinfO lx-i 2021-12-01 2022-09-30 LongCovid InfPrior+VaccStatus
+
