@@ -1,5 +1,0 @@
-#!/bin/bash
-
-./cox HospBA12 hx-ic 2022-01-01 2022-08-21 Hospitalized Immunity
-
-

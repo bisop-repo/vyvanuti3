@@ -245,7 +245,7 @@ the same
  This implies that 
 \begin_inset Formula 
 \[
-h_{t_{i}}-k_{t_{i}}=\rho+e_{i},\qquad i=1,\dots,n,\qquad\mathrm{var}(e)=U:=S'V^{\star*}S,
+h_{t_{i}}-k_{t_{i}}=\rho+e_{i},\qquad i=1,\dots,n,\qquad\mathrm{var}(e)=U:=SV^{\star*}S',
 \]
 
 \end_inset

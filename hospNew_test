@@ -1,5 +1,0 @@
-#!/bin/bash
-
-./cox_test HospNewTest hF-ic 2022-07-01 2023-03-29 Hospitalized Immunity
-
-

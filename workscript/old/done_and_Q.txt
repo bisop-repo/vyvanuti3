@@ -1,0 +1,46 @@
+A. Potřeboval bych rozšířit skript tak, aby mohl fungovat variantně. Ideální by bylo, kdyby se ty varianty mohly předávat parametry skriptu (jako to dělal Jakub). Parametry by byly
+1. Input: zdrojovej soubor (místo zzz.csv)
+2. Outcome: Infected nebo SeriousCovidProxy nebo LongCovid nebo Hospitalized (to se myslím projeví jenom v tom “coxph”)
+3. Covariates: InfPrior+VaccStatus nebo Immunity (to se projeví v coxph a pak někde u tý tabulky VE)
+
+- viď prve riadky skriptu
+
+B. Grafy vyvanutí bych prosil čtyři separátní (nemusej bejt variantně, protože když třeba nebude Immunity, tak to prostě nespočítá)
+1. Immunity: -inf, -full, -boost, -secboost, -hybridfull, -hybridboost
+
+- tu by sa mi pacilo mat take data co obsahuju premennu Immunity ak by to nebol problem
+
+2. VaccStatus: -full, -boost, -secboost, -partial
+
+- OK
+
+3. InfPrior: inf_NA 
+
+- OK, aky text v legende k tomu? ake cislo pricitat k casu? (je 30 ako u vakcinacii ale nema to byt menej?)
+
+
+4. InfPrior: inf_ALPHA nebo inf_DELTA nebo inf_OMICRON
+
+- takze vlastne tri grafy (z ktorych sa vzdy 2 nespocitaju) resp. 1 s nejakym nastavenim parametru covid varianty?
+
+
+Body 2 a 4 jsou již víceméně v zdrojovém skriptu, stačí rozdělit. 
+Potřeboval bych ale ještě jednu věc, a to aby se nezobrazovaly kovariáty XXX_YYY+ (prostě ty poslední, nicméně nemůžeš spoléhat na to, že jsou poslední, protože ta plusová může teoreticky chybět). Snad to nějak půjde jednoduše.
+
+- takže uplne u všetkeho odstranit tu hodnotu v poslednom case?
+
+
+C. Prosil bych uložit navíc textovej výstup z Coxe, pokud možno co nejpodrobnější (jakože s parametrama i jejich exponenciálama, u obojího CI).
+
+- takze daco v .txt formate? (ano, som blba :D)
+ 
+
+(D. Dalo by se dělat něco s obrácenejma CI u VE? (když ne, tak prostě nebudene to VE publikovat).)
+
+- diskutovala som s kolegami a googlom, na nic sme zatial neprisli. Vo funkci tbl_summary by sa vraj malo dat donutit R zobrazit obratene poradie CI, 
+tak by to malo teoreticky ist aj vo funkcii tbl_regression, ktoru pouzivame na VE (z toho isteho balicku ako tbl_summary) ale ako, to neviem. 
+Ešte by bola cesta publikovat iba bodove odhady VE bez CI, aj ked to mi pride o nicom
+
+E. vseobecne otazky
+- asi by som rovno mala skript upravit tak aby vytvaral output directory pre rozne nastavenia parametrov a tam ukladal vysledky, nie?
+- rozsah osy x u grafov?

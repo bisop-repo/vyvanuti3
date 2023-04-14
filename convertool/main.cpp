@@ -9,6 +9,17 @@ string czfemalestr = "Z";
 string unvacclabel = "_unvaccinated";
 string uninflabel = "_uninfected";
 string noimmunitylabel = "_noimmunity";
+string nodccilabel = "_nodcci";
+
+string dcci2str(int dcci)
+{
+    assert(dcci>=0);
+    if(dcci==0)
+        return "0";
+    if(dcci==1)
+        return "1";
+    return "2+";
+}
 
 string gender2str(bool male)
 {
@@ -23,6 +34,13 @@ enum eagegroups { v0011, v1215, v1617, v1824, v2529, v3034, v3539, v4044,v4549, 
 constexpr unsigned lastage = 100;
 
 reldate dateoffirstczsohalfyear = date2int("2020-01-01");
+vector<reldate> dccidates =
+{
+    date2int("2020-01-01"),
+    date2int("2021-01-01"),
+    date2int("2022-01-01"),
+    date2int("2023-01-01")
+};
 
 unsigned numpeopleofage(unsigned age, bool male, unsigned halfyear)
 {
@@ -321,6 +339,7 @@ struct covstat
     vector<covstatrecord> infprior;
     vector<covstatrecord> vaccstatus;
     vector<covstatrecord> immunity;
+    vector<covstatrecord> dcci;
     vector<covstatrecord> agegroup;
 };
 
@@ -416,8 +435,8 @@ void ockodata2R(csv<';'>& data, string outputlabel,
 
     ostringstream header;
 
-    header << "ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid, DeadByCovid,DeadByOther,";
-    header << "VariantOfInf, InfPrior,VaccStatus,Immunity,Age,AgeGr,Sex";
+    header << "ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOther,";
+    header << "VariantOfInf,InfPrior,VaccStatus,Immunity,DCCI,Age,AgeGr,Sex";
     header << ",InfPriorTime,LastVaccTime";
 
     o << header.str() << endl;
@@ -443,7 +462,10 @@ void ockodata2R(csv<';'>& data, string outputlabel,
 
 
     enum elabels {PripadId, ID,	NovyHash, infekce,	pohlavi,	vek,	Kraj_bydliste,	ORP_Bydliste,	Datum_pozitivity,	DatumVysledku,	Vylecen,	Umrti,	symptom,	typ_testu,	PrvniDavka,	DruhaDavka,	Ukoncene_ockovani,	Extra_davka,	Druha_extra_davka,	OckovaciLatkaKod1,	OckovaciLatkaKod2,	OckovaciLatkaKod3,	OckovaciLatkaKod4,	PrimPricinaHospCOVID, bin_Hospitalizace,	min_Hospitalizace,	dni_Hospitalizace,	max_Hospitalizace,	bin_JIP,	min_JIP,	dni_JIP,	max_JIP,	bin_STAN,	min_STAN,	dni_STAN,	max_STAN,	bin_Kyslik,	min_Kyslik,	dni_Kyslik,	max_Kyslik,	bin_HFNO,	min_HFNO,	dni_HFNO,	max_HFNO,	bin_UPV_ECMO,	min_UPV_ECMO,	dni_UPV_ECMO,	max_UPV_ECMO,	Mutace,	DatumUmrtiLPZ, Long_COVID,
-                  ODB_Long_COVID,kraj_icz_Long_COVID,kraj_pacient_Long_COVID,DCCI_r2010,DCCI_r2011,DCCI_r2012,DCCI_r2013,DCCI_r2014,DCCI_r2015,DCCI_r2016,DCCI_r2017,DCCI_r2018,DCCI_r2019,DCCI_r2020,DCCI_r2021,DCCI_r2022,
+                  ODB_Long_COVID,kraj_icz_Long_COVID,kraj_pacient_Long_COVID,DCCI_r2010,
+                  DCCI_r2011,DCCI_r2012,DCCI_r2013,DCCI_r2014,DCCI_r2015,DCCI_r2016,DCCI_r2017,DCCI_r2018,DCCI_r2019,
+                  firstDCCI = DCCI_r2019,
+                  DCCI_r2020,DCCI_r2021,DCCI_r2022, lastDCCI = DCCI_r2022,
                   enumlabels};
 
     for(unsigned i=0; i<enumlabels; i++)
@@ -536,8 +558,7 @@ vector<statcounter> lccounts(numweeks);
     int T = ppp.lastdate - ppp.firstdate;
     unsigned outputcounter = 0;
     unsigned peopleexported = 0;
-    for(unsigned i=1;
-        i<data.r(); i=firstnext )
+    for(unsigned i=1; i<data.r(); i=firstnext )
     {
 
         reldate deathcoviddate = maxreldate;
@@ -546,6 +567,8 @@ vector<statcounter> lccounts(numweeks);
         vector<infectionrecord> infections;
 
         vector<vaccinationrecord> vaccinations;
+
+        vector<int> dccis;
 
 // when used, all these macros have to be enclused in braces
 
@@ -773,6 +796,24 @@ vector<statcounter> lccounts(numweeks);
                 if(longcoviddatestr != "")
                     GETDATE(longcoviddate,longcoviddatestr,break);
 
+                if(data(j,lastDCCI) != "")
+                {
+                   for(int k=firstDCCI; k<=lastDCCI; k++)
+                   {
+                       int score;
+                       try
+                       {
+                           score = stoul(data(j,k));
+                       }
+                       catch (...)
+                       {
+                           cout << "Cannot convert DCCI '"
+                                << data(j,k) << "' to int" << endl;
+                           throw;
+                       }
+                       dccis.push_back(score);
+                   }
+                }
             }
 
 
@@ -911,7 +952,7 @@ if(id==407)
 
         bool longcovid = longcoviddate < maxreldate;
 
-        bool lcassigned = false;
+//        bool lcassigned = false;
         if(longcovid && infections.size())
         {
             for(int j=infections.size()-1; j>=0; j--)
@@ -919,7 +960,7 @@ if(id==407)
                 if(infections[j].t <= longcoviddate)
                 {
                     infections[j].longcovid = true;
-                    lcassigned = true;
+//                    lcassigned = true;
                     break;
                 }
             }
@@ -1032,6 +1073,10 @@ if(id==407)
 
         eimmunitystatus currentimmunitystatus = enoimmunity;
 
+        const int nodcciindex = -1;
+
+        int currentdcciindex = dccis.size() ? 0 : nodcciindex;
+
         throwthisid = false;
 
         peopleexported++;
@@ -1042,7 +1087,24 @@ if(id==407)
         string immunityatinfstring = "";
 
         for(;;)
-         {
+        {
+
+             reldate nextdccichangedate = maxreldate;
+             int candidatedcciindex = nodcciindex;
+             if(dccis.size())
+             {
+                 for(int k=currentdcciindex+1; k<dccis.size(); k++)
+                 {
+                     if(dccis[k] != dccis[currentdcciindex])
+                     {
+                         assert(k < dccidates.size());
+                         nextdccichangedate = dccidates[k] - ppp.zerodate;
+                         candidatedcciindex = k;
+                         break;
+                     }
+                 }
+             }
+
              unsigned newinfstatus = currentinfstatus;
              reldate nextinfdate = nextinfptr == infections.size()
                      ? maxreldate : infections[nextinfptr].t;
@@ -1121,15 +1183,23 @@ if(id==407)
              int t2 = min(nextvaccdate,
                           min(nextinfdate,
                           min(nextvaccstatusdate,
-                          min(nextinfstatusupdate,enddate))));
+                          min(nextinfstatusupdate,
+                          min(nextdccichangedate,enddate)))));
 
+             int newdcciindex = currentdcciindex;
+
+
+             if(t2==nextdccichangedate)
+             {
+                 assert(candidatedcciindex >= 0);
+                 newdcciindex = candidatedcciindex;
+             }
 
              if(t2==nextvaccstatusdate)
              {
                  lastvaccstatusdate = t2;
                  newvaccstatus = candidatevaccstatus;
              }
-
 
              if(t2==nextinfstatusupdate)
                  newinfstatus++;
@@ -1327,6 +1397,19 @@ if(id==407)
              {
                  int t1nonneg = max(0,t1);
 
+                 string dccistring;
+                 if(currentdcciindex == nodcciindex)
+                     dccistring = nodccilabel;
+                 else
+                 {
+                     assert(currentdcciindex >= 0);
+                     assert(currentdcciindex < dccis.size());
+                     ostringstream os;
+                     dccistring = dcci2str(dccis[currentdcciindex]);
+                 }
+
+
+
                  string immunitystring;
                  if(currentimmunitystatus == enoimmunity)
                     immunitystring = noimmunitylabel;
@@ -1455,7 +1538,7 @@ if(id==407)
                          else if(currentimmunitystatus == eboostimmunity)
                             is << "boost";
                          else if(currentimmunitystatus == eboostaltimmunity)
-                             is << (ppp.discern45booster ? "boost45":"boost23");
+                             is << (ppp.discern45booster ? "b45":"boost23");
 
                          nc = ppp.numboostercovs;
                          break;
@@ -1466,7 +1549,7 @@ if(id==407)
                          else if(currentimmunitystatus == esecboostimmunity)
                              is << (ppp.discernsecboosts ? "secboostearly":"secboost");
                          else if(currentimmunitystatus == esecboostaltimmunity)
-                             is << (ppp.discern45booster ? "secboost45":"secboostlate");
+                             is << (ppp.discern45booster ? "secb45":"secboostlate");
                          else
                              fillimmunity = false;
                          nc = ppp.numsecboostercovs;
@@ -1505,10 +1588,12 @@ if(id==407)
                  {
                      covstatrecord ipr = findcov(infpriorstr,stat.infprior);
                      covstatrecord vsr = findcov(vaccstring,stat.vaccstatus);
+                     covstatrecord dccir = findcov(dccistring,stat.dcci);
                      covstatrecord ar = findcov(grouplabel(agegroup) ,stat.agegroup);
                      // the same functionality of Immunity follows
 
-                     if(ipr.events == 0 || vsr.events == 0 || ar.events == 0)
+                     if(ipr.events == 0 || vsr.events == 0
+                             || dccir.events == 0 ||ar.events == 0)
                          dooutput = false;
                      if(ppp.checkzeroimmunitycovs)
                      {
@@ -1516,7 +1601,6 @@ if(id==407)
                          if(ir.events == 0)
                              dooutput = false;
                      }
-
                  }
 
                  string variantofinfstr = "";
@@ -1544,6 +1628,7 @@ if(id==407)
                      else if(mode == elongcovidinfection || mode == ecomparison)
                          longcovidstr = longcovidinfection ? "1" : "0";
 
+
                      ostringstream os;
                      os << idstr << "," << t1nonneg << "," << t2 << ","
                         << infected << ",";
@@ -1563,6 +1648,7 @@ if(id==407)
                      os << variantofinfstr << "," << infpriorstr << ","
                         << vaccstring << ","
                         << (mode == elongcovidevent ? immunityatinfstring : immunitystring) << ","
+                        << dccistring << ","
                         << age << "," << grouplabel(agegroup) << ","
                         << gender2str(male)
                         << ",,";   // tbd add lastvacctime and infpriortime
@@ -1588,6 +1674,7 @@ if(id==407)
                      recordcov(infpriorstr,isevent, stat.infprior);
                      recordcov(vaccstring,isevent,stat.vaccstatus);
                      recordcov(immunitystring,isevent, stat.immunity);
+                     recordcov(dccistring,isevent, stat.dcci);
                      recordcov(grouplabel(agegroup),isevent,stat.agegroup);
                  }
 
@@ -1606,6 +1693,7 @@ if(id==407)
                 lastinfection = newinfection;
 //              lastvaccdate = currentvaccdate;
               currentvaccstatus = newvaccstatus;
+              currentdcciindex = newdcciindex;
               currentimmunitystatus = newimmunitystatus;
               t1 = t2;
               if(t1 > enddate)
@@ -1733,6 +1821,7 @@ if(id==407)
 
                             o << uninflabel << "," << unvacclabel << ","
                               << (mode == elongcovidevent ? "" : noimmunitylabel) << ","
+                              << nodccilabel << ","
                               << a << ","
                               << agelabel << "," << gender2str(m)
                               << ",,"<< endl;
@@ -1834,6 +1923,10 @@ void displaystat(const covstat& stat, ostream& os, bool filter)
     unsigned immunityevents;
     output("immunity",os,stat.immunity,filter,
            immunitycovs, immunityevents);
+    unsigned dccicovs;
+    unsigned dccievents;
+    output("dcci",os,stat.dcci,filter,
+           dccicovs, dccievents);
     unsigned agegrcovs;
     unsigned agegrevents;
     output("agegr",os,stat.agegroup,filter,
@@ -1842,9 +1935,9 @@ void displaystat(const covstat& stat, ostream& os, bool filter)
     assert(infpriorevents == agegrevents);
     assert(vaccstatusevents == agegrevents);
 
-    unsigned totalcovs = infpriorcovs + vaccstatuscovs + agegrcovs;
+    unsigned totalcovs = infpriorcovs + vaccstatuscovs + agegrcovs + dccicovs;
     cout << "covs (immunity version)="
-         << totalcovs << " (" << immunitycovs + agegrcovs << ")"
+         << totalcovs << " (" << immunitycovs + agegrcovs + dccicovs << ")"
          << ", events="
          << infpriorevents << ", eventspercov="
          << (static_cast<double>(infpriorevents) + 0.5) / totalcovs
@@ -2144,7 +2237,7 @@ int main(int argc, char *argv[])
     {
         int testno = 0;
         if(argc == 1)
-            testno = 2;
+            testno = 1;
         if(argc == 2)
         {
             testno = argv[1][0] - '1' + 1;
@@ -2154,8 +2247,8 @@ int main(int argc, char *argv[])
             _main(argc,argv);
         else if(testno == 1)
         {
-            char *as[6] ={"foo", "test_input_long_1.csv","test1_output.csv","xO",
-                          "2022-07-01", "2023-02-20"};
+            char *as[6] ={"foo", "test_input_long_mod.csv","test1_output.csv","xO",
+                          "2020-01-01", "2023-02-20"};
             _main(6,as,true);
         }
         else if(testno == 2)

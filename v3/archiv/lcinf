@@ -1,0 +1,6 @@
+#!/bin/bash
+#Initialization
+
+./cox LCinf l!-i 2021-01-01 2022-09-30 LongCovid InfPrior+VaccStatus
+
+echo 'Group done'
