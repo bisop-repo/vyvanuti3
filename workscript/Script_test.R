@@ -233,11 +233,14 @@ for (i in 1 : length(im_level)) {
 }
 }
 
+
+#tohle jsem nahradil, aby tam mohly bejt i opravdový NA
+#r_fin2 <- r_fin[!is.na(r_fin)]
+#z_score_fin2 <- z_score_fin[!is.na(z_score_fin)r]
+
 r_fin2 <- r_fin[-1]
 z_score_fin2 <- z_score_fin[-1]
 
-#r_fin2 <- r_fin[!is.na(r_fin)]
-#z_score_fin2 <- z_score_fin[!is.na(z_score_fin)r]
 
 # tady nechápu, proč to tu je
 #r_fin2 <- unique(r_fin)
