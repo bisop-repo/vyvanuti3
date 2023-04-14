@@ -240,6 +240,8 @@ z_score_fin_mat <- matrix(z_score_fin3, ncol = 6, byrow = T)
 lowerTriangle(z_score_fin_mat, diag = FALSE, byrow = FALSE) <- NA
 lowerTriangle(r_fin_mat, diag = FALSE, byrow = FALSE) <- NA
 
+png(file="heatmap.png")
+
 heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F, 
           Colv = F, notecol="black", 
           trace = "none",
@@ -256,3 +258,5 @@ heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F,
           labCol = substr(im_level[-6], 9, 20), 
           # labCol = F,
           col = "terrain.colors")
+
+dev.off()
