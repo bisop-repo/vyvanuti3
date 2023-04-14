@@ -1732,7 +1732,7 @@ if(id==407)
     //                         header << " InfPrior,VaccStatus,Immunity,Age,AgeGr,Sex";
 
                             o << uninflabel << "," << unvacclabel << ","
-                              << (mode == elongcovidevent ? noimmunitylabel : "") << ","
+                              << (mode == elongcovidevent ? "" : noimmunitylabel) << ","
                               << a << ","
                               << agelabel << "," << gender2str(m)
                               << ",,"<< endl;

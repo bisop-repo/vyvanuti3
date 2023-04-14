@@ -1,0 +1,6 @@
+#!/bin/bash
+#Initialization
+
+./cox LCinfD ld-ic 2021-01-01 2022-09-30 LongCovid Immunity
+
+echo 'Group done'
