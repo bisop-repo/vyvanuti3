@@ -1,0 +1,5 @@
+#!/bin/bash
+
+./cox LCEvent e!-ic 2021-01-01 2022-09-30 LongCovid InfPrior+VaccStatus
+
+echo 'Group done'

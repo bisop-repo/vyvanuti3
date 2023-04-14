@@ -1,6 +1,0 @@
-#!/bin/bash
-#Initialization
-
-./cox LCinfBA12 lx-ic 2021-12-01 2022-04-30 LongCovid Immunity
-
-echo 'Group done'

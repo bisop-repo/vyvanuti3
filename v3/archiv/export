@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cp v3/ProxyNew/cox_model_summary.txt v3/export/ProxyNew.csv
+cp v3/ProxyBA12/cox_model_summary.txt v3/export/ProxyBA12.csv
+cp v3/HospNew/cox_model_summary.txt v3/export/HospNew.csv
+cp v3/HospBA12/cox_model_summary.txt v3/export/HospBA12.csv
