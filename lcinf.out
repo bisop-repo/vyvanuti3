@@ -148,3 +148,13 @@ The following object is masked from ‘package:stats’:
 
     lowess
 
+Warning message:
+In agreg.fit(X, Y, istrat, offset, init, control, weights = weights,  :
+  Loglik converged before variable  7,28 ; beta may be infinite. 
+Warning message:
+In matrix(r_fin3, ncol = 7, byrow = T) :
+  data length [41] is not a sub-multiple or multiple of the number of rows [6]
+Warning message:
+In matrix(z_score_fin3, ncol = 7, byrow = T) :
+  data length [41] is not a sub-multiple or multiple of the number of rows [6]
+Group done
