@@ -1,7 +1,7 @@
 #### VOLBA PARAMETROV SKRIPTU ####
 rm(list = ls())
-args <-  commandArgs(trailingOnly=TRUE)
-# args <- c("rinput.csv", "SeriousCovidProxy")
+# args <-  commandArgs(trailingOnly=TRUE)
+ args <- c("rinput.csv", "SeriousCovidProxy")
 
 # args <- c("Input", "Outcome", "Covariates"), kde: 
 # 1. Input: zdrojovej csv soubor 
@@ -32,7 +32,11 @@ invisible(lapply(packages, library, character.only = TRUE))
 data <- read_labelled_csv(args[1])
 # cox.f <- fread("cox_estimation_formulas.txt", stringsAsFactors = FALSE)
 
+if (args[2]=="LCINF") {
+  f <- as.formula("Surv(T1, T2, LongCovid) ~ Immunity + DCCI + InfPrior + AgeGr + Sex")
+} else  {
 f <- as.formula(paste("Surv(T1, T2,",args[2],") ~ Immunity  + AgeGr + Sex "))
+}
 
 #### COXOV MODEL ####
 m1_cox <- coxph(f,  data = data)
@@ -242,7 +246,7 @@ for (i in 1 : length(im_level)) {
 }
 
 
-#tohle jsem nahradil, aby tam mohly bejt i opravdový NA
+#M: tohle jsem nahradil, aby tam mohly bejt i opravdový NA
 #r_fin2 <- r_fin[!is.na(r_fin)]
 #z_score_fin2 <- z_score_fin[!is.na(z_score_fin)r]
 
