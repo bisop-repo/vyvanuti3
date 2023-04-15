@@ -11,7 +11,11 @@ cp: cannot stat '../../workscript/cox_estimation_formulas.txt': No such file or 
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 Loading required package: maditr
 
-To select rows from data: rows(mtcars, am==0)
+Use magrittr pipe '%>%' to chain several operations:
+             mtcars %>%
+                 let(mpg_hp = mpg/hp) %>%
+                 take(mean(mpg_hp), by = am)
+        
 
 
 Attaching package: ‘maditr’
@@ -29,7 +33,7 @@ The following object is masked from ‘package:readr’:
     cols
 
 
-Use 'expss_output_viewer()' to display tables in the RStudio Viewer.
+Use 'expss_output_rnotebook()' to display tables inside R Notebooks.
  To return to the console output, use 'expss_output_default()'.
 
 
@@ -150,7 +154,7 @@ The following object is masked from ‘package:stats’:
 
 Warning message:
 In agreg.fit(X, Y, istrat, offset, init, control, weights = weights,  :
-  Loglik converged before variable  7,28 ; beta may be infinite. 
+  Loglik converged before variable  27 ; beta may be infinite. 
 Warning message:
 In matrix(r_fin3, ncol = 7, byrow = T) :
   data length [41] is not a sub-multiple or multiple of the number of rows [6]
