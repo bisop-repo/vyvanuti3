@@ -1,7 +1,7 @@
 #### VOLBA PARAMETROV SKRIPTU ####
 rm(list = ls())
-# args <-  commandArgs(trailingOnly=TRUE)
-args <- c("rinput.csv", "SeriousCovidProxy")
+args <-  commandArgs(trailingOnly=TRUE)
+# args <- c("rinput.csv", "SeriousCovidProxy")
 
 # args <- c("Input", "Outcome", "Covariates"), kde: 
 # 1. Input: zdrojovej csv soubor 
@@ -32,7 +32,7 @@ invisible(lapply(packages, library, character.only = TRUE))
 data <- read_labelled_csv(args[1])
 # cox.f <- fread("cox_estimation_formulas.txt", stringsAsFactors = FALSE)
 
-f <- as.formula(paste("Surv(T1, T2,",args[2],") ~ Immunity + DCCI + AgeGr + Sex "))
+f <- as.formula(paste("Surv(T1, T2,",args[2],") ~ Immunity  + AgeGr + Sex "))
 
 #### COXOV MODEL ####
 m1_cox <- coxph(f,  data = data)
@@ -63,9 +63,12 @@ HR <- exp(coef(m1_cox))
 names(HR)
 
 # odstranit levely s XXX+ na konci
-odstranit <- c(names(HR)[grep("367+", names(HR))], 
+# odstranit levely s XXX+ na konci
+# MŠ: tohle z nějakého důvodu vyhodilo i Immunityfull_367-427 a Immunityinf_367-427
+# odstranit <- c(names(HR)[grep("367+", names(HR))], 
+#               names(HR)[grep("VaccStatuspartial_062+", names(HR))])
+odstranit <- c(names(HR)[grep("550", names(HR))], 
                names(HR)[grep("VaccStatuspartial_062+", names(HR))])
-
 HR <- HR[!names(HR) %in% odstranit]
 
 # Variance matrix
@@ -81,7 +84,8 @@ eff_tau <- NA
 eff_tau_fin <- NA
 names_fin <- NA
 deltas <- NA
-vars_of_deltas <- NA
+lower_of_deltas <- NA
+upper_of_deltas <- NA
 
 # names <- names(HR[grep("Immunityother", names(HR))])
 for (i in 1 : length(im_level)) {
@@ -133,18 +137,22 @@ names_fin <- append(names_fin, names)
 eff_tau_fin <- append(eff_tau_fin, eff_tau)
 
 #convertin to mohths...
-deltas <- append(deltas,d * 30.5) 
-vars_of_deltas <- append(vars_of_deltas,var_of_d * 30.5 * 30.5)
+delta <- d * 30.5
+deltas <- append(deltas,delta) 
+sd_of_delta <- sqrt(var_of_d) * 30.5
+lower_of_deltas <- append(lower_of_deltas,delta - sd_of_delta * 1.96)
+upper_of_deltas <- append(upper_of_deltas,delta + sd_of_delta * 1.96)
 }
 else {
   deltas <- append(deltas,NA) 
-  vars_of_deltas <- append(vars_of_deltas,NA)
+  lower_of_deltas <- append(lower_of_deltas,NA)
+  upper_of_deltas <- append(upper_of_deltas,NA)
 }
 
 }
 
 immunities <- append(NA,im_level)
-est_table <- data.frame(immunities,deltas,vars_of_deltas)[-1,] 
+est_table <- data.frame(immunities,deltas,lower_of_deltas,upper_of_deltas)[-1,] 
 write.table(est_table,'est_table.txt')
 
 df_fin <- data.frame(names_fin, eff_tau_fin)[-1, ] 

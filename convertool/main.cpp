@@ -1393,195 +1393,194 @@ if(id==407)
              int deadbycovid = t2==deathcoviddate;
              int deadbyother = t2==deathotherdate;
 
+
+             string dccistring;
+             if(currentdcciindex == nodcciindex)
+                 dccistring = nodccilabel;
+             else
+             {
+                 assert(currentdcciindex >= 0);
+                 assert(currentdcciindex < dccis.size());
+                 ostringstream os;
+                 dccistring = dcci2str(dccis[currentdcciindex]);
+             }
+
+
+
+             string immunitystring;
+             if(currentimmunitystatus == enoimmunity)
+                immunitystring = noimmunitylabel;
+             else
+                 immunitystring = "_other";
+
+             string infpriorstr;
+             if(currentinfstatus == 0)
+                 infpriorstr = uninflabel;
+             else
+             {
+                 ostringstream os;
+                 assert(lastinfection);
+                 os << "inf_";
+                 if(!ppp.groupvariants)
+                 {
+                     if(ppp.generalvariants)
+                         os << variants[lastinfection->variant].supcategory;
+                     else
+                         os << variants[lastinfection->variant].codeincovariate;
+                     os << "_";
+                 }
+                 int from,to;
+                 switch(currentinfstatus)
+                 {
+                     case 0:
+                         assert(0);
+                     break;
+                     case 1:
+                         from = 1;
+                         to = ppp.firstcovreinfduration;
+                     break;
+                     default:
+                         assert(currentinfstatus <= ppp.numinfcovariates);
+                    {
+                         from = ppp.firstcovreinfduration
+                               + ppp.covreinfduration * (currentinfstatus-2) + 1;
+                         to = from + ppp.covreinfduration-1;
+                    }
+
+                 }
+
+                 ostringstream is;
+                 bool fillimmunity = true;
+
+                 switch(currentimmunitystatus)
+                 {
+                 case einfectedimmunity:
+                     is << "inf_";
+                     break;
+                 case efullinfimmunity:
+                     is << "hybridfull_";
+                     break;
+                 case eboostinfimmunity:
+                 case esecboostinfimmunity:
+                     is <<  "hybridboost_";
+                     break;
+                 default:
+                     fillimmunity = false;
+                 }
+
+                 os << threedigits(from);
+                 is << threedigits(from);
+                 if(currentinfstatus == ppp.numinfcovariates)
+                 {
+                     os << "+";
+                     fillimmunity = false;
+                 }
+                 else
+                 {
+                     is << "-" << threedigits(to);
+                     os << "-" << threedigits(to);
+                 }
+
+                 infpriorstr = os.str();
+
+                 if(fillimmunity)
+                     immunitystring = is.str();
+             }
+
+             string vaccstring;
+             if(currentvaccstatus.order == novacc)
+             {
+                 vaccstring = unvacclabel;
+             }
+             else
+             {
+                 ostringstream os;
+                 ostringstream is;
+                 bool fillimmunity = true;
+                 switch(currentimmunitystatus)
+                 {
+                 case efullimmunity:
+                 case eboostimmunity:
+                 case esecboostimmunity:
+                 case einffullimmunity:
+                 case einfboostimmunity:
+                 case einfsecboostimmunity:
+                 // sensitivity
+                 case esecboostaltimmunity:
+                 case eboostaltimmunity:
+                     fillimmunity = true;
+                     break;
+                 default:
+                     fillimmunity = false;
+                 }
+                 unsigned nc;
+                 switch(currentvaccstatus.order)
+                 {
+                 case firstdose:
+                     os << "partial";
+                     nc = ppp.numpartialcovs;
+                     break;
+                 case finaldose:
+                     os << "full";
+                     if(currentimmunitystatus == einffullimmunity)
+                        is << "hybridfull";
+                     else if(currentimmunitystatus == efullimmunity)
+                        is << "full";
+                     nc = ppp.numfinalcovs;
+                     break;
+                 case firstbooster:
+                     os << "boost";
+                     if(currentimmunitystatus == einfboostimmunity)
+                         is << "hybridboost";
+                     else if(currentimmunitystatus == eboostimmunity)
+                        is << "boost";
+                     else if(currentimmunitystatus == eboostaltimmunity)
+                         is << (ppp.discern45booster ? "b45":"boost23");
+
+                     nc = ppp.numboostercovs;
+                     break;
+                 case secbooster:
+                     os << "secboost";
+                     if(currentimmunitystatus == einfsecboostimmunity)
+                         is << "hybridboost";
+                     else if(currentimmunitystatus == esecboostimmunity)
+                         is << (ppp.discernsecboosts ? "secboostearly":"secboost");
+                     else if(currentimmunitystatus == esecboostaltimmunity)
+                         is << (ppp.discern45booster ? "secb45":"secboostlate");
+                     else
+                         fillimmunity = false;
+                     nc = ppp.numsecboostercovs;
+                     break;
+                 default:
+                     assert(0);
+                 }
+                 os << "_";
+                 is << "_";
+                 if(!ppp.groupvaccs)
+                     os << vaccines[currentvaccstatus.vaccine].abbrev << "_";
+
+                 int from, to;
+                 from = currentvaccstatus.covno * ppp.regularcovvaccduration + 1;
+                 to = from + ppp.regularcovvaccduration - 1;
+                 os << threedigits(from);
+                 is << threedigits(from);
+                 if(currentvaccstatus.covno+1 < nc)
+                 {
+                     is << "-" << threedigits(to);
+                     os << "-" << threedigits(to);
+                 }
+                 else
+                 {
+                     os << "+";
+                     fillimmunity = false;
+                 }
+                 vaccstring = os.str();
+                 if(fillimmunity)
+                     immunitystring = is.str();
+             }
              if(t2>0)
              {
                  int t1nonneg = max(0,t1);
-
-                 string dccistring;
-                 if(currentdcciindex == nodcciindex)
-                     dccistring = nodccilabel;
-                 else
-                 {
-                     assert(currentdcciindex >= 0);
-                     assert(currentdcciindex < dccis.size());
-                     ostringstream os;
-                     dccistring = dcci2str(dccis[currentdcciindex]);
-                 }
-
-
-
-                 string immunitystring;
-                 if(currentimmunitystatus == enoimmunity)
-                    immunitystring = noimmunitylabel;
-                 else
-                     immunitystring = "_other";
-
-                 string infpriorstr;
-                 if(currentinfstatus == 0)
-                     infpriorstr = uninflabel;
-                 else
-                 {
-                     ostringstream os;
-                     assert(lastinfection);
-                     os << "inf_";
-                     if(!ppp.groupvariants)
-                     {
-                         if(ppp.generalvariants)
-                             os << variants[lastinfection->variant].supcategory;
-                         else
-                             os << variants[lastinfection->variant].codeincovariate;
-                         os << "_";
-                     }
-                     int from,to;
-                     switch(currentinfstatus)
-                     {
-                         case 0:
-                             assert(0);
-                         break;
-                         case 1:
-                             from = 1;
-                             to = ppp.firstcovreinfduration;
-                         break;
-                         default:
-                             assert(currentinfstatus <= ppp.numinfcovariates);
-                        {
-                             from = ppp.firstcovreinfduration
-                                   + ppp.covreinfduration * (currentinfstatus-2) + 1;
-                             to = from + ppp.covreinfduration-1;
-                        }
-
-                     }
-
-                     ostringstream is;
-                     bool fillimmunity = true;
-
-                     switch(currentimmunitystatus)
-                     {
-                     case einfectedimmunity:
-                         is << "inf_";
-                         break;
-                     case efullinfimmunity:
-                         is << "hybridfull_";
-                         break;
-                     case eboostinfimmunity:
-                     case esecboostinfimmunity:
-                         is <<  "hybridboost_";
-                         break;
-                     default:
-                         fillimmunity = false;
-                     }
-
-                     os << threedigits(from);
-                     is << threedigits(from);
-                     if(currentinfstatus == ppp.numinfcovariates)
-                     {
-                         os << "+";
-                         fillimmunity = false;
-                     }
-                     else
-                     {
-                         is << "-" << threedigits(to);
-                         os << "-" << threedigits(to);
-                     }
-
-                     infpriorstr = os.str();
-
-                     if(fillimmunity)
-                         immunitystring = is.str();
-                 }
-
-                 string vaccstring;
-                 if(currentvaccstatus.order == novacc)
-                 {
-                     vaccstring = unvacclabel;
-                 }
-                 else
-                 {
-                     ostringstream os;
-                     ostringstream is;
-                     bool fillimmunity = true;
-                     switch(currentimmunitystatus)
-                     {
-                     case efullimmunity:
-                     case eboostimmunity:
-                     case esecboostimmunity:
-                     case einffullimmunity:
-                     case einfboostimmunity:
-                     case einfsecboostimmunity:
-                     // sensitivity
-                     case esecboostaltimmunity:
-                     case eboostaltimmunity:
-                         fillimmunity = true;
-                         break;
-                     default:
-                         fillimmunity = false;
-                     }
-                     unsigned nc;
-                     switch(currentvaccstatus.order)
-                     {
-                     case firstdose:
-                         os << "partial";
-                         nc = ppp.numpartialcovs;
-                         break;
-                     case finaldose:
-                         os << "full";
-                         if(currentimmunitystatus == einffullimmunity)
-                            is << "hybridfull";
-                         else if(currentimmunitystatus == efullimmunity)
-                            is << "full";
-                         nc = ppp.numfinalcovs;
-                         break;
-                     case firstbooster:
-                         os << "boost";
-                         if(currentimmunitystatus == einfboostimmunity)
-                             is << "hybridboost";
-                         else if(currentimmunitystatus == eboostimmunity)
-                            is << "boost";
-                         else if(currentimmunitystatus == eboostaltimmunity)
-                             is << (ppp.discern45booster ? "b45":"boost23");
-
-                         nc = ppp.numboostercovs;
-                         break;
-                     case secbooster:
-                         os << "secboost";
-                         if(currentimmunitystatus == einfsecboostimmunity)
-                             is << "hybridboost";
-                         else if(currentimmunitystatus == esecboostimmunity)
-                             is << (ppp.discernsecboosts ? "secboostearly":"secboost");
-                         else if(currentimmunitystatus == esecboostaltimmunity)
-                             is << (ppp.discern45booster ? "secb45":"secboostlate");
-                         else
-                             fillimmunity = false;
-                         nc = ppp.numsecboostercovs;
-                         break;
-                     default:
-                         assert(0);
-                     }
-                     os << "_";
-                     is << "_";
-                     if(!ppp.groupvaccs)
-                         os << vaccines[currentvaccstatus.vaccine].abbrev << "_";
-
-                     int from, to;
-                     from = currentvaccstatus.covno * ppp.regularcovvaccduration + 1;
-                     to = from + ppp.regularcovvaccduration - 1;
-                     os << threedigits(from);
-                     is << threedigits(from);
-                     if(currentvaccstatus.covno+1 < nc)
-                     {
-                         is << "-" << threedigits(to);
-                         os << "-" << threedigits(to);
-                     }
-                     else
-                     {
-                         os << "+";
-                         fillimmunity = false;
-                     }
-                     vaccstring = os.str();
-                     if(fillimmunity)
-                         immunitystring = is.str();
-                 }
-
 
                  bool dooutput = true;
                  if(!dostat)
@@ -1618,10 +1617,12 @@ if(id==407)
                      else
                          dooutput = false;
                  }
+                 if(mode == elongcovidevent && immunityatinfstring  == "" )
+                     dooutput = false;
+
+
                  if(dooutput)
-          {
-                     if(infected)
-                         immunityatinfstring = immunitystring;
+           {
                      string longcovidstr = "";
                      if(mode == elongcovidevent)
                          longcovidstr = longcovidevent ? "1" : "0";
@@ -1688,6 +1689,10 @@ if(id==407)
                  }
 
               }
+
+             if(infected)
+                 immunityatinfstring = vaccstring;
+
               currentinfstatus = newinfstatus;
               if(newinfection)
                 lastinfection = newinfection;

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+./proxyNew
+./proxyBA12
+./lcallO
+./lcinfO
