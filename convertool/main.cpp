@@ -1600,6 +1600,12 @@ if(id==407)
                          if(ir.events == 0)
                              dooutput = false;
                      }
+                     if(mode == elongcovidevent)
+                     {
+                         covstatrecord ir = findcov(immunityatinfstring ,stat.immunity);
+                         if(ir.events == 0)
+                             dooutput = false;
+                     }
                  }
 
                  string variantofinfstr = "";
@@ -1674,7 +1680,7 @@ if(id==407)
                  {
                      recordcov(infpriorstr,isevent, stat.infprior);
                      recordcov(vaccstring,isevent,stat.vaccstatus);
-                     recordcov(immunitystring,isevent, stat.immunity);
+                     recordcov(mode == elongcovidevent ? immunityatinfstring : immunitystring,isevent, stat.immunity);
                      recordcov(dccistring,isevent, stat.dcci);
                      recordcov(grouplabel(agegroup),isevent,stat.agegroup);
                  }
@@ -2169,20 +2175,20 @@ int _main(int argc, char *argv[], bool testrun = false)
 
 
 
-    ppp.numinfcovariates = max(0,(ppp.lastdate-ppp.reinfstartdate)/ppp.covreinfduration + 2);
+    ppp.numinfcovariates = max(0,(ppp.lastdate-ppp.reinfstartdate)/ppp.covreinfduration + 3);
     ppp.numinfcovariates = min(ppp.numinfcovariates, ppp.maxinfcovs );
     cout << "Number of InfPrior covariates: " << ppp.numinfcovariates << endl;
 
 
-    ppp.numfinalcovs = max(0,(ppp.lastdate-ppp.vaccstartdate)/ppp.regularcovvaccduration + 2);
+    ppp.numfinalcovs = max(0,(ppp.lastdate-ppp.vaccstartdate)/ppp.regularcovvaccduration + 3);
     ppp.numfinalcovs = min(ppp.numfinalcovs, ppp.maxvacccovs );
     cout << "Number of VaccStatusFull covariates: " << ppp.numfinalcovs  << endl;
 
-    ppp.numboostercovs = max(0,(ppp.lastdate-ppp.boosterstartdate)/ppp.regularcovvaccduration + 2);
+    ppp.numboostercovs = max(0,(ppp.lastdate-ppp.boosterstartdate)/ppp.regularcovvaccduration + 3);
     ppp.numboostercovs = min(ppp.numboostercovs, ppp.maxvacccovs );
     cout << "Number of VaccStatusBoost covariates: " << ppp.numboostercovs  << endl;
 
-    ppp.numsecboostercovs = max(0,(ppp.lastdate-ppp.secboosterstartdate)/ppp.regularcovvaccduration + 2);
+    ppp.numsecboostercovs = max(0,(ppp.lastdate-ppp.secboosterstartdate)/ppp.regularcovvaccduration + 3);
     ppp.numsecboostercovs = min(ppp.numboostercovs, ppp.maxvacccovs );
     cout << "Number of VaccStatusSecBoost covariates: " << ppp.numsecboostercovs  << endl;
 
