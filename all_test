@@ -1,0 +1,6 @@
+#!/bin/bash
+
+./proxyNew_test
+./proxyBA12_test
+./lcinfO_test
+./lceventO_test
