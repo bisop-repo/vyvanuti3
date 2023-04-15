@@ -1628,7 +1628,7 @@ if(id==407)
 
 
                  if(dooutput)
-           {
+                 {
                      string longcovidstr = "";
                      if(mode == elongcovidevent)
                          longcovidstr = longcovidevent ? "1" : "0";
@@ -2258,7 +2258,7 @@ int main(int argc, char *argv[])
             _main(argc,argv);
         else if(testno == 1)
         {
-            char *as[6] ={"foo", "test_input_long_mod.csv","test1_output.csv","xO",
+            char *as[6] ={"foo", "test_input_long_mod.csv","test1_output.csv","eO-ib",
                           "2020-01-01", "2023-02-20"};
             _main(6,as,true);
         }

@@ -1,7 +1,7 @@
 #### VOLBA PARAMETROV SKRIPTU ####
 rm(list = ls())
- args <-  commandArgs(trailingOnly=TRUE)
-# args <- c("rinput.csv", "SeriousCovidProxy")
+# args <-  commandArgs(trailingOnly=TRUE)
+ args <- c("rinput.csv", "SeriousCovidProxy")
 
 # args <- c("Input", "Outcome", "Covariates"), kde: 
 # 1. Input: zdrojovej csv soubor 
@@ -168,7 +168,6 @@ z_score <- NA
 z_score_fin <- NA
 r_fin <- NA
 
-
 for (i in 1 : length(im_level)) {
   for (j in 1 : length(im_level)) {
     names_h <- names(HR[grep(im_level[i], names(HR))])
@@ -206,7 +205,7 @@ for (i in 1 : length(im_level)) {
         
         # corresponding z-score
         z_score <- r / sqrt(var_r)
-
+        
       } else if (length(sel) > 1) {
         names_h <- names_h[names_h_num %in% sel]
         names_k <- names_k[names_k_num %in% sel]
@@ -218,7 +217,7 @@ for (i in 1 : length(im_level)) {
         
         S_mat <- cbind(matrix(diag(h), ncol = length(h)), 
                        matrix(- diag(k), ncol = length(k)))
- 
+        
         U_mat <- S_mat %*% V_mat_sub2 %*% t(S_mat)
         
         # n-vector of 1's
@@ -233,41 +232,64 @@ for (i in 1 : length(im_level)) {
         
         # corresponding z-score
         z_score <- r / sqrt(var_r)
-      }
-    r_fin <- append(r_fin, r)
-    z_score_fin <- append(z_score_fin, z_score)
+      } else { 
+# M:tohle je pro případ, že by nebyly dvě srovnatelné
+         r = NA
+         z_score = NA
+      }  
+      r_fin <- append(r_fin, r)
+      z_score_fin <- append(z_score_fin, z_score)
     }
-    else
-    {
+    else { # M: pak nemusíme dělat tu brutální věc
       r_fin <- append(r_fin, NA)
       z_score_fin <- append(z_score_fin, NA)
     }
+  }
 }
-}
 
+# M: pak ale tohle musíme udělat jinak
+#r_fin <- r_fin[!is.na(r_fin)]
+#z_score_fin <- z_score_fin[!is.na(z_score_fin)]
+r_fin <- r_fin[-1]
+z_score_fin  <- z_score_fin[-1]
 
-#tohle jsem nahradil, aby tam mohly bejt i opravdový NA
-#r_fin2 <- r_fin[!is.na(r_fin)]
-#z_score_fin2 <- z_score_fin[!is.na(z_score_fin)r]
-
-r_fin2 <- r_fin[-1]
-z_score_fin2 <- z_score_fin[-1]
-
-
-# tady nechápu, proč to tu je
+# M: tohle by ale pak ty všechny NA smrsklo (stejně jako hodnoty, kdyby
+# náhodou byly stejné... nebo mi něco nedochází)
 #r_fin2 <- unique(r_fin)
 #z_score_fin2 <- unique(z_score_fin)
+r_fin2 <- r_fin
+z_score_fin2 <- z_score_fin
 
 # toto je brutalne nahodna vec
-r_fin3 <- c(NA, r_fin2[1:7], NA, r_fin2[8:14], NA,  r_fin2[15:21], NA,  
-            r_fin2[22:28], NA, r_fin2[29:35], NA)
-r_fin_mat <- matrix(r_fin3, ncol = 7, byrow = T)
-r_fin_mat <- matrix(label_percent()(r_fin_mat), ncol = 7, byrow = T)
+# M: a já jsem to předělal na víc kovariát a nevím, jestli dobře
+#r_fin3 <- c(NA, r_fin2[1:6], NA, r_fin2[7:12], NA,  r_fin2[13:18], NA,  
+#            r_fin2[19:24], NA, r_fin2[25:30], NA)
+#r_fin_mat <- matrix(r_fin3, ncol = 6, byrow = T)
+#r_fin_mat <- matrix(label_percent()(r_fin_mat), ncol = 6, byrow = T)
 
-z_score_fin3 <- c(NA, z_score_fin2[1:7], NA, z_score_fin2[8:14], NA, 
-                  z_score_fin2[15:21], NA, z_score_fin2[22:28], NA, 
-                  z_score_fin2[29:35], NA)
-z_score_fin_mat <- matrix(z_score_fin3, ncol = 7, byrow = T)
+#z_score_fin3 <- c(NA, z_score_fin2[1:6], NA, z_score_fin2[7:12], NA, 
+#                  z_score_fin2[13:18], NA, z_score_fin2[19:24], NA, 
+#                  z_score_fin2[25:30], NA)
+#z_score_fin_mat <- matrix(z_score_fin3, ncol = 6, byrow = T)
+
+# M: tohle jsme ošetřili v cyklu
+#r_fin3 <- c(NA, r_fin2[1:7], NA, r_fin2[8:14], NA,  r_fin2[15:21], NA,  
+#            r_fin2[22:28], NA, r_fin2[29:35], NA ,r_fin2[36:42], NA)
+#r_fin_mat <- matrix(r_fin3, ncol = 7, byrow = T)
+r_fin_mat <- matrix(r_fin2, ncol = 8, byrow = T)
+r_fin_mat <- matrix(label_percent()(r_fin_mat), ncol = 8, byrow = T)
+
+write.table(r_fin_mat,"r_fin_mat.txt")
+
+# M: viz výše
+#z_score_fin3 <- c(NA, z_score_fin2[1:7], NA, z_score_fin2[8:14], NA, 
+#                  z_score_fin2[15:21], NA, z_score_fin2[22:28], NA, 
+#                  z_score_fin2[29:35], NA,z_score_fin2[36:42], NA)
+#z_score_fin_mat <- matrix(z_score_fin3, ncol = 7, byrow = T)
+z_score_fin_mat <- matrix(z_score_fin2, ncol = 8, byrow = T)
+
+write.table(z_score_fin_mat,"z_score_fin_mat.txt")
+
 
 #### HEATMAPA #### 
 
