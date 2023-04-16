@@ -1,0 +1,267 @@
+../../convertool/bin/convertool ../../data/data_20230329.csv rinput.csv eO-ib 2021-12-01 2022-10-30 
+version 2.0
+Usage convertool input output whattodo(DVRW) firstdate(rrrr-mm-dd) lastdate(rrrr-mm-dd) [minage maxage everyn]
+D=i-infection/x-covidproxy/h-hospitalization/l-longcovid
+V=!-all variants/O-all Omicrons/E-O+Delta/x-variant x
+R=-variants... --not discerned in InfPrior/a all discerned/g general discerned
+W=i-intervals uded for variant determination/--not used
+
+long covid as event
+All Omicrons as outcomes
+Variants not discerned in InfPrior
+Using intervals of dominance
+Discerning BA45 booster
+Input ../../data/data_20230329.csv
+Number of InfPrior covariates: 10
+Number of VaccStatusFull covariates: 10
+Number of VaccStatusBoost covariates: 8
+Number of VaccStatusSecBoost covariates: 8
+Output rinput.csv
+Date range 2021-12-01 - 2022-10-30
+
+Writing to temporary_full.csv
+Importing from input, total 9036943 records.
+Processing records from input, excluding inconsistent records:
+8462082 individuals taken from the UZIS database
+Omitting adding CZSO records.
+Total 8462082 individuals.
+
+Variants of infection found during study period
+
+variant,infections,outcomes,discerned_in_condition,taken_as_outcome
+NA,722321,0,0,0
+Delta,811695,0,0,0
+BA12,1117699,0,0,1
+BA45,245337,0,0,1
+Omicron,244947,0,0,1
+Alpha,619609,0,0,0
+Beta,0,0,0,0
+Early,764694,0,0,0
+2023,81416,0,0,1
+
+Untracked variants (joinded into NA)
+(empty)
+JIN
+
+Mode longcovidevent
+Age filter: 0-333
+
+infprior,N,events
+inf_NA_001-061,4184239,17682
+inf_NA_062-122,3920682,6896
+inf_NA_123-183,3675090,3517
+inf_NA_184-244,3646108,2308
+inf_NA_245-305,3477417,1959
+inf_NA_306-366,2592808,2149
+_uninfected,33570598,5660
+inf_NA_550+,3146080,3317
+inf_NA_367-427,2419903,2348
+inf_NA_428-488,2465610,2332
+inf_NA_489-549,2329208,1835
+
+vaccstatus,N,events
+_unvaccinated,9759956,15032
+partial_062+,242656,413
+full_245-305,3849503,3109
+full_306-366,3088800,1812
+full_367-427,2416400,1229
+full_428-488,1544751,740
+full_489-549,272243,163
+full_550+,71730,34
+full_123-183,6764276,3346
+full_184-244,5094542,4115
+boost_001-061,5207095,2968
+boost_062-122,5254969,4157
+boost_123-183,5081287,3642
+boost_184-244,4818735,2673
+boost_245-305,4320075,3004
+full_062-122,3059869,1399
+full_001-061,1224068,662
+boost_306-366,1918843,927
+partial_001-061,705785,283
+secboost_001-061,542449,242
+secboost_062-122,128114,46
+boost_367-427,61589,7
+boost_428+,8,0
+
+immunity,N,events
+,55798811,33810
+_unvaccinated,2493326,4722
+boost_062-122,1115990,2387
+boost_184-244,198283,775
+full_367-427,59518,204
+boost_001-061,1376532,1805
+partial_001-061,60405,55
+boost_123-183,291786,876
+full_245-305,303557,643
+full_062-122,412999,415
+boost_245-305,128972,684
+full_184-244,1307018,1694
+full_123-183,1339747,1024
+full_001-061,359330,290
+full_306-366,111305,249
+partial_062+,22583,84
+full_489-549,3715,26
+boost_306-366,19126,135
+full_428-488,17031,86
+secboost_001-061,6360,29
+secboost_062-122,705,5
+boost_367-427,119,0
+full_550+,525,5
+
+dcci,N,events
+_nodcci,1314445,0
+1,14348734,13842
+0,35772556,17404
+2+,13992008,18757
+
+agegr,N,events
+16-17,1390256,160
+80+,2952042,3222
+60-64,4138340,4672
+45-49,6384440,5789
+25-29,3788049,1626
+18-24,4725096,1233
+12-15,2673460,283
+0-11,2887046,291
+_40-44,5785617,4399
+35-39,4816354,3047
+30-34,4532897,2312
+65-69,4501321,4601
+75-79,3041515,3319
+50-54,4920118,5065
+70-74,4204085,4405
+55-59,4687107,5579
+
+covs (immunity version)=54 (43), events=50003, eventspercov=925.991(1282.14)
+Writing to rinput.csv
+Importing from input, total 9036943 records.
+Processing records from input, excluding inconsistent records:
+8462082 individuals taken from the UZIS database
+Adding records from CZSO from 4th half-year
+More of men ( 232) treated then exist of age 100 (96)
+Added,Men,Women
+0-11,443248,426239
+12-15,44217,43925
+16-17,13132,10973
+18-24,39317,35849
+25-29,56308,51201
+30-34,58014,51802
+35-39,61036,49055
+_40-44,71150,55871
+45-49,51455,36464
+50-54,41746,32764
+55-59,45079,37518
+60-64,45755,44027
+65-69,44861,46988
+70-74,34262,40857
+75-79,13526,19759
+80+,24084,56257
+Total 10588821 individuals.
+
+Variants of infection found during study period
+
+variant,infections,outcomes,discerned_in_condition,taken_as_outcome
+NA,722321,0,0,0
+Delta,811695,0,0,0
+BA12,1117699,0,0,1
+BA45,245337,0,0,1
+Omicron,244947,0,0,1
+Alpha,619609,0,0,0
+Beta,0,0,0,0
+Early,764694,0,0,0
+2023,81416,0,0,1
+
+Untracked variants (joinded into NA)
+(empty)
+JIN
+
+Mode longcovidevent
+Age filter: 0-333
+
+infprior,N,events
+inf_NA_001-061,4184239,17682
+inf_NA_062-122,3920682,6896
+inf_NA_123-183,3675090,3517
+inf_NA_184-244,3646108,2308
+inf_NA_245-305,3477417,1959
+inf_NA_306-366,2592808,2149
+_uninfected,33570598,5660
+inf_NA_550+,3146080,3317
+inf_NA_367-427,2419903,2348
+inf_NA_428-488,2465610,2332
+inf_NA_489-549,2329208,1835
+
+vaccstatus,N,events
+_unvaccinated,9759956,15032
+partial_062+,242656,413
+full_245-305,3849503,3109
+full_306-366,3088800,1812
+full_367-427,2416400,1229
+full_428-488,1544751,740
+full_489-549,272243,163
+full_550+,71730,34
+full_123-183,6764276,3346
+full_184-244,5094542,4115
+boost_001-061,5207095,2968
+boost_062-122,5254969,4157
+boost_123-183,5081287,3642
+boost_184-244,4818735,2673
+boost_245-305,4320075,3004
+full_062-122,3059869,1399
+full_001-061,1224068,662
+boost_306-366,1918843,927
+partial_001-061,705785,283
+secboost_001-061,542449,242
+secboost_062-122,128114,46
+boost_367-427,61589,7
+
+immunity,N,events
+,55798811,33810
+_unvaccinated,2493326,4722
+boost_062-122,1115990,2387
+boost_184-244,198283,775
+full_367-427,59518,204
+boost_001-061,1376532,1805
+partial_001-061,60405,55
+boost_123-183,291786,876
+full_245-305,303557,643
+full_062-122,412999,415
+boost_245-305,128972,684
+full_184-244,1307018,1694
+full_123-183,1339747,1024
+full_001-061,359330,290
+full_306-366,111305,249
+partial_062+,22583,84
+full_489-549,3715,26
+boost_306-366,19126,135
+full_428-488,17031,86
+secboost_001-061,6360,29
+secboost_062-122,705,5
+full_550+,525,5
+
+dcci,N,events
+1,14348734,13842
+0,35772556,17404
+2+,13992008,18757
+
+agegr,N,events
+16-17,1390256,160
+80+,2952042,3222
+60-64,4138340,4672
+45-49,6384440,5789
+25-29,3788049,1626
+18-24,4725096,1233
+12-15,2673460,283
+0-11,2887046,291
+_40-44,5785617,4399
+35-39,4816354,3047
+30-34,4532897,2312
+65-69,4501321,4601
+75-79,3041515,3319
+50-54,4920118,5065
+70-74,4204085,4405
+55-59,4687107,5579
+
+covs (immunity version)=52 (41), events=50003, eventspercov=961.606(1315.88)
+time: 933 seconds.
