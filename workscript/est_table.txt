@@ -1,8 +1,8 @@
 "immunities" "deltas" "lower_of_deltas" "upper_of_deltas"
-"2" "Immunityboost" -15.1941615718734 -95.002702730667 64.6143795869201
-"3" "Immunityfull" -62.8654095297913 -500.957164344062 375.226345284479
-"4" "Immunityhybridboost" NA NA NA
-"5" "Immunityhybridfull" NA NA NA
-"6" "Immunityinf" NA NA NA
-"7" "Immunitysecboost" 16.2073648163995 -205.11819764945 237.532927282249
-"8" "Immunitysecb45" NA NA NA
+"2" "Immunityfull" 0.0969438776309194 -0.111001176746433 0.304888932008272
+"3" "Immunityboost" -0.0613347032525622 -0.184574330402274 0.0619049238971497
+"4" "Immunitysecboost" 0.384741829598536 0.00028624331580307 0.769197415881269
+"5" "Immunitysecb45" NA NA NA
+"6" "Immunityhybridfull" NA NA NA
+"7" "Immunityhybridboost" -0.0135496360792689 -0.104013191370889 0.0769139192123512
+"8" "Immunityinf" NA NA NA

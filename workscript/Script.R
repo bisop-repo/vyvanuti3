@@ -1,7 +1,7 @@
 #### VOLBA PARAMETROV SKRIPTU ####
 rm(list = ls())
-args <-  commandArgs(trailingOnly=TRUE)
-# args <- c("rinput.csv", "SeriousCovidProxy")
+# args <-  commandArgs(trailingOnly=TRUE)
+args <- c("rinput.csv", "SeriousCovidProxy")
 
 # args <- c("Input", "Outcome", "Covariates"), kde: 
 # 1. Input: zdrojovej csv soubor 
@@ -80,9 +80,12 @@ HR <- HR[!names(HR) %in% odstranit]
 V_mat <- vcov(m1_cox)
 write.table(V_mat, "V_mat.txt")
 
-im_level <- c("Immunityboost", "Immunityfull", "Immunityhybridboost", 
-              "Immunityhybridfull", "Immunityinf",
-              "Immunitysecboost", "Immunitysecb45")
+# M: tady jsem přidal secb45 a přeházel jsem to
+im_level <- c("Immunityfull","Immunityboost",
+              "Immunitysecboost", "Immunitysecb45",
+              "Immunityhybridfull", "Immunityhybridboost", 
+              "Immunityinf"
+              )
 
 eff_tau <- NA
 eff_tau_fin <- NA
@@ -186,11 +189,12 @@ for (i in 1 : length(im_level)) {
         
         h <- HR[names_h]
         k <- HR[names_k]
-        
+
         V_mat_sub2 <- V_mat[c(names_h, names_k), c(names_h, names_k)]
-        
-        S_mat <- cbind(h, k)
-        
+
+#M: tady chyběl mínus                
+#        S_mat <- cbind(h, k)
+        S_mat <- cbind(h,-k)
         U_mat <- S_mat %*% V_mat_sub2 %*% t(S_mat)
         
         # n-vector of 1's
@@ -198,14 +202,15 @@ for (i in 1 : length(im_level)) {
         
         #  GLS estimator of rho
         # inverzia z matice 1x1 je prevratena hodnota
-        r <- (1 / (I_n %*% (1 / U_mat) %*% I_n)) %*% 
-          I_n %*% (1 / U_mat) %*% (h - k)
-        
+        # M: tadyto se vykrátí
+        # r <- (1 / (I_n %*% (1 / U_mat) %*% I_n)) %*% 
+        #  I_n %*% (1 / U_mat) %*% (h - k)
+
+        r = h - k;
+
         var_r <- (1 / (I_n %*% (1 / U_mat) %*% I_n)) 
-        
         # corresponding z-score
         z_score <- r / sqrt(var_r)
-        
       } else if (length(sel) > 1) {
         names_h <- names_h[names_h_num %in% sel]
         names_k <- names_k[names_k_num %in% sel]
@@ -217,7 +222,6 @@ for (i in 1 : length(im_level)) {
         
         S_mat <- cbind(matrix(diag(h), ncol = length(h)), 
                        matrix(- diag(k), ncol = length(k)))
-        
         U_mat <- S_mat %*% V_mat_sub2 %*% t(S_mat)
         
         # n-vector of 1's
@@ -229,7 +233,6 @@ for (i in 1 : length(im_level)) {
           t(I_n) %*% inv(U_mat) %*% (h - k)
         
         var_r <- (1 / (t(I_n) %*% inv(U_mat) %*% I_n))
-        
         # corresponding z-score
         z_score <- r / sqrt(var_r)
       } else { 
@@ -260,6 +263,7 @@ z_score_fin  <- z_score_fin[-1]
 r_fin2 <- r_fin
 z_score_fin2 <- z_score_fin
 
+
 # toto je brutalne nahodna vec
 # M: a já jsem to předělal na víc kovariát a nevím, jestli dobře
 #r_fin3 <- c(NA, r_fin2[1:6], NA, r_fin2[7:12], NA,  r_fin2[13:18], NA,  
@@ -276,8 +280,13 @@ z_score_fin2 <- z_score_fin
 #r_fin3 <- c(NA, r_fin2[1:7], NA, r_fin2[8:14], NA,  r_fin2[15:21], NA,  
 #            r_fin2[22:28], NA, r_fin2[29:35], NA ,r_fin2[36:42], NA)
 #r_fin_mat <- matrix(r_fin3, ncol = 7, byrow = T)
-r_fin_mat <- matrix(r_fin2, ncol = length(im_level), byrow = T)
-r_fin_mat <- matrix(label_percent()(r_fin_mat), ncol = length(im_level), byrow = T)
+
+#M: ta druhá řádka bůhvíproč tu matici transponovalo
+#r_fin_mat <- matrix(r_fin2, ncol = length(im_level), byrow = T)
+#r_fin_mat <- matrix(label_percent()(r_fin_mat), ncol = length(im_level), byrow = T)
+#M moje náhrada:
+r_fin_mat <- matrix(label_percent()(r_fin2), ncol = length(im_level), byrow = T)
+
 
 write.table(r_fin_mat,"r_fin_mat.txt")
 
@@ -301,6 +310,7 @@ png(file="heatmap.png", height = 325)
 heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F, 
           Colv = F, notecol="black", 
           trace = "none",
+          notecex = 0.8, 
           # key=FALSE, 
           density.info = "none",
           # keysize = 0.25,
@@ -310,8 +320,8 @@ heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F,
           margins = c(1, 10),
           srtCol = 270,
           offsetCol = -30, # toto je trochu hruba sila
-          labRow = substr(im_level[-6], 9, 20),
-          labCol = substr(im_level[-6], 9, 20), 
+          labRow = substr(im_level, 9, 20),
+          labCol = substr(im_level, 9, 20), 
           # labCol = F,
           col = "terrain.colors")
 
