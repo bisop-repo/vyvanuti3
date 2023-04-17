@@ -2,12 +2,16 @@
 
 rm v3/report/results/*.*
 cp v3/ProxyBA12/cox_model_summary.txt v3/report/results/ProxyBA12C.txt
+cp v3/ProxyBA12/est_table.txt v3/report/results/ProxyBA12E.txt
 cp v3/ProxyBA12/df_fin.txt v3/report/results/ProxyBA12T.txt
 cp v3/ProxyNew/cox_model_summary.txt v3/report/results/ProxyNewC.txt
 cp v3/ProxyNew/df_fin.txt v3/report/results/ProxyNewT.txt
+cp v3/ProxyNew/est_table.txt  v3/report/results/ProxyNewE.txt
 cp v3/LCallO/cox_model_summary.txt v3/report/results/LCAllC.txt
 cp v3/LCallO/df_fin.txt v3/report/results/LCAllT.txt
+cp v3/LCallO/est_table.txt v3/report/results/LCAllE.txt
 cp v3/LCinfO/cox_model_summary.txt v3/report/results/LCInfC.txt
 cp v3/LCinfO/df_fin.txt v3/report/results/LCInfT.txt
+cp v3/LCinfO/est_table.txt v3/report/results/LCInfE.txt
 
 

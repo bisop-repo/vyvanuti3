@@ -296,7 +296,7 @@ write.table(z_score_fin_mat,"z_score_fin_mat.txt")
 lowerTriangle(z_score_fin_mat, diag = FALSE, byrow = FALSE) <- NA
 lowerTriangle(r_fin_mat, diag = FALSE, byrow = FALSE) <- NA
 
-png(file="heatmap.png")
+png(file="heatmap.png", height = 325)
 
 heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F, 
           Colv = F, notecol="black", 
