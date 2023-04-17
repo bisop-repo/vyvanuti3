@@ -177,14 +177,13 @@ for (i in 1 : length(im_level)) {
     names_k <- names(HR[grep(im_level[j], names(HR))]) 
     names_h_num <- as.numeric(gsub("\\D", "", names_h))
     names_k_num <- as.numeric(gsub("\\D", "", names_k))
-    
-    sel <- names_h_num[names_h_num %in% names_k_num]
-    
-    if (!names_h[1] %in% names_k[1]){
-      if (length(sel) > 0 & length(sel) < 2){ 
-print("one to one")
 print(names_k[1])
 print(names_h[1])
+    
+    sel <- names_h_num[names_h_num %in% names_k_num]
+print(sel)    
+    if (!names_h[1] %in% names_k[1]){
+      if (length(sel) > 0 & length(sel) < 2){ 
 
                 # pre sel = 1 musime matice brat ako jedno cislo
         names_h <- names_h[names_h_num %in% sel]
@@ -215,10 +214,7 @@ print(names_h[1])
         # corresponding z-score
         z_score <- r / sqrt(var_r)
       } else if (length(sel) > 1) {
-print("more to more")
-print(names_k[1])
-print(names_h[1])
-        
+
         names_h <- names_h[names_h_num %in% sel]
         names_k <- names_k[names_k_num %in% sel]
         
