@@ -301,6 +301,7 @@ png(file="heatmap.png", height = 325)
 heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F, 
           Colv = F, notecol="black", 
           trace = "none",
+          notecex = 0.8, # velkost cislicek
           # key=FALSE, 
           density.info = "none",
           # keysize = 0.25,
