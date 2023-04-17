@@ -35,7 +35,7 @@ data <- read_labelled_csv(args[1])
 if (args[2]=="LCINF") {
   f <- as.formula("Surv(T1, T2, LongCovid) ~ Immunity + DCCI + InfPrior + AgeGr + Sex")
 } else  {
-f <- as.formula(paste("Surv(T1, T2,",args[2],") ~ Immunity  + AgeGr + Sex "))
+  f <- as.formula(paste("Surv(T1, T2,",args[2],") ~ Immunity  + AgeGr + Sex "))
 }
 
 #### COXOV MODEL ####
@@ -81,7 +81,7 @@ V_mat <- vcov(m1_cox)
 write.table(V_mat, "V_mat.txt")
 
 im_level <- c("Immunityboost", "Immunityfull", "Immunityhybridboost", 
-              "Immunityhybridfull", "Immunityinf", "Immunityother",
+              "Immunityhybridfull", "Immunityinf",
               "Immunitysecboost", "Immunitysecb45")
 
 eff_tau <- NA
@@ -93,66 +93,66 @@ upper_of_deltas <- NA
 
 # names <- names(HR[grep("Immunityother", names(HR))])
 for (i in 1 : length(im_level)) {
-names <- names(HR[grep(im_level[i], names(HR))])
-# names
-
-if (length(names) > 1) {
-
-# series of HR corresponding to a certain source of immunity (subvector of HR)
-HR_sub <- HR[names]
-
-# corresponding submatrix of V
-V_mat_sub <- V_mat[names, names]
-
-# vyextrahujeme t
-cas <- as.numeric(gsub("\\D", "", names))
-cas <-  ifelse(cas > 1000, cas %>% substring(nchar(cas) - 2, nchar(cas)) %>% 
-  as.numeric() %>% - 30, 
-  cas + 30)
-# cas
-
-T_mat <- matrix(diag(HR_sub), ncol = length(HR_sub))
-
-# takova jina matice
-W_mat <- t(T_mat) %*% V_mat_sub %*% T_mat
-
-X_mat <- matrix(data = c(rep(1, times = length(HR_sub)), cas), ncol = 2)
-
-# GLS estimate
-GLS_est <- inv(t(X_mat) %*% inv(W_mat) %*% X_mat) %*% 
-  t(X_mat) %*% inv(W_mat) %*% HR_sub
-
-Var_est_mat <- inv(t(X_mat) %*% inv(W_mat) %*% X_mat)
-
-v <- GLS_est[1]
-d <- GLS_est[2]
-var_of_d <- Var_est_mat[2,2]
-
-
-
-# the estimate of the 1 - trend
-eff_tau <- NA
-for (i in 1 : length(cas)) {
-  eff_tau[i] <- 1 - (v + d * cas[i])
-}
-
-# eff_tau
-names_fin <- append(names_fin, names)
-eff_tau_fin <- append(eff_tau_fin, eff_tau)
-
-#convertin to mohths...
-delta <- d * 30.5
-deltas <- append(deltas,delta) 
-sd_of_delta <- sqrt(var_of_d) * 30.5
-lower_of_deltas <- append(lower_of_deltas,delta - sd_of_delta * 1.96)
-upper_of_deltas <- append(upper_of_deltas,delta + sd_of_delta * 1.96)
-}
-else {
-  deltas <- append(deltas,NA) 
-  lower_of_deltas <- append(lower_of_deltas,NA)
-  upper_of_deltas <- append(upper_of_deltas,NA)
-}
-
+  names <- names(HR[grep(im_level[i], names(HR))])
+  # names
+  
+  if (length(names) > 1) {
+    
+    # series of HR corresponding to a certain source of immunity (subvector of HR)
+    HR_sub <- HR[names]
+    
+    # corresponding submatrix of V
+    V_mat_sub <- V_mat[names, names]
+    
+    # vyextrahujeme t
+    cas <- as.numeric(gsub("\\D", "", names))
+    cas <-  ifelse(cas > 1000, cas %>% substring(nchar(cas) - 2, nchar(cas)) %>% 
+                     as.numeric() %>% - 30, 
+                   cas + 30)
+    # cas
+    
+    T_mat <- matrix(diag(HR_sub), ncol = length(HR_sub))
+    
+    # takova jina matice
+    W_mat <- t(T_mat) %*% V_mat_sub %*% T_mat
+    
+    X_mat <- matrix(data = c(rep(1, times = length(HR_sub)), cas), ncol = 2)
+    
+    # GLS estimate
+    GLS_est <- inv(t(X_mat) %*% inv(W_mat) %*% X_mat) %*% 
+      t(X_mat) %*% inv(W_mat) %*% HR_sub
+    
+    Var_est_mat <- inv(t(X_mat) %*% inv(W_mat) %*% X_mat)
+    
+    v <- GLS_est[1]
+    d <- GLS_est[2]
+    var_of_d <- Var_est_mat[2,2]
+    
+    
+    
+    # the estimate of the 1 - trend
+    eff_tau <- NA
+    for (i in 1 : length(cas)) {
+      eff_tau[i] <- 1 - (v + d * cas[i])
+    }
+    
+    # eff_tau
+    names_fin <- append(names_fin, names)
+    eff_tau_fin <- append(eff_tau_fin, eff_tau)
+    
+    #convertin to mohths...
+    delta <- d * 30.5
+    deltas <- append(deltas,delta) 
+    sd_of_delta <- sqrt(var_of_d) * 30.5
+    lower_of_deltas <- append(lower_of_deltas,delta - sd_of_delta * 1.96)
+    upper_of_deltas <- append(upper_of_deltas,delta + sd_of_delta * 1.96)
+  }
+  else {
+    deltas <- append(deltas,NA) 
+    lower_of_deltas <- append(lower_of_deltas,NA)
+    upper_of_deltas <- append(upper_of_deltas,NA)
+  }
+  
 }
 
 immunities <- append(NA,im_level)
@@ -233,9 +233,9 @@ for (i in 1 : length(im_level)) {
         # corresponding z-score
         z_score <- r / sqrt(var_r)
       } else { 
-# M:tohle je pro případ, že by nebyly dvě srovnatelné
-         r = NA
-         z_score = NA
+        # M:tohle je pro případ, že by nebyly dvě srovnatelné
+        r = NA
+        z_score = NA
       }  
       r_fin <- append(r_fin, r)
       z_score_fin <- append(z_score_fin, z_score)
@@ -276,8 +276,8 @@ z_score_fin2 <- z_score_fin
 #r_fin3 <- c(NA, r_fin2[1:7], NA, r_fin2[8:14], NA,  r_fin2[15:21], NA,  
 #            r_fin2[22:28], NA, r_fin2[29:35], NA ,r_fin2[36:42], NA)
 #r_fin_mat <- matrix(r_fin3, ncol = 7, byrow = T)
-r_fin_mat <- matrix(r_fin2, ncol = 8, byrow = T)
-r_fin_mat <- matrix(label_percent()(r_fin_mat), ncol = 8, byrow = T)
+r_fin_mat <- matrix(r_fin2, ncol = length(im_level), byrow = T)
+r_fin_mat <- matrix(label_percent()(r_fin_mat), ncol = length(im_level), byrow = T)
 
 write.table(r_fin_mat,"r_fin_mat.txt")
 
@@ -286,7 +286,7 @@ write.table(r_fin_mat,"r_fin_mat.txt")
 #                  z_score_fin2[15:21], NA, z_score_fin2[22:28], NA, 
 #                  z_score_fin2[29:35], NA,z_score_fin2[36:42], NA)
 #z_score_fin_mat <- matrix(z_score_fin3, ncol = 7, byrow = T)
-z_score_fin_mat <- matrix(z_score_fin2, ncol = 8, byrow = T)
+z_score_fin_mat <- matrix(z_score_fin2, ncol = length(im_level), byrow = T)
 
 write.table(z_score_fin_mat,"z_score_fin_mat.txt")
 
