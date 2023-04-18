@@ -5,6 +5,7 @@ rm v3/report/results/*.*
 ./copy df_fin txt T 
 ./copy est_table txt E 
 ./copy heatmap png H 
+./copy heatmapnk png N 
 ./copy r_fin_mat txt M
 ./copy z_score_fin_mat txt Z
 
