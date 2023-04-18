@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cp v3/ProxyBA12/$1.$2 v3/report/results/ProxyBA12$3.$2
+cp v3/ProxyNew/$1.$2 v3/report/results/ProxyNew$3.$2
+cp v3/LCallO/$1.$2 v3/report/results/LCAll$3.$2
+cp v3/LCinfO/$1.$2 v3/report/results/LCInf$3.$2
+
+
+

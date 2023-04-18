@@ -4,6 +4,5 @@
 "4" "Immunityhybridboost" 0.0095008800025659 0.00104671132669954 0.0179550486784323
 "5" "Immunityhybridfull" 0.0173159093852252 0.00696170965757848 0.027670109112872
 "6" "Immunityinf" 0.00163718526482359 -0.00434081473517641 0.00761518526482359
-"7" "Immunityother" NA NA NA
-"8" "Immunitysecboost" NA NA NA
-"9" "Immunitysecb45" NA NA NA
+"7" "Immunitysecboost" NA NA NA
+"8" "Immunitysecb45" NA NA NA
