@@ -305,11 +305,17 @@ write.table(z_score_fin_mat,"z_score_fin_mat.txt")
 lowerTriangle(z_score_fin_mat, diag = FALSE, byrow = FALSE) <- NA
 lowerTriangle(r_fin_mat, diag = FALSE, byrow = FALSE) <- NA
 
-png(file="heatmap.png", height = 325)
-
-# https://www.biostars.org/p/73644/
 breaks=c(-2.8,-2.58, -1.96, -1.64, 1.64, 1.96, 2.58, 2.8)
 mycol <- colorpanel(n=length(breaks)-1,low="red",mid="lightgrey",high="darkgreen")
+
+for (i in 0 : 1) {
+
+if(i == 0)
+  png(file="heatmapnk.png", height = 325)
+else  
+  png(file="heatmap.png", height = 325)
+
+# https://www.biostars.org/p/73644/
 
 
 heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F, 
@@ -329,6 +335,8 @@ heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F,
           labCol = substr(im_level, 9, 20), 
           # labCol = F,
           col = mycol,
-          breaks = breaks)
+          breaks = breaks,
+          key = i)
 
 dev.off()
+}
