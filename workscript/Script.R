@@ -320,7 +320,7 @@ heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F,
           margins = c(1, 10),
           srtCol = 270,
           offsetCol = -30, # toto je trochu hruba sila
-          labRow = substr(im_level, 9, 20),
+          labRow = substr(im_level[-length(im_level)], 9, 20),
           labCol = substr(im_level, 9, 20), 
           # labCol = F,
           col = "terrain.colors")
