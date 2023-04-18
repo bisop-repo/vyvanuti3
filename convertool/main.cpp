@@ -1546,7 +1546,7 @@ if(id==407)
                      else if(currentimmunitystatus == esecboostimmunity)
                          is << (ppp.discernsecboosts ? "secboostearly":"secboost");
                      else if(currentimmunitystatus == esecboostaltimmunity)
-                         is << (ppp.discern45booster ? "secb45":"secboostlate");
+                         is << (ppp.discern45booster ? "secbnew":"secboostlate");
                      else
                          fillimmunity = false;
                      nc = ppp.numsecboostercovs;

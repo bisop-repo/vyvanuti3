@@ -82,7 +82,7 @@ write.table(V_mat, "V_mat.txt")
 
 # M: tady jsem přidal secb45 a přeházel jsem to
 im_level <- c("Immunityfull","Immunityboost",
-              "Immunitysecboost", "Immunitysecb45",
+              "Immunitysecboost", "Immunitysecbnew",
               "Immunityhybridfull", "Immunityhybridboost", 
               "Immunityinf"
               )
@@ -177,11 +177,8 @@ for (i in 1 : length(im_level)) {
     names_k <- names(HR[grep(im_level[j], names(HR))]) 
     names_h_num <- as.numeric(gsub("\\D", "", names_h))
     names_k_num <- as.numeric(gsub("\\D", "", names_k))
-print(names_k[1])
-print(names_h[1])
-    
+
     sel <- names_h_num[names_h_num %in% names_k_num]
-print(sel)    
     if (!names_h[1] %in% names_k[1]){
       if (length(sel) > 0 & length(sel) < 2){ 
 
