@@ -83,9 +83,9 @@ write.table(V_mat, "V_mat.txt")
 # M: tady jsem přidal secb45 a přeházel jsem to
 im_level <- c("Immunityfull","Immunityboost",
               "Immunitysecboost", "Immunitysecbnew",
-              "Immunityhybridfull", "Immunityhybridboost", 
-              "Immunityinf"
-              )
+              "Immunityinf",
+              "Immunityhybridfull", "Immunityhybridboost"
+)
 
 eff_tau <- NA
 eff_tau_fin <- NA
@@ -177,22 +177,22 @@ for (i in 1 : length(im_level)) {
     names_k <- names(HR[grep(im_level[j], names(HR))]) 
     names_h_num <- as.numeric(gsub("\\D", "", names_h))
     names_k_num <- as.numeric(gsub("\\D", "", names_k))
-
+    
     sel <- names_h_num[names_h_num %in% names_k_num]
     if (!names_h[1] %in% names_k[1]){
       if (length(sel) > 0 & length(sel) < 2){ 
-
-                # pre sel = 1 musime matice brat ako jedno cislo
+        
+        # pre sel = 1 musime matice brat ako jedno cislo
         names_h <- names_h[names_h_num %in% sel]
         names_k <- names_k[names_k_num %in% sel]
         
         h <- HR[names_h]
         k <- HR[names_k]
-
+        
         V_mat_sub2 <- V_mat[c(names_h, names_k), c(names_h, names_k)]
-
-#M: tady chyběl mínus                
-#        S_mat <- cbind(h, k)
+        
+        #M: tady chyběl mínus                
+        #        S_mat <- cbind(h, k)
         S_mat <- cbind(h,-k)
         U_mat <- S_mat %*% V_mat_sub2 %*% t(S_mat)
         
@@ -204,14 +204,14 @@ for (i in 1 : length(im_level)) {
         # M: tadyto se vykrátí
         # r <- (1 / (I_n %*% (1 / U_mat) %*% I_n)) %*% 
         #  I_n %*% (1 / U_mat) %*% (h - k)
-
+        
         r = h - k;
-
+        
         var_r <- (1 / (I_n %*% (1 / U_mat) %*% I_n)) 
         # corresponding z-score
         z_score <- r / sqrt(var_r)
       } else if (length(sel) > 1) {
-
+        
         names_h <- names_h[names_h_num %in% sel]
         names_k <- names_k[names_k_num %in% sel]
         
@@ -307,6 +307,11 @@ lowerTriangle(r_fin_mat, diag = FALSE, byrow = FALSE) <- NA
 
 png(file="heatmap.png", height = 325)
 
+# https://www.biostars.org/p/73644/
+breaks=c(-2.58, -1.96, -1.64, 1.64, 1.96, 2.58)
+mycol <- colorpanel(n=length(breaks)-1,low="red",mid="lightgrey",high="darkgreen")
+
+
 heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F, 
           Colv = F, notecol="black", 
           trace = "none",
@@ -323,6 +328,7 @@ heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F,
           labRow = substr(im_level[-length(im_level)], 9, 20),
           labCol = substr(im_level, 9, 20), 
           # labCol = F,
-          col = "terrain.colors")
+          col = mycol,
+          breaks = breaks)
 
 dev.off()
