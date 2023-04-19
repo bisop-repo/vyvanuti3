@@ -1,8 +1,0 @@
-"immunities" "deltas" "lower_of_deltas" "upper_of_deltas"
-"2" "Immunityboost" 0.0684031967258521 0.0564471967258521 0.0803591967258521
-"3" "Immunityfull" 0.0497120128600325 0.0393578131323858 0.0600662125876793
-"4" "Immunityhybridboost" NA NA NA
-"5" "Immunityhybridfull" NA NA NA
-"6" "Immunityinf" NA NA NA
-"7" "Immunitysecboost" 0.370242406302222 -0.280646230731794 1.02113104333624
-"8" "Immunitysecb45" NA NA NA
