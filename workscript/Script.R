@@ -1,7 +1,7 @@
 #### VOLBA PARAMETROV SKRIPTU ####
 rm(list = ls())
-args <-  commandArgs(trailingOnly=TRUE)
-# args <- c("rinput.csv", "SeriousCovidProxy")
+# args <-  commandArgs(trailingOnly=TRUE)
+args <- c("rinput.csv", "SeriousCovidProxy")
 
 # args <- c("Input", "Outcome", "Covariates"), kde: 
 # 1. Input: zdrojovej csv soubor 
@@ -320,7 +320,7 @@ else
 
 
 # https://www.biostars.org/p/73644/
-breaks=c(-2.58, -1.96, -1.64, 1.64, 1.96, 2.58)
+breaks=c(-2.8,-2.58, -1.96, -1.64, 1.64, 1.96, 2.58, 2.8)
 mycol <- colorpanel(n=length(breaks)-1,low="red",mid="lightgrey",high="darkgreen")
 
 
