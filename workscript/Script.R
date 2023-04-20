@@ -1,7 +1,7 @@
 #### VOLBA PARAMETROV SKRIPTU ####
 rm(list = ls())
 # args <-  commandArgs(trailingOnly=TRUE)
-args <- c("rinput.csv", "SeriousCovidProxy")
+args <- c("rinput.csv", "LCINF")
 
 # args <- c("Input", "Outcome", "Covariates"), kde: 
 # 1. Input: zdrojovej csv soubor 
@@ -32,24 +32,30 @@ invisible(lapply(packages, library, character.only = TRUE))
 data <- read_labelled_csv(args[1])
 # cox.f <- fread("cox_estimation_formulas.txt", stringsAsFactors = FALSE)
 
+#### COXOV MODEL ####
+
+
 if (args[2]=="LCINF") {
-  f <- as.formula("Surv(T1, T2, LongCovid) ~ Immunity + DCCI + InfPrior + AgeGr + Sex")
+  m1  <- glm(LongCovid ~ Immunity + DCCI + AgeGr + Sex,
+                   family = binomial(link = "logit"), data = data)
+  summary(m1)
 } else  {
   f <- as.formula(paste("Surv(T1, T2,",args[2],") ~ Immunity  + AgeGr + Sex "))
+  m1 <- coxph(f,  data = data)
 }
 
-#### COXOV MODEL ####
-m1_cox <- coxph(f,  data = data)
 
 #### VYTVORENIE TABULKY ####
 
+if (args[2]!="LCINF")
+{
 df <- data.frame(
-  beta = coef(m1_cox), # koeficienty coxovho modelu
-  beta_CI = confint(m1_cox), # CI ku koeficientom
-  HR = exp(coef(m1_cox)), # pomer rizik
-  HR_CI   = exp(confint(m1_cox)), # CI k pomeru rizik
-  eff = 1 - exp(coef(m1_cox)), # efektivita vakcinacie / imunity ako 1 - HR
-  eff_CI = 1 - exp(confint(m1_cox)) # CI k efektivite
+  beta = coef(m1), # koeficienty coxovho modelu
+  beta_CI = confint(m1), # CI ku koeficientom
+  HR = exp(coef(m1)), # pomer rizik
+  HR_CI   = exp(confint(m1)), # CI k pomeru rizik
+  eff = 1 - exp(coef(m1)), # efektivita vakcinacie / imunity ako 1 - HR
+  eff_CI = 1 - exp(confint(m1)) # CI k efektivite
 )
 
 # names(df)[c(3:4, 6:7)] <- c("HR_CI_lower", "HR_CI_upper","eff_CI_upper", "eff_CI_lower")
@@ -58,11 +64,17 @@ names(df)[c(2:3, 5:6, 8:9)] <- c("beta_CI_lower", "beta_CI_upper",
                                  "eff_CI_upper", "eff_CI_lower")
 # df
 write.table(df, "cox_model_summary.txt")
+} else {
+  sink("logreg_model_summary,txt")
+  summary(m1)
+  sink()
+}
+
 
 #### TREND ####
 
 # Hazard ratios
-HR <- exp(coef(m1_cox))
+HR <- exp(coef(m1))
 
 names(HR)
 
@@ -77,7 +89,7 @@ HR <- HR[!names(HR) %in% odstranit]
 
 # Variance matrix
 # V_mat <- m1_cox[["var"]]
-V_mat <- vcov(m1_cox)
+V_mat <- vcov(m1)
 write.table(V_mat, "V_mat.txt")
 
 # M: tady jsem přidal secb45 a přeházel jsem to
@@ -285,7 +297,7 @@ z_score_fin2 <- z_score_fin
 #r_fin_mat <- matrix(r_fin2, ncol = length(im_level), byrow = T)
 #r_fin_mat <- matrix(label_percent()(r_fin_mat), ncol = length(im_level), byrow = T)
 #M moje náhrada:
-r_fin_mat <- matrix(label_percent()(r_fin2), ncol = length(im_level), byrow = T)
+r_fin_mat <- matrix(label_percent(accuracy = 0.01)(r_fin2), ncol = length(im_level), byrow = T)
 
 
 write.table(r_fin_mat,"r_fin_mat.txt")

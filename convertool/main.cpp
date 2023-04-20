@@ -222,7 +222,7 @@ struct preprocessparams
 
     /// lenght of the window after infection within which hospitalization is examined
     /// (after this limit, the subject is censored in h analysis TBD CHECK THIS!!)
-    int outcomelimit = 15;
+//    int outcomelimit = 15;
 
     int safetydate = date2int("2023-03-01");
 
@@ -260,6 +260,7 @@ struct preprocessparams
     ///
     int hosplimit = 30;
 
+    int lclimit = 183;
 
     /// if true, then only four age categories are used instead of the finer division
     bool fourages = false;
@@ -959,8 +960,8 @@ if(id==407)
             {
                 if(infections[j].t <= longcoviddate)
                 {
-                    infections[j].longcovid = true;
-//                    lcassigned = true;
+                    infections[j].longcovid = longcoviddate - infections[j].t < ppp.lclimit;
+
                     break;
                 }
             }
