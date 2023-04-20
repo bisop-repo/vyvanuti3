@@ -1,13 +1,16 @@
 #!/bin/bash
 
 rm v3/report/results/*.*
-./copy cox_model_summary txt C
 ./copy df_fin txt T 
 ./copy est_table txt E 
 ./copy heatmap png H 
 ./copy heatmapnk png N 
 ./copy r_fin_mat txt M
 ./copy z_score_fin_mat txt Z
+cp v3/ProxyBA12/cox_model_summary.txt v3/report/results/ProxyBA12C.TXT
+cp v3/ProxyNew/cox_model_summary.txt v3/report/results/ProxyNewC.TXT
+cp v3/LCallO/cox_model_summary.txt v3/report/results/LCAll$C.TXT
+cp v3/LCinfO/logreg_model_summary.txt v3/report/results/LCInfL.TXT
 
 
 

@@ -322,7 +322,7 @@ void addto(vector<string>& labels, vector<unsigned>& counts, const string lbl)
 
 
 enum o2rmodes { einfections, eseriouscovidproxy, ehospitalization, elongcovidevent, elongcovidinfection,
-                ecomparison, enumo2rmodes };
+                elccomparison, enumo2rmodes };
 
 vector<string> mdelabels = { "infections", "seriouscovidproxy",
                              "hospitalization", "longcovidevent",
@@ -1357,10 +1357,10 @@ if(id==407)
                  hospitalized = infected * newinfection->hospitalized;
                  longcovidinfection = infected * newinfection->longcovid;
 
-                 if(mode == einfections || mode == ecomparison)
-                 {
+                 if(mode == einfections)
                      isevent = infected;
-                 }
+                 else if(mode == elccomparison)
+                     isevent = longcovidinfection;
                  else if(mode == eseriouscovidproxy)
                      isevent = seriouscovidproxy;
                  else if(mode == ehospitalization)
@@ -1612,9 +1612,9 @@ if(id==407)
                  string variantofinfstr = "";
 
 
-                 if(mode == ecomparison)
+                 if(mode == elccomparison)
                  {
-                     if(isevent)
+                     if(infected)
                      {
                          auto v = newinfection->variantunadjusted;
                          if(v==evDelta)
@@ -1633,7 +1633,7 @@ if(id==407)
                      string longcovidstr = "";
                      if(mode == elongcovidevent)
                          longcovidstr = longcovidevent ? "1" : "0";
-                     else if(mode == elongcovidinfection || mode == ecomparison)
+                     else if(mode == elongcovidinfection || mode == elccomparison)
                          longcovidstr = longcovidinfection ? "1" : "0";
 
 
@@ -1648,7 +1648,8 @@ if(id==407)
                         os << seriouscovidproxy << ",";
                      else
                         os << ",";
-                     if(mode == elongcovidevent || mode == elongcovidinfection)
+                     if(mode == elongcovidevent || mode == elongcovidinfection
+                             || mode == elccomparison)
                         os << longcovidstr << ",";
                      else
                         os << ",";
@@ -1738,7 +1739,7 @@ if(id==407)
     {
         cout << "Omitting adding CZSO records." << endl;
     }
-    else if(mode != ecomparison)
+    else if(mode != elccomparison)
     {
 
         auto czsohalfyear = (ppp.firstdate - dateoffirstczsohalfyear) / (366 / 2);
@@ -2009,8 +2010,8 @@ int _main(int argc, char *argv[], bool testrun = false)
         cout << "long covid as event" << endl;
         break;
     case 'c':
-        mode = ecomparison;
-        cout << "Comparison" << endl;
+        mode = elccomparison;
+        cout << "Long covid comparison" << endl;
         break;
     default:
        cout << "Unknonn option " << argv[3][0] << endl;

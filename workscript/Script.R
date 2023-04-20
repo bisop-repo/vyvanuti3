@@ -1,7 +1,8 @@
 #### VOLBA PARAMETROV SKRIPTU ####
 rm(list = ls())
-# args <-  commandArgs(trailingOnly=TRUE)
-args <- c("rinput.csv", "LCINF")
+
+args <-  commandArgs(trailingOnly=TRUE)
+# args <- c("rinput.csv", "LCINF")
 
 # args <- c("Input", "Outcome", "Covariates"), kde: 
 # 1. Input: zdrojovej csv soubor 
@@ -65,7 +66,11 @@ names(df)[c(2:3, 5:6, 8:9)] <- c("beta_CI_lower", "beta_CI_upper",
 # df
 write.table(df, "cox_model_summary.txt")
 } else {
+<<<<<<< HEAD
   sink("logreg_model_summary,txt")
+=======
+  sink("logreg_model_summary.txt")
+>>>>>>> 6854b54a3190eb0f86b41dcd03096cef6bbec796
   summary(m1)
   sink()
 }
