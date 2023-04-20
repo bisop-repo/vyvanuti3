@@ -1,8 +1,8 @@
 "V1" "V2" "V3" "V4" "V5" "V6" "V7"
-"1" NA "1.32%" "7.93%" NA NA NA NA
-"2" "-1.32%" NA "-1.90%" NA NA NA NA
-"3" "-7.93%" "1.90%" NA NA NA NA NA
+"1" NA "9.70%" NA NA "-30.07%" "-4.07%" "5.96%"
+"2" "-9.70%" NA NA NA "-63.38%" "-13.73%" "-7.06%"
+"3" NA NA NA NA NA NA NA
 "4" NA NA NA NA NA NA NA
-"5" NA NA NA NA NA NA NA
-"6" NA NA NA NA NA NA NA
-"7" NA NA NA NA NA NA NA
+"5" "30.07%" "63.38%" NA NA NA "35.18%" "56.44%"
+"6" "4.07%" "13.73%" NA NA "-35.18%" NA "5.32%"
+"7" "-5.96%" "7.06%" NA NA "-56.44%" "-5.32%" NA
