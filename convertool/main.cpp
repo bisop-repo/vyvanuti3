@@ -1611,17 +1611,17 @@ if(id==407)
 
                  string variantofinfstr = "";
 
+                 if(infected)
+                 {
+                     auto v = newinfection->variantunadjusted;
+                     if(v==evDelta)
+                         variantofinfstr = "_";
+                     variantofinfstr += variants[v].codeincovariate;
+                 }
 
                  if(mode == elccomparison)
                  {
-                     if(infected)
-                     {
-                         auto v = newinfection->variantunadjusted;
-                         if(v==evDelta)
-                             variantofinfstr = "_";
-                         variantofinfstr += variants[v].codeincovariate;
-                     }
-                     else
+                     if(!infected)
                          dooutput = false;
                  }
                  if(!dostat && mode == elongcovidevent && immunityatinfstring  == "" )
@@ -1636,6 +1636,26 @@ if(id==407)
                      else if(mode == elongcovidinfection || mode == elccomparison)
                          longcovidstr = longcovidinfection ? "1" : "0";
 
+                     string infpriortimestr;
+                     if(lastinfection)
+                     {
+                         ostringstream s;
+                         s << t2 - lastinfection->t;
+                         infpriortimestr = s.str();
+                     }
+                     else {
+                         infpriortimestr = "_none";
+                     }
+
+                     string vacctimestr;
+                     if(currentvaccstatus.order != novacc)
+                     {
+                         ostringstream s;
+                         s << t2 - currentvaccstatus.vaccdate;
+                         vacctimestr = s.str();
+                     }
+                     else
+                         vacctimestr = "_none";
 
                      ostringstream os;
                      os << idstr << "," << t1nonneg << "," << t2 << ","
@@ -1659,8 +1679,9 @@ if(id==407)
                         << (mode == elongcovidevent ? immunityatinfstring : immunitystring) << ","
                         << dccistring << ","
                         << age << "," << grouplabel(agegroup) << ","
-                        << gender2str(male)
-                        << ",,";   // tbd add lastvacctime and infpriortime
+                        << gender2str(male) << ","
+                        << infpriortimestr << ","
+                        << vacctimestr;
                      if(os.str().size()>1000)
                      {
                          cout << "Invalid output line" << endl;
@@ -1837,7 +1858,7 @@ if(id==407)
                               << nodccilabel << ","
                               << a << ","
                               << agelabel << "," << gender2str(m)
-                              << ",,"<< endl;
+                              << ",_none,_none" << endl;
                             if(dostat)
                             {
                                 recordcov(uninflabel,0, stat.infprior);
@@ -2260,7 +2281,7 @@ int main(int argc, char *argv[])
             _main(argc,argv);
         else if(testno == 1)
         {
-            char *as[6] ={"foo", "test_input_long_mod.csv","test1_output.csv","eO-ib",
+            char *as[6] ={"foo", "test_input_long_mod.csv","test1_output.csv","x!gi",
                           "2020-01-01", "2023-02-20"};
             _main(6,as,true);
         }
