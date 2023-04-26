@@ -5,93 +5,90 @@ glm(formula = LongCovid ~ Immunity + DCCI + AgeGr + Sex, family = binomial(link 
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--0.4956  -0.1596  -0.1213  -0.0851   3.8632  
+-0.3597  -0.1584  -0.1198  -0.0841   3.8863  
 
 Coefficients:
                             Estimate Std. Error  z value Pr(>|z|)    
-(Intercept)                 -4.75598    0.03648 -130.373  < 2e-16 ***
-Immunity_other              -0.01971    0.09800   -0.201  0.84064    
-Immunityboost_001-061       -0.30099    0.03287   -9.158  < 2e-16 ***
-Immunityboost_062-122       -0.23791    0.03095   -7.686 1.52e-14 ***
-Immunityboost_123-183       -0.20626    0.05010   -4.117 3.84e-05 ***
-Immunityboost_184-244       -1.04644    0.71087   -1.472  0.14101    
-Immunityfull_001-061        -0.10150    0.06754   -1.503  0.13288    
-Immunityfull_062-122        -0.10007    0.06111   -1.637  0.10154    
-Immunityfull_123-183        -0.17978    0.04201   -4.280 1.87e-05 ***
-Immunityfull_184-244        -0.16191    0.03426   -4.726 2.29e-06 ***
-Immunityfull_245-305        -0.01905    0.05247   -0.363  0.71649    
-Immunityfull_306-366        -0.15802    0.11054   -1.430  0.15284    
-Immunityfull_367-427         0.15056    0.22258    0.676  0.49878    
-Immunityfull_428-488         1.58099    1.03323    1.530  0.12598    
-Immunityhybridboost_001-061 -0.25829    0.07728   -3.343  0.00083 ***
-Immunityhybridboost_062-122 -0.04737    0.07348   -0.645  0.51919    
-Immunityhybridboost_123-183 -0.37992    0.21157   -1.796  0.07254 .  
-Immunityhybridfull_001-061  -0.17573    0.17888   -0.982  0.32592    
-Immunityhybridfull_062-122  -0.09140    0.09316   -0.981  0.32654    
-Immunityhybridfull_123-183  -0.06847    0.07643   -0.896  0.37037    
-Immunityhybridfull_184-244  -0.10640    0.07015   -1.517  0.12935    
-Immunityhybridfull_245-305  -0.07492    0.12389   -0.605  0.54534    
-Immunityhybridfull_306-366   0.09150    0.23923    0.382  0.70212    
-Immunityhybridfull_367-427  -0.14799    0.71437   -0.207  0.83588    
-Immunityinf_062-122          0.43778    0.07503    5.835 5.38e-09 ***
-Immunityinf_123-183          0.15261    0.13856    1.101  0.27073    
-Immunityinf_184-244          0.18635    0.38162    0.488  0.62532    
-Immunityinf_245-305          0.11202    0.17393    0.644  0.51953    
-Immunityinf_306-366         -0.01270    0.08160   -0.156  0.87630    
-Immunityinf_367-427         -0.10118    0.08087   -1.251  0.21089    
-Immunityinf_428-488         -0.11603    0.08660   -1.340  0.18028    
-Immunityinf_489-549         -0.03342    0.13982   -0.239  0.81111    
-DCCI1                        0.54848    0.02344   23.402  < 2e-16 ***
-DCCI2+                       0.77520    0.02481   31.244  < 2e-16 ***
-AgeGr0-11                   -2.40536    0.11297  -21.292  < 2e-16 ***
-AgeGr12-15                  -2.18270    0.11993  -18.200  < 2e-16 ***
-AgeGr16-17                  -2.32709    0.18546  -12.548  < 2e-16 ***
-AgeGr18-24                  -0.86377    0.06092  -14.178  < 2e-16 ***
-AgeGr25-29                  -0.45284    0.05484   -8.258  < 2e-16 ***
-AgeGr30-34                  -0.31028    0.04857   -6.388 1.68e-10 ***
-AgeGr35-39                  -0.14947    0.04580   -3.264  0.00110 ** 
-AgeGr45-49                   0.20786    0.04010    5.183 2.18e-07 ***
-AgeGr50-54                   0.34923    0.04155    8.406  < 2e-16 ***
-AgeGr55-59                   0.50522    0.04133   12.223  < 2e-16 ***
-AgeGr60-64                   0.54539    0.04484   12.163  < 2e-16 ***
-AgeGr65-69                   0.59130    0.04783   12.363  < 2e-16 ***
-AgeGr70-74                   0.71676    0.04929   14.543  < 2e-16 ***
-AgeGr75-79                   0.77839    0.05281   14.739  < 2e-16 ***
-AgeGr80+                     0.88290    0.04993   17.683  < 2e-16 ***
-SexM                        -0.19891    0.01893  -10.510  < 2e-16 ***
+(Intercept)                 -4.73487    0.04110 -115.199  < 2e-16 ***
+Immunity_other              -0.02930    0.11022   -0.266 0.790339    
+Immunityboost_001-061       -0.30452    0.03577   -8.513  < 2e-16 ***
+Immunityboost_062-122       -0.25776    0.03525   -7.313 2.62e-13 ***
+Immunityboost_123-183       -0.26511    0.07355   -3.604 0.000313 ***
+Immunityfull_001-061        -0.13513    0.07605   -1.777 0.075572 .  
+Immunityfull_062-122        -0.08518    0.06737   -1.264 0.206124    
+Immunityfull_123-183        -0.19529    0.04958   -3.939 8.18e-05 ***
+Immunityfull_184-244        -0.18260    0.03774   -4.839 1.31e-06 ***
+Immunityfull_245-305        -0.01547    0.06289   -0.246 0.805749    
+Immunityfull_306-366        -0.04687    0.12101   -0.387 0.698491    
+Immunityfull_367-427        -0.01200    0.30592   -0.039 0.968698    
+Immunityhybridboost_001-061 -0.23985    0.08203   -2.924 0.003456 ** 
+Immunityhybridboost_062-122  0.02967    0.08146    0.364 0.715651    
+Immunityhybridboost_123-183 -0.70320    0.35686   -1.970 0.048781 *  
+Immunityhybridfull_001-061  -0.22171    0.20233   -1.096 0.273181    
+Immunityhybridfull_062-122  -0.10853    0.10250   -1.059 0.289681    
+Immunityhybridfull_123-183  -0.10506    0.09053   -1.161 0.245805    
+Immunityhybridfull_184-244  -0.11545    0.07717   -1.496 0.134648    
+Immunityhybridfull_245-305   0.04391    0.14051    0.313 0.754631    
+Immunityhybridfull_306-366   0.05126    0.27114    0.189 0.850054    
+Immunityhybridfull_367-427  -0.45231    1.00752   -0.449 0.653478    
+Immunityinf_062-122          0.41951    0.08249    5.085 3.67e-07 ***
+Immunityinf_123-183          0.03873    0.19510    0.199 0.842629    
+Immunityinf_184-244          0.41875    0.41305    1.014 0.310677    
+Immunityinf_245-305          0.14131    0.20283    0.697 0.486007    
+Immunityinf_306-366         -0.02493    0.09054   -0.275 0.783065    
+Immunityinf_367-427         -0.09111    0.09086   -1.003 0.315979    
+Immunityinf_428-488         -0.03819    0.09518   -0.401 0.688231    
+Immunityinf_489-549         -0.08148    0.16282   -0.500 0.616761    
+DCCI1                        0.53588    0.02655   20.180  < 2e-16 ***
+DCCI2+                       0.77595    0.02804   27.673  < 2e-16 ***
+AgeGr0-11                   -2.45010    0.12792  -19.154  < 2e-16 ***
+AgeGr12-15                  -2.32957    0.14471  -16.098  < 2e-16 ***
+AgeGr16-17                  -2.40626    0.22128  -10.874  < 2e-16 ***
+AgeGr18-24                  -0.95222    0.07128  -13.358  < 2e-16 ***
+AgeGr25-29                  -0.44033    0.06129   -7.184 6.78e-13 ***
+AgeGr30-34                  -0.30763    0.05450   -5.645 1.65e-08 ***
+AgeGr35-39                  -0.19851    0.05217   -3.805 0.000142 ***
+AgeGr45-49                   0.19653    0.04519    4.349 1.37e-05 ***
+AgeGr50-54                   0.36075    0.04650    7.758 8.63e-15 ***
+AgeGr55-59                   0.49724    0.04642   10.713  < 2e-16 ***
+AgeGr60-64                   0.51001    0.05080   10.039  < 2e-16 ***
+AgeGr65-69                   0.61200    0.05382   11.372  < 2e-16 ***
+AgeGr70-74                   0.71614    0.05594   12.802  < 2e-16 ***
+AgeGr75-79                   0.77101    0.06028   12.791  < 2e-16 ***
+AgeGr80+                     0.83364    0.05705   14.614  < 2e-16 ***
+SexM                        -0.21455    0.02149   -9.982  < 2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 134584  on 1237652  degrees of freedom
-Residual deviance: 126316  on 1237603  degrees of freedom
-AIC: 126416
+    Null deviance: 104960  on 975822  degrees of freedom
+Residual deviance:  98433  on 975775  degrees of freedom
+AIC: 98529
 
 Number of Fisher Scoring iterations: 9
 
  [1] "(Intercept)"                 "Immunity_other"             
  [3] "Immunityboost_001-061"       "Immunityboost_062-122"      
- [5] "Immunityboost_123-183"       "Immunityboost_184-244"      
- [7] "Immunityfull_001-061"        "Immunityfull_062-122"       
- [9] "Immunityfull_123-183"        "Immunityfull_184-244"       
-[11] "Immunityfull_245-305"        "Immunityfull_306-366"       
-[13] "Immunityfull_367-427"        "Immunityfull_428-488"       
-[15] "Immunityhybridboost_001-061" "Immunityhybridboost_062-122"
-[17] "Immunityhybridboost_123-183" "Immunityhybridfull_001-061" 
-[19] "Immunityhybridfull_062-122"  "Immunityhybridfull_123-183" 
-[21] "Immunityhybridfull_184-244"  "Immunityhybridfull_245-305" 
-[23] "Immunityhybridfull_306-366"  "Immunityhybridfull_367-427" 
-[25] "Immunityinf_062-122"         "Immunityinf_123-183"        
-[27] "Immunityinf_184-244"         "Immunityinf_245-305"        
-[29] "Immunityinf_306-366"         "Immunityinf_367-427"        
-[31] "Immunityinf_428-488"         "Immunityinf_489-549"        
-[33] "DCCI1"                       "DCCI2+"                     
-[35] "AgeGr0-11"                   "AgeGr12-15"                 
-[37] "AgeGr16-17"                  "AgeGr18-24"                 
-[39] "AgeGr25-29"                  "AgeGr30-34"                 
-[41] "AgeGr35-39"                  "AgeGr45-49"                 
-[43] "AgeGr50-54"                  "AgeGr55-59"                 
-[45] "AgeGr60-64"                  "AgeGr65-69"                 
-[47] "AgeGr70-74"                  "AgeGr75-79"                 
-[49] "AgeGr80+"                    "SexM"                       
+ [5] "Immunityboost_123-183"       "Immunityfull_001-061"       
+ [7] "Immunityfull_062-122"        "Immunityfull_123-183"       
+ [9] "Immunityfull_184-244"        "Immunityfull_245-305"       
+[11] "Immunityfull_306-366"        "Immunityfull_367-427"       
+[13] "Immunityhybridboost_001-061" "Immunityhybridboost_062-122"
+[15] "Immunityhybridboost_123-183" "Immunityhybridfull_001-061" 
+[17] "Immunityhybridfull_062-122"  "Immunityhybridfull_123-183" 
+[19] "Immunityhybridfull_184-244"  "Immunityhybridfull_245-305" 
+[21] "Immunityhybridfull_306-366"  "Immunityhybridfull_367-427" 
+[23] "Immunityinf_062-122"         "Immunityinf_123-183"        
+[25] "Immunityinf_184-244"         "Immunityinf_245-305"        
+[27] "Immunityinf_306-366"         "Immunityinf_367-427"        
+[29] "Immunityinf_428-488"         "Immunityinf_489-549"        
+[31] "DCCI1"                       "DCCI2+"                     
+[33] "AgeGr0-11"                   "AgeGr12-15"                 
+[35] "AgeGr16-17"                  "AgeGr18-24"                 
+[37] "AgeGr25-29"                  "AgeGr30-34"                 
+[39] "AgeGr35-39"                  "AgeGr45-49"                 
+[41] "AgeGr50-54"                  "AgeGr55-59"                 
+[43] "AgeGr60-64"                  "AgeGr65-69"                 
+[45] "AgeGr70-74"                  "AgeGr75-79"                 
+[47] "AgeGr80+"                    "SexM"                       

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+INPUT_FILE='../data/data_20230329.csv' #File to be converted in Convertool
+
+mkdir neuroinput
+cd neuroinput
+rm *
+../convertool/bin/convertool $INPUT_FILE rinput.csv $1!gi 2020-03-01 2023-03-29 > convertool.log
+rm temporary_full*.*
+cd ..
+
+
+
+

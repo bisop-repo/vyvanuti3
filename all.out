@@ -1,4 +1,5 @@
 mkdir: cannot create directory ‘ProxyNew’: File exists
+rm: cannot remove 'part': Is a directory
 cp: cannot stat '../../workscript/cox_estimation_formulas.txt': No such file or directory
 ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.0     ✔ purrr     1.0.1
@@ -11,7 +12,7 @@ cp: cannot stat '../../workscript/cox_estimation_formulas.txt': No such file or 
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 Loading required package: maditr
 
-To aggregate several columns with one summary: take(mtcars, mpg, hp, fun = mean, by = am)
+To select columns from data: columns(mtcars, mpg, vs:carb)
 
 
 Attaching package: ‘maditr’
@@ -27,10 +28,6 @@ The following object is masked from ‘package:purrr’:
 The following object is masked from ‘package:readr’:
 
     cols
-
-
-Use 'expss_output_viewer()' to display tables in the RStudio Viewer.
- To return to the console output, use 'expss_output_default()'.
 
 
 Attaching package: ‘expss’
@@ -162,7 +159,7 @@ cp: cannot stat '../../workscript/cox_estimation_formulas.txt': No such file or 
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 Loading required package: maditr
 
-To get total summary skip 'by' argument: take_all(mtcars, mean)
+To select columns from data: columns(mtcars, mpg, vs:carb)
 
 
 Attaching package: ‘maditr’
@@ -307,6 +304,7 @@ cp: cannot stat '../../workscript/cox_estimation_formulas.txt': No such file or 
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+#StandWithUkraine
 Loading required package: maditr
 
 To drop variable use NULL: let(mtcars, am = NULL) %>% head()
@@ -454,10 +452,10 @@ cp: cannot stat '../../workscript/cox_estimation_formulas.txt': No such file or 
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-#BlackLivesMatter
 Loading required package: maditr
 
-To get total summary skip 'by' argument: take_all(mtcars, mean)
+To modify variables or add new variables:
+             let(mtcars, new_var = 42, new_var2 = new_var*hp) %>% head()
 
 
 Attaching package: ‘maditr’
@@ -475,7 +473,7 @@ The following object is masked from ‘package:readr’:
     cols
 
 
-Use 'expss_output_viewer()' to display tables in the RStudio Viewer.
+Use 'expss_output_rnotebook()' to display tables inside R Notebooks.
  To return to the console output, use 'expss_output_default()'.
 
 
@@ -595,3 +593,4 @@ The following object is masked from ‘package:stats’:
     lowess
 
 Group done
+cp: cannot stat 'v3/LCinfO/logreg_model_summary.txt': No such file or directory

@@ -1,0 +1,17 @@
+mkdir: cannot create directory ‘ProxyNew_check’: File exists
+rm: cannot remove '*': No such file or directory
+Group done
+rm: cannot remove '*': No such file or directory
+Group done
+rm: cannot remove '*': No such file or directory
+Group done
+rm: cannot remove '*': No such file or directory
+Group done
+cp: cannot stat 'v3/ProxyNew/df_fin.txt': No such file or directory
+cp: cannot stat 'v3/ProxyNew/est_table.txt': No such file or directory
+cp: cannot stat 'v3/ProxyNew/heatmap.png': No such file or directory
+cp: cannot stat 'v3/ProxyNew/heatmapnk.png': No such file or directory
+cp: cannot stat 'v3/ProxyNew/r_fin_mat.txt': No such file or directory
+cp: cannot stat 'v3/ProxyNew/z_score_fin_mat.txt': No such file or directory
+cp: cannot stat 'v3/ProxyNew/cox_model_summary.txt': No such file or directory
+cp: cannot stat 'v3/LCinfO/logreg_model_summary.txt': No such file or directory

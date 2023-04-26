@@ -224,7 +224,7 @@ struct preprocessparams
     /// (after this limit, the subject is censored in h analysis TBD CHECK THIS!!)
 //    int outcomelimit = 15;
 
-    int safetydate = date2int("2023-03-01");
+    int safetydate = date2int("2023-05-01");
 
 //    /// time delay during which new positive tests are not regarded as reinfections
 //    int infectionsgap = 60;
