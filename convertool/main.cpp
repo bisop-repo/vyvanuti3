@@ -132,29 +132,28 @@ struct vaccinerecord
 {	string code;
     string description;
     int numshots;
-    bool consorfull;
-    bool consorboost;
     string abbrev;
+    string general;
 };
 
 vector<vaccinerecord> vaccines={
-    {"CO01","Comirnaty",2,false,false,"P"},
-    {"CO02","SPIKEVAX",2,false,false,"M"},
-    {"CO03","VAXZEVRIA",2,false,false,"A"},
-    {"CO04","COVID-19 Vaccine Janssen",1,false,false,"J"},
-    {"CO06","Comirnaty 5-11",2,false,false,"P511"},
-    {"CO07","Nuvaxovid",2,false,false,"N"},
-    {"CO10","Covovax",2,false,false,"C"},
-    {"CO11","Sinopharm",2,false,false,"string abbrev"},
-    {"CO12","Sinovac",2,false,false,"V"},
-    {"CO13","COVAXIN",2,false,false,"X"},
-    {"CO14","Covishield",2,false,false,"S"},
-    {"CO08","Comirnaty Original/Omicron BA.1",2,false,false,"PO1"},
-    {"CO09","Comirnaty Original/Omicron BA.4/BA.5",2,false,false,"PO4"},
-    {"CO15","Spikevax bivalent Original/Omicron BA.1",2,false,false,"MB"},
-    {"CO05","Sputnik V",2,false,false,"U"},
-    {"CO16","Comirnaty 6m-4",2,false,false,"P6"},
-    {"CO17","Valneva",2,false,false,"N"}
+    {"CO01","Comirnaty",2,"P","mRNA"},
+    {"CO02","SPIKEVAX",2,"M","mRNA"},
+    {"CO03","VAXZEVRIA",2,"A","other"},
+    {"CO04","COVID-19 Vaccine Janssen",1,"J","other"},
+    {"CO06","Comirnaty 5-11",2,"P511","mRNA"},
+    {"CO07","Nuvaxovid",2,"N","other"},
+    {"CO10","Covovax",2,"C","other"},
+    {"CO11","Sinopharm",2,"SF","other"},
+    {"CO12","Sinovac",2,"V","other"},
+    {"CO13","COVAXIN",2,"X","other"},
+    {"CO14","Covishield",2,"S","other"},
+    {"CO08","Comirnaty Original/Omicron BA.1",2,"PO1","mRNA"},
+    {"CO09","Comirnaty Original/Omicron BA.4/BA.5",2,"PO4","mRNA45"},
+    {"CO15","Spikevax bivalent Original/Omicron BA.1",2,"MB","rRNA"},
+    {"CO05","Sputnik V",2,"U","other"},
+    {"CO16","Comirnaty 6m-4",2,"P6","mRNA"},
+    {"CO17","Valneva",2,"N","other"}
 };
 
 unsigned eunknownvaccine = vaccines.size();
@@ -296,6 +295,9 @@ struct preprocessparams
 
     ///
     unsigned everyn = 1;
+
+    ///
+    bool descstat = false;
 
     ///
     vector<bool> conditioning = vector<bool>(enumvariants,true);
@@ -448,6 +450,7 @@ void ockodata2R(csv<';'>& data, string outputlabel,
 
     enum evaccorder { novacc, firstdose, finaldose, firstbooster, secbooster, enumvaccorders, eunknownvaccorder = enumvaccorders };
 
+    vector<string> vaccorderlabels = {"novacc", "first", "final", "boost", "secboost"};
 
 
 
@@ -535,6 +538,7 @@ const int numweeks = 200;
 //    vector<vector<unsigned>> variants(ppp.lastdate-ppp.zerodate+1,vector<unsigned>(enumvariants,0));
 
     struct vaccinationrecord {
+                      string vaccdatestring = "";
                       reldate t = maxreldate;
                       evaccorder vaccorder = eunknownvaccorder;
                       unsigned vac = eunknownvaccine;
@@ -543,16 +547,29 @@ const int numweeks = 200;
 
     struct infectionrecord
     {
+        string infdatestring;
         int t;
         unsigned variant;
         unsigned variantunadjusted;
         bool hospitalized = false;
         bool seriouscovidproxy = false;
         bool longcovid = false;
+        bool variantbyinterval;
+        string deathstr;
     };
 
 vector<statcounter> lclengths(numweeks);
 vector<statcounter> lccounts(numweeks);
+
+    ofstream infds;
+    ofstream vaccds;
+    if(ppp.descstat && dostat)
+    {
+        infds.open("infections.csv");
+        infds << "infdate,variantdisc,variantdiscint,serious,longcovid,deathcovid" << endl;
+        vaccds.open("vaccines.csv");
+        vaccds << "vaccdate,order,type,general" << endl;
+    }
 
     unsigned firstnext;
     unsigned maxid = 0;
@@ -665,7 +682,6 @@ vector<statcounter> lccounts(numweeks);
 
         reldate longcoviddate = maxreldate;
 
-
         unsigned oldi=i;
         for(unsigned k=0; k<is.size(); k++)
         {
@@ -705,7 +721,8 @@ vector<statcounter> lccounts(numweeks);
                     GETVACC(v,s,OckovaciLatkaKod1,break);
                     assert(v<vaccines.size());
                     vaccinations.push_back(
-                                 { /* t */ firstvaccdate  + ppp.regulardelay ,
+                                 { firstvaccdatestr,
+                                    /* t */ firstvaccdate  + ppp.regulardelay ,
                                    /* vaccorder */s ? finaldose : firstdose,
                                    /* vac */ v
                                   });
@@ -733,7 +750,8 @@ vector<statcounter> lccounts(numweeks);
                         THROW("Second shot by single shot vaccine", break);
                     }
                     vaccinations.push_back(
-                                 { /* t */ secvaccdate + ppp.regulardelay,
+                                 {  secvaccdatestr,
+                                    /* t */ secvaccdate + ppp.regulardelay,
                                    /* vaccorder */ finaldose,
                                    /* vac */ v
                                   });
@@ -760,7 +778,9 @@ vector<statcounter> lccounts(numweeks);
                     GETVACC(v,s,OckovaciLatkaKod3, break);
                     assert(v<vaccines.size());
                     vaccinations.push_back(
-                                 { /* t */ firstextravaccdate + ppp.boostdelay,
+                                 {
+                                   firstextravaccdatestr,
+                                    /* t */ firstextravaccdate + ppp.boostdelay,
                                    /* vaccorder */ firstbooster,
                                    /* vac */ v
                                   });
@@ -782,7 +802,8 @@ vector<statcounter> lccounts(numweeks);
                     GETVACC(v,s,OckovaciLatkaKod4, break);
                     assert(v<vaccines.size());
                     vaccinations.push_back(
-                                 { /* t */ secextravaccdate + ppp.boostdelay,
+                                 { secextravaccdatestr,
+                                    /* t */ secextravaccdate + ppp.boostdelay,
                                    /* vaccorder */ secbooster,
                                    /* vac */ v
                                   });
@@ -823,27 +844,34 @@ vector<statcounter> lccounts(numweeks);
 
                 string variantstr = data(j,Mutace);
                 unsigned k = 1; // zero is novariant
+                bool byinterval = false;
                 for(; k<variants.size(); k++)
                 {
                     if(variantstr==variants[k].codeindata)
                         break;
-                    if(!ppp.useintervalsofdominance)
-                        continue;
-
-                    assert(variants[k].startdates90.size()==variants[k].enddates90.size());
-                    bool foundininterval = false;
-                    for(unsigned j=0; j<variants[k].startdates90.size(); j++)
+                }
+                if(k==variants.size() && ppp.useintervalsofdominance)
+                {
+                    for(k=1; k<variants.size(); k++)
                     {
-                        reldate start = date2int(variants[k].startdates90[j])-ppp.firstdate;
-                        reldate stop = date2int(variants[k].enddates90[j])-ppp.firstdate;
-                        if(infdate >= start && infdate <= stop)
+                        assert(variants[k].startdates90.size()==variants[k].enddates90.size());
+                        bool foundininterval = false;
+                        for(unsigned j=0; j<variants[k].startdates90.size(); j++)
                         {
-                            foundininterval = true;
+                            reldate start = date2int(variants[k].startdates90[j])-ppp.firstdate;
+                            reldate stop = date2int(variants[k].enddates90[j])-ppp.firstdate;
+                            if(infdate >= start && infdate <= stop)
+                            {
+                                foundininterval = true;
+                                break;
+                            }
+                        }
+                        if(foundininterval)
+                        {
+                            byinterval = true;
                             break;
                         }
                     }
-                    if(foundininterval)
-                        break;
                 }
                 assert(ppp.conditioning.size() == enumvariants);
                 if(k==variants.size())
@@ -895,8 +923,6 @@ vector<statcounter> lccounts(numweeks);
                                    || (data(j,bin_UPV_ECMO) == "1" && upvecmodate - infdate <= ppp.hosplimit)) ;
 //if(longcovid && longcoviddate < infdate)
 //    cout <<id << " - " << longcoviddatestr << " vs " << infdatestr << endl;
-if(id==407)
-    id = 407;
                 if(infections.size())
                 {
                      if(infdate <= infections[infections.size()-1].t)
@@ -916,16 +942,21 @@ if(id==407)
                     assert(dateind >= 0);
                     variantsfound[k].calendar[dateind]++;
                 }
+                string deathcoviddatestr = data(j,Umrti);
+                if(deathcoviddatestr != "")
+                {
+                    GETDATE(deathcoviddate,deathcoviddatestr,break);
+                }
                 if((mode == einfections) ||
                     (mode == eseriouscovidproxy && proxy) ||
                     (mode == ehospitalization && hosp))
                     variantsfound[k].outcomes++;
-                infections.push_back({ infdate, v, k, hosp, proxy, false });
+                infections.push_back({ infdatestr, infdate, v, k, hosp, proxy, false, byinterval, deathcoviddatestr });
             }
-            string deathcoviddatestr = data(j,Umrti);
-            if(deathcoviddatestr != "")
+            else
             {
-                GETDATE(deathcoviddate,deathcoviddatestr,break);
+                if(data(j,Umrti) != "")
+                    throw "deatch without ifection";
             }
 
             string deathotherdatestr = data(j,DatumUmrtiLPZ);
@@ -1030,6 +1061,35 @@ if(id==407)
         unsigned agegroup=age2groupnum(age);
 
         assert(agegroup < enumagegroups);
+
+        if(ppp.descstat && dostat)
+        {
+            for(unsigned i=0; i<infections.size(); i++)
+            {
+//                infds << "infdate, variantdisc, variantdiscint, serious, longcovid" << endl;
+
+                infectionrecord& ir = infections[i];
+                infds << ir.infdatestring << ",";
+                if(ir.variantbyinterval)
+                    infds << variants[navariant].codeincovariate << ",";
+                else
+                    infds << variants[ir.variantunadjusted].codeinoutput << ",";
+                infds << variants[ir.variantunadjusted].codeinoutput << ",";
+                infds << (ir.seriouscovidproxy ? "1" : "0") << ",";
+                infds << (ir.longcovid ? "1" : "0") << ",";
+                infds << ir.deathstr;
+                infds << endl;
+            }
+//            vaccds << "vaccdate,order,type" << endl;
+            for(unsigned i=0; i<vaccinations.size(); i++)
+            {
+                vaccinationrecord& vr = vaccinations[i];
+                vaccds << vr.vaccdatestring << ",";
+                vaccds << vaccorderlabels[vr.vaccorder] << ",";
+                vaccds << vaccines[vr.vac].abbrev << ",";
+                vaccds << vaccines[vr.vac].general << endl;
+            }
+        }
 
         struct vaccstatus
         {
@@ -2150,6 +2210,10 @@ int _main(int argc, char *argv[], bool testrun = false)
             ppp.discern45booster = true;
             cout << "Discerning BA45 booster" << endl;
             break;
+        case 's':
+            ppp.descstat = true;
+            cout << "Generating description stats" << endl;
+            break;
         default:
             cout << "Unknown option " << argv[3][i] << endl;
             throw;
@@ -2281,7 +2345,7 @@ int main(int argc, char *argv[])
             _main(argc,argv);
         else if(testno == 1)
         {
-            char *as[6] ={"foo", "test_input_long_mod.csv","test1_output.csv","x!gi",
+            char *as[6] ={"foo", "test_input_long_mod.csv","test1_output.csv","x!gis",
                           "2020-01-01", "2023-02-20"};
             _main(6,as,true);
         }
