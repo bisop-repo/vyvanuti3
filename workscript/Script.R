@@ -2,9 +2,8 @@
 rm(list = ls())
 
 args <-  commandArgs(trailingOnly=TRUE)
-# args <- c("rinput.csv", "LCINF")
-
-# args <- c("Input", "Outcome", "Covariates"), kde: 
+# args <- c("rinput.csv", "SeriousCovidProxy")
+# args <- c("LCInf.csv", "LCINF")
 # 1. Input: zdrojovej csv soubor 
 # 2. Outcome: Infected nebo SeriousCovidProxy nebo LongCovid nebo Hospitalized 
 # 3. Covariates: InfPrior + VaccStatus nebo Immunity
@@ -14,7 +13,7 @@ args <-  commandArgs(trailingOnly=TRUE)
 # Mena balickov
 packages <- c("readr", "tidyverse", "survival", "gtsummary", "expss", "plotrix", 
               "gt", "forestmodel", "survminer", "webshot2", "ggstats", "wesanderson", 
-              "matlib", "scales", "gdata", "gplots")
+              "matlib", "scales", "gdata", "gplots", "xtable")
 
 # Nainstalovanie doteraz nenainstalovanych balickov 
 installed_packages <- packages %in% rownames(installed.packages())
@@ -40,10 +39,44 @@ if (args[2]=="LCINF") {
   m1  <- glm(LongCovid ~ Immunity + DCCI + AgeGr + Sex,
                    family = binomial(link = "logit"), data = data)
   summary(m1)
+  
+  sumstat <- c("LongCovid","Immunity", "Agegr", "DCCU", "Sex")
 } else  {
   f <- as.formula(paste("Surv(T1, T2,",args[2],") ~ Immunity  + AgeGr + Sex "))
   m1 <- coxph(f,  data = data)
+  sumstat <- c(args[2],"Immunity", "Agegr", "Sex")
 }
+
+
+# vytvorenie identifikátoru unikátnych pacientov 
+data <- 
+  data %>%
+  group_by(ID) %>%
+  mutate(first.ID = row_number() == 1L, 
+         .before = 1L) %>%
+  ungroup()
+
+
+
+# tabulka s popisnymi statistikami
+
+# TODO: tady potřebuju aby se zobrazovaly jen aktuální proměnné
+# odkomentoval jsem něco, nevím, jak to sesouladit
+
+
+sum_tab <- data[, !names(data) %in% "ID"] %>%
+  tbl_summary(
+#    label = first.ID ~ "Number of unique patients",
+    include = any_of(sumstat),
+#    statistic = list(all_categorical() ~ "{n} ({p}%)",
+#   first.ID ~ "{n}"),
+    missing_text = "(Missing Observations)",
+    percent = c("cell")
+  ) %>% bold_labels()
+sum_tab
+
+gt::gtsave(as_gt(sum_tab), file = "sum_tab.png")
+
 
 
 #### VYTVORENIE TABULKY ####
@@ -60,15 +93,43 @@ df <- data.frame(
 )
 
 # names(df)[c(3:4, 6:7)] <- c("HR_CI_lower", "HR_CI_upper","eff_CI_upper", "eff_CI_lower")
-names(df)[c(2:3, 5:6, 8:9)] <- c("beta_CI_lower", "beta_CI_upper", 
-                                 "HR_CI_lower", "HR_CI_upper",
-                                 "eff_CI_upper", "eff_CI_lower")
+names(df)[c(2:3, 5:6, 8:9)] <- c("lower", "upper", 
+                                 "lower", "upper",
+                                 "upper", "lower")
 # df
 write.table(df, "cox_model_summary.txt")
+
+table <- xtable(df)
+print(table, file = "cox_model_summary.tex", include.rownames = TRUE)
+
+# forest plot - pomer rizik
+
+m1_cox_HR_plot <- tbl_regression(m1, exponentiate = T)# %>% 
+forest_plot <- m1_cox_HR_plot %>%
+  plot()
+
+png(file = "forest_plot.png", width = 700, height = 900)
+forest_plot
+
+# dev.copy(device = png, filename = 'forest_plot.png', width = 700, height = 900)
+dev.off()
+
+
+
+
+# dev.copy(device = png, filename = 'forest_plot.png', width = 700, height = 900)
 } else {
+
+  txttable <- summary(m1)
+
   sink("logreg_model_summary,txt")
-  summary(m1)
+  print(txttable)
   sink()
+    
+  textable <- xtable(summary(m1))
+  print(textable, file = "logreg_model_summary.tex", include.rownames = TRUE)
+  
+
 }
 
 
@@ -172,11 +233,19 @@ for (i in 1 : length(im_level)) {
 }
 
 immunities <- append(NA,im_level)
+# TODO tady bych potřeboval přejménovat záhlaví na $\Delta$ (nebo aspoň Delta), Lower, Upper
 est_table <- data.frame(immunities,deltas,lower_of_deltas,upper_of_deltas)[-1,] 
 write.table(est_table,'est_table.txt')
 
+textable = xtable(est_table)
+print(textable, file = "est_table.tex", include.rownames = TRUE)
+
+
 df_fin <- data.frame(names_fin, eff_tau_fin)[-1, ] 
 write.table(df_fin,'df_fin.txt')
+
+textable = xtable(df_fin)
+print(textable, file = "df_fin.tex", include.rownames = TRUE)
 
 
 #### COMPARISON OF IMMUNITIES ####
@@ -303,6 +372,11 @@ r_fin_mat <- matrix(label_percent(accuracy = 0.01)(r_fin2), ncol = length(im_lev
 
 write.table(r_fin_mat,"r_fin_mat.txt")
 
+# TODO sem bych potřeboval nějaké zktratky těch imunit (zkratky dodám)
+textable <- xtable(r_fin_mat)
+print(textable, file = "r_fin_mat.tex", include.rownames = TRUE)
+
+
 # M: viz výše
 #z_score_fin3 <- c(NA, z_score_fin2[1:7], NA, z_score_fin2[8:14], NA, 
 #                  z_score_fin2[15:21], NA, z_score_fin2[22:28], NA, 
@@ -310,7 +384,10 @@ write.table(r_fin_mat,"r_fin_mat.txt")
 #z_score_fin_mat <- matrix(z_score_fin3, ncol = 7, byrow = T)
 z_score_fin_mat <- matrix(z_score_fin2, ncol = length(im_level), byrow = T)
 
+# TODO žéž zde zkratky imunit
 write.table(z_score_fin_mat,"z_score_fin_mat.txt")
+textable <- xtable(z_score_fin_mat)
+print(textable, file = "z_score_mat.tex", include.rownames = FALSE)
 
 
 #### HEATMAPA #### 
@@ -357,4 +434,10 @@ heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F,
           key = i)
 
 dev.off()
+}
+# we put this here as it takes much time
+if(args[2] == "LCINF")
+{
+  forest_model(m1)
+  ggsave("forest_plot.png")
 }

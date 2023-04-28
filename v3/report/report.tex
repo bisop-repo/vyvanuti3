@@ -5,26 +5,61 @@
 \usepackage{float}
 %\usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\usepackage[a4paper]{geometry}
+\usepackage[a4paper, total={6in,10in}]{geometry}
+
+
+\newcommand{\common}[2]{
+\newpage
+\begin{center}
+\begin{tabular}{cc}
+\begin{minipage}{4cm}
+\includegraphics[width=4cm]{../#1/sum_tab.png}
+\end{minipage}
+&
+\begin{minipage}{12cm}
+\includegraphics[width=12cm]{../#1/forest_plot.png}
+\end{minipage}
+\end{tabular}
+Description statistics and forest plot
+\end{center}
+\newpage
+\begin{center}
+\input{../#1/est_table.tex}
+Monthly percentage decrease of effectiveness/protection
+\end{center}
+\begin{center}
+\input{../#1/r_fin_mat.tex}
+Effectiveness/protection differences 
+\end{center}
+\begin{center}
+\input{../#1/z_score_mat.tex}
+Z-scores of effectiveness/protection differences 
+\end{center}
+\newpage
+}
 
 \newcommand{\coxresult}[2]{\section{#2} 
-\includegraphics[width=15cm]{../#1/graf_krivky_vyvanutia.png}
-\includegraphics[width=15cm]{../#1Ints/graf_krivky_vyvanutia.png}
-\newpage
-\includegraphics[width=15cm]{../#1/forest_plot.png}
-\newpage
-\includegraphics[width=15cm]{../#1Ints/forest_plot.png}
+{
+\begin{center}
+\input{../#1/cox_model_summary.tex}
+Cox Model Summary
+\end{center}
 }
+\common{#1}{#2}
 
 
-\newcommand{\coxresultii}[2]{\section{#2} 
-\includegraphics[width=15cm]{../#1/graf_krivky_vyvanutia.png}
-\includegraphics[width=15cm]{../#1Ints/graf_krivky_vyvanutia.png}
-\newpage
-\includegraphics[width=15cm]{../#1/forest_plot.png}
-\newpage
-\includegraphics[width=7cm]{../#1Ints/forest_plot.png}
 }
+
+\newcommand{\lrresult}[2]{\section{#2} 
+{
+\begin{center}
+\input{../#1/logreg_model_summary.tex}
+Logistic Regression Model Summary
+\end{center}
+}
+\common{#1}{#2}
+}
+
 
 
 \begin{document}
@@ -38,8 +73,10 @@
 
 \newpage
 
-\coxresult{ProxyOmicron}{Serious course -- Omicron}
+\coxresult{../workscript}{Test Cox}
+\lrresult{../workscript}{Test Logreg}
 
+\end{document}
 
 \coxresultii{LongOmicron}{Long covid -- Omicron}
 
@@ -48,226 +85,4 @@
 \newpage
 
 \section*{Serious Course Given Infection}
-
-{
-\tt 
-\tiny
-                            Estimate Std. Error z value Pr(>|z|)   
-                             
-(Intercept)                 -4.95684    0.06136 -80.785  < 2e-16 ***
-
-VariantOfInfBA12            -1.15218    0.02339 -49.256  < 2e-16 ***
-
-VariantOfInfBA45            -1.34204    0.03138 -42.771  < 2e-16 ***
-
-VariantOfInfOmicron         -1.36236    0.03689 -36.933  < 2e-16 ***
-
-InfPriorinf\_NA\_061-121      -0.62933    0.13455  -4.677 2.91e-06 ***
-
-InfPriorinf\_NA\_122-182      -1.19443    0.18257  -6.542 6.06e-11 ***
-
-InfPriorinf\_NA\_183-243      -1.21496    0.16146  -7.525 5.29e-14 ***
-
-InfPriorinf\_NA\_244-304      -1.12842    0.13841  -8.153 3.56e-16 ***
-
-InfPriorinf\_NA\_305-365      -1.17236    0.12517  -9.366  < 2e-16 ***
-
-InfPriorinf\_NA\_366-426      -1.52596    0.14108 -10.816  < 2e-16 ***
-
-InfPriorinf\_NA\_427-487      -1.52339    0.14792 -10.299  < 2e-16 ***
-
-InfPriorinf\_NA\_488-548      -1.21620    0.13972  -8.705  < 2e-16 ***
-
-InfPriorinf\_NA\_549-609      -1.45716    0.17157  -8.493  < 2e-16 ***
-
-InfPriorinf\_NA\_610-670      -1.66746    0.20644  -8.077 6.62e-16 ***
-
-InfPriorinf\_NA\_671-731      -0.96393    0.18615  -5.178 2.24e-07 ***
-
-InfPriorinf\_NA\_732-792      -1.16670    0.50742  -2.299 0.021489 *  
-
-InfPriorinf\_NA\_793-853      -8.21277   41.88643  -0.196 0.844554    
-
-InfPriorinf\_NA\_854-914       0.08324    1.02476   0.081 0.935263    
-
-InfPriorinf\_NA\_915+         -8.45505   69.91290  -0.121 0.903741    
-
-VaccStatusboost\_001-061     -1.56909    0.04441 -35.330  < 2e-16 ***
-
-VaccStatusboost\_062-122     -1.67000    0.03481 -47.982  < 2e-16 ***
-
-VaccStatusboost\_123-183     -1.70134    0.04283 -39.722  < 2e-16 ***
-
-VaccStatusboost\_184-244     -1.28401    0.04658 -27.564  < 2e-16 ***
-
-VaccStatusboost\_245-305     -1.34670    0.04055 -33.213  < 2e-16 ***
-
-VaccStatusboost\_306-366     -1.39133    0.05104 -27.260  < 2e-16 ***
-
-VaccStatusboost\_367-427     -0.95796    0.22544  -4.249 2.14e-05 ***
-
-VaccStatusboost\_428+        -9.41519  254.29841  -0.037 0.970466    
-
-VaccStatusfull\_001-061      -0.60506    0.08081  -7.488 7.02e-14 ***
-
-VaccStatusfull\_062-122      -0.83653    0.06269 -13.345  < 2e-16 ***
-
-VaccStatusfull\_123-183      -1.27675    0.03331 -38.330  < 2e-16 ***
-
-VaccStatusfull\_184-244      -0.95184    0.03797 -25.066  < 2e-16 ***
-
-VaccStatusfull\_245-305      -0.89741    0.04848 -18.512  < 2e-16 ***
-
-VaccStatusfull\_306-366      -0.62356    0.07052  -8.843  < 2e-16 ***
-
-VaccStatusfull\_367-427      -0.51027    0.07564  -6.746 1.52e-11 ***
-
-VaccStatusfull\_428-488      -0.51334    0.08388  -6.120 9.36e-10 ***
-
-VaccStatusfull\_489-549      -0.78500    0.13404  -5.856 4.73e-09 ***
-
-VaccStatusfull\_550-610      -0.47015    0.23678  -1.986 0.047073 *  
-
-VaccStatusfull\_611-671      -0.61393    1.07313  -0.572 0.567261    
-
-VaccStatuspartial\_001-061   -0.35991    0.09921  -3.628 0.000286 ***
-
-VaccStatuspartial\_062+      -0.26516    0.10006  -2.650 0.008050 ** 
-
-VaccStatussecboost\_001-061  -1.65068    0.10389 -15.888  < 2e-16 ***
-
-VaccStatussecboost\_062+     -1.56338    0.19219  -8.135 4.13e-16 ***
-
-AgeGr0-11                   -2.02145    0.12233 -16.524  < 2e-16 ***
-
-AgeGr12-15                  -3.29145    0.32186 -10.226  < 2e-16 ***
-
-AgeGr16-17                  -2.27529    0.33873  -6.717 1.85e-11 ***
-
-AgeGr18-24                  -1.11008    0.13138  -8.450  < 2e-16 ***
-
-AgeGr25-29                  -0.92290    0.12379  -7.456 8.94e-14 ***
-
-AgeGr30-34                  -0.75537    0.10689  -7.067 1.58e-12 ***
-
-AgeGr35-39                  -0.42705    0.09509  -4.491 7.09e-06 ***
-
-AgeGr45-49                   0.44457    0.07702   5.772 7.84e-09 ***
-
-AgeGr50-54                   1.01122    0.07414  13.640  < 2e-16 ***
-
-AgeGr55-59                   1.51534    0.07012  21.610  < 2e-16 ***
-
-AgeGr60-64                   2.20547    0.06766  32.598  < 2e-16 ***
-
-AgeGr65-69                   3.00849    0.06442  46.698  < 2e-16 ***
-
-AgeGr70-74                   3.67310    0.06311  58.200  < 2e-16 ***
-
-AgeGr75-79                   4.18680    0.06300  66.459  < 2e-16 ***
-
-AgeGr80+                     4.88464    0.06180  79.045  < 2e-16 ***
-
-SexM                         0.48347    0.01647  29.351  < 2e-16 ***
-}
-
-\newpage
-
-\section*{Long Covid Given Infection}
-
-{
-\tt 
-\tiny
-
-                          Estimate Std. Error  z value Pr(>|z|)    
-                          
-(Intercept)               -3.98140    0.03200 -124.409  < 2e-16 ***
-
-Seriouscovidproxy          1.54051    0.03515   43.825  < 2e-16 ***
-
-VariantOfInfBA12          -0.32014    0.02287  -13.998  < 2e-16 ***
-
-VariantOfInfBA45          -7.48823   37.80651   -0.198 0.842993    
-
-VariantOfInfOmicron       -0.39877    0.02655  -15.020  < 2e-16 ***
-
-InfPriorinf\_NA\_061-121     1.04630    0.05411   19.335  < 2e-16 ***
-
-InfPriorinf\_NA\_122-182     1.00557    0.09517   10.566  < 2e-16 ***
-
-InfPriorinf\_NA\_183-243     0.96626    0.22357    4.322 1.55e-05 ***
-
-InfPriorinf\_NA\_244-304     0.98819    0.08558   11.547  < 2e-16 ***
-
-InfPriorinf\_NA\_305-365     1.18037    0.03901   30.261  < 2e-16 ***
-
-InfPriorinf\_NA\_366-426     1.05149    0.03446   30.510  < 2e-16 ***
-
-InfPriorinf\_NA\_427-487     0.85562    0.03947   21.679  < 2e-16 ***
-
-InfPriorinf\_NA\_488-548     0.83565    0.05674   14.728  < 2e-16 ***
-
-InfPriorinf\_NA\_549-609     0.97512    0.22311    4.371 1.24e-05 ***
-
-InfPriorinf\_NA\_610-670     0.61373    0.45405    1.352 0.176482    
-
-InfPriorinf\_NA\_671+        0.77549    0.38574    2.010 0.044390 *  
-
-VaccStatusboost\_001-061   -0.28067    0.03107   -9.034  < 2e-16 ***
-
-VaccStatusboost\_062-122   -0.16329    0.03041   -5.369 7.90e-08 ***
-
-VaccStatusboost\_123+      -0.21595    0.06517   -3.314 0.000921 ***
-
-VaccStatusfull\_001-061    -0.08901    0.05971   -1.491 0.136030    
-
-VaccStatusfull\_062-122    -0.07555    0.04323   -1.748 0.080488 .  
-
-VaccStatusfull\_123-183    -0.23017    0.02689   -8.561  < 2e-16 ***
-
-VaccStatusfull\_184-244    -0.20331    0.02956   -6.878 6.06e-12 ***
-
-VaccStatusfull\_245-305    -0.13222    0.04785   -2.763 0.005721 ** 
-
-VaccStatusfull\_306-366    -0.14312    0.10264   -1.394 0.163177    
-
-VaccStatusfull\_367-427    -0.29111    0.26302   -1.107 0.268387    
-
-VaccStatuspartial\_001-061 -0.08751    0.10199   -0.858 0.390891    
-
-VaccStatuspartial\_062+     0.20779    0.11342    1.832 0.066933 .  
-
-AgeGr0-11                 -2.89737    0.10445  -27.739  < 2e-16 ***
-
-AgeGr12-15                -2.36644    0.10788  -21.937  < 2e-16 ***
-
-AgeGr16-17                -2.08048    0.14414  -14.434  < 2e-16 ***
-
-AgeGr18-24                -1.03982    0.05674  -18.327  < 2e-16 ***
-
-AgeGr25-29                -0.62232    0.05081  -12.248  < 2e-16 ***
-
-AgeGr30-34                -0.41377    0.04379   -9.450  < 2e-16 ***
-
-AgeGr35-39                -0.26034    0.04079   -6.382 1.74e-10 ***
-
-AgeGr45-49                 0.28847    0.03462    8.332  < 2e-16 ***
-
-AgeGr50-54                 0.47446    0.03597   13.191  < 2e-16 ***
-
-AgeGr55-59                 0.65063    0.03593   18.108  < 2e-16 ***
-
-AgeGr60-64                 0.72490    0.03909   18.546  < 2e-16 ***
-
-AgeGr65-69                 0.81487    0.04113   19.810  < 2e-16 ***
-
-AgeGr70-74                 0.85773    0.04353   19.705  < 2e-16 ***
-
-AgeGr75-79                 0.88091    0.04776   18.445  < 2e-16 ***
-
-AgeGr80+                   0.72010    0.04737   15.201  < 2e-16 ***
-
-SexM                      -0.21183    0.01700  -12.462  < 2e-16 ***
-}
-
 \end{document}
