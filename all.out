@@ -145,8 +145,10 @@ The following object is masked from ‘package:stats’:
 
     lowess
 
+./cox: line 19: 3245053 Terminated              Rscript ../../workscript/Script.R rinput.csv $5 > script.log
 Group done
 mkdir: cannot create directory ‘ProxyBA12’: File exists
+./cox: line 17: 3254259 Terminated              ../../convertool/bin/convertool $INPUT_FILE rinput.csv $2 $3 $4 > convertool.log
 cp: cannot stat '../../workscript/cox_estimation_formulas.txt': No such file or directory
 ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.0     ✔ purrr     1.0.1
@@ -159,7 +161,7 @@ cp: cannot stat '../../workscript/cox_estimation_formulas.txt': No such file or 
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 Loading required package: maditr
 
-To select columns from data: columns(mtcars, mpg, vs:carb)
+To select rows from data: rows(mtcars, am==0)
 
 
 Attaching package: ‘maditr’
@@ -292,156 +294,14 @@ The following object is masked from ‘package:stats’:
 
     lowess
 
+Error in fread(filename, nrows = 1, sep = NULL, header = FALSE) : 
+  File 'rinput.csv' does not exist or is non-readable. getwd()=='/home/SANDBOX/vyvanuti3/v3/ProxyBA12'
+Calls: read_labelled_csv -> extract_dictionary -> fread
+Execution halted
+rm: cannot remove 'rinput.csv': No such file or directory
 Group done
 mkdir: cannot create directory ‘LCallO’: File exists
-cp: cannot stat '../../workscript/cox_estimation_formulas.txt': No such file or directory
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.0     ✔ purrr     1.0.1
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.1     ✔ tibble    3.1.8
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-#StandWithUkraine
-Loading required package: maditr
-
-To drop variable use NULL: let(mtcars, am = NULL) %>% head()
-
-
-Attaching package: ‘maditr’
-
-The following objects are masked from ‘package:dplyr’:
-
-    between, coalesce, first, last
-
-The following object is masked from ‘package:purrr’:
-
-    transpose
-
-The following object is masked from ‘package:readr’:
-
-    cols
-
-
-Attaching package: ‘expss’
-
-The following objects are masked from ‘package:gtsummary’:
-
-    contains, vars
-
-The following objects are masked from ‘package:stringr’:
-
-    fixed, regex
-
-The following objects are masked from ‘package:dplyr’:
-
-    compute, contains, na_if, recode, vars, where
-
-The following objects are masked from ‘package:purrr’:
-
-    keep, modify, modify_if, when
-
-The following objects are masked from ‘package:tidyr’:
-
-    contains, nest
-
-The following object is masked from ‘package:ggplot2’:
-
-    vars
-
-
-Attaching package: ‘gt’
-
-The following objects are masked from ‘package:expss’:
-
-    contains, gt, tab_caption, vars
-
-Loading required package: ggpubr
-
-Attaching package: ‘ggpubr’
-
-The following object is masked from ‘package:expss’:
-
-    compare_means
-
-
-Attaching package: ‘survminer’
-
-The following object is masked from ‘package:survival’:
-
-    myeloma
-
-
-Attaching package: ‘scales’
-
-The following object is masked from ‘package:plotrix’:
-
-    rescale
-
-The following object is masked from ‘package:purrr’:
-
-    discard
-
-The following object is masked from ‘package:readr’:
-
-    col_factor
-
-gdata: read.xls support for 'XLS' (Excel 97-2004) files ENABLED.
-
-gdata: read.xls support for 'XLSX' (Excel 2007+) files ENABLED.
-
-Attaching package: ‘gdata’
-
-The following object is masked from ‘package:expss’:
-
-    keep
-
-The following objects are masked from ‘package:maditr’:
-
-    first, last
-
-The following objects are masked from ‘package:dplyr’:
-
-    combine, first, last
-
-The following object is masked from ‘package:purrr’:
-
-    keep
-
-The following object is masked from ‘package:stats’:
-
-    nobs
-
-The following object is masked from ‘package:utils’:
-
-    object.size
-
-The following object is masked from ‘package:base’:
-
-    startsWith
-
-Registered S3 method overwritten by 'gplots':
-  method         from 
-  reorder.factor gdata
-
-Attaching package: ‘gplots’
-
-The following object is masked from ‘package:gdata’:
-
-    reorder.factor
-
-The following object is masked from ‘package:plotrix’:
-
-    plotCI
-
-The following object is masked from ‘package:stats’:
-
-    lowess
-
-Group done
-mkdir: cannot create directory ‘LCinfO’: File exists
+./cox: line 17: 3254314 Terminated              ../../convertool/bin/convertool $INPUT_FILE rinput.csv $2 $3 $4 > convertool.log
 cp: cannot stat '../../workscript/cox_estimation_formulas.txt': No such file or directory
 ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.0     ✔ purrr     1.0.1
@@ -473,7 +333,162 @@ The following object is masked from ‘package:readr’:
     cols
 
 
-Use 'expss_output_rnotebook()' to display tables inside R Notebooks.
+Attaching package: ‘expss’
+
+The following objects are masked from ‘package:gtsummary’:
+
+    contains, vars
+
+The following objects are masked from ‘package:stringr’:
+
+    fixed, regex
+
+The following objects are masked from ‘package:dplyr’:
+
+    compute, contains, na_if, recode, vars, where
+
+The following objects are masked from ‘package:purrr’:
+
+    keep, modify, modify_if, when
+
+The following objects are masked from ‘package:tidyr’:
+
+    contains, nest
+
+The following object is masked from ‘package:ggplot2’:
+
+    vars
+
+
+Attaching package: ‘gt’
+
+The following objects are masked from ‘package:expss’:
+
+    contains, gt, tab_caption, vars
+
+Loading required package: ggpubr
+
+Attaching package: ‘ggpubr’
+
+The following object is masked from ‘package:expss’:
+
+    compare_means
+
+
+Attaching package: ‘survminer’
+
+The following object is masked from ‘package:survival’:
+
+    myeloma
+
+
+Attaching package: ‘scales’
+
+The following object is masked from ‘package:plotrix’:
+
+    rescale
+
+The following object is masked from ‘package:purrr’:
+
+    discard
+
+The following object is masked from ‘package:readr’:
+
+    col_factor
+
+gdata: read.xls support for 'XLS' (Excel 97-2004) files ENABLED.
+
+gdata: read.xls support for 'XLSX' (Excel 2007+) files ENABLED.
+
+Attaching package: ‘gdata’
+
+The following object is masked from ‘package:expss’:
+
+    keep
+
+The following objects are masked from ‘package:maditr’:
+
+    first, last
+
+The following objects are masked from ‘package:dplyr’:
+
+    combine, first, last
+
+The following object is masked from ‘package:purrr’:
+
+    keep
+
+The following object is masked from ‘package:stats’:
+
+    nobs
+
+The following object is masked from ‘package:utils’:
+
+    object.size
+
+The following object is masked from ‘package:base’:
+
+    startsWith
+
+Registered S3 method overwritten by 'gplots':
+  method         from 
+  reorder.factor gdata
+
+Attaching package: ‘gplots’
+
+The following object is masked from ‘package:gdata’:
+
+    reorder.factor
+
+The following object is masked from ‘package:plotrix’:
+
+    plotCI
+
+The following object is masked from ‘package:stats’:
+
+    lowess
+
+Error in fread(filename, nrows = 1, sep = NULL, header = FALSE) : 
+  File 'rinput.csv' does not exist or is non-readable. getwd()=='/home/SANDBOX/vyvanuti3/v3/LCallO'
+Calls: read_labelled_csv -> extract_dictionary -> fread
+Execution halted
+rm: cannot remove 'temporary_full*.*': No such file or directory
+rm: cannot remove 'rinput.csv': No such file or directory
+Group done
+mkdir: cannot create directory ‘LCinfO’: File exists
+./cox: line 17: 3254455 Terminated              ../../convertool/bin/convertool $INPUT_FILE rinput.csv $2 $3 $4 > convertool.log
+cp: cannot stat '../../workscript/cox_estimation_formulas.txt': No such file or directory
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.0     ✔ purrr     1.0.1
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.1     ✔ tibble    3.1.8
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+#StandWithUkraine
+Loading required package: maditr
+
+To aggregate all non-grouping columns: take_all(mtcars, mean, by = am)
+
+
+Attaching package: ‘maditr’
+
+The following objects are masked from ‘package:dplyr’:
+
+    between, coalesce, first, last
+
+The following object is masked from ‘package:purrr’:
+
+    transpose
+
+The following object is masked from ‘package:readr’:
+
+    cols
+
+
+Use 'expss_output_viewer()' to display tables in the RStudio Viewer.
  To return to the console output, use 'expss_output_default()'.
 
 
@@ -592,5 +607,38 @@ The following object is masked from ‘package:stats’:
 
     lowess
 
+Error in fread(filename, nrows = 1, sep = NULL, header = FALSE) : 
+  File 'rinput.csv' does not exist or is non-readable. getwd()=='/home/SANDBOX/vyvanuti3/v3/LCinfO'
+Calls: read_labelled_csv -> extract_dictionary -> fread
+Execution halted
+rm: cannot remove 'temporary_full*.*': No such file or directory
+rm: cannot remove 'rinput.csv': No such file or directory
 Group done
+cp: cannot stat 'v3/ProxyBA12/df_fin.txt': No such file or directory
+cp: cannot stat 'v3/ProxyNew/df_fin.txt': No such file or directory
+cp: cannot stat 'v3/LCallO/df_fin.txt': No such file or directory
+cp: cannot stat 'v3/LCinfO/df_fin.txt': No such file or directory
+cp: cannot stat 'v3/ProxyBA12/est_table.txt': No such file or directory
+cp: cannot stat 'v3/ProxyNew/est_table.txt': No such file or directory
+cp: cannot stat 'v3/LCallO/est_table.txt': No such file or directory
+cp: cannot stat 'v3/LCinfO/est_table.txt': No such file or directory
+cp: cannot stat 'v3/ProxyBA12/heatmap.png': No such file or directory
+cp: cannot stat 'v3/ProxyNew/heatmap.png': No such file or directory
+cp: cannot stat 'v3/LCallO/heatmap.png': No such file or directory
+cp: cannot stat 'v3/LCinfO/heatmap.png': No such file or directory
+cp: cannot stat 'v3/ProxyBA12/heatmapnk.png': No such file or directory
+cp: cannot stat 'v3/ProxyNew/heatmapnk.png': No such file or directory
+cp: cannot stat 'v3/LCallO/heatmapnk.png': No such file or directory
+cp: cannot stat 'v3/LCinfO/heatmapnk.png': No such file or directory
+cp: cannot stat 'v3/ProxyBA12/r_fin_mat.txt': No such file or directory
+cp: cannot stat 'v3/ProxyNew/r_fin_mat.txt': No such file or directory
+cp: cannot stat 'v3/LCallO/r_fin_mat.txt': No such file or directory
+cp: cannot stat 'v3/LCinfO/r_fin_mat.txt': No such file or directory
+cp: cannot stat 'v3/ProxyBA12/z_score_fin_mat.txt': No such file or directory
+cp: cannot stat 'v3/ProxyNew/z_score_fin_mat.txt': No such file or directory
+cp: cannot stat 'v3/LCallO/z_score_fin_mat.txt': No such file or directory
+cp: cannot stat 'v3/LCinfO/z_score_fin_mat.txt': No such file or directory
+cp: cannot stat 'v3/ProxyBA12/cox_model_summary.txt': No such file or directory
+cp: cannot stat 'v3/ProxyNew/cox_model_summary.txt': No such file or directory
+cp: cannot stat 'v3/LCallO/cox_model_summary.txt': No such file or directory
 cp: cannot stat 'v3/LCinfO/logreg_model_summary.txt': No such file or directory

@@ -130,7 +130,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 68,68,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,2+,77,75-79,M,_none,112
 69,0,19,0,,,0,0,0,,inf_NA_306-366,full_245-305,hybridfull_245-305,0,30,30-34,F,347,291
 69,19,38,0,,,0,0,0,,inf_NA_306-366,boost_001-061,hybridboost_001-061,0,30,30-34,F,366,19
-69,38,65,1,,,0,0,0,BA12,inf_NA_367-427,boost_001-061,hybridboost_001-061,0,30,30-34,F,393,46
+69,38,65,0,,,0,0,0,,inf_NA_367-427,boost_001-061,hybridboost_001-061,0,30,30-34,F,393,46
 70,0,61,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,1,77,75-79,M,_none,61
 70,61,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,1,77,75-79,M,_none,119
 71,0,35,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,38,35-39,F,_none,61
@@ -167,7 +167,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 82,46,96,0,,,0,0,0,,inf_NA_306-366,full_123-183,hybridfull_123-183,0,31,30-34,M,355,183
 82,96,107,0,,,0,0,0,,inf_NA_306-366,full_184-244,hybridfull_184-244,0,31,30-34,M,366,194
 82,107,119,0,,,0,0,0,,inf_NA_367-427,full_184-244,hybridfull_184-244,0,31,30-34,M,378,206
-83,0,68,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,1,59,55-59,F,_none,_none
+83,0,68,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,1,59,55-59,F,_none,_none
 84,0,21,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,2+,70,70-74,F,_none,173
 84,21,82,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,2+,70,70-74,F,_none,61
 84,82,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,2+,70,70-74,F,_none,98
@@ -971,7 +971,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 346,35,90,1,,,0,0,0,BA12,_uninfected,full_184-244,full_184-244,0,52,50-54,M,_none,238
 347,0,22,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,1,19,18-24,F,_none,122
 347,22,83,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,1,19,18-24,F,_none,183
-347,83,110,1,,,0,0,0,BA12,_uninfected,full_184-244,full_184-244,1,19,18-24,F,_none,210
+347,83,110,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,1,19,18-24,F,_none,210
 348,0,27,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,2+,52,50-54,M,_none,181
 348,27,88,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,2+,52,50-54,M,_none,61
 348,88,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,2+,52,50-54,M,_none,92
@@ -1126,7 +1126,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 396,19,45,1,,,0,0,0,BA12,_uninfected,full_123-183,full_123-183,2+,38,35-39,F,_none,148
 396,106,119,0,,,0,0,0,,inf_NA_062-122,full_184-244,hybridfull_062-122,2+,38,35-39,F,74,222
 397,0,19,0,,,0,0,0,,_uninfected,full_001-061,full_001-061,0,32,30-34,F,_none,61
-397,19,62,1,,,0,0,0,BA12,_uninfected,full_062-122,full_062-122,0,32,30-34,F,_none,104
+397,19,62,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,32,30-34,F,_none,104
 398,0,56,0,,,0,0,0,,_uninfected,full_001-061,full_001-061,2+,75,75-79,M,_none,61
 398,56,117,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,2+,75,75-79,M,_none,122
 398,117,119,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,2+,75,75-79,M,_none,124
@@ -1442,7 +1442,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 499,87,119,0,,,0,0,0,,_uninfected,full_245-305,full_245-305,0,26,25-29,F,_none,276
 500,0,28,0,,,0,0,0,,inf_NA_306-366,full_123-183,hybridfull_123-183,0,57,55-59,M,346,182
 500,28,48,0,,,0,0,0,,inf_NA_306-366,boost_001-061,hybridboost_001-061,0,57,55-59,M,366,20
-500,48,85,1,,,0,0,0,BA12,inf_NA_367-427,boost_001-061,hybridboost_001-061,0,57,55-59,M,403,57
+500,48,85,0,,,0,0,0,,inf_NA_367-427,boost_001-061,hybridboost_001-061,0,57,55-59,M,403,57
 501,0,31,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,56,55-59,M,_none,183
 501,31,50,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,0,56,55-59,M,_none,202
 501,50,111,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,56,55-59,M,_none,61
@@ -1564,7 +1564,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 541,1,22,0,,,0,0,0,,_uninfected,partial_001-061,_other,0,13,12-15,F,_none,21
 541,22,83,0,,,0,0,0,,_uninfected,full_001-061,full_001-061,0,13,12-15,F,_none,61
 541,83,119,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,13,12-15,F,_none,97
-542,0,64,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,0,32,30-34,F,_none,_none
+542,0,64,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,32,30-34,F,_none,_none
 543,0,21,0,,,0,0,0,,inf_NA_306-366,full_123-183,hybridfull_123-183,2+,67,65-69,F,329,183
 543,21,41,0,,,0,0,0,,inf_NA_306-366,full_184-244,hybridfull_184-244,2+,67,65-69,F,349,203
 543,41,58,0,,,0,0,0,,inf_NA_306-366,boost_001-061,hybridboost_001-061,2+,67,65-69,F,366,17
@@ -1781,7 +1781,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 610,58,119,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,54,50-54,M,_none,61
 611,0,7,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,66,65-69,F,_none,_none
 611,7,35,0,,,0,0,0,,_uninfected,partial_001-061,_other,0,66,65-69,F,_none,28
-611,35,83,1,,,0,0,0,BA12,_uninfected,full_001-061,full_001-061,0,66,65-69,F,_none,48
+611,35,83,0,,,0,0,0,,_uninfected,full_001-061,full_001-061,0,66,65-69,F,_none,48
 612,0,52,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,74,70-74,M,_none,61
 612,52,113,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,0,74,70-74,M,_none,122
 612,113,119,0,,,0,0,0,,_uninfected,boost_123-183,boost_123-183,0,74,70-74,M,_none,128
@@ -1811,7 +1811,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 620,0,24,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,66,65-69,M,_none,183
 620,24,75,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,0,66,65-69,M,_none,234
 620,75,119,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,66,65-69,M,_none,44
-621,31,61,1,,,0,0,0,BA12,inf_NA_062-122,full_184-244,hybridfull_062-122,1,39,35-39,F,91,233
+621,31,61,0,,,0,0,0,,inf_NA_062-122,full_184-244,hybridfull_062-122,1,39,35-39,F,91,233
 622,0,19,0,,,0,0,0,,inf_NA_367-427,full_123-183,hybridfull_123-183,0,39,35-39,F,427,143
 622,19,59,0,,,0,0,0,,inf_NA_428-488,full_123-183,hybridfull_123-183,0,39,35-39,F,467,183
 622,59,80,0,,,0,0,0,,inf_NA_428-488,full_184-244,hybridfull_184-244,0,39,35-39,F,488,204
@@ -1847,7 +1847,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 632,22,77,0,,,0,0,0,,inf_NA_428-488,boost_001-061,hybridboost_001-061,1,55,55-59,M,488,55
 632,77,83,0,,,0,0,0,,inf_NA_489-549,boost_001-061,hybridboost_001-061,1,55,55-59,M,494,61
 632,83,119,0,,,0,0,0,,inf_NA_489-549,boost_062-122,hybridboost_062-122,1,55,55-59,M,530,97
-633,0,76,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,0,14,12-15,M,_none,_none
+633,0,76,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,14,12-15,M,_none,_none
 634,0,49,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,86,80+,F,_none,61
 634,49,110,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,0,86,80+,F,_none,122
 634,110,119,0,,,0,0,0,,_uninfected,boost_123-183,boost_123-183,0,86,80+,F,_none,131
@@ -1950,7 +1950,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 665,0,29,0,,,0,0,0,,inf_NA_184-244,full_062-122,hybridfull_062-122,0,54,50-54,M,226,122
 665,29,47,0,,,0,0,0,,inf_NA_184-244,full_123-183,hybridfull_123-183,0,54,50-54,M,244,140
 665,47,63,0,,,0,0,0,,inf_NA_245-305,full_123-183,hybridfull_123-183,0,54,50-54,M,260,156
-665,63,84,1,,,0,0,0,BA12,inf_NA_245-305,boost_001-061,hybridboost_001-061,0,54,50-54,M,281,21
+665,63,84,0,,,0,0,0,,inf_NA_245-305,boost_001-061,hybridboost_001-061,0,54,50-54,M,281,21
 666,0,9,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,2+,61,60-64,F,_none,169
 666,9,70,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,2+,61,60-64,F,_none,61
 666,70,109,1,,,0,0,0,BA12,_uninfected,boost_062-122,boost_062-122,2+,61,60-64,F,_none,100
@@ -2161,7 +2161,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 731,41,80,0,,,0,0,0,,inf_NA_306-366,boost_001-061,hybridboost_001-061,1,46,45-49,F,366,39
 731,80,102,0,,,0,0,0,,inf_NA_367-427,boost_001-061,hybridboost_001-061,1,46,45-49,F,388,61
 731,102,119,0,,,0,0,0,,inf_NA_367-427,boost_062-122,hybridboost_062-122,1,46,45-49,F,405,78
-732,0,65,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,1,9,0-11,F,_none,_none
+732,0,65,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,1,9,0-11,F,_none,_none
 733,0,80,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,1,13,12-15,M,_none,_none
 734,0,47,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,6,0-11,F,_none,_none
 734,47,108,0,,,0,0,0,,_uninfected,partial_001-061,_other,0,6,0-11,F,_none,61
@@ -2626,7 +2626,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 879,106,119,0,,,0,0,0,,_uninfected,boost_123-183,boost_123-183,2+,57,55-59,M,_none,135
 880,0,1,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,36,35-39,M,_none,122
 880,1,62,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,36,35-39,M,_none,183
-880,62,82,1,,,0,0,0,BA12,_uninfected,full_184-244,full_184-244,0,36,35-39,M,_none,203
+880,62,82,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,0,36,35-39,M,_none,203
 881,0,27,0,,,0,0,0,,inf_NA_367-427,full_123-183,hybridfull_123-183,0,46,45-49,M,413,169
 881,27,41,0,,,0,0,0,,inf_NA_367-427,boost_001-061,hybridboost_001-061,0,46,45-49,M,427,14
 881,41,88,0,,,0,0,0,,inf_NA_428-488,boost_001-061,hybridboost_001-061,0,46,45-49,M,474,61
@@ -2861,7 +2861,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 956,31,92,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,41,_40-44,M,_none,183
 956,92,119,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,0,41,_40-44,M,_none,210
 957,0,10,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,1,34,30-34,M,_none,122
-957,10,61,1,,,1,0,0,BA12,_uninfected,full_123-183,full_123-183,1,34,30-34,M,_none,173
+957,10,61,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,1,34,30-34,M,_none,173
 958,0,119,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,7,0-11,M,_none,_none
 959,0,4,0,,,0,0,0,,_uninfected,partial_001-061,_other,0,28,25-29,M,_none,21
 959,4,65,0,,,0,0,0,,_uninfected,full_001-061,full_001-061,0,28,25-29,M,_none,61
@@ -2869,7 +2869,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 960,0,9,0,,,0,0,0,,inf_NA_306-366,_unvaccinated,inf_306-366,0,25,25-29,F,322,_none
 960,9,30,0,,,0,0,0,,inf_NA_306-366,partial_001-061,_other,0,25,25-29,F,343,21
 960,30,53,0,,,0,0,0,,inf_NA_306-366,full_001-061,hybridfull_001-061,0,25,25-29,F,366,23
-960,53,69,1,,,0,0,0,BA12,inf_NA_367-427,full_001-061,hybridfull_001-061,0,25,25-29,F,382,39
+960,53,69,0,,,0,0,0,,inf_NA_367-427,full_001-061,hybridfull_001-061,0,25,25-29,F,382,39
 962,0,47,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,17,16-17,F,_none,_none
 962,47,68,0,,,0,0,0,,_uninfected,partial_001-061,_other,0,17,16-17,F,_none,21
 962,68,119,0,,,0,0,0,,_uninfected,full_001-061,full_001-061,0,17,16-17,F,_none,51
@@ -2890,7 +2890,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 968,51,54,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,1,48,45-49,F,_none,3
 968,115,119,0,,,0,0,0,,inf_NA_062-122,boost_062-122,hybridboost_062-122,1,48,45-49,F,65,68
 969,0,27,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,52,50-54,F,_none,176
-969,27,76,1,,,0,0,0,BA12,_uninfected,boost_001-061,boost_001-061,0,52,50-54,F,_none,49
+969,27,76,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,52,50-54,F,_none,49
 970,0,50,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,0,11,0-11,M,_none,_none
 970,111,119,0,,,0,0,0,,inf_NA_062-122,_unvaccinated,inf_062-122,0,11,0-11,M,69,_none
 971,0,5,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,1,29,25-29,F,_none,122
@@ -3707,7 +3707,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 1243,0,45,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,1,33,30-34,F,_none,183
 1243,45,106,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,1,33,30-34,F,_none,244
 1243,106,119,0,,,0,0,0,,_uninfected,full_245-305,full_245-305,1,33,30-34,F,_none,257
-1244,0,70,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,0,11,0-11,M,_none,_none
+1244,0,70,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,11,0-11,M,_none,_none
 1245,0,4,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,25,25-29,M,_none,122
 1245,4,65,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,25,25-29,M,_none,183
 1245,65,119,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,0,25,25-29,M,_none,237
@@ -3976,10 +3976,10 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 1334,60,119,0,,,0,0,0,,inf_NA_062-122,_unvaccinated,inf_062-122,0,37,35-39,M,120,_none
 1335,0,13,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,1,38,35-39,F,_none,_none
 1335,74,119,0,,,0,0,0,,inf_NA_062-122,_unvaccinated,inf_062-122,1,38,35-39,F,106,_none
-1336,0,94,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,0,48,45-49,F,_none,_none
+1336,0,94,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,48,45-49,F,_none,_none
 1337,0,5,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,30,30-34,M,_none,_none
 1337,5,66,0,,,0,0,0,,_uninfected,full_001-061,full_001-061,0,30,30-34,M,_none,61
-1337,66,103,1,,,0,0,0,BA12,_uninfected,full_062-122,full_062-122,0,30,30-34,M,_none,98
+1337,66,103,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,30,30-34,M,_none,98
 1338,0,36,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,35,35-39,M,_none,163
 1338,36,97,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,35,35-39,M,_none,61
 1338,97,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,0,35,35-39,M,_none,83
@@ -4001,7 +4001,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 1343,106,119,0,,,0,0,0,,_uninfected,full_245-305,full_245-305,0,56,55-59,M,_none,257
 1344,0,28,0,,,0,0,0,,_uninfected,partial_001-061,_other,1,45,45-49,M,_none,34
 1344,28,89,0,,,0,0,0,,_uninfected,full_001-061,full_001-061,1,45,45-49,M,_none,61
-1344,89,108,1,,,0,0,0,BA12,_uninfected,full_062-122,full_062-122,1,45,45-49,M,_none,80
+1344,89,108,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,1,45,45-49,M,_none,80
 1345,0,2,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,2+,31,30-34,M,_none,122
 1345,2,35,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,2+,31,30-34,M,_none,155
 1345,35,96,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,2+,31,30-34,M,_none,61
@@ -4252,7 +4252,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 1428,114,119,0,,,0,0,0,,inf_NA_428-488,boost_062-122,hybridboost_062-122,0,53,50-54,M,432,93
 1429,52,113,0,,,0,0,0,,inf_NA_062-122,_unvaccinated,inf_062-122,0,11,0-11,M,122,_none
 1429,113,119,0,,,0,0,0,,inf_NA_123-183,_unvaccinated,inf_123-183,0,11,0-11,M,128,_none
-1430,0,61,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,2+,53,50-54,M,_none,_none
+1430,0,61,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,2+,53,50-54,M,_none,_none
 1431,0,54,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,1,60,60-64,M,_none,177
 1431,54,115,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,1,60,60-64,M,_none,61
 1431,115,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,1,60,60-64,M,_none,65
@@ -4301,7 +4301,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 1445,76,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,0,61,60-64,F,_none,104
 1446,0,6,0,,,0,0,0,,inf_NA_245-305,partial_062+,_other,0,50,50-54,F,305,187
 1446,6,67,0,,,0,0,0,,inf_NA_306-366,partial_062+,_other,0,50,50-54,F,366,248
-1446,67,79,1,,,0,0,0,BA12,inf_NA_367-427,partial_062+,_other,0,50,50-54,F,378,260
+1446,67,79,0,,,0,0,0,,inf_NA_367-427,partial_062+,_other,0,50,50-54,F,378,260
 1447,0,15,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,34,30-34,F,_none,122
 1447,15,76,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,34,30-34,F,_none,183
 1447,76,119,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,0,34,30-34,F,_none,226
@@ -4508,7 +4508,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 1510,94,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,2+,78,75-79,M,_none,86
 1511,0,33,0,,,0,0,0,,_uninfected,full_001-061,full_001-061,1,15,12-15,F,_none,61
 1511,33,94,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,1,15,12-15,F,_none,122
-1511,94,99,1,,,0,0,0,BA12,_uninfected,full_123-183,full_123-183,1,15,12-15,F,_none,127
+1511,94,99,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,1,15,12-15,F,_none,127
 1512,0,35,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,2+,71,70-74,F,_none,183
 1512,35,50,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,2+,71,70-74,F,_none,198
 1512,50,111,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,2+,71,70-74,F,_none,61
@@ -4675,7 +4675,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 1562,2,53,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,40,_40-44,M,_none,173
 1562,53,114,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,40,_40-44,M,_none,61
 1562,114,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,0,40,_40-44,M,_none,66
-1563,0,109,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,1,30,30-34,M,_none,_none
+1563,0,109,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,1,30,30-34,M,_none,_none
 1564,0,50,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,33,30-34,F,_none,122
 1564,50,77,1,,,0,0,0,BA12,_uninfected,full_123-183,full_123-183,0,33,30-34,F,_none,149
 1565,0,4,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,38,35-39,F,_none,6
@@ -4748,7 +4748,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 1583,73,119,0,,,0,0,0,,inf_NA_428-488,_unvaccinated,inf_428-488,0,40,_40-44,F,473,_none
 1584,0,55,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,37,35-39,M,_none,183
 1584,55,70,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,0,37,35-39,M,_none,198
-1584,70,83,1,,,0,0,0,BA12,_uninfected,boost_001-061,boost_001-061,0,37,35-39,M,_none,13
+1584,70,83,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,37,35-39,M,_none,13
 1585,0,13,0,,,0,0,0,,inf_NA_367-427,full_123-183,hybridfull_123-183,2+,72,70-74,M,414,179
 1585,13,26,0,,,0,0,0,,inf_NA_367-427,boost_001-061,hybridboost_001-061,2+,72,70-74,M,427,13
 1585,26,74,0,,,0,0,0,,inf_NA_428-488,boost_001-061,hybridboost_001-061,2+,72,70-74,M,475,61
@@ -4893,7 +4893,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 1636,0,24,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,1,39,35-39,F,_none,122
 1636,24,85,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,1,39,35-39,F,_none,183
 1636,85,119,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,1,39,35-39,F,_none,217
-1637,0,61,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,0,10,0-11,F,_none,_none
+1637,0,61,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,10,0-11,F,_none,_none
 1638,0,15,0,,,0,0,0,,inf_NA_306-366,full_001-061,hybridfull_001-061,0,46,45-49,M,366,17
 1638,15,59,0,,,0,0,0,,inf_NA_367-427,full_001-061,hybridfull_001-061,0,46,45-49,M,410,61
 1638,59,76,0,,,0,0,0,,inf_NA_367-427,full_062-122,hybridfull_062-122,0,46,45-49,M,427,78
@@ -4927,7 +4927,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 1648,33,94,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,45,45-49,M,_none,61
 1648,94,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,0,45,45-49,M,_none,86
 1649,0,16,0,,,0,0,0,,inf_NA_367-427,_unvaccinated,inf_367-427,0,24,18-24,M,427,_none
-1649,16,65,1,,,0,0,0,BA12,inf_NA_428-488,_unvaccinated,inf_428-488,0,24,18-24,M,476,_none
+1649,16,65,0,,,0,0,0,,inf_NA_428-488,_unvaccinated,inf_428-488,0,24,18-24,M,476,_none
 1650,0,19,0,,,0,0,0,,inf_NA_245-305,_unvaccinated,inf_245-305,1,7,0-11,F,305,_none
 1650,19,80,0,,,0,0,0,,inf_NA_306-366,_unvaccinated,inf_306-366,1,7,0-11,F,366,_none
 1650,80,119,0,,,0,0,0,,inf_NA_367-427,_unvaccinated,inf_367-427,1,7,0-11,F,405,_none
@@ -4972,7 +4972,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 1664,0,13,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,2+,69,65-69,F,_none,183
 1664,13,14,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,2+,69,65-69,F,_none,184
 1664,14,75,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,2+,69,65-69,F,_none,61
-1664,75,114,1,,,0,0,0,BA12,_uninfected,boost_062-122,boost_062-122,2+,69,65-69,F,_none,100
+1664,75,114,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,2+,69,65-69,F,_none,100
 1665,0,3,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,1,35,35-39,M,_none,122
 1665,3,64,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,1,35,35-39,M,_none,183
 1665,64,69,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,1,35,35-39,M,_none,188
@@ -5253,7 +5253,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 1752,1,62,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,18,18-24,F,_none,183
 1752,62,119,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,0,18,18-24,F,_none,240
 1753,0,50,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,43,_40-44,M,_none,183
-1753,50,109,1,,,0,0,0,BA12,_uninfected,full_184-244,full_184-244,0,43,_40-44,M,_none,242
+1753,50,109,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,0,43,_40-44,M,_none,242
 1754,0,8,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,39,35-39,M,_none,122
 1754,8,42,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,39,35-39,M,_none,156
 1754,42,103,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,39,35-39,M,_none,61
@@ -5597,7 +5597,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 1865,49,67,1,,,0,0,0,BA12,_uninfected,full_123-183,full_123-183,0,26,25-29,M,_none,140
 1866,0,7,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,38,35-39,F,_none,122
 1866,7,52,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,38,35-39,F,_none,167
-1866,52,81,1,,,0,0,0,BA12,_uninfected,boost_001-061,boost_001-061,0,38,35-39,F,_none,29
+1866,52,81,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,38,35-39,F,_none,29
 1867,0,60,0,,,0,0,0,,_uninfected,full_001-061,full_001-061,1,78,75-79,M,_none,61
 1867,60,119,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,1,78,75-79,M,_none,120
 1868,55,116,0,,,0,0,0,,inf_NA_062-122,_unvaccinated,inf_062-122,0,22,18-24,F,122,_none
@@ -5706,7 +5706,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 1900,44,105,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,51,50-54,F,_none,61
 1900,105,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,0,51,50-54,F,_none,75
 1901,0,15,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,2+,75,75-79,F,_none,223
-1901,15,68,1,,,0,0,0,BA12,_uninfected,boost_001-061,boost_001-061,2+,75,75-79,F,_none,53
+1901,15,68,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,2+,75,75-79,F,_none,53
 1902,0,6,0,,,0,0,0,,inf_NA_184-244,full_123-183,hybridfull_123-183,1,49,45-49,F,244,182
 1902,6,7,0,,,0,0,0,,inf_NA_245-305,full_123-183,hybridfull_123-183,1,49,45-49,F,245,183
 1902,7,21,0,,,0,0,0,,inf_NA_245-305,full_184-244,hybridfull_184-244,1,49,45-49,F,259,197
@@ -5812,7 +5812,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 1933,13,74,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,37,35-39,F,_none,61
 1933,74,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,0,37,35-39,F,_none,106
 1934,0,27,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,1,60,60-64,F,_none,180
-1934,27,69,1,,,0,0,0,BA12,_uninfected,boost_001-061,boost_001-061,1,60,60-64,F,_none,42
+1934,27,69,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,1,60,60-64,F,_none,42
 1935,0,14,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,34,30-34,M,_none,122
 1935,14,75,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,34,30-34,M,_none,183
 1935,75,119,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,0,34,30-34,M,_none,227
@@ -5828,7 +5828,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 1938,75,89,0,,,0,0,0,,inf_NA_367-427,full_001-061,hybridfull_001-061,0,12,12-15,F,427,14
 1938,89,119,0,,,0,0,0,,inf_NA_428-488,full_001-061,hybridfull_001-061,0,12,12-15,F,457,44
 1939,0,55,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,1,83,80+,F,_none,183
-1939,55,71,1,,,0,0,0,BA12,_uninfected,full_184-244,full_184-244,1,83,80+,F,_none,199
+1939,55,71,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,1,83,80+,F,_none,199
 1940,0,46,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,1,55,55-59,M,_none,183
 1940,46,48,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,1,55,55-59,M,_none,185
 1940,48,109,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,1,55,55-59,M,_none,61
@@ -5975,7 +5975,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 1988,57,96,0,,,0,0,0,,inf_NA_062-122,full_184-244,hybridfull_062-122,1,38,35-39,M,122,222
 1988,96,100,0,,,0,0,0,,inf_NA_123-183,full_184-244,hybridfull_123-183,1,38,35-39,M,126,226
 1988,100,119,0,,,0,0,0,,inf_NA_123-183,boost_001-061,hybridboost_001-061,1,38,35-39,M,145,19
-1989,0,66,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,0,13,12-15,M,_none,_none
+1989,0,66,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,13,12-15,M,_none,_none
 1990,0,32,0,,,0,0,0,,_uninfected,full_245-305,full_245-305,1,59,55-59,F,_none,305
 1990,32,93,0,,,0,0,0,,_uninfected,full_306-366,full_306-366,1,59,55-59,F,_none,366
 1990,93,119,0,,,0,0,0,,_uninfected,full_367-427,full_367-427,1,59,55-59,F,_none,392
@@ -6048,7 +6048,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 2012,81,84,0,,,0,0,0,,inf_NA_367-427,full_306-366,hybridfull_306-366,1,47,45-49,F,427,308
 2012,84,119,0,,,0,0,0,,inf_NA_428-488,full_306-366,hybridfull_306-366,1,47,45-49,F,462,343
 2013,0,2,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,1,39,35-39,M,_none,_none
-2013,2,63,1,,,0,0,0,BA12,_uninfected,full_001-061,full_001-061,1,39,35-39,M,_none,61
+2013,2,63,0,,,0,0,0,,_uninfected,full_001-061,full_001-061,1,39,35-39,M,_none,61
 2014,0,40,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,1,45,45-49,F,_none,183
 2014,40,44,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,1,45,45-49,F,_none,187
 2014,44,105,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,1,45,45-49,F,_none,61
@@ -6114,7 +6114,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 2035,7,28,0,,,0,0,0,,_uninfected,partial_001-061,_other,0,41,_40-44,M,_none,21
 2035,28,89,0,,,0,0,0,,_uninfected,full_001-061,full_001-061,0,41,_40-44,M,_none,61
 2035,89,119,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,41,_40-44,M,_none,91
-2036,0,76,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,0,51,50-54,F,_none,_none
+2036,0,76,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,51,50-54,F,_none,_none
 2037,0,31,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,2+,77,75-79,M,_none,61
 2037,31,92,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,2+,77,75-79,M,_none,122
 2037,92,119,0,,,0,0,0,,_uninfected,boost_123-183,boost_123-183,2+,77,75-79,M,_none,149
@@ -6625,13 +6625,13 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 2204,0,48,0,,,0,0,0,,_uninfected,full_001-061,full_001-061,2+,33,30-34,F,_none,61
 2204,48,109,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,2+,33,30-34,F,_none,122
 2204,109,119,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,2+,33,30-34,F,_none,132
-2205,0,68,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,0,9,0-11,M,_none,_none
+2205,0,68,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,9,0-11,M,_none,_none
 2206,0,10,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,2+,69,65-69,F,_none,166
 2206,10,71,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,2+,69,65-69,F,_none,61
 2206,71,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,2+,69,65-69,F,_none,109
 2207,59,85,0,,,0,0,0,,inf_NA_062-122,full_184-244,hybridfull_062-122,0,21,18-24,F,87,244
 2207,85,119,0,,,0,0,0,,inf_NA_062-122,full_245-305,hybridfull_062-122,0,21,18-24,F,121,278
-2208,0,76,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,2+,58,55-59,M,_none,_none
+2208,0,76,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,2+,58,55-59,M,_none,_none
 2209,0,21,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,2+,74,70-74,F,_none,239
 2209,21,82,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,2+,74,70-74,F,_none,61
 2209,82,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,2+,74,70-74,F,_none,98
@@ -6845,7 +6845,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 2274,85,119,0,,,0,0,0,,inf_NA_428-488,boost_062-122,hybridboost_062-122,2+,78,75-79,F,461,110
 2275,0,50,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,7,0-11,F,_none,_none
 2275,50,71,0,,,0,0,0,,_uninfected,partial_001-061,_other,0,7,0-11,F,_none,21
-2275,71,76,1,,,0,0,0,BA12,_uninfected,full_001-061,full_001-061,0,7,0-11,F,_none,5
+2275,71,76,0,,,0,0,0,,_uninfected,full_001-061,full_001-061,0,7,0-11,F,_none,5
 2276,0,59,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,70,70-74,M,_none,183
 2276,59,119,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,0,70,70-74,M,_none,243
 2278,0,51,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,48,45-49,F,_none,183
@@ -6982,7 +6982,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 2318,49,110,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,30,30-34,M,_none,61
 2318,110,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,0,30,30-34,M,_none,70
 2319,0,52,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,36,35-39,M,_none,183
-2319,52,62,1,,,0,0,0,BA12,_uninfected,full_184-244,full_184-244,0,36,35-39,M,_none,193
+2319,52,62,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,0,36,35-39,M,_none,193
 2320,45,106,0,,,0,0,0,,inf_NA_062-122,_unvaccinated,inf_062-122,1,14,12-15,F,122,_none
 2320,106,119,0,,,0,0,0,,inf_NA_123-183,_unvaccinated,inf_123-183,1,14,12-15,F,135,_none
 2321,0,9,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,70,70-74,M,_none,_none
@@ -7297,7 +7297,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 2427,0,23,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,27,25-29,M,_none,122
 2427,23,55,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,27,25-29,M,_none,154
 2427,55,62,1,,,0,0,0,BA12,_uninfected,boost_001-061,boost_001-061,0,27,25-29,M,_none,7
-2428,0,62,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,2+,86,80+,F,_none,_none
+2428,0,62,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,2+,86,80+,F,_none,_none
 2429,0,4,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,37,35-39,M,_none,122
 2429,4,50,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,37,35-39,M,_none,168
 2429,111,119,0,,,0,0,0,,inf_NA_062-122,full_184-244,hybridfull_062-122,0,37,35-39,M,69,237
@@ -7385,7 +7385,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 2455,114,119,0,,,0,0,0,,inf_NA_123-183,full_245-305,hybridfull_123-183,1,52,50-54,F,127,262
 2456,0,4,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,2+,69,65-69,M,_none,183
 2456,4,19,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,2+,69,65-69,M,_none,198
-2456,19,77,1,,,0,0,0,BA12,_uninfected,boost_001-061,boost_001-061,2+,69,65-69,M,_none,58
+2456,19,77,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,2+,69,65-69,M,_none,58
 2457,0,40,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,23,18-24,F,_none,179
 2457,101,119,0,,,0,0,0,,inf_NA_062-122,boost_001-061,hybridboost_001-061,0,23,18-24,F,79,33
 2458,0,16,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,2+,69,65-69,F,_none,183
@@ -7698,7 +7698,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 2552,27,88,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,0,48,45-49,F,_none,122
 2552,88,119,0,,,0,0,0,,_uninfected,boost_123-183,boost_123-183,0,48,45-49,F,_none,153
 2553,0,16,0,,,0,0,0,,_uninfected,full_001-061,full_001-061,0,17,16-17,M,_none,61
-2553,16,74,1,,,0,0,0,BA12,_uninfected,full_062-122,full_062-122,0,17,16-17,M,_none,119
+2553,16,74,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,17,16-17,M,_none,119
 2554,0,4,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,1,74,70-74,F,_none,200
 2554,4,65,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,1,74,70-74,F,_none,61
 2554,65,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,1,74,70-74,F,_none,115
@@ -7915,7 +7915,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 2619,88,108,0,,,0,0,0,,inf_NA_489-549,boost_062-122,hybridboost_062-122,1,76,75-79,M,508,122
 2619,108,119,0,,,0,0,0,,inf_NA_489-549,boost_123-183,hybridboost_123-183,1,76,75-79,M,519,133
 2620,0,69,1,,,1,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,0,46,45-49,M,_none,_none
-2621,0,78,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,0,9,0-11,F,_none,_none
+2621,0,78,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,9,0-11,F,_none,_none
 2622,0,43,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,1,68,65-69,M,_none,183
 2622,43,63,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,1,68,65-69,M,_none,203
 2622,63,119,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,1,68,65-69,M,_none,56
@@ -8185,7 +8185,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 2709,94,119,0,,,0,0,0,,inf_NA_489-549,full_245-305,hybridfull_245-305,0,48,45-49,M,513,285
 2710,0,14,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,2+,59,55-59,F,_none,244
 2710,14,66,0,,,0,0,0,,_uninfected,full_245-305,full_245-305,2+,59,55-59,F,_none,296
-2710,66,77,1,,,0,0,0,BA12,_uninfected,boost_001-061,boost_001-061,2+,59,55-59,F,_none,11
+2710,66,77,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,2+,59,55-59,F,_none,11
 2711,0,2,0,,,0,0,0,,inf_NA_367-427,_unvaccinated,inf_367-427,1,25,25-29,F,407,_none
 2711,2,22,0,,,0,0,0,,inf_NA_367-427,partial_001-061,_other,1,25,25-29,F,427,20
 2711,22,23,0,,,0,0,0,,inf_NA_428-488,partial_001-061,_other,1,25,25-29,F,428,21
@@ -8238,7 +8238,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 2727,0,43,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,54,50-54,F,_none,169
 2727,43,104,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,54,50-54,F,_none,61
 2727,104,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,0,54,50-54,F,_none,76
-2728,0,107,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,0,25,25-29,M,_none,_none
+2728,0,107,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,25,25-29,M,_none,_none
 2729,0,28,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,23,18-24,M,_none,183
 2729,28,86,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,0,23,18-24,M,_none,241
 2729,86,119,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,23,18-24,M,_none,33
@@ -8370,7 +8370,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 2768,54,115,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,33,30-34,F,_none,122
 2768,115,119,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,33,30-34,F,_none,126
 2769,0,53,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,33,30-34,F,_none,183
-2769,53,66,1,,,0,0,0,BA12,_uninfected,full_184-244,full_184-244,0,33,30-34,F,_none,196
+2769,53,66,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,0,33,30-34,F,_none,196
 2770,0,42,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,71,70-74,F,_none,180
 2770,42,103,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,71,70-74,F,_none,61
 2770,103,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,0,71,70-74,F,_none,77
@@ -8431,7 +8431,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 2788,96,119,0,,,0,0,0,,inf_NA_428-488,_unvaccinated,inf_428-488,0,19,18-24,F,450,_none
 2789,0,17,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,1,34,30-34,F,_none,183
 2789,17,78,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,1,34,30-34,F,_none,244
-2789,78,79,1,,,0,0,0,BA12,_uninfected,full_245-305,full_245-305,1,34,30-34,F,_none,245
+2789,78,79,0,,,0,0,0,,_uninfected,full_245-305,full_245-305,1,34,30-34,F,_none,245
 2790,0,35,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,2+,40,_40-44,M,_none,61
 2790,35,82,1,,,0,0,0,BA12,_uninfected,boost_062-122,boost_062-122,2+,40,_40-44,M,_none,108
 2791,0,33,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,54,50-54,M,_none,160
@@ -8493,7 +8493,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 2806,108,119,0,,,0,0,0,,inf_NA_428-488,full_245-305,hybridfull_245-305,0,22,18-24,M,438,258
 2807,0,47,1,,,0,0,0,BA12,_uninfected,full_062-122,full_062-122,0,14,12-15,F,_none,122
 2807,108,119,0,,,0,0,0,,inf_NA_062-122,full_184-244,hybridfull_062-122,0,14,12-15,F,72,194
-2808,0,118,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,0,27,25-29,M,_none,_none
+2808,0,118,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,27,25-29,M,_none,_none
 2809,0,60,0,,,0,0,0,,_uninfected,full_001-061,full_001-061,0,34,30-34,M,_none,61
 2809,60,119,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,34,30-34,M,_none,120
 2810,0,7,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,31,30-34,M,_none,122
@@ -8539,7 +8539,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 2824,91,119,0,,,0,0,0,,inf_NA_367-427,full_062-122,hybridfull_062-122,0,40,_40-44,F,419,89
 2825,0,23,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,2+,79,75-79,F,_none,183
 2825,23,48,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,2+,79,75-79,F,_none,208
-2825,48,72,1,,,0,0,0,BA12,_uninfected,boost_001-061,boost_001-061,2+,79,75-79,F,_none,24
+2825,48,72,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,2+,79,75-79,F,_none,24
 2826,0,41,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,2+,75,75-79,M,_none,61
 2826,41,102,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,2+,75,75-79,M,_none,122
 2826,102,119,0,,,0,0,0,,_uninfected,boost_123-183,boost_123-183,2+,75,75-79,M,_none,139
@@ -8627,7 +8627,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 2851,0,22,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,1,55,55-59,M,_none,244
 2851,22,83,0,,,0,0,0,,_uninfected,full_245-305,full_245-305,1,55,55-59,M,_none,305
 2851,83,119,0,,,0,0,0,,_uninfected,full_306-366,full_306-366,1,55,55-59,M,_none,341
-2852,0,70,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,0,44,_40-44,F,_none,_none
+2852,0,70,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,44,_40-44,F,_none,_none
 2853,0,8,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,38,35-39,F,_none,183
 2853,8,68,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,0,38,35-39,F,_none,243
 2853,68,119,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,38,35-39,F,_none,51
@@ -9141,7 +9141,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 3022,0,16,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,1,70,70-74,F,_none,174
 3022,16,77,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,1,70,70-74,F,_none,61
 3022,77,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,1,70,70-74,F,_none,103
-3023,0,65,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,0,7,0-11,F,_none,_none
+3023,0,65,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,7,0-11,F,_none,_none
 3024,0,38,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,2+,78,75-79,M,_none,61
 3024,38,99,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,2+,78,75-79,M,_none,122
 3024,99,119,0,,,0,0,0,,_uninfected,boost_123-183,boost_123-183,2+,78,75-79,M,_none,142
@@ -9425,7 +9425,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 3109,9,70,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,17,16-17,F,_none,183
 3109,70,93,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,0,17,16-17,F,_none,206
 3109,93,119,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,17,16-17,F,_none,26
-3110,0,100,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,0,47,45-49,F,_none,_none
+3110,0,100,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,47,45-49,F,_none,_none
 3111,0,42,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,1,51,50-54,M,_none,167
 3111,42,103,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,1,51,50-54,M,_none,61
 3111,103,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,1,51,50-54,M,_none,77
@@ -9575,7 +9575,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 3154,15,76,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,1,33,30-34,M,_none,61
 3154,76,119,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,1,33,30-34,M,_none,104
 3155,0,13,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,43,_40-44,M,_none,61
-3155,13,68,1,,,0,0,0,BA12,_uninfected,boost_062-122,boost_062-122,0,43,_40-44,M,_none,116
+3155,13,68,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,0,43,_40-44,M,_none,116
 3156,0,23,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,2+,69,65-69,M,_none,183
 3156,23,84,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,2+,69,65-69,M,_none,244
 3156,84,119,0,,,0,0,0,,_uninfected,full_245-305,full_245-305,2+,69,65-69,M,_none,279
@@ -9607,7 +9607,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 3169,0,10,0,,,0,0,0,,inf_NA_245-305,_unvaccinated,inf_245-305,0,3,0-11,F,305,_none
 3169,10,71,0,,,0,0,0,,inf_NA_306-366,_unvaccinated,inf_306-366,0,3,0-11,F,366,_none
 3169,71,119,0,,,0,0,0,,inf_NA_367-427,_unvaccinated,inf_367-427,0,3,0-11,F,414,_none
-3170,0,80,1,,,0,0,0,BA12,_uninfected,_unvaccinated,_noimmunity,0,19,18-24,M,_none,_none
+3170,0,80,0,,,0,0,0,,_uninfected,_unvaccinated,_noimmunity,0,19,18-24,M,_none,_none
 3172,0,22,0,,,0,0,0,,_uninfected,full_062-122,full_062-122,0,31,30-34,F,_none,122
 3172,22,58,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,0,31,30-34,F,_none,158
 3172,58,119,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,0,31,30-34,F,_none,61
@@ -9902,7 +9902,7 @@ ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOth
 3260,62,90,0,,,0,0,0,,inf_NA_367-427,full_062-122,hybridfull_062-122,0,23,18-24,F,427,89
 3260,90,119,0,,,0,0,0,,inf_NA_428-488,full_062-122,hybridfull_062-122,0,23,18-24,F,456,118
 3261,0,17,0,,,0,0,0,,_uninfected,full_123-183,full_123-183,1,54,50-54,F,_none,183
-3261,17,62,1,,,0,0,0,BA12,_uninfected,full_184-244,full_184-244,1,54,50-54,F,_none,228
+3261,17,62,0,,,0,0,0,,_uninfected,full_184-244,full_184-244,1,54,50-54,F,_none,228
 3262,0,53,0,,,0,0,0,,_uninfected,boost_001-061,boost_001-061,2+,88,80+,M,_none,61
 3262,53,114,0,,,0,0,0,,_uninfected,boost_062-122,boost_062-122,2+,88,80+,M,_none,122
 3262,114,119,0,,,0,0,0,,_uninfected,boost_123-183,boost_123-183,2+,88,80+,M,_none,127
