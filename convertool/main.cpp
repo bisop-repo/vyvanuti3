@@ -18,7 +18,11 @@ string dcci2str(int dcci)
         return "0";
     if(dcci==1)
         return "1";
-    return "2+";
+    if(dcci=2)
+        return "2";
+    if(dcci=3)
+        return "3";
+    return "3+";
 }
 
 string gender2str(bool male)
