@@ -11,16 +11,12 @@ INPUT_FILE='../../data/data_20230421.csv' #File to be converted in Convertool
 #Model estimation in batch
 
 cd v3
-mkdir $1_check
-cd $1_check
+mkdir $1
+cd $1
 rm *
 ../../convertool/bin/convertool $INPUT_FILE rinput.csv $2 $3 $4  > convertool.log
-mkdir part
-cd part
-split ../rinput.csv --lines=10000
-cp xaa ../test_output.csv
-rm *
-cd ..
+cp ../../workscript/cox_estimation_formulas.txt .
+Rscript ../../workscript/Script.R rinput.csv $5  > script.log
 rm temporary_full*.*
 rm rinput.csv
 cd ..

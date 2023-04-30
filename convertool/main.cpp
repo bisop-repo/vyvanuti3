@@ -1650,19 +1650,28 @@ vector<statcounter> lccounts(numweeks);
                  bool dooutput = true;
                  if(!dostat)
                  {
-                     covstatrecord ipr = findcov(infpriorstr,stat.infprior);
-                     covstatrecord vsr = findcov(vaccstring,stat.vaccstatus);
-                     covstatrecord dccir = findcov(dccistring,stat.dcci);
                      covstatrecord ar = findcov(grouplabel(agegroup) ,stat.agegroup);
                      // the same functionality of Immunity follows
 
-                     if(ipr.events == 0 || vsr.events == 0
-                             || dccir.events == 0 ||ar.events == 0)
+                     if(ar.events == 0)
                          dooutput = false;
                      if(ppp.checkzeroimmunitycovs)
                      {
                          covstatrecord ir = findcov(immunitystring ,stat.immunity);
                          if(ir.events == 0)
+                             dooutput = false;
+                     }
+                     else
+                     {
+                         covstatrecord ipr = findcov(infpriorstr,stat.infprior);
+                         covstatrecord vsr = findcov(vaccstring,stat.vaccstatus);
+                         if(ipr.events == 0 || vsr.events == 0)
+                             dooutput = false;
+                     }
+                     if(mode == elccomparison)
+                     {
+                         covstatrecord dccir = findcov(dccistring,stat.dcci);
+                         if(dccir.events == 0)
                              dooutput = false;
                      }
                      if(mode == elongcovidevent)
