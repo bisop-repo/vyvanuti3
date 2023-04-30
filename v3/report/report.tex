@@ -1,15 +1,29 @@
 
 %% LyX 2.3.4.2 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass{article}
+\documentclass[10pt]{article}
+\usepackage[section]{placeins}
 \usepackage{float}
 %\usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage[a4paper, total={6in,10in}]{geometry}
 
+\def\@makechapterhead#1{%
+  \vspace*{50\p@}%                                 % Insert 50pt (vertical) space
+  {\parindent \z@ \raggedright \normalfont         % No paragraph indent, ragged right
+    \ifnum \c@secnumdepth >\m@ne                   % If you should number chapters
+      \if@mainmatter                               % ... and you're in \mainmatter
+        \huge\bfseries \@chapapp\space \thechapter % huge, bold, Chapter + number
+        \par\nobreak                               % paragraph break without page break
+        \vskip 20\p@                               % Insert 20pt (vertical) space
+      \fi
+    \fi
+    \interlinepenalty\@M                           % Penalty
+    \Huge \bfseries #1\par\nobreak                 % Huge, bold chapter title
+    \vskip 40\p@                                   % Insert 40pt (vertical) space
+  }}
 
 \newcommand{\common}[2]{
-\newpage
 \begin{center}
 \begin{tabular}{cc}
 \begin{minipage}{4cm}
@@ -17,46 +31,23 @@
 \end{minipage}
 &
 \begin{minipage}{12cm}
+Forest Plot TBD
 \includegraphics[width=12cm]{../#1/forest_plot.png}
 \end{minipage}
 \end{tabular}
-Description statistics and forest plot
 \end{center}
-\newpage
-\begin{center}
 \input{../#1/est_table.tex}
-Monthly percentage decrease of effectiveness/protection
-\end{center}
-\begin{center}
 \input{../#1/r_fin_mat.tex}
-Effectiveness/protection differences 
-\end{center}
-\begin{center}
 \input{../#1/z_score_mat.tex}
-Z-scores of effectiveness/protection differences 
-\end{center}
-\newpage
 }
 
 \newcommand{\coxresult}[2]{\section{#2} 
-{
-\begin{center}
 \input{../#1/cox_model_summary.tex}
-Cox Model Summary
-\end{center}
-}
 \common{#1}{#2}
-
-
 }
 
 \newcommand{\lrresult}[2]{\section{#2} 
-{
-\begin{center}
 \input{../#1/logreg_model_summary.tex}
-Logistic Regression Model Summary
-\end{center}
-}
 \common{#1}{#2}
 }
 
@@ -71,10 +62,17 @@ Logistic Regression Model Summary
 
 \maketitle
 
+
 \newpage
 
-\coxresult{../workscript}{Test Cox}
-\lrresult{../workscript}{Test Logreg}
+% \coxresult{../workscript}{Test Cox}
+% \lrresult{../workscript}{Test Logreg}
+
+\coxresult{ProxyNew}{Serious Course BA45+}
+\coxresult{ProxyBA12}{Serious Course BA12}
+\coxresult{LCallO}{Long Covid BA12 - Population}
+\lrresult{LCinfO}{Long Covid BA12 - Infected}
+
 
 \end{document}
 
