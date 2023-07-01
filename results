@@ -9,7 +9,7 @@ rm v3/report/results/*.*
 ./copy z_score_fin_mat txt Z
 cp v3/ProxyBA12/cox_model_summary.txt v3/report/results/ProxyBA12C.TXT
 cp v3/ProxyNew/cox_model_summary.txt v3/report/results/ProxyNewC.TXT
-cp v3/LCallO/cox_model_summary.txt v3/report/results/LCAll$C.TXT
+cp v3/LCallO/cox_model_summary.txt v3/report/results/LCAllC.TXT
 cp v3/LCinfO/logreg_model_summary.txt v3/report/results/LCInfL.TXT
 
 

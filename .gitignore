@@ -10,6 +10,8 @@ build-convertool-Desktop_Qt_5_12_2_GCC_64bit-Debug/
 build-convertool-Desktop_Qt_5_12_2_GCC_64bit-Release/
 convertool/CMakeLists.txt.user
 *.Rhistory
+workspace.RData
 rinput.csv
 temporary*.csv
 FebWorkshop/Ukol 1/*.csv
+v3/infvacc/*.csv

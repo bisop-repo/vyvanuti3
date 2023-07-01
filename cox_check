@@ -1,0 +1,31 @@
+#!/bin/bash
+#Initialization
+#WORKING_DIRECTORY=$(echo $PWD)
+#echo 'Working directory is: '$WORKING_DIRECTORY
+
+#MASTER parameters used across all models
+#INPUT_FILE='../../data/data_20230329.csv' #File to be converted in Convertool
+INPUT_FILE='../../data/data_20230421.csv' #File to be converted in Convertool
+#INPUT_FILE='../../convertool/test/test_input_long_1.csv' #File to be converted in Convertool
+
+#Model estimation in batch
+
+cd v3
+mkdir $1_check
+cd $1_check
+rm *
+../../convertool/bin/convertool $INPUT_FILE rinput.csv $2 $3 $4  > convertool.log
+mkdir part
+cd part
+split ../rinput.csv --lines=30000
+cp xaa ../test_output.csv
+rm *
+cd ..
+rm temporary_full*.*
+rm rinput.csv
+cd ..
+
+
+
+
+echo 'Group done'

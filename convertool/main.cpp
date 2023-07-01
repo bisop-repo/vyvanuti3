@@ -154,7 +154,7 @@ vector<vaccinerecord> vaccines={
     {"CO14","Covishield",2,"S","other"},
     {"CO08","Comirnaty Original/Omicron BA.1",2,"PO1","mRNA"},
     {"CO09","Comirnaty Original/Omicron BA.4/BA.5",2,"PO4","mRNA45"},
-    {"CO15","Spikevax bivalent Original/Omicron BA.1",2,"MB","rRNA"},
+    {"CO15","Spikevax bivalent Original/Omicron BA.1",2,"MB","mRNA"},
     {"CO05","Sputnik V",2,"U","other"},
     {"CO16","Comirnaty 6m-4",2,"P6","mRNA"},
     {"CO17","Valneva",2,"N","other"}
@@ -848,22 +848,27 @@ vector<statcounter> lccounts(numweeks);
 
                 string variantstr = data(j,Mutace);
                 unsigned k = 1; // zero is novariant
-                bool byinterval = false;
+                bool byinterval = true;
                 for(; k<variants.size(); k++)
                 {
                     if(variantstr==variants[k].codeindata)
-                        break;
-                }
-                if(k==variants.size() && ppp.useintervalsofdominance)
-                {
-                    for(k=1; k<variants.size(); k++)
                     {
-                        assert(variants[k].startdates90.size()==variants[k].enddates90.size());
+                        byinterval = false;
+                        break;
+                    }
+                }
+                unsigned int m = variants.size();
+                  // meaning that nhg was found from intervalse
+                if(ppp.useintervalsofdominance)
+                {
+                    for(m=1; m<variants.size(); m++)
+                    {
+                        assert(variants[m].startdates90.size()==variants[m].enddates90.size());
                         bool foundininterval = false;
-                        for(unsigned j=0; j<variants[k].startdates90.size(); j++)
+                        for(unsigned j=0; j<variants[m].startdates90.size(); j++)
                         {
-                            reldate start = date2int(variants[k].startdates90[j])-ppp.firstdate;
-                            reldate stop = date2int(variants[k].enddates90[j])-ppp.firstdate;
+                            reldate start = date2int(variants[m].startdates90[j])-ppp.firstdate;
+                            reldate stop = date2int(variants[m].enddates90[j])-ppp.firstdate;
                             if(infdate >= start && infdate <= stop)
                             {
                                 foundininterval = true;
@@ -871,11 +876,18 @@ vector<statcounter> lccounts(numweeks);
                             }
                         }
                         if(foundininterval)
-                        {
-                            byinterval = true;
                             break;
-                        }
                     }
+                    if(k==variants.size())
+                        k = m;
+                    else if(m==evBA12 && k== evOmicron)
+                        k = evBA12;
+                    else if(m==evBA45 && k== evOmicron)
+                        k = evBA45;
+                    else if(m==ev2023 && k==evOmicron)
+                        k = ev2023;
+                    else if(m==ev2023 && k==evDelta) // false discrimitation
+                        k = ev2023;
                 }
                 assert(ppp.conditioning.size() == enumvariants);
                 if(k==variants.size())
@@ -1077,8 +1089,8 @@ vector<statcounter> lccounts(numweeks);
                 if(ir.variantbyinterval)
                     infds << variants[navariant].codeincovariate << ",";
                 else
-                    infds << variants[ir.variantunadjusted].codeinoutput << ",";
-                infds << variants[ir.variantunadjusted].codeinoutput << ",";
+                    infds << variants[ir.variantunadjusted].codeincovariate << ",";
+                infds << variants[ir.variantunadjusted].codeincovariate << ",";
                 infds << (ir.seriouscovidproxy ? "1" : "0") << ",";
                 infds << (ir.longcovid ? "1" : "0") << ",";
                 infds << ir.deathstr;

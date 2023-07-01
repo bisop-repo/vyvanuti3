@@ -13,8 +13,7 @@ cp: cannot stat '../../workscript/cox_estimation_formulas.txt': No such file or 
 #BlackLivesMatter
 Loading required package: maditr
 
-To modify variables or add new variables:
-             let(mtcars, new_var = 42, new_var2 = new_var*hp) %>% head()
+To select columns from data: columns(mtcars, mpg, vs:carb)
 
 
 Attaching package: ‘maditr’
@@ -147,4 +146,6 @@ The following object is masked from ‘package:stats’:
 
     lowess
 
+file:////tmp/RtmpPdzDrv/file3e5c19600fe99.html screenshot completed
+Saving 4 x 7 in image
 Group done

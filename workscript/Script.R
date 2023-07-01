@@ -122,7 +122,7 @@ ggsave("forest_plot.png", width=4)
 
   txttable <- summary(m1)
 
-  sink("logreg_model_summary,txt")
+  sink("logreg_model_summary.txt")
   print(txttable)
   sink()
     
@@ -188,6 +188,9 @@ for (i in 1 : length(im_level)) {
                    cas + 30)
     # cas
     
+    #MS
+    cas <- cas / 30.5
+    
     T_mat <- matrix(diag(HR_sub), ncol = length(HR_sub))
     
     # takova jina matice
@@ -218,9 +221,9 @@ for (i in 1 : length(im_level)) {
     eff_tau_fin <- append(eff_tau_fin, eff_tau)
     
     #convertin to mohths...
-    delta <- d * 30.5
+    delta <- d 
     deltas <- append(deltas,delta) 
-    sd_of_delta <- sqrt(var_of_d) * 30.5
+    sd_of_delta <- sqrt(var_of_d) 
     lower_of_deltas <- append(lower_of_deltas,delta - sd_of_delta * 1.96)
     upper_of_deltas <- append(upper_of_deltas,delta + sd_of_delta * 1.96)
   }
@@ -441,3 +444,5 @@ if(args[2] == "LCINF")
   forest_model(m1)
   ggsave("forest_plot.png")
 }
+
+save.image("workspace.RData")
