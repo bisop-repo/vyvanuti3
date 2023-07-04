@@ -13,7 +13,7 @@ end_of_Q <- c("2021-03-31", "2021-06-30", "2021-09-30", "2021-12-31", "2022-03-3
 
 
 # infections
-infections.df = read.csv('infections.csv')
+infections.df = read.csv('../../v3/infvacc/infections.csv')
 #infections.df = read.csv('xaa.csv')
 infections.df <- infections.df %>% replace(is.na(.), 'unknown')
 
@@ -286,14 +286,12 @@ for(tablerow in fields_for_graphs){
 #
 # VACCINES
 #
-vaccines.df = read.csv('vaccines.csv')
+vaccines.df = read.csv('../../v3/infvacc/vaccines.csv')
 vaccines.df <- vaccines.df %>% replace(is.na(.), 'unknown')
 
-
-cross_table <- tbl_cross(vaccines.df, row = 'code', col = 'order')
-sink("vaccines_cross_tab.txt")
-print(cross_table)
-sink()
+cross_table <-table(vaccines.df$order,vaccines.df$code )
+write.csv(cross_table,file = "vaccines_crosstab.csv")
+# cross_table <- tbl_cross(vaccines.df, row = 'code', col = 'order')
 
 #
 #graph_06 - full
