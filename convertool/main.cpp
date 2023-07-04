@@ -18,11 +18,11 @@ string dcci2str(int dcci)
         return "0";
     if(dcci==1)
         return "1";
-    if(dcci=2)
+    if(dcci==2)
         return "2";
-    if(dcci=3)
+    if(dcci==3)
         return "3";
-    return "3+";
+    return "4+";
 }
 
 string gender2str(bool male)
@@ -159,7 +159,7 @@ vector<vaccinerecord> vaccines={
     {"CO16","Comirnaty 6m-4",2,"P6","mRNA"},
     {"CO17","Valneva",2,"N","other"},
     {"CO18","VidPrevtyn Beta",2,"NB","other"},
-    {"C019","SPIKEVAX BIVALENT ORIGINAL/OMICRON BA.4-5",2,"NB4","mRNA45"}
+    {"CO19","SPIKEVAX BIVALENT ORIGINAL/OMICRON BA.4-5",2,"NB4","mRNA45"}
 };
 
 unsigned eunknownvaccine = vaccines.size();
@@ -582,6 +582,9 @@ vector<statcounter> lccounts(numweeks);
     int T = ppp.lastdate - ppp.firstdate;
     unsigned outputcounter = 0;
     unsigned peopleexported = 0;
+    unsigned records = 0;
+    vector<unsigned> withoutvacc(enumvaccorders, 0);
+
     for(unsigned i=1; i<data.r(); i=firstnext )
     {
 
@@ -673,7 +676,7 @@ vector<statcounter> lccounts(numweeks);
     #define THROW(X,W) { throwthisid = true; REPORT(X,"") ; W;  }
     #define THROWS(X,Y,W) { ostringstream o; o<< Y; REPORT(X,o.str()); throwthisid = true; W; }
     #define GETDATE(Y,X,W) { bool error; Y=date2int(X,ppp.zerodate, ppp.safetydate, error, errorstring,errordetail)-ppp.firstdate; if(error) { throwthisid = true; REPORT(errorstring, errordetail)  W; }   }
-    #define GETVACC(V,S,L,W) { V = vacc2vacc(data(j,L)); S = vaccines[V].numshots == 1; if(V==eunknownvaccine) { throwthisid = true; errorstring = "7nknonw vaccine code.", errordetail = data(j,L); REPORT(errorstring, errordetail); W; } }
+    #define GETVACC(V,S,L,W) { V = vacc2vacc(data(j,L)); S = vaccines[V].numshots == 1; if(V==eunknownvaccine) { throwthisid = true; errorstring = "unknown vaccine code.", errordetail = data(j,L); REPORT(errorstring, errordetail); W; } }
 
 
         firstnext = i + is.size();
@@ -715,6 +718,7 @@ vector<statcounter> lccounts(numweeks);
             reldate relevantvaccdate = maxreldate;
             if(firstrecord)
             {
+records ++;
                 reldate firstvaccdate;
                 string firstvaccdatestr = data(j,PrvniDavka);
                 if(firstvaccdatestr == "")
@@ -974,7 +978,7 @@ vector<statcounter> lccounts(numweeks);
             else
             {
                 if(data(j,Umrti) != "")
-                    throw "deatch without ifection";
+                    throw "death without infection";
             }
 
             string deathotherdatestr = data(j,DatumUmrtiLPZ);
@@ -1099,6 +1103,7 @@ vector<statcounter> lccounts(numweeks);
                 infds << endl;
             }
 //            vaccds << "vaccdate,order,type" << endl;
+            vector<bool> hasvacc(enumvaccorders,false);
             for(unsigned i=0; i<vaccinations.size(); i++)
             {
                 vaccinationrecord& vr = vaccinations[i];
@@ -1107,7 +1112,11 @@ vector<statcounter> lccounts(numweeks);
                 vaccds << vaccines[vr.vac].abbrev << ",";
                 vaccds << vaccines[vr.vac].general << ",";
                 vaccds << vaccines[vr.vac].code << endl;
+                hasvacc[vr.vac] = true;
             }
+            for(unsigned i=0; i<enumvaccorders; i++)
+                if(!hasvacc[i])
+                    withoutvacc[i]++;
         }
 
         struct vaccstatus
@@ -1970,7 +1979,12 @@ vector<statcounter> lccounts(numweeks);
 
     }
 
-    cout << "Total " << peopleexported << " individuals." << endl;
+
+    cout << "Total " << records << " unique records, after errors and censorint: " << peopleexported << "." << endl;
+    cout << "Not having particular shot: ";
+    for(unsigned i=0; i<enumvaccorders; i++)
+        cout << withoutvacc[i] << ", ";
+    cout << std::endl;
 
 
     ofstream vs(output + "_variants.csv");
@@ -2013,6 +2027,7 @@ vector<statcounter> lccounts(numweeks);
     cout << "Mode " << mdelabels[mode] << endl;
     cout << "Age filter: " << minage << "-" << maxage << endl;
     cout << endl;
+
 ofstream lc("lc.csv");
 lc<<"day,count, ratio,seratio,length,selength"<< endl;
 for(unsigned i=0; i<numweeks; i++)
@@ -2028,6 +2043,7 @@ for(unsigned i=0; i<numweeks; i++)
         lc << ",,";
     lc << endl;
 }
+
 }
 
 

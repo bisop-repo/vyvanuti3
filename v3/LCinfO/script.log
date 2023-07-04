@@ -1,9 +1,9 @@
-<div id="ruybrtxoyn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="waqbeejegr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#ruybrtxoyn .gt_table {
+#waqbeejegr .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -28,7 +28,7 @@
   border-left-color: #D3D3D3;
 }
 
-#ruybrtxoyn .gt_heading {
+#waqbeejegr .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -40,12 +40,12 @@
   border-right-color: #D3D3D3;
 }
 
-#ruybrtxoyn .gt_caption {
+#waqbeejegr .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ruybrtxoyn .gt_title {
+#waqbeejegr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -57,7 +57,7 @@
   border-bottom-width: 0;
 }
 
-#ruybrtxoyn .gt_subtitle {
+#waqbeejegr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -69,13 +69,13 @@
   border-top-width: 0;
 }
 
-#ruybrtxoyn .gt_bottom_border {
+#waqbeejegr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ruybrtxoyn .gt_col_headings {
+#waqbeejegr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -90,7 +90,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ruybrtxoyn .gt_col_heading {
+#waqbeejegr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -110,7 +110,7 @@
   overflow-x: hidden;
 }
 
-#ruybrtxoyn .gt_column_spanner_outer {
+#waqbeejegr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -122,15 +122,15 @@
   padding-right: 4px;
 }
 
-#ruybrtxoyn .gt_column_spanner_outer:first-child {
+#waqbeejegr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ruybrtxoyn .gt_column_spanner_outer:last-child {
+#waqbeejegr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ruybrtxoyn .gt_column_spanner {
+#waqbeejegr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -142,7 +142,7 @@
   width: 100%;
 }
 
-#ruybrtxoyn .gt_group_heading {
+#waqbeejegr .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -168,7 +168,7 @@
   text-align: left;
 }
 
-#ruybrtxoyn .gt_empty_group_heading {
+#waqbeejegr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -183,15 +183,15 @@
   vertical-align: middle;
 }
 
-#ruybrtxoyn .gt_from_md > :first-child {
+#waqbeejegr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ruybrtxoyn .gt_from_md > :last-child {
+#waqbeejegr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ruybrtxoyn .gt_row {
+#waqbeejegr .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -210,7 +210,7 @@
   overflow-x: hidden;
 }
 
-#ruybrtxoyn .gt_stub {
+#waqbeejegr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -223,7 +223,7 @@
   padding-right: 5px;
 }
 
-#ruybrtxoyn .gt_stub_row_group {
+#waqbeejegr .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -237,11 +237,11 @@
   vertical-align: top;
 }
 
-#ruybrtxoyn .gt_row_group_first td {
+#waqbeejegr .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ruybrtxoyn .gt_summary_row {
+#waqbeejegr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -251,16 +251,16 @@
   padding-right: 5px;
 }
 
-#ruybrtxoyn .gt_first_summary_row {
+#waqbeejegr .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ruybrtxoyn .gt_first_summary_row.thick {
+#waqbeejegr .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ruybrtxoyn .gt_last_summary_row {
+#waqbeejegr .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -270,7 +270,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ruybrtxoyn .gt_grand_summary_row {
+#waqbeejegr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -280,7 +280,7 @@
   padding-right: 5px;
 }
 
-#ruybrtxoyn .gt_first_grand_summary_row {
+#waqbeejegr .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -290,11 +290,11 @@
   border-top-color: #D3D3D3;
 }
 
-#ruybrtxoyn .gt_striped {
+#waqbeejegr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ruybrtxoyn .gt_table_body {
+#waqbeejegr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -303,7 +303,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ruybrtxoyn .gt_footnotes {
+#waqbeejegr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -317,7 +317,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ruybrtxoyn .gt_footnote {
+#waqbeejegr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -326,7 +326,7 @@
   padding-right: 5px;
 }
 
-#ruybrtxoyn .gt_sourcenotes {
+#waqbeejegr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -340,7 +340,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ruybrtxoyn .gt_sourcenote {
+#waqbeejegr .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -348,64 +348,64 @@
   padding-right: 5px;
 }
 
-#ruybrtxoyn .gt_left {
+#waqbeejegr .gt_left {
   text-align: left;
 }
 
-#ruybrtxoyn .gt_center {
+#waqbeejegr .gt_center {
   text-align: center;
 }
 
-#ruybrtxoyn .gt_right {
+#waqbeejegr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ruybrtxoyn .gt_font_normal {
+#waqbeejegr .gt_font_normal {
   font-weight: normal;
 }
 
-#ruybrtxoyn .gt_font_bold {
+#waqbeejegr .gt_font_bold {
   font-weight: bold;
 }
 
-#ruybrtxoyn .gt_font_italic {
+#waqbeejegr .gt_font_italic {
   font-style: italic;
 }
 
-#ruybrtxoyn .gt_super {
+#waqbeejegr .gt_super {
   font-size: 65%;
 }
 
-#ruybrtxoyn .gt_footnote_marks {
+#waqbeejegr .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#ruybrtxoyn .gt_asterisk {
+#waqbeejegr .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ruybrtxoyn .gt_indent_1 {
+#waqbeejegr .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ruybrtxoyn .gt_indent_2 {
+#waqbeejegr .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ruybrtxoyn .gt_indent_3 {
+#waqbeejegr .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ruybrtxoyn .gt_indent_4 {
+#waqbeejegr .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ruybrtxoyn .gt_indent_5 {
+#waqbeejegr .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -414,7 +414,7 @@
   <thead class="gt_col_headings">
     <tr>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;N = 1,486,354&lt;/strong&gt;&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>N = 1,486,354</strong><sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;N = 1,486,355&lt;/strong&gt;&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>N = 1,486,355</strong><sup class="gt_footnote_marks">1</sup></th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
@@ -435,7 +435,7 @@
     <tr><td headers="label" class="gt_row gt_left">    boost_184-244</td>
 <td headers="stat_0" class="gt_row gt_center">49,726 (3.3%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    boost_245-305</td>
-<td headers="stat_0" class="gt_row gt_center">38,423 (2.6%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">38,424 (2.6%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    boost_306-366</td>
 <td headers="stat_0" class="gt_row gt_center">4,948 (0.3%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_001-061</td>
@@ -509,7 +509,7 @@
     <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Sex</td>
 <td headers="stat_0" class="gt_row gt_center"></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    F</td>
-<td headers="stat_0" class="gt_row gt_center">802,366 (54%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">802,367 (54%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    M</td>
 <td headers="stat_0" class="gt_row gt_center">683,988 (46%)</td></tr>
   </tbody>
@@ -542,12 +542,13 @@
 [37] "Immunityinf_306-366"         "Immunityinf_367-427"        
 [39] "Immunityinf_428-488"         "Immunityinf_489-549"        
 [41] "Immunitysecboost_001-061"    "Immunitysecboost_062-122"   
-[43] "DCCI"                        "AgeGr0-11"                  
-[45] "AgeGr12-15"                  "AgeGr16-17"                 
-[47] "AgeGr18-24"                  "AgeGr25-29"                 
-[49] "AgeGr30-34"                  "AgeGr35-39"                 
-[51] "AgeGr45-49"                  "AgeGr50-54"                 
-[53] "AgeGr55-59"                  "AgeGr60-64"                 
-[55] "AgeGr65-69"                  "AgeGr70-74"                 
-[57] "AgeGr75-79"                  "AgeGr80+"                   
-[59] "SexM"                       
+[43] "DCCI1"                       "DCCI2"                      
+[45] "DCCI3"                       "DCCI4+"                     
+[47] "AgeGr0-11"                   "AgeGr12-15"                 
+[49] "AgeGr16-17"                  "AgeGr18-24"                 
+[51] "AgeGr25-29"                  "AgeGr30-34"                 
+[53] "AgeGr35-39"                  "AgeGr45-49"                 
+[55] "AgeGr50-54"                  "AgeGr55-59"                 
+[57] "AgeGr60-64"                  "AgeGr65-69"                 
+[59] "AgeGr70-74"                  "AgeGr75-79"                 
+[61] "AgeGr80+"                    "SexM"                       
