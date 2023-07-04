@@ -1,0 +1,328 @@
+../../convertool/bin/convertool ../../data/data_20230329.csv rinput.csv xF-icb 2022-07-01 2023-03-29 0 333 7 
+version 2.0
+Usage convertool input output whattodo(DVRW) firstdate(rrrr-mm-dd) lastdate(rrrr-mm-dd) [minage maxage everyn]
+D=i-infection/x-covidproxy/h-hospitalization/l-longcovid
+V=!-all variants/O-all Omicrons/E-O+Delta/x-variant x
+R=-variants... --not discerned in InfPrior/a all discerned/g general discerned
+W=i-intervals uded for variant determination/--not used
+
+serious covid proxy
+Omicrons since BA45 dominance
+Variants not discerned in InfPrior
+Using intervals of dominance
+Checking immunity covariates for zeros
+Discerning BA45 booster
+Input ../../data/data_20230329.csv
+Number of InfPrior covariates: 10
+Number of VaccStatusFull covariates: 10
+Number of VaccStatusBoost covariates: 10
+Number of VaccStatusSecBoost covariates: 10
+Output rinput.csv
+Date range 2022-07-01 - 2023-03-29
+
+Only every 7th record.
+Writing to temporary_full.csv
+Importing from input, total 9036943 records.
+Processing records from input, excluding inconsistent records:
+1205399 individuals taken from the UZIS database
+Omitting adding CZSO records.
+Total 1205399 individuals.
+
+Variants of infection found during study period
+
+variant,infections,outcomes,discerned_in_condition,taken_as_outcome
+NA,103023,2462,0,0
+Delta,115939,2680,0,0
+BA12,159652,1289,0,0
+BA45,35011,451,0,1
+Omicron,34880,237,0,0
+Alpha,88292,4408,0,0
+Beta,0,0,0,0
+Early,109154,2599,0,0
+2023,11513,311,0,1
+
+Untracked variants (joinded into NA)
+(empty)
+JIN
+
+Mode seriouscovidproxy
+Age filter: 0-333
+
+infprior,N,events
+inf_NA_062-122,157021,4
+inf_NA_123-183,400599,2
+inf_NA_184-244,519112,8
+inf_NA_245-305,515139,6
+inf_NA_306-366,487896,4
+inf_NA_367-427,354081,6
+inf_NA_428-488,181885,1
+inf_NA_489-549,183457,3
+_uninfected,3130257,694
+inf_NA_550+,677096,23
+inf_NA_001-061,99950,0
+
+vaccstatus,N,events
+_unvaccinated,966770,201
+boost_123-183,343141,3
+boost_184-244,684823,43
+boost_245-305,675815,146
+boost_306-366,608080,110
+boost_367-427,517424,48
+full_306-366,407536,11
+full_367-427,450439,21
+full_428-488,396159,40
+full_489-549,326679,18
+full_550+,219467,16
+secboost_001-061,127308,20
+secboost_062-122,121179,21
+secboost_123-183,74236,8
+secboost_184-244,17588,4
+full_184-244,136500,6
+full_245-305,214247,9
+boost_428-488,202966,17
+partial_062+,28469,4
+boost_062-122,68962,1
+full_123-183,53112,1
+partial_001-061,2407,0
+full_001-061,5443,0
+full_062-122,11423,0
+boost_001-061,41615,2
+boost_489-549,4704,1
+boost_550+,1,0
+
+immunity,N,events
+inf_062-122,30505,0
+inf_123-183,106912,1
+inf_184-244,161055,2
+inf_245-305,161422,2
+inf_306-366,159299,3
+inf_367-427,142645,2
+inf_428-488,83712,0
+inf_489-549,42788,1
+boost_123-183,205175,3
+boost_184-244,430015,40
+boost_245-305,423106,137
+boost_306-366,375814,105
+boost_367-427,319476,45
+hybridboost_123-183,259366,2
+hybridboost_184-244,269075,7
+hybridboost_245-305,208544,8
+hybridboost_306-366,168275,3
+hybridboost_367-427,103058,1
+full_306-366,179602,10
+full_367-427,186006,18
+hybridfull_001-061,28663,0
+hybridfull_062-122,48338,2
+hybridfull_123-183,159084,1
+hybridfull_184-244,233120,2
+secboost_001-061,45750,15
+secboost_062-122,44752,17
+secboost_123-183,39204,5
+secboost_184-244,13319,4
+hybridfull_245-305,247580,1
+hybridfull_306-366,253153,1
+hybridfull_367-427,182934,4
+hybridfull_428-488,72486,1
+boost_428-488,137111,16
+full_245-305,103781,8
+full_428-488,158241,37
+full_489-549,122749,17
+_other,189792,24
+hybridboost_001-061,126636,2
+hybridboost_062-122,158557,2
+inf_001-061,15022,0
+boost_062-122,25455,0
+full_184-244,69811,5
+full_123-183,30230,1
+secbnew_001-061,40852,3
+secbnew_062-122,38852,4
+secbnew_123-183,14547,1
+hybridfull_489-549,34026,0
+_noimmunity,9195,184
+full_001-061,1703,0
+full_062-122,4798,0
+hybridboost_428-488,21200,1
+boost_489-549,2791,1
+boost_001-061,11984,2
+b45_001-061,2031,0
+b45_062-122,1791,0
+hybridboost_489-549,413,0
+b45_123-183,692,0
+
+dcci,N,events
+_nodcci,133482,8
+0,3671848,103
+1,1471163,114
+2+,1430000,526
+
+agegr,N,events
+25-29,384192,0
+12-15,276581,0
+30-34,464261,2
+_40-44,597627,7
+55-59,477973,23
+75-79,318992,164
+70-74,432135,114
+65-69,459308,61
+16-17,143599,0
+35-39,500421,4
+50-54,500584,14
+18-24,480003,1
+45-49,658524,7
+60-64,414941,25
+0-11,295325,2
+80+,302027,327
+
+covs (immunity version)=58 (77), events=751, eventspercov=12.9569(10.2945)
+Writing to rinput.csv
+Importing from input, total 9036943 records.
+Processing records from input, excluding inconsistent records:
+1205399 individuals taken from the UZIS database
+Adding records from CZSO from 5th half-year
+More of men ( 29) treated then exist of age 100 (104)
+Added,Men,Women
+0-11,442963,423805
+12-15,0,0
+16-17,0,0
+18-24,41178,38060
+25-29,0,0
+30-34,61039,52409
+35-39,59322,46441
+_40-44,63526,48713
+45-49,59538,46119
+50-54,48948,37623
+55-59,46757,38875
+60-64,45012,37678
+65-69,40327,41813
+70-74,33458,38694
+75-79,18196,29040
+80+,24936,59261
+Total 1480218 individuals.
+
+Variants of infection found during study period
+
+variant,infections,outcomes,discerned_in_condition,taken_as_outcome
+NA,103023,2462,0,0
+Delta,115939,2680,0,0
+BA12,159652,1289,0,0
+BA45,35011,451,0,1
+Omicron,34880,237,0,0
+Alpha,88292,4408,0,0
+Beta,0,0,0,0
+Early,109154,2599,0,0
+2023,11513,311,0,1
+
+Untracked variants (joinded into NA)
+(empty)
+JIN
+
+Mode seriouscovidproxy
+Age filter: 0-333
+
+infprior,N,events
+inf_NA_062-122,157021,4
+inf_NA_123-183,400599,2
+inf_NA_184-244,519112,8
+inf_NA_245-305,515139,6
+inf_NA_306-366,487896,4
+inf_NA_367-427,354081,6
+inf_NA_428-488,181885,1
+inf_NA_489-549,183457,3
+_uninfected,3130257,694
+inf_NA_550+,677096,23
+
+vaccstatus,N,events
+_unvaccinated,966770,201
+boost_123-183,343141,3
+boost_184-244,684823,43
+boost_245-305,675815,146
+boost_306-366,608080,110
+boost_367-427,517424,48
+full_306-366,407536,11
+full_367-427,450439,21
+full_428-488,396159,40
+full_489-549,326679,18
+full_550+,219467,16
+secboost_001-061,127308,20
+secboost_062-122,121179,21
+secboost_123-183,74236,8
+secboost_184-244,17588,4
+full_184-244,136500,6
+full_245-305,214247,9
+boost_428-488,202966,17
+partial_062+,28469,4
+boost_062-122,68962,1
+full_123-183,53112,1
+boost_001-061,41615,2
+boost_489-549,4704,1
+
+immunity,N,events
+inf_123-183,106912,1
+inf_184-244,161055,2
+inf_245-305,161422,2
+inf_306-366,159299,3
+inf_367-427,142645,2
+inf_489-549,42788,1
+boost_123-183,205175,3
+boost_184-244,430015,40
+boost_245-305,423106,137
+boost_306-366,375814,105
+boost_367-427,319476,45
+hybridboost_123-183,259366,2
+hybridboost_184-244,269075,7
+hybridboost_245-305,208544,8
+hybridboost_306-366,168275,3
+hybridboost_367-427,103058,1
+full_306-366,179602,10
+full_367-427,186006,18
+hybridfull_062-122,48338,2
+hybridfull_123-183,159084,1
+hybridfull_184-244,233120,2
+secboost_001-061,45750,15
+secboost_062-122,44752,17
+secboost_123-183,39204,5
+secboost_184-244,13319,4
+hybridfull_245-305,247580,1
+hybridfull_306-366,253153,1
+hybridfull_367-427,182934,4
+hybridfull_428-488,72486,1
+boost_428-488,137111,16
+full_245-305,103781,8
+full_428-488,158241,37
+full_489-549,122749,17
+_other,189792,24
+hybridboost_001-061,126636,2
+hybridboost_062-122,158557,2
+full_184-244,69811,5
+full_123-183,30230,1
+secbnew_001-061,40852,3
+secbnew_062-122,38852,4
+secbnew_123-183,14547,1
+_noimmunity,9195,184
+hybridboost_428-488,21200,1
+boost_489-549,2791,1
+boost_001-061,11984,2
+
+dcci,N,events
+_nodcci,133482,8
+0,3671848,103
+1,1471163,114
+2+,1430000,526
+
+agegr,N,events
+30-34,464261,2
+_40-44,597627,7
+55-59,477973,23
+75-79,318992,164
+70-74,432135,114
+65-69,459308,61
+35-39,500421,4
+50-54,500584,14
+18-24,480003,1
+45-49,658524,7
+60-64,414941,25
+0-11,295325,2
+80+,302027,327
+
+covs (immunity version)=50 (62), events=751, eventspercov=15.03(12.9569)
+time: 190 seconds.

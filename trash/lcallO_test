@@ -1,0 +1,4 @@
+#!/bin/bash
+
+./cox_test LCallO lO-ic 2021-12-01 2022-04-30 LongCovid 
+

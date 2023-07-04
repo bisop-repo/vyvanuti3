@@ -157,7 +157,9 @@ vector<vaccinerecord> vaccines={
     {"CO15","Spikevax bivalent Original/Omicron BA.1",2,"MB","mRNA"},
     {"CO05","Sputnik V",2,"U","other"},
     {"CO16","Comirnaty 6m-4",2,"P6","mRNA"},
-    {"CO17","Valneva",2,"N","other"}
+    {"CO17","Valneva",2,"N","other"},
+    {"CO18","VidPrevtyn Beta",2,"NB","other"},
+    {"C019","SPIKEVAX BIVALENT ORIGINAL/OMICRON BA.4-5",2,"NB4","mRNA45"}
 };
 
 unsigned eunknownvaccine = vaccines.size();
@@ -227,7 +229,7 @@ struct preprocessparams
     /// (after this limit, the subject is censored in h analysis TBD CHECK THIS!!)
 //    int outcomelimit = 15;
 
-    int safetydate = date2int("2023-05-01");
+    int safetydate = date2int("2023-09-01");
 
 //    /// time delay during which new positive tests are not regarded as reinfections
 //    int infectionsgap = 60;
@@ -572,7 +574,7 @@ vector<statcounter> lccounts(numweeks);
         infds.open("infections.csv");
         infds << "infdate,variantdisc,variantdiscint,serious,longcovid,deathcovid" << endl;
         vaccds.open("vaccines.csv");
-        vaccds << "vaccdate,order,type,general" << endl;
+        vaccds << "vaccdate,order,type,general,code" << endl;
     }
 
     unsigned firstnext;
@@ -1103,7 +1105,8 @@ vector<statcounter> lccounts(numweeks);
                 vaccds << vr.vaccdatestring << ",";
                 vaccds << vaccorderlabels[vr.vaccorder] << ",";
                 vaccds << vaccines[vr.vac].abbrev << ",";
-                vaccds << vaccines[vr.vac].general << endl;
+                vaccds << vaccines[vr.vac].general << ",";
+                vaccds << vaccines[vr.vac].code << endl;
             }
         }
 

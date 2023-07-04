@@ -1,0 +1,5 @@
+#!/bin/bash
+
+./cox ProxyBA12shorter xx-ic 2022-01-01 2022-04-30 SeriousCovidProxy 
+
+

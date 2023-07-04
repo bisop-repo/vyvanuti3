@@ -1,0 +1,154 @@
+version 2.0
+Usage convertool input output whattodo(ix) firstdate(rrrr-mm-dd) lastdate minage maxage
+infections
+Input ../data/data_20221126.csv
+Date range 2021-10-01 - 2022-02-01
+
+Only every 10th record.
+Writing to temporary_full.csv
+Importing from input, total 8997136 records.
+Processing records from input, excluding inconsistent records:
+852177 individuals taken from the UZIS database
+Omitting adding CZSO records.
+Total 852177 individuals.
+
+Variants of infection found during study period
+
+variant,outcomes,infections,discerned_in_condition,taken_as_outcome
+NA,366023,366023,0,0
+Delta,42567,42567,0,1
+BA45,1685,1685,0,0
+BA12,13659,13659,0,0
+Omicron,29856,29856,0,1
+Alpha,1727,1727,0,0
+Beta,0,0,0,0
+
+Untracked variants (joinded into NA)
+(empty)
+JIN
+
+Mode infections
+Age filter: 0-333
+
+infprior,N,events
+_uninfected,1875331,55517
+inf_NA_001-060,160682,3
+inf_NA_061-090,55972,260
+inf_NA_091-120,12381,59
+inf_NA_181+,413654,3219
+inf_NA_151-180,14677,15
+inf_NA_121-150,6111,19
+
+vaccstatus,N,events
+_unvaccinated,388763,35670
+full_061-090,373426,1321
+full_091+,664681,17301
+boost_001-030,362115,1388
+boost_031-060,221737,844
+boost_061+,75637,472
+full_031-060,227704,823
+partial_001-030,76780,491
+full_001-030,131568,589
+partial_031+,16397,193
+
+agegr,N,events
+16-17,57724,2121
+35-39,178795,5042
+50-54,180491,3577
+45-49,235507,5762
+12-15,114133,5285
+75-79,135732,849
+65-69,179479,1589
+_40-44,211326,6012
+70-74,178602,1206
+0-11,88567,8893
+18-24,190887,4838
+60-64,158077,1944
+55-59,170444,2848
+25-29,146329,3687
+80+,140814,978
+30-34,171901,4461
+
+covs=33, events=59092, eventspercov=1790.68
+Writing to ../data/temp/FebOmicron30.csv
+Importing from input, total 8997136 records.
+Processing records from input, excluding inconsistent records:
+852177 individuals taken from the UZIS database
+Adding records from CZSO from 4th half-year
+Added,Men,Women
+0-11,444813,426113
+12-15,44400,42166
+16-17,13333,11513
+18-24,43213,32259
+25-29,57580,50301
+30-34,58708,51443
+35-39,63331,48920
+_40-44,71561,52159
+45-49,49736,34642
+50-54,40654,32240
+55-59,41179,37943
+60-64,46151,41167
+65-69,42606,43195
+70-74,30673,35885
+75-79,11841,19575
+80+,18861,44873
+Total 1060481 individuals.
+
+Variants of infection found during study period
+
+variant,outcomes,infections,discerned_in_condition,taken_as_outcome
+NA,366023,366023,0,0
+Delta,42567,42567,0,1
+BA45,1685,1685,0,0
+BA12,13659,13659,0,0
+Omicron,29856,29856,0,1
+Alpha,1727,1727,0,0
+Beta,0,0,0,0
+
+Untracked variants (joinded into NA)
+(empty)
+JIN
+
+Mode infections
+Age filter: 0-333
+
+infprior,N,events
+_uninfected,1875331,55517
+inf_NA_001-060,160682,3
+inf_NA_061-090,55972,260
+inf_NA_091-120,12381,59
+inf_NA_181+,413654,3219
+inf_NA_151-180,14677,15
+inf_NA_121-150,6111,19
+
+vaccstatus,N,events
+_unvaccinated,388763,35670
+full_061-090,373426,1321
+full_091+,664681,17301
+boost_001-030,362115,1388
+boost_031-060,221737,844
+boost_061+,75637,472
+full_031-060,227704,823
+partial_001-030,76780,491
+full_001-030,131568,589
+partial_031+,16397,193
+
+agegr,N,events
+16-17,57724,2121
+35-39,178795,5042
+50-54,180491,3577
+45-49,235507,5762
+12-15,114133,5285
+75-79,135732,849
+65-69,179479,1589
+_40-44,211326,6012
+70-74,178602,1206
+0-11,88567,8893
+18-24,190887,4838
+60-64,158077,1944
+55-59,170444,2848
+25-29,146329,3687
+80+,140814,978
+30-34,171901,4461
+
+covs=33, events=59092, eventspercov=1790.68

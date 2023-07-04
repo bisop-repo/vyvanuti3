@@ -1,0 +1,9 @@
+ID	Eq
+H	Hosp15 ~ VaccStatus + InfPrior + AgeGr + Sex
+O	Oxygen15 ~ VaccStatus + InfPrior + AgeGr + Sex
+IP	ICU15 ~ VaccStatus + InfPrior + AgeGr + Sex
+D	DeathByCov30 ~ VaccStatus + InfPrior + AgeGr + Sex
+HI	Hosp15 ~ Immunity + AgeGr + Sex
+OI	Oxygen15 ~ Immunity + AgeGr + Sex
+IPI	ICU15 ~ Immunity + AgeGr + Sex
+DI	DeathByCov30 ~ Immunity + AgeGr + Sex

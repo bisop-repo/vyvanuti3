@@ -1,4 +1,4 @@
 #!/bin/bash
 
-./cox LCallO lx-icb 2021-12-01 2022-03-30 LongCovid 
+./cox LCallO lo-icb 2021-12-01 2022-09-30 LongCovid 
 

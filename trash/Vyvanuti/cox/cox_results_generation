@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Generating run result files"
+OUTPUTS_LOCATION=results/
+rm $OUTPUTS_LOCATION/*
+R < cox/cox_results.R --vanilla
+git add $OUTPUTS_LOCATION
+git commit -a --message="Run results files"
+git pull --no-edit
+git push
+exit 0
