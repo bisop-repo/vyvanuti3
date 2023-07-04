@@ -1,7 +1,7 @@
 #### VOLBA PARAMETROV SKRIPTU ####
 rm(list = ls())
 
-args <-  commandArgs(trailingOnly=TRUE)
+ args <-  commandArgs(trailingOnly=TRUE)
 # args <- c("rinput.csv", "SeriousCovidProxy")
 # args <- c("LCInf.csv", "LCINF")
 # 1. Input: zdrojovej csv soubor 
@@ -99,7 +99,7 @@ names(df)[c(2:3, 5:6, 8:9)] <- c("lower", "upper",
 # df
 write.table(df, "cox_model_summary.txt")
 
-table <- xtable(df)
+table <- xtable(df, caption = "Cox model summary")
 print(table, file = "cox_model_summary.tex", include.rownames = TRUE)
 
 # forest plot - pomer rizik
@@ -108,11 +108,11 @@ m1_cox_HR_plot <- tbl_regression(m1, exponentiate = T)# %>%
 forest_plot <- m1_cox_HR_plot %>%
   plot()
 
-png(file = "forest_plot.png", width = 700, height = 900)
+#png(file = "forest_plot.png", width = 700, height = 900)
 forest_plot
-
+ggsave("forest_plot.png", width=4)
 # dev.copy(device = png, filename = 'forest_plot.png', width = 700, height = 900)
-dev.off()
+#dev.off()
 
 
 
@@ -122,11 +122,11 @@ dev.off()
 
   txttable <- summary(m1)
 
-  sink("logreg_model_summary,txt")
+  sink("logreg_model_summary.txt")
   print(txttable)
   sink()
     
-  textable <- xtable(summary(m1))
+  textable <- xtable(summary(m1), caption = "Logistic regression summary")
   print(textable, file = "logreg_model_summary.tex", include.rownames = TRUE)
   
 
@@ -188,6 +188,9 @@ for (i in 1 : length(im_level)) {
                    cas + 30)
     # cas
     
+    #MS
+    cas <- cas / 30.5
+    
     T_mat <- matrix(diag(HR_sub), ncol = length(HR_sub))
     
     # takova jina matice
@@ -218,9 +221,9 @@ for (i in 1 : length(im_level)) {
     eff_tau_fin <- append(eff_tau_fin, eff_tau)
     
     #convertin to mohths...
-    delta <- d * 30.5
+    delta <- d 
     deltas <- append(deltas,delta) 
-    sd_of_delta <- sqrt(var_of_d) * 30.5
+    sd_of_delta <- sqrt(var_of_d) 
     lower_of_deltas <- append(lower_of_deltas,delta - sd_of_delta * 1.96)
     upper_of_deltas <- append(upper_of_deltas,delta + sd_of_delta * 1.96)
   }
@@ -237,7 +240,7 @@ immunities <- append(NA,im_level)
 est_table <- data.frame(immunities,deltas,lower_of_deltas,upper_of_deltas)[-1,] 
 write.table(est_table,'est_table.txt')
 
-textable = xtable(est_table)
+textable = xtable(est_table, caption="Monthly percentage decrease of effectiveness/protection")
 print(textable, file = "est_table.tex", include.rownames = TRUE)
 
 
@@ -373,7 +376,7 @@ r_fin_mat <- matrix(label_percent(accuracy = 0.01)(r_fin2), ncol = length(im_lev
 write.table(r_fin_mat,"r_fin_mat.txt")
 
 # TODO sem bych potřeboval nějaké zktratky těch imunit (zkratky dodám)
-textable <- xtable(r_fin_mat)
+textable <- xtable(r_fin_mat, caption="Effectiveness/protection differences")
 print(textable, file = "r_fin_mat.tex", include.rownames = TRUE)
 
 
@@ -386,7 +389,7 @@ z_score_fin_mat <- matrix(z_score_fin2, ncol = length(im_level), byrow = T)
 
 # TODO žéž zde zkratky imunit
 write.table(z_score_fin_mat,"z_score_fin_mat.txt")
-textable <- xtable(z_score_fin_mat)
+textable <- xtable(z_score_fin_mat, caption="Z-scores of effectiveness/protection differences")
 print(textable, file = "z_score_mat.tex", include.rownames = FALSE)
 
 
@@ -441,3 +444,5 @@ if(args[2] == "LCINF")
   forest_model(m1)
   ggsave("forest_plot.png")
 }
+
+save.image("workspace.RData")

@@ -1,0 +1,577 @@
+<div id="zeurylxvzl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+  <style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#zeurylxvzl .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#zeurylxvzl .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#zeurylxvzl .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#zeurylxvzl .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#zeurylxvzl .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#zeurylxvzl .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zeurylxvzl .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#zeurylxvzl .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#zeurylxvzl .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#zeurylxvzl .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#zeurylxvzl .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#zeurylxvzl .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#zeurylxvzl .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#zeurylxvzl .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#zeurylxvzl .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#zeurylxvzl .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#zeurylxvzl .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#zeurylxvzl .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zeurylxvzl .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#zeurylxvzl .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#zeurylxvzl .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zeurylxvzl .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#zeurylxvzl .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#zeurylxvzl .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zeurylxvzl .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zeurylxvzl .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#zeurylxvzl .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#zeurylxvzl .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zeurylxvzl .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#zeurylxvzl .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zeurylxvzl .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#zeurylxvzl .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zeurylxvzl .gt_left {
+  text-align: left;
+}
+
+#zeurylxvzl .gt_center {
+  text-align: center;
+}
+
+#zeurylxvzl .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#zeurylxvzl .gt_font_normal {
+  font-weight: normal;
+}
+
+#zeurylxvzl .gt_font_bold {
+  font-weight: bold;
+}
+
+#zeurylxvzl .gt_font_italic {
+  font-style: italic;
+}
+
+#zeurylxvzl .gt_super {
+  font-size: 65%;
+}
+
+#zeurylxvzl .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#zeurylxvzl .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#zeurylxvzl .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#zeurylxvzl .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#zeurylxvzl .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#zeurylxvzl .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#zeurylxvzl .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+  <table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;N = 60,571,840&lt;/strong&gt;&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>N = 60,571,840</strong><sup class="gt_footnote_marks">1</sup></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SeriousCovidProxy</td>
+<td headers="stat_0" class="gt_row gt_center">5,723 (&lt;0.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Immunity</td>
+<td headers="stat_0" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    _noimmunity</td>
+<td headers="stat_0" class="gt_row gt_center">2,185,667 (3.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    _other</td>
+<td headers="stat_0" class="gt_row gt_center">2,440,451 (4.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    b45_001-061</td>
+<td headers="stat_0" class="gt_row gt_center">14,703 (&lt;0.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    b45_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">14,560 (&lt;0.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_001-061</td>
+<td headers="stat_0" class="gt_row gt_center">84,727 (0.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">180,625 (0.3%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_123-183</td>
+<td headers="stat_0" class="gt_row gt_center">1,441,355 (2.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_184-244</td>
+<td headers="stat_0" class="gt_row gt_center">3,034,282 (5.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_245-305</td>
+<td headers="stat_0" class="gt_row gt_center">3,005,127 (5.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_306-366</td>
+<td headers="stat_0" class="gt_row gt_center">2,689,731 (4.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_367-427</td>
+<td headers="stat_0" class="gt_row gt_center">2,359,454 (3.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_428-488</td>
+<td headers="stat_0" class="gt_row gt_center">2,233,916 (3.7%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    boost_489-549</td>
+<td headers="stat_0" class="gt_row gt_center">1,822,356 (3.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_123-183</td>
+<td headers="stat_0" class="gt_row gt_center">212,984 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_184-244</td>
+<td headers="stat_0" class="gt_row gt_center">491,602 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_245-305</td>
+<td headers="stat_0" class="gt_row gt_center">731,367 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_306-366</td>
+<td headers="stat_0" class="gt_row gt_center">1,262,491 (2.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_367-427</td>
+<td headers="stat_0" class="gt_row gt_center">1,327,804 (2.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_428-488</td>
+<td headers="stat_0" class="gt_row gt_center">1,319,693 (2.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    full_489-549</td>
+<td headers="stat_0" class="gt_row gt_center">1,228,309 (2.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_001-061</td>
+<td headers="stat_0" class="gt_row gt_center">938,244 (1.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">1,209,048 (2.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_123-183</td>
+<td headers="stat_0" class="gt_row gt_center">2,085,452 (3.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_184-244</td>
+<td headers="stat_0" class="gt_row gt_center">2,344,181 (3.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_245-305</td>
+<td headers="stat_0" class="gt_row gt_center">1,778,898 (2.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_306-366</td>
+<td headers="stat_0" class="gt_row gt_center">1,389,158 (2.3%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_367-427</td>
+<td headers="stat_0" class="gt_row gt_center">1,218,779 (2.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_428-488</td>
+<td headers="stat_0" class="gt_row gt_center">965,090 (1.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridboost_489-549</td>
+<td headers="stat_0" class="gt_row gt_center">407,175 (0.7%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">359,431 (0.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_123-183</td>
+<td headers="stat_0" class="gt_row gt_center">1,148,541 (1.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_184-244</td>
+<td headers="stat_0" class="gt_row gt_center">1,711,626 (2.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_245-305</td>
+<td headers="stat_0" class="gt_row gt_center">1,817,766 (3.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_306-366</td>
+<td headers="stat_0" class="gt_row gt_center">1,843,201 (3.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_367-427</td>
+<td headers="stat_0" class="gt_row gt_center">1,575,104 (2.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_428-488</td>
+<td headers="stat_0" class="gt_row gt_center">1,169,470 (1.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    hybridfull_489-549</td>
+<td headers="stat_0" class="gt_row gt_center">674,096 (1.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">224,787 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_123-183</td>
+<td headers="stat_0" class="gt_row gt_center">762,636 (1.3%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_184-244</td>
+<td headers="stat_0" class="gt_row gt_center">1,175,370 (1.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_245-305</td>
+<td headers="stat_0" class="gt_row gt_center">1,193,948 (2.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_306-366</td>
+<td headers="stat_0" class="gt_row gt_center">1,142,528 (1.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_367-427</td>
+<td headers="stat_0" class="gt_row gt_center">1,128,669 (1.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_428-488</td>
+<td headers="stat_0" class="gt_row gt_center">1,205,640 (2.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    inf_489-549</td>
+<td headers="stat_0" class="gt_row gt_center">913,725 (1.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    secbnew_001-061</td>
+<td headers="stat_0" class="gt_row gt_center">287,528 (0.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    secbnew_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">285,494 (0.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    secbnew_123-183</td>
+<td headers="stat_0" class="gt_row gt_center">278,665 (0.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    secboost_001-061</td>
+<td headers="stat_0" class="gt_row gt_center">323,798 (0.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    secboost_062-122</td>
+<td headers="stat_0" class="gt_row gt_center">318,766 (0.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    secboost_123-183</td>
+<td headers="stat_0" class="gt_row gt_center">313,666 (0.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    secboost_184-244</td>
+<td headers="stat_0" class="gt_row gt_center">300,156 (0.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Sex</td>
+<td headers="stat_0" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    F</td>
+<td headers="stat_0" class="gt_row gt_center">31,150,951 (51%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    M</td>
+<td headers="stat_0" class="gt_row gt_center">29,420,889 (49%)</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="2"><sup class="gt_footnote_marks">1</sup> n (%)</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+ [1] "Immunity_other"              "Immunityb45_001-061"        
+ [3] "Immunityb45_062-122"         "Immunityboost_001-061"      
+ [5] "Immunityboost_062-122"       "Immunityboost_123-183"      
+ [7] "Immunityboost_184-244"       "Immunityboost_245-305"      
+ [9] "Immunityboost_306-366"       "Immunityboost_367-427"      
+[11] "Immunityboost_428-488"       "Immunityboost_489-549"      
+[13] "Immunityfull_123-183"        "Immunityfull_184-244"       
+[15] "Immunityfull_245-305"        "Immunityfull_306-366"       
+[17] "Immunityfull_367-427"        "Immunityfull_428-488"       
+[19] "Immunityfull_489-549"        "Immunityhybridboost_001-061"
+[21] "Immunityhybridboost_062-122" "Immunityhybridboost_123-183"
+[23] "Immunityhybridboost_184-244" "Immunityhybridboost_245-305"
+[25] "Immunityhybridboost_306-366" "Immunityhybridboost_367-427"
+[27] "Immunityhybridboost_428-488" "Immunityhybridboost_489-549"
+[29] "Immunityhybridfull_062-122"  "Immunityhybridfull_123-183" 
+[31] "Immunityhybridfull_184-244"  "Immunityhybridfull_245-305" 
+[33] "Immunityhybridfull_306-366"  "Immunityhybridfull_367-427" 
+[35] "Immunityhybridfull_428-488"  "Immunityhybridfull_489-549" 
+[37] "Immunityinf_062-122"         "Immunityinf_123-183"        
+[39] "Immunityinf_184-244"         "Immunityinf_245-305"        
+[41] "Immunityinf_306-366"         "Immunityinf_367-427"        
+[43] "Immunityinf_428-488"         "Immunityinf_489-549"        
+[45] "Immunitysecbnew_001-061"     "Immunitysecbnew_062-122"    
+[47] "Immunitysecbnew_123-183"     "Immunitysecboost_001-061"   
+[49] "Immunitysecboost_062-122"    "Immunitysecboost_123-183"   
+[51] "Immunitysecboost_184-244"    "AgeGr0-11"                  
+[53] "AgeGr12-15"                  "AgeGr16-17"                 
+[55] "AgeGr18-24"                  "AgeGr25-29"                 
+[57] "AgeGr30-34"                  "AgeGr35-39"                 
+[59] "AgeGr45-49"                  "AgeGr50-54"                 
+[61] "AgeGr55-59"                  "AgeGr60-64"                 
+[63] "AgeGr65-69"                  "AgeGr70-74"                 
+[65] "AgeGr75-79"                  "AgeGr80+"                   
+[67] "SexM"                       

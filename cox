@@ -4,9 +4,7 @@
 #echo 'Working directory is: '$WORKING_DIRECTORY
 
 #MASTER parameters used across all models
-#INPUT_FILE='../../data/data_20230329.csv' #File to be converted in Convertool
-INPUT_FILE='../../data/data_20230421.csv' #File to be converted in Convertool
-#INPUT_FILE='../../convertool/test/test_input_long_1.csv' #File to be converted in Convertool
+INPUT_FILE='../../data/data_20230629.csv' #File to be converted in Convertool
 
 #Model estimation in batch
 

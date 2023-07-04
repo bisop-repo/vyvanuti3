@@ -1,4 +1,5 @@
 mkdir: cannot create directory ‘ProxyNew’: File exists
+rm: cannot remove 'part': Is a directory
 cp: cannot stat '../../workscript/cox_estimation_formulas.txt': No such file or directory
 ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.0     ✔ purrr     1.0.1
@@ -11,7 +12,7 @@ cp: cannot stat '../../workscript/cox_estimation_formulas.txt': No such file or 
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 Loading required package: maditr
 
-To select rows from data: rows(mtcars, am==0)
+To aggregate several columns with one summary: take(mtcars, mpg, hp, fun = mean, by = am)
 
 
 Attaching package: ‘maditr’
@@ -29,7 +30,7 @@ The following object is masked from ‘package:readr’:
     cols
 
 
-Use 'expss_output_rnotebook()' to display tables inside R Notebooks.
+Use 'expss_output_viewer()' to display tables in the RStudio Viewer.
  To return to the console output, use 'expss_output_default()'.
 
 
@@ -148,4 +149,6 @@ The following object is masked from ‘package:stats’:
 
     lowess
 
+file:////tmp/Rtmpb6AfwN/file20084f36935218.html screenshot completed
+Saving 4 x 7 in image
 Group done
