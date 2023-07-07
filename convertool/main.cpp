@@ -2389,8 +2389,8 @@ int main(int argc, char *argv[])
             _main(argc,argv);
         else if(testno == 1)
         {
-            char *as[6] ={"foo", "test_input_long_mod.csv","test1_output.csv","x!gis",
-                          "2020-01-01", "2023-02-20"};
+            char *as[6] ={"foo", "part.csv","test1_output.csv","io-icb",
+                          "2023-01-01", "2023-06-29"};
             _main(6,as,true);
         }
         else if(testno == 2)
