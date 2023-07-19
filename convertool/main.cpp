@@ -1624,7 +1624,7 @@ records ++;
                      else if(currentimmunitystatus == eboostimmunity)
                         is << "boost";
                      else if(currentimmunitystatus == eboostaltimmunity)
-                         is << (ppp.discern45booster ? "b45":"boost23");
+                         is << (ppp.discern45booster ? "bnew":"boost23");
 
                      nc = ppp.numboostercovs;
                      break;

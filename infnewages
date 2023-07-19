@@ -1,0 +1,8 @@
+#!/bin/bash
+
+./coxtest InfNewY iF-icb 2021-12-01 2023-06-29 0 40 Infected
+
+./coxtest InfNewM iF-icb 2021-12-01 2023-06-29 41 65 Infected
+
+./coxtest InfNewO iF-icb 2021-12-01 2023-06-20 66 120 Infected
+

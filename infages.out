@@ -1,4 +1,4 @@
-rm: cannot remove '*': No such file or directory
+mkdir: cannot create directory ‘InfY’: File exists
 ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.0     ✔ purrr     1.0.1
 ✔ forcats   1.0.0     ✔ stringr   1.5.0
@@ -8,10 +8,9 @@ rm: cannot remove '*': No such file or directory
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-#StandWithUkraine
 Loading required package: maditr
 
-To drop variable use NULL: let(mtcars, am = NULL) %>% head()
+To aggregate several columns with one summary: take(mtcars, mpg, hp, fun = mean, by = am)
 
 
 Attaching package: ‘maditr’
@@ -29,7 +28,7 @@ The following object is masked from ‘package:readr’:
     cols
 
 
-Use 'expss_output_rnotebook()' to display tables inside R Notebooks.
+Use 'expss_output_viewer()' to display tables in the RStudio Viewer.
  To return to the console output, use 'expss_output_default()'.
 
 
@@ -148,10 +147,10 @@ The following object is masked from ‘package:stats’:
 
     lowess
 
-file:////tmp/Rtmpr7pz0q/file2bbeeb70d3f567.html screenshot completed
+file:////tmp/Rtmpb1BOOd/file2e4e4f23007b6f.html screenshot completed
 Saving 4 x 7 in image
 Group done
-rm: cannot remove '*': No such file or directory
+mkdir: cannot create directory ‘InfM’: File exists
 ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.0     ✔ purrr     1.0.1
 ✔ forcats   1.0.0     ✔ stringr   1.5.0
@@ -161,10 +160,9 @@ rm: cannot remove '*': No such file or directory
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-#StandWithUkraine
 Loading required package: maditr
 
-To get total summary skip 'by' argument: take_all(mtcars, mean)
+To select rows from data: rows(mtcars, am==0)
 
 
 Attaching package: ‘maditr’
@@ -297,7 +295,7 @@ The following object is masked from ‘package:stats’:
 
     lowess
 
-file:////tmp/RtmponEtAI/file2bc2e91cf4fc37.html screenshot completed
+file:////tmp/Rtmpz0dsTB/file2e5b66542bac5b.html screenshot completed
 Saving 4 x 7 in image
 Group done
 mkdir: cannot create directory ‘InfO’: File exists
@@ -310,6 +308,7 @@ mkdir: cannot create directory ‘InfO’: File exists
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+#Uighur
 Loading required package: maditr
 
 To aggregate all non-grouping columns: take_all(mtcars, mean, by = am)
@@ -445,6 +444,6 @@ The following object is masked from ‘package:stats’:
 
     lowess
 
-file:////tmp/RtmpnAppuC/file2bc678656a625f.html screenshot completed
+file:////tmp/RtmpYifhIn/file2e684028720ea2.html screenshot completed
 Saving 4 x 7 in image
 Group done

@@ -12,7 +12,7 @@ cd v3
 mkdir $1
 cd $1
 rm *
-../../convertool/bin/convertool $INPUT_FILE rinput.csv $2 $3 $4 $5 $6 10 > convertool.log
+../../convertool/bin/convertool $INPUT_FILE rinput.csv $2 $3 $4 $5 $6 4 > convertool.log
 Rscript ../../workscript/Script.R rinput.csv $7  > script.log
 rm temporary_full*.*
 cd ..
