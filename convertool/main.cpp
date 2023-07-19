@@ -2379,7 +2379,7 @@ int main(int argc, char *argv[])
     {
         int testno = 0;
         if(argc == 1)
-            testno = 1;
+            testno = 3;
         if(argc == 2)
         {
             testno = argv[1][0] - '1' + 1;
@@ -2401,8 +2401,8 @@ int main(int argc, char *argv[])
         }
         else if(testno == 3)
         {
-            char *as[6] ={"foo", "test_input_long_1.csv","test3_output.csv","e!-ic",
-                          "2020-01-01", "2022-09-30"};
+            char *as[6] ={"foo", "part.csv","test3_output.csv","cO-icb",
+                          "2022-01-01", "2022-09-30"};
             _main(6,as,true);
         }
         else if(testno == 4)
