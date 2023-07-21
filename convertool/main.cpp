@@ -294,6 +294,8 @@ struct preprocessparams
 
     bool addfromczso = false;
 
+    bool censormissingdcci = true;
+
     /// Inputs that should be provided
 
     /// start of the sutedy (time 0)
@@ -472,14 +474,14 @@ void ockodata2R(csv<';'>& data, string outputlabel,
          " records." << endl;
 
     static vector<string> labels = {
-       "PripadId",   "ID", "NovyHash",	"infekce",	"pohlavi",	"vek",	"Kraj_bydliste",	"ORP_bydliste",	"Datum_pozitivity",	"DatumVysledku",	"Vylecen",	"Umrti",	"symptom",	"typ_testu",	"PrvniDavka",	"DruhaDavka",	"Ukoncene_ockovani",	"Extra_davka",	"Druha_extra_davka",	"OckovaciLatkaKod1",	"OckovaciLatkaKod2",	"OckovaciLatkaKod3",	"OckovaciLatkaKod4", "PrimPricinaHospCOVID",
+       "PripadId",   "ID", "NovyHash",	"infekce",	"pohlavi",	"RokNarozeni",	"Kraj_bydliste",	"ORP_bydliste",	"Datum_pozitivity",	"DatumVysledku",	"Vylecen",	"Umrti",	"symptom",	"typ_testu",	"PrvniDavka",	"DruhaDavka",	"Ukoncene_ockovani",	"Extra_davka",	"Druha_extra_davka",	"OckovaciLatkaKod1",	"OckovaciLatkaKod2",	"OckovaciLatkaKod3",	"OckovaciLatkaKod4", "PrimPricinaHospCOVID",
        "bin_Hospitalizace",	"min_Hospitalizace",	"dni_Hospitalizace",	"max_Hospitalizace",	"bin_JIP",	"min_JIP",	"dni_JIP",	"max_JIP",	"bin_STAN",	"min_STAN",	"dni_STAN",	"max_STAN",	"bin_Kyslik",	"min_Kyslik",	"dni_Kyslik",	"max_Kyslik",	"bin_HFNO",	"min_HFNO",	"dni_HFNO",	"max_HFNO",	"bin_UPV_ECMO",	"min_UPV_ECMO",	"dni_UPV_ECMO",	"max_UPV_ECMO",	"Mutace",	"DatumUmrtiLPZ", "Long_COVID",
        "ODB_Long_COVID","kraj_icz_Long_COVID","kraj_pacient_Long_COVID","DCCI_r2010","DCCI_r2011","DCCI_r2012","DCCI_r2013","DCCI_r2014","DCCI_r2015","DCCI_r2016","DCCI_r2017","DCCI_r2018","DCCI_r2019","DCCI_r2020","DCCI_r2021","DCCI_r2022"
 
     };
 
 
-    enum elabels {PripadId, ID,	NovyHash, infekce,	pohlavi,	vek,	Kraj_bydliste,	ORP_Bydliste,	Datum_pozitivity,	DatumVysledku,	Vylecen,	Umrti,	symptom,	typ_testu,	PrvniDavka,	DruhaDavka,	Ukoncene_ockovani,	Extra_davka,	Druha_extra_davka,	OckovaciLatkaKod1,	OckovaciLatkaKod2,	OckovaciLatkaKod3,	OckovaciLatkaKod4,	PrimPricinaHospCOVID, bin_Hospitalizace,	min_Hospitalizace,	dni_Hospitalizace,	max_Hospitalizace,	bin_JIP,	min_JIP,	dni_JIP,	max_JIP,	bin_STAN,	min_STAN,	dni_STAN,	max_STAN,	bin_Kyslik,	min_Kyslik,	dni_Kyslik,	max_Kyslik,	bin_HFNO,	min_HFNO,	dni_HFNO,	max_HFNO,	bin_UPV_ECMO,	min_UPV_ECMO,	dni_UPV_ECMO,	max_UPV_ECMO,	Mutace,	DatumUmrtiLPZ, Long_COVID,
+    enum elabels {PripadId, ID,	NovyHash, infekce,	pohlavi,	RokNarozeni,	Kraj_bydliste,	ORP_Bydliste,	Datum_pozitivity,	DatumVysledku,	Vylecen,	Umrti,	symptom,	typ_testu,	PrvniDavka,	DruhaDavka,	Ukoncene_ockovani,	Extra_davka,	Druha_extra_davka,	OckovaciLatkaKod1,	OckovaciLatkaKod2,	OckovaciLatkaKod3,	OckovaciLatkaKod4,	PrimPricinaHospCOVID, bin_Hospitalizace,	min_Hospitalizace,	dni_Hospitalizace,	max_Hospitalizace,	bin_JIP,	min_JIP,	dni_JIP,	max_JIP,	bin_STAN,	min_STAN,	dni_STAN,	max_STAN,	bin_Kyslik,	min_Kyslik,	dni_Kyslik,	max_Kyslik,	bin_HFNO,	min_HFNO,	dni_HFNO,	max_HFNO,	bin_UPV_ECMO,	min_UPV_ECMO,	dni_UPV_ECMO,	max_UPV_ECMO,	Mutace,	DatumUmrtiLPZ, Long_COVID,
                   ODB_Long_COVID,kraj_icz_Long_COVID,kraj_pacient_Long_COVID,DCCI_r2010,
                   DCCI_r2011,DCCI_r2012,DCCI_r2013,DCCI_r2014,DCCI_r2015,DCCI_r2016,DCCI_r2017,DCCI_r2018,DCCI_r2019,
                   firstDCCI = DCCI_r2019,
@@ -854,6 +856,11 @@ records ++;
                        dccis.push_back(score);
                    }
                 }
+                else
+                {
+                    if(ppp.censormissingdcci)
+                        THROW("Missing DCCI",break);
+                }
             }
 
 
@@ -1051,18 +1058,27 @@ records ++;
         else
             male = gstr == malestr;
 
+        time_t t = ppp.firstdate * 86400;
+        tm* ti = localtime(&t);
+        int fdy = ti->tm_year + 1900;
 
-        string agestr = data(relevantrecord,vek);
+        string birthstring = data(relevantrecord,RokNarozeni);
         unsigned age;
-        if(agestr=="")
+        if(birthstring=="")
         {
-            THROW("Missing age.",continue);
+            THROW("Missing birth.",continue);
         }
         else
         {
             try
             {
-                age = stoul(agestr);
+                int maybeage = fdy - stoi(birthstring);
+                if(maybeage < 0)
+                {
+                    THROWS("Person born after study starts", "(" << birthstring << ")",continue);
+                }
+
+                age = maybeage;
                 if(age < minage || age > maxage)
                 {
                    continue;
@@ -1084,7 +1100,7 @@ records ++;
             }
             catch (...)
             {
-                THROWS("Cannot convert age", "'" << agestr << "' to unsigned",continue);
+                THROWS("Cannot convert birth data", "(" << birthstring << ") to unsigned",continue);
             }
         }
 
@@ -2276,6 +2292,10 @@ int _main(int argc, char *argv[], bool testrun = false)
             ppp.descstat = true;
             cout << "Generating description stats" << endl;
             break;
+        case 'm':
+            ppp.censormissingdcci = false;
+            cout << "Missing DCCIs are not censored" << endl;
+            break;
         default:
             cout << "Unknown option " << argv[3][i] << endl;
             throw;
@@ -2419,7 +2439,7 @@ int main(int argc, char *argv[])
         }
         else if(testno == 3)
         {
-            char *as[6] ={"foo", "part.csv","test3_output.csv","cO-icb",
+            char *as[6] ={"foo", "part.csv","test3_output.csv","io-icb",
                           "2022-01-01", "2022-09-30"};
             _main(6,as,true);
         }
