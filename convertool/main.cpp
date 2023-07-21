@@ -22,7 +22,11 @@ string dcci2str(int dcci)
         return "2";
     if(dcci==3)
         return "3";
-    return "4+";
+    if(dcci==4)
+        return "4";
+    if(dcci==5)
+        return "5";
+    return "6+";
 }
 
 string gender2str(bool male)
@@ -288,6 +292,8 @@ struct preprocessparams
     bool discern45booster = false;
     string abbrev45 = "PO4";
 
+    bool addfromczso = false;
+
     /// Inputs that should be provided
 
     /// start of the sutedy (time 0)
@@ -407,6 +413,8 @@ void ockodata2R(csv<';'>& data, string outputlabel,
     if(ppp.safetydate <= ppp.lastdate)
         throw "Safety date < last date";
 
+    cout << "minage=" << minage << " maxage=" << maxage << endl;
+
     string output = dostat ? (outputlabel + "_full.csv") : outputlabel;
 
     cout << "Writing to " << output << endl;
@@ -464,7 +472,7 @@ void ockodata2R(csv<';'>& data, string outputlabel,
          " records." << endl;
 
     static vector<string> labels = {
-       "PripadId",   "ID", "NovyHash",	"infekce",	"pohlavi",	"vek",	"Kraj_bydliste",	"ORP_Bydliste",	"Datum_pozitivity",	"DatumVysledku",	"Vylecen",	"Umrti",	"symptom",	"typ_testu",	"PrvniDavka",	"DruhaDavka",	"Ukoncene_ockovani",	"Extra_davka",	"Druha_extra_davka",	"OckovaciLatkaKod1",	"OckovaciLatkaKod2",	"OckovaciLatkaKod3",	"OckovaciLatkaKod4", "PrimPricinaHospCOVID",
+       "PripadId",   "ID", "NovyHash",	"infekce",	"pohlavi",	"vek",	"Kraj_bydliste",	"ORP_bydliste",	"Datum_pozitivity",	"DatumVysledku",	"Vylecen",	"Umrti",	"symptom",	"typ_testu",	"PrvniDavka",	"DruhaDavka",	"Ukoncene_ockovani",	"Extra_davka",	"Druha_extra_davka",	"OckovaciLatkaKod1",	"OckovaciLatkaKod2",	"OckovaciLatkaKod3",	"OckovaciLatkaKod4", "PrimPricinaHospCOVID",
        "bin_Hospitalizace",	"min_Hospitalizace",	"dni_Hospitalizace",	"max_Hospitalizace",	"bin_JIP",	"min_JIP",	"dni_JIP",	"max_JIP",	"bin_STAN",	"min_STAN",	"dni_STAN",	"max_STAN",	"bin_Kyslik",	"min_Kyslik",	"dni_Kyslik",	"max_Kyslik",	"bin_HFNO",	"min_HFNO",	"dni_HFNO",	"max_HFNO",	"bin_UPV_ECMO",	"min_UPV_ECMO",	"dni_UPV_ECMO",	"max_UPV_ECMO",	"Mutace",	"DatumUmrtiLPZ", "Long_COVID",
        "ODB_Long_COVID","kraj_icz_Long_COVID","kraj_pacient_Long_COVID","DCCI_r2010","DCCI_r2011","DCCI_r2012","DCCI_r2013","DCCI_r2014","DCCI_r2015","DCCI_r2016","DCCI_r2017","DCCI_r2018","DCCI_r2019","DCCI_r2020","DCCI_r2021","DCCI_r2022"
 
@@ -656,7 +664,7 @@ vector<statcounter> lccounts(numweeks);
                 int infindex = data(j,infekce)[0] - '1';
                 if(infindex < 0 || infindex >= is.size())
                 {
-                    cout << "field infekce = " << data(j,infekce) << endl;
+                    cout << "field infekce = " << data(j,infekce) << " at line " << j <<endl;
                     throw;
                 }
                 is[infindex] = j;
@@ -989,7 +997,7 @@ records ++;
 
             reldate relevantdate = emptyfound ?
                 relevantvaccdate : infdate;
-            if(relevantdate > ppp.safetydate)
+            if(relevantdate > ppp.safetydate && relevantdate != maxreldate)
             {
                 THROW("Relevant date beyond safety date", break)
             }
@@ -1877,6 +1885,8 @@ records ++;
 
         for(unsigned m=0; m<=1; m++)
         {
+            cout << "Adding " << (m ? "men" : "women") << endl;
+            cout << "Age,Total,Recorded,difference" << endl;
             vector<unsigned>& vs = m ? men : women;
             for(unsigned a=0; a<=lastage; a++)
             {
@@ -1903,66 +1913,74 @@ records ++;
                             dooutput = false;
                     }
 
+ 
                     if(dooutput)
                     {
                         int n = numpeopleofage(a,m,czsohalfyear)-vs[a] * ppp.everyn;
-                        if(n < 0)
+
+                        cout << a << "," << numpeopleofage(a,m,czsohalfyear) << "," << vs[a] * ppp.everyn << "," << n << endl;
+
+
+                        if(ppp.addfromczso)
                         {
-                            cout << "More of " << (m ? "men" : "women") << " ( " << vs[a]
-                                    << ") treated then exist of age " << a
-                                    << " (" << numpeopleofage(a,m,czsohalfyear) << ")" << endl;
+		                if(n < 0)
+		                {
+		                    cout << "More of " << (m ? "men" : "women") << " ( " << vs[a]
+		                            << ") treated then exist of age " << a
+		                            << " (" << numpeopleofage(a,m,czsohalfyear) << ")" << endl;
 
-                        }
-                        else
-                        {
-                          // cout << "Having " << vs[a] << " " << (m ? "men" : "women") << " of age " << a << ", we add " << n << endl;
-                           if(m)
-                               addedmen[g] += n;
-                            else
-                               addedwomen[g] += n;
-                        }
-
-
-                        //of course we do note guarantee ids to follow the "true ones". (maybe we should check whether we do not duplicate ids)
-
-
-                        for(int j=0; j<n; j++,i++)
-                        {
-                            if(++outputcounter % ppp.everyn)
-                                continue;
-                            peopleexported++;
-    //                        "ID,T1,T2,Infected,hospitalized,seriouscovidproxy,longcovid,DeadByCovid, DeadByOther, VariantComp";
-                            o << i << "," << 0 << "," << T << ",0,";
-                            if(mode == ehospitalization)
-                                o << "0,";
-                            else
-                                o << ",";
-                            if(mode == eseriouscovidproxy)
-                                o << "0,";
-                            else
-                                o << ",";
-                            if(mode == elongcovidevent || mode == elongcovidinfection)
-                                o << "0,";
-                            else
-                                o << ",";
-                            o << "0,0,,";
+		                }
+		                else
+		                {
+		                  // cout << "Having " << vs[a] << " " << (m ? "men" : "women") << " of age " << a << ", we add " << n << endl;
+		                   if(m)
+		                       addedmen[g] += n;
+		                    else
+		                       addedwomen[g] += n;
+		                }
 
 
-    //                         header << " InfPrior,VaccStatus,Immunity,Age,AgeGr,Sex";
+		                //of course we do note guarantee ids to follow the "true ones". (maybe we should check whether we do not duplicate ids)
 
-                            o << uninflabel << "," << unvacclabel << ","
-                              << (mode == elongcovidevent ? "" : noimmunitylabel) << ","
-                              << nodccilabel << ","
-                              << a << ","
-                              << agelabel << "," << gender2str(m)
-                              << ",_none,_none" << endl;
-                            if(dostat)
-                            {
-                                recordcov(uninflabel,0, stat.infprior);
-                                recordcov(unvacclabel,0,stat.vaccstatus);
-                                recordcov(agelabel,0,stat.agegroup);
-                            }
-                         }
+
+		                for(int j=0; j<n; j++,i++)
+		                {
+		                    if(++outputcounter % ppp.everyn)
+		                        continue;
+		                    peopleexported++;
+	    //                        "ID,T1,T2,Infected,hospitalized,seriouscovidproxy,longcovid,DeadByCovid, DeadByOther, VariantComp";
+		                    o << i << "," << 0 << "," << T << ",0,";
+		                    if(mode == ehospitalization)
+		                        o << "0,";
+		                    else
+		                        o << ",";
+		                    if(mode == eseriouscovidproxy)
+		                        o << "0,";
+		                    else
+		                        o << ",";
+		                    if(mode == elongcovidevent || mode == elongcovidinfection)
+		                        o << "0,";
+		                    else
+		                        o << ",";
+		                    o << "0,0,,";
+
+
+	    //                         header << " InfPrior,VaccStatus,Immunity,Age,AgeGr,Sex";
+
+		                    o << uninflabel << "," << unvacclabel << ","
+		                      << (mode == elongcovidevent ? "" : noimmunitylabel) << ","
+		                      << nodccilabel << ","
+		                      << a << ","
+		                      << agelabel << "," << gender2str(m)
+		                      << ",_none,_none" << endl;
+		                    if(dostat)
+		                    {
+		                        recordcov(uninflabel,0, stat.infprior);
+		                        recordcov(unvacclabel,0,stat.vaccstatus);
+		                        recordcov(agelabel,0,stat.agegroup);
+		                    }
+		                 }
+		           }
                      }
                  }
             }
