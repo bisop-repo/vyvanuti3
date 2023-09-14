@@ -1,0 +1,571 @@
+mkdir: cannot create directory ‘ProxyNew’: File exists
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.0     ✔ purrr     1.0.1
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.1     ✔ tibble    3.1.8
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Loading required package: maditr
+
+To aggregate all non-grouping columns: take_all(mtcars, mean, by = am)
+
+
+Attaching package: ‘maditr’
+
+The following objects are masked from ‘package:dplyr’:
+
+    between, coalesce, first, last
+
+The following object is masked from ‘package:purrr’:
+
+    transpose
+
+The following object is masked from ‘package:readr’:
+
+    cols
+
+
+Attaching package: ‘expss’
+
+The following objects are masked from ‘package:gtsummary’:
+
+    contains, vars
+
+The following objects are masked from ‘package:stringr’:
+
+    fixed, regex
+
+The following objects are masked from ‘package:dplyr’:
+
+    compute, contains, na_if, recode, vars, where
+
+The following objects are masked from ‘package:purrr’:
+
+    keep, modify, modify_if, when
+
+The following objects are masked from ‘package:tidyr’:
+
+    contains, nest
+
+The following object is masked from ‘package:ggplot2’:
+
+    vars
+
+
+Attaching package: ‘gt’
+
+The following objects are masked from ‘package:expss’:
+
+    contains, gt, tab_caption, vars
+
+Loading required package: ggpubr
+
+Attaching package: ‘ggpubr’
+
+The following object is masked from ‘package:expss’:
+
+    compare_means
+
+
+Attaching package: ‘survminer’
+
+The following object is masked from ‘package:survival’:
+
+    myeloma
+
+
+Attaching package: ‘scales’
+
+The following object is masked from ‘package:plotrix’:
+
+    rescale
+
+The following object is masked from ‘package:purrr’:
+
+    discard
+
+The following object is masked from ‘package:readr’:
+
+    col_factor
+
+gdata: read.xls support for 'XLS' (Excel 97-2004) files ENABLED.
+
+gdata: read.xls support for 'XLSX' (Excel 2007+) files ENABLED.
+
+Attaching package: ‘gdata’
+
+The following object is masked from ‘package:expss’:
+
+    keep
+
+The following objects are masked from ‘package:maditr’:
+
+    first, last
+
+The following objects are masked from ‘package:dplyr’:
+
+    combine, first, last
+
+The following object is masked from ‘package:purrr’:
+
+    keep
+
+The following object is masked from ‘package:stats’:
+
+    nobs
+
+The following object is masked from ‘package:utils’:
+
+    object.size
+
+The following object is masked from ‘package:base’:
+
+    startsWith
+
+Registered S3 method overwritten by 'gplots':
+  method         from 
+  reorder.factor gdata
+
+Attaching package: ‘gplots’
+
+The following object is masked from ‘package:gdata’:
+
+    reorder.factor
+
+The following object is masked from ‘package:plotrix’:
+
+    plotCI
+
+The following object is masked from ‘package:stats’:
+
+    lowess
+
+file:////tmp/RtmpAw4jko/file1d628329370dcc.html screenshot completed
+Saving 4 x 7 in image
+Warning message:
+system call failed: Cannot allocate memory 
+Group done
+mkdir: cannot create directory ‘ProxyBA12’: File exists
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.0     ✔ purrr     1.0.1
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.1     ✔ tibble    3.1.8
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Loading required package: maditr
+
+To aggregate several columns with one summary: take(mtcars, mpg, hp, fun = mean, by = am)
+
+
+Attaching package: ‘maditr’
+
+The following objects are masked from ‘package:dplyr’:
+
+    between, coalesce, first, last
+
+The following object is masked from ‘package:purrr’:
+
+    transpose
+
+The following object is masked from ‘package:readr’:
+
+    cols
+
+
+Use 'expss_output_rnotebook()' to display tables inside R Notebooks.
+ To return to the console output, use 'expss_output_default()'.
+
+
+Attaching package: ‘expss’
+
+The following objects are masked from ‘package:gtsummary’:
+
+    contains, vars
+
+The following objects are masked from ‘package:stringr’:
+
+    fixed, regex
+
+The following objects are masked from ‘package:dplyr’:
+
+    compute, contains, na_if, recode, vars, where
+
+The following objects are masked from ‘package:purrr’:
+
+    keep, modify, modify_if, when
+
+The following objects are masked from ‘package:tidyr’:
+
+    contains, nest
+
+The following object is masked from ‘package:ggplot2’:
+
+    vars
+
+
+Attaching package: ‘gt’
+
+The following objects are masked from ‘package:expss’:
+
+    contains, gt, tab_caption, vars
+
+Loading required package: ggpubr
+
+Attaching package: ‘ggpubr’
+
+The following object is masked from ‘package:expss’:
+
+    compare_means
+
+
+Attaching package: ‘survminer’
+
+The following object is masked from ‘package:survival’:
+
+    myeloma
+
+
+Attaching package: ‘scales’
+
+The following object is masked from ‘package:plotrix’:
+
+    rescale
+
+The following object is masked from ‘package:purrr’:
+
+    discard
+
+The following object is masked from ‘package:readr’:
+
+    col_factor
+
+gdata: read.xls support for 'XLS' (Excel 97-2004) files ENABLED.
+
+gdata: read.xls support for 'XLSX' (Excel 2007+) files ENABLED.
+
+Attaching package: ‘gdata’
+
+The following object is masked from ‘package:expss’:
+
+    keep
+
+The following objects are masked from ‘package:maditr’:
+
+    first, last
+
+The following objects are masked from ‘package:dplyr’:
+
+    combine, first, last
+
+The following object is masked from ‘package:purrr’:
+
+    keep
+
+The following object is masked from ‘package:stats’:
+
+    nobs
+
+The following object is masked from ‘package:utils’:
+
+    object.size
+
+The following object is masked from ‘package:base’:
+
+    startsWith
+
+Registered S3 method overwritten by 'gplots':
+  method         from 
+  reorder.factor gdata
+
+Attaching package: ‘gplots’
+
+The following object is masked from ‘package:gdata’:
+
+    reorder.factor
+
+The following object is masked from ‘package:plotrix’:
+
+    plotCI
+
+The following object is masked from ‘package:stats’:
+
+    lowess
+
+file:////tmp/RtmppuvHYc/file1ddcc864d78dae.html screenshot completed
+Saving 4 x 7 in image
+Group done
+mkdir: cannot create directory ‘LCinfO’: File exists
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.0     ✔ purrr     1.0.1
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.1     ✔ tibble    3.1.8
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Loading required package: maditr
+
+Use magrittr pipe '%>%' to chain several operations:
+             mtcars %>%
+                 let(mpg_hp = mpg/hp) %>%
+                 take(mean(mpg_hp), by = am)
+        
+
+
+Attaching package: ‘maditr’
+
+The following objects are masked from ‘package:dplyr’:
+
+    between, coalesce, first, last
+
+The following object is masked from ‘package:purrr’:
+
+    transpose
+
+The following object is masked from ‘package:readr’:
+
+    cols
+
+
+Attaching package: ‘expss’
+
+The following objects are masked from ‘package:gtsummary’:
+
+    contains, vars
+
+The following objects are masked from ‘package:stringr’:
+
+    fixed, regex
+
+The following objects are masked from ‘package:dplyr’:
+
+    compute, contains, na_if, recode, vars, where
+
+The following objects are masked from ‘package:purrr’:
+
+    keep, modify, modify_if, when
+
+The following objects are masked from ‘package:tidyr’:
+
+    contains, nest
+
+The following object is masked from ‘package:ggplot2’:
+
+    vars
+
+
+Attaching package: ‘gt’
+
+The following objects are masked from ‘package:expss’:
+
+    contains, gt, tab_caption, vars
+
+Loading required package: ggpubr
+
+Attaching package: ‘ggpubr’
+
+The following object is masked from ‘package:expss’:
+
+    compare_means
+
+
+Attaching package: ‘survminer’
+
+The following object is masked from ‘package:survival’:
+
+    myeloma
+
+
+Attaching package: ‘scales’
+
+The following object is masked from ‘package:plotrix’:
+
+    rescale
+
+The following object is masked from ‘package:purrr’:
+
+    discard
+
+The following object is masked from ‘package:readr’:
+
+    col_factor
+
+gdata: read.xls support for 'XLS' (Excel 97-2004) files ENABLED.
+
+gdata: read.xls support for 'XLSX' (Excel 2007+) files ENABLED.
+
+Attaching package: ‘gdata’
+
+The following object is masked from ‘package:expss’:
+
+    keep
+
+The following objects are masked from ‘package:maditr’:
+
+    first, last
+
+The following objects are masked from ‘package:dplyr’:
+
+    combine, first, last
+
+The following object is masked from ‘package:purrr’:
+
+    keep
+
+The following object is masked from ‘package:stats’:
+
+    nobs
+
+The following object is masked from ‘package:utils’:
+
+    object.size
+
+The following object is masked from ‘package:base’:
+
+    startsWith
+
+Registered S3 method overwritten by 'gplots':
+  method         from 
+  reorder.factor gdata
+
+Attaching package: ‘gplots’
+
+The following object is masked from ‘package:gdata’:
+
+    reorder.factor
+
+The following object is masked from ‘package:plotrix’:
+
+    plotCI
+
+The following object is masked from ‘package:stats’:
+
+    lowess
+
+file:////tmp/Rtmpyr7Pgc/file1e1620607ab35e.html screenshot completed
+Saving 7 x 7 in image
+Group done
+rm: cannot remove 'v3/report/results/*.*': No such file or directory
+cp: cannot create regular file 'v3/report/results/ProxyBA12T.txt': No such file or directory
+cp: cannot create regular file 'v3/report/results/ProxyNewT.txt': No such file or directory
+cp: cannot create regular file 'v3/report/results/LCAllT.txt': No such file or directory
+cp: cannot create regular file 'v3/report/results/LCInfT.txt': No such file or directory
+cp: cannot create regular file 'v3/report/results/ProxyBA12E.txt': No such file or directory
+cp: cannot create regular file 'v3/report/results/ProxyNewE.txt': No such file or directory
+cp: cannot create regular file 'v3/report/results/LCAllE.txt': No such file or directory
+cp: cannot create regular file 'v3/report/results/LCInfE.txt': No such file or directory
+cp: cannot create regular file 'v3/report/results/ProxyBA12H.png': No such file or directory
+cp: cannot create regular file 'v3/report/results/ProxyNewH.png': No such file or directory
+cp: cannot create regular file 'v3/report/results/LCAllH.png': No such file or directory
+cp: cannot create regular file 'v3/report/results/LCInfH.png': No such file or directory
+cp: cannot create regular file 'v3/report/results/ProxyBA12N.png': No such file or directory
+cp: cannot create regular file 'v3/report/results/ProxyNewN.png': No such file or directory
+cp: cannot create regular file 'v3/report/results/LCAllN.png': No such file or directory
+cp: cannot create regular file 'v3/report/results/LCInfN.png': No such file or directory
+cp: cannot create regular file 'v3/report/results/ProxyBA12M.txt': No such file or directory
+cp: cannot create regular file 'v3/report/results/ProxyNewM.txt': No such file or directory
+cp: cannot create regular file 'v3/report/results/LCAllM.txt': No such file or directory
+cp: cannot create regular file 'v3/report/results/LCInfM.txt': No such file or directory
+cp: cannot create regular file 'v3/report/results/ProxyBA12Z.txt': No such file or directory
+cp: cannot create regular file 'v3/report/results/ProxyNewZ.txt': No such file or directory
+cp: cannot create regular file 'v3/report/results/LCAllZ.txt': No such file or directory
+cp: cannot create regular file 'v3/report/results/LCInfZ.txt': No such file or directory
+cp: cannot create regular file 'v3/report/results/ProxyBA12C.TXT': No such file or directory
+cp: cannot create regular file 'v3/report/results/ProxyNewC.TXT': No such file or directory
+cp: cannot create regular file 'v3/report/results/LCAllC.TXT': No such file or directory
+cp: cannot create regular file 'v3/report/results/LCInfL.TXT': No such file or directory
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./report.tex
+LaTeX2e <2017-04-15>
+Babel <3.17> and hyphenation patterns for 3 language(s) loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo))
+(/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty))
+No file report.aux.
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty))))
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+[1{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}]
+(../ProxyBA12/cox_model_summary.tex
+Overfull \hbox (36.8421pt too wide) in paragraph at lines 5--62
+ [][] 
+)
+Overfull \hbox (45.62408pt too wide) in paragraph at lines 70--70
+ [] 
+(../ProxyBA12/est_table.tex) (../ProxyBA12/r_fin_mat.tex)
+(../ProxyBA12/z_score_mat.tex) [2 <../ProxyBA12/sum_tab.png> <../ProxyBA12/fore
+st_plot.png>] [3] [4] (../ProxyNew/cox_model_summary.tex
+Overfull \hbox (36.8421pt too wide) in paragraph at lines 5--86
+ [][] 
+
+LaTeX Warning: Float too large for page by 210.38887pt on input line 87.
+
+)
+Overfull \hbox (45.62408pt too wide) in paragraph at lines 71--71
+ [] 
+[5]
+Overfull \vbox (38.18138pt too high) has occurred while \output is active
+[6 <../ProxyNew/sum_tab.png> <../ProxyNew/forest_plot.png>]
+(../ProxyNew/est_table.tex) (../ProxyNew/r_fin_mat.tex)
+(../ProxyNew/z_score_mat.tex) [7] [8] (../LCallO/cox_model_summary.tex
+Overfull \hbox (26.03651pt too wide) in paragraph at lines 5--68
+ [][] 
+)
+Overfull \hbox (45.62408pt too wide) in paragraph at lines 72--72
+ [] 
+(../LCallO/est_table.tex) (../LCallO/r_fin_mat.tex) (../LCallO/z_score_mat.tex)
+[9 <../LCallO/sum_tab.png> <../LCallO/forest_plot.png>] [10] [11]
+(../LCinfO/logreg_model_summary.tex
+
+LaTeX Warning: Float too large for page by 42.38887pt on input line 73.
+
+)
+Overfull \hbox (45.62408pt too wide) in paragraph at lines 73--73
+ [] 
+[12]
+Overfull \vbox (39.40121pt too high) has occurred while \output is active
+[13 <../LCinfO/sum_tab.png> <../LCinfO/forest_plot.png>]
+(../LCinfO/est_table.tex) (../LCinfO/r_fin_mat.tex) (../LCinfO/z_score_mat.tex)
+[14] [15] (./report.aux) )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb>
+Output written on report.pdf (15 pages, 2070116 bytes).
+Transcript written on report.log.

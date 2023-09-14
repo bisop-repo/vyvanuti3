@@ -2,6 +2,7 @@
 
 ./proxyNew
 ./proxyBA12
-./lcallO
+#./lcallO
 ./lcinfO
+#./infO
 ./results

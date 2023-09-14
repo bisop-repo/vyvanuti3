@@ -1,0 +1,84 @@
+
+%% LyX 2.3.4.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[10pt]{article}
+\usepackage[section]{placeins}
+\usepackage{float}
+%\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[a4paper, total={6in,10in}]{geometry}
+
+\def\@makechapterhead#1{%
+  \vspace*{50\p@}%                                 % Insert 50pt (vertical) space
+  {\parindent \z@ \raggedright \normalfont         % No paragraph indent, ragged right
+    \ifnum \c@secnumdepth >\m@ne                   % If you should number chapters
+      \if@mainmatter                               % ... and you're in \mainmatter
+        \huge\bfseries \@chapapp\space \thechapter % huge, bold, Chapter + number
+        \par\nobreak                               % paragraph break without page break
+        \vskip 20\p@                               % Insert 20pt (vertical) space
+      \fi
+    \fi
+    \interlinepenalty\@M                           % Penalty
+    \Huge \bfseries #1\par\nobreak                 % Huge, bold chapter title
+    \vskip 40\p@                                   % Insert 40pt (vertical) space
+  }}
+
+\newcommand{\common}[2]{
+\begin{center}
+\begin{tabular}{cc}
+\begin{minipage}{4cm}
+\includegraphics[width=4cm]{../#1/sum_tab.png}
+\end{minipage}
+&
+\begin{minipage}{12cm}
+\includegraphics[width=12cm]{../#1/forest_plot.png}
+\end{minipage}
+\end{tabular}
+\end{center}
+\input{../#1/est_table.tex}
+\input{../#1/r_fin_mat.tex}
+\input{../#1/z_score_mat.tex}
+}
+
+\newcommand{\coxresult}[2]{\section{#2} 
+\input{../#1/cox_model_summary.tex}
+\common{#1}{#2}
+}
+
+\newcommand{\lrresult}[2]{\section{#2} 
+\input{../#1/logreg_model_summary.tex}
+\common{#1}{#2}
+}
+
+
+
+\begin{document}
+
+
+\title{Vyvanuti III}
+
+\author{Results of Statistical Estimation}
+
+\maketitle
+
+
+\newpage
+
+% \coxresult{../workscript}{Test Cox}
+% \lrresult{../workscript}{Test Logreg}
+
+\coxresult{ProxyBA12adults}{Serious Course BA12}
+\coxresult{ProxyNewadults}{Serious Course BA45+}
+\lrresult{LCinfOadults}{Long Covid BA12 - Infected}
+
+
+\end{document}
+
+\coxresultii{LongOmicron}{Long covid -- Omicron}
+
+\coxresult{InfOmicron}{Infections -- Omicron}
+
+\newpage
+
+\section*{Serious Course Given Infection}
+\end{document}

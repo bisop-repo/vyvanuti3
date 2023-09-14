@@ -9,7 +9,7 @@ string czfemalestr = "Z";
 string unvacclabel = "_unvaccinated";
 string uninflabel = "_uninfected";
 string noimmunitylabel = "_noimmunity";
-string nodccilabel = "_nodcci";
+string nodccilabel = "nodcci";
 
 string dcci2str(int dcci)
 {
@@ -435,6 +435,14 @@ void ockodata2R(csv<';'>& data, string outputlabel,
         throw;
     }
 
+    ofstream op(output + ".persons.csv");
+    if(!op)
+    {
+        cout << "Cannot open " + output + ".persons.csv" << endl;
+        throw;
+    }
+
+
     ofstream ou(output + ".unprocessed.csv");
     if(!ou)
     {
@@ -474,7 +482,7 @@ void ockodata2R(csv<';'>& data, string outputlabel,
          " records." << endl;
 
     static vector<string> labels = {
-       "PripadId",   "ID", "NovyHash",	"infekce",	"pohlavi",	"vek",	"Kraj_bydliste",	"ORP_bydliste",	"Datum_pozitivity",	"DatumVysledku",	"Vylecen",	"Umrti",	"symptom",	"typ_testu",	"PrvniDavka",	"DruhaDavka",	"Ukoncene_ockovani",	"Extra_davka",	"Druha_extra_davka",	"OckovaciLatkaKod1",	"OckovaciLatkaKod2",	"OckovaciLatkaKod3",	"OckovaciLatkaKod4", "PrimPricinaHospCOVID",
+       "PripadId",   "ID", "NovyHash",	"infekce",	"pohlavi",	"RokNarozeni",	"Kraj_bydliste",	"ORP_bydliste",	"Datum_pozitivity",	"DatumVysledku",	"Vylecen",	"Umrti",	"symptom",	"typ_testu",	"PrvniDavka",	"DruhaDavka",	"Ukoncene_ockovani",	"Extra_davka",	"Druha_extra_davka",	"OckovaciLatkaKod1",	"OckovaciLatkaKod2",	"OckovaciLatkaKod3",	"OckovaciLatkaKod4", "PrimPricinaHospCOVID",
        "bin_Hospitalizace",	"min_Hospitalizace",	"dni_Hospitalizace",	"max_Hospitalizace",	"bin_JIP",	"min_JIP",	"dni_JIP",	"max_JIP",	"bin_STAN",	"min_STAN",	"dni_STAN",	"max_STAN",	"bin_Kyslik",	"min_Kyslik",	"dni_Kyslik",	"max_Kyslik",	"bin_HFNO",	"min_HFNO",	"dni_HFNO",	"max_HFNO",	"bin_UPV_ECMO",	"min_UPV_ECMO",	"dni_UPV_ECMO",	"max_UPV_ECMO",	"Mutace",	"DatumUmrtiLPZ", "Long_COVID",
        "ODB_Long_COVID","kraj_icz_Long_COVID","kraj_pacient_Long_COVID","DCCI_r2010","DCCI_r2011","DCCI_r2012","DCCI_r2013","DCCI_r2014","DCCI_r2015","DCCI_r2016","DCCI_r2017","DCCI_r2018","DCCI_r2019","DCCI_r2020","DCCI_r2021","DCCI_r2022"
 
@@ -595,9 +603,22 @@ vector<statcounter> lccounts(numweeks);
     unsigned records = 0;
     vector<unsigned> withoutvacc(enumvaccorders, 0);
 
+    struct personrecord
+    {
+        unsigned ybirth = 0;
+        string agegr = "NA";
+        string gender = "NA";
+        string orp = "NA";
+        string lastdcci = "NA";
+        bool event = false;
+        bool excluded = true;
+        bool agefiltered = false;
+    };
+
+    vector<personrecord> persons;
+
     for(unsigned i=1; i<data.r(); i=firstnext )
     {
-
         reldate deathcoviddate = maxreldate;
         reldate deathotherdate = maxreldate;
 
@@ -693,15 +714,88 @@ vector<statcounter> lccounts(numweeks);
         if(++outputcounter % ppp.everyn )
             continue;
 
+        persons.push_back(personrecord());
+        personrecord& pr = persons[persons.size()-1];
+
+        pr.orp = data(i,ORP_Bydliste);
+
+        string gstr = data(i,pohlavi);
+
+        bool male;
+        if(gstr != malestr && gstr != femalestr && gstr != czfemalestr)
+        {
+            THROWS("Unknown gender ", gstr,continue);
+        }
+        else
+        {
+            male = gstr == malestr;
+            pr.gender = gstr;
+        }
+
+        time_t t = ppp.firstdate * 86400;
+        tm* ti = localtime(&t);
+        int fdy = ti->tm_year + 1900;
+
+        string birthstring = data(i,RokNarozeni);
+        unsigned age;
+        unsigned agegroup;
+        if(birthstring=="")
+        {
+            THROW("Missing birth.",continue);
+        }
+        else
+        {
+            try
+            {
+                pr.ybirth = stoi(birthstring);
+                int maybeage = fdy - stoi(birthstring);
+                if(maybeage < 0)
+                {
+                    THROWS("Person born after study starts", "(" << birthstring << ")",continue);
+                }
+
+                age = maybeage;
+                if(age < minage || age > maxage)
+                {
+                   pr.agefiltered = true;
+                   continue;
+                }
+
+
+                if(deathcoviddate >= ppp.firstdate && deathotherdate>= ppp.firstdate)
+                {
+                    auto correctedage = min(age,lastage);
+                    if(male)
+                    {
+                        assert(!(correctedage < 0 || correctedage > men.size()));
+                        men[correctedage]++;
+                    }
+                    else
+                    {
+                        assert(!(correctedage < 0 || correctedage > women.size()));
+                        women[correctedage]++;
+                    }
+                }
+                agegroup=age2groupnum(age);
+                pr.agegr = grouplabel(agegroup);
+
+                assert(agegroup < enumagegroups);
+
+            }
+            catch (...)
+            {
+                THROWS("Cannot convert birth data", "(" << birthstring << ") to unsigned",continue);
+            }
+        }
+
+
 
         bool firstrecord = true;
         bool isdead = false;
         reldate disttofirst = maxreldate;
-        unsigned relevantrecord;
 
         reldate longcoviddate = maxreldate;
 
-        unsigned oldi=i;
         for(unsigned k=0; k<is.size(); k++)
         {
             if(isdead)
@@ -840,6 +934,7 @@ records ++;
 
                 if(data(j,lastDCCI) != "")
                 {
+                   pr.lastdcci = data(j,lastDCCI);
                    for(int k=firstDCCI; k<=lastDCCI; k++)
                    {
                        int score;
@@ -1011,7 +1106,6 @@ records ++;
             if(abs(ppp.firstdate-relevantdate) < disttofirst)
             {
                 disttofirst = abs(ppp.firstdate-relevantdate);
-                relevantrecord = j;
             }
 
             firstrecord = false;
@@ -1048,65 +1142,6 @@ records ++;
         }
 
 
-        string gstr = data(oldi,pohlavi);
-
-        bool male;
-        if(gstr != malestr && gstr != femalestr && gstr != czfemalestr)
-        {
-            THROWS("Unknown gender ", gstr,continue);
-        }
-        else
-            male = gstr == malestr;
-
-        time_t t = ppp.firstdate * 86400;
-        tm* ti = localtime(&t);
-        int fdy = ti->tm_year + 1900;
-
-        string birthstring = data(relevantrecord,RokNarozeni);
-        unsigned age;
-        if(birthstring=="")
-        {
-            THROW("Missing birth.",continue);
-        }
-        else
-        {
-            try
-            {
-                int maybeage = fdy - stoi(birthstring);
-                if(maybeage < 0)
-                {
-                    THROWS("Person born after study starts", "(" << birthstring << ")",continue);
-                }
-
-                age = maybeage;
-                if(age < minage || age > maxage)
-                {
-                   continue;
-                }
-                if(deathcoviddate >= ppp.firstdate && deathotherdate>= ppp.firstdate)
-                {
-                    auto correctedage = min(age,lastage);
-                    if(male)
-                    {
-                        assert(!(correctedage < 0 || correctedage > men.size()));
-                        men[correctedage]++;
-                    }
-                    else
-                    {
-                        assert(!(correctedage < 0 || correctedage > women.size()));
-                        women[correctedage]++;
-                    }
-                }
-            }
-            catch (...)
-            {
-                THROWS("Cannot convert birth data", "(" << birthstring << ") to unsigned",continue);
-            }
-        }
-
-        unsigned agegroup=age2groupnum(age);
-
-        assert(agegroup < enumagegroups);
 
         if(ppp.descstat && dostat)
         {
@@ -1198,6 +1233,8 @@ records ++;
 //  bool debug = (id % 100) == 0;
 
         string immunityatinfstring = "";
+
+        pr.excluded = false;
 
         for(;;)
         {
@@ -1813,6 +1850,7 @@ records ++;
 
                      if(isevent)
                      {
+                         pr.event = true;
                          oe << os.str();
 // tbd kopiruje sem jen první řádek ze zdroje
                          for(unsigned j=0; j<enumlabels; j++)
@@ -1886,7 +1924,7 @@ records ++;
 
         auto czsohalfyear = (ppp.firstdate - dateoffirstczsohalfyear) / (366 / 2);
 
-        cout << "Adding records from CZSO from " << (czsohalfyear+1)
+        cout << (ppp.addfromczso ? "Adding records from " : "Comparison with " ) << "CZSO from " << (czsohalfyear+1)
              << "th half-year" << endl;
 
         unsigned ng;
@@ -2061,6 +2099,17 @@ records ++;
     cout << "Mode " << mdelabels[mode] << endl;
     cout << "Age filter: " << minage << "-" << maxage << endl;
     cout << endl;
+
+
+    op << "ybirth,agegr,gender,orp,lastdcci,event,excluded,agefiltered"  << endl;
+    for(unsigned j=0; j<persons.size(); j++)
+    {
+        auto& pr = persons[j];
+        op << pr.ybirth << "," << pr.agegr << "," << pr.gender << "," << pr.orp << ","
+           << pr.lastdcci << "," << (pr.event ? 1 : 0) << "," << (pr.excluded ? 1: 0) 
+           << "," << (pr.agefiltered ? 1: 0) << endl;
+    }
+
 
 ofstream lc("lc.csv");
 lc<<"day,count, ratio,seratio,length,selength"<< endl;

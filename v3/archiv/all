@@ -1,8 +1,0 @@
-#!/bin/bash
-
-./proxyNew45sb
-./hospNew45sb
-./proxyBA12
-./hospBA12
-
-

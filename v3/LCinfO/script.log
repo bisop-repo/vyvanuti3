@@ -1,9 +1,9 @@
-<div id="waqbeejegr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="itybipqukf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#waqbeejegr .gt_table {
+#itybipqukf .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -28,7 +28,7 @@
   border-left-color: #D3D3D3;
 }
 
-#waqbeejegr .gt_heading {
+#itybipqukf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -40,12 +40,12 @@
   border-right-color: #D3D3D3;
 }
 
-#waqbeejegr .gt_caption {
+#itybipqukf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#waqbeejegr .gt_title {
+#itybipqukf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -57,7 +57,7 @@
   border-bottom-width: 0;
 }
 
-#waqbeejegr .gt_subtitle {
+#itybipqukf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -69,13 +69,13 @@
   border-top-width: 0;
 }
 
-#waqbeejegr .gt_bottom_border {
+#itybipqukf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#waqbeejegr .gt_col_headings {
+#itybipqukf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -90,7 +90,7 @@
   border-right-color: #D3D3D3;
 }
 
-#waqbeejegr .gt_col_heading {
+#itybipqukf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -110,7 +110,7 @@
   overflow-x: hidden;
 }
 
-#waqbeejegr .gt_column_spanner_outer {
+#itybipqukf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -122,15 +122,15 @@
   padding-right: 4px;
 }
 
-#waqbeejegr .gt_column_spanner_outer:first-child {
+#itybipqukf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#waqbeejegr .gt_column_spanner_outer:last-child {
+#itybipqukf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#waqbeejegr .gt_column_spanner {
+#itybipqukf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -142,7 +142,7 @@
   width: 100%;
 }
 
-#waqbeejegr .gt_group_heading {
+#itybipqukf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -168,7 +168,7 @@
   text-align: left;
 }
 
-#waqbeejegr .gt_empty_group_heading {
+#itybipqukf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -183,15 +183,15 @@
   vertical-align: middle;
 }
 
-#waqbeejegr .gt_from_md > :first-child {
+#itybipqukf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#waqbeejegr .gt_from_md > :last-child {
+#itybipqukf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#waqbeejegr .gt_row {
+#itybipqukf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -210,7 +210,7 @@
   overflow-x: hidden;
 }
 
-#waqbeejegr .gt_stub {
+#itybipqukf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -223,7 +223,7 @@
   padding-right: 5px;
 }
 
-#waqbeejegr .gt_stub_row_group {
+#itybipqukf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -237,11 +237,11 @@
   vertical-align: top;
 }
 
-#waqbeejegr .gt_row_group_first td {
+#itybipqukf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#waqbeejegr .gt_summary_row {
+#itybipqukf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -251,16 +251,16 @@
   padding-right: 5px;
 }
 
-#waqbeejegr .gt_first_summary_row {
+#itybipqukf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#waqbeejegr .gt_first_summary_row.thick {
+#itybipqukf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#waqbeejegr .gt_last_summary_row {
+#itybipqukf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -270,7 +270,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#waqbeejegr .gt_grand_summary_row {
+#itybipqukf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -280,7 +280,7 @@
   padding-right: 5px;
 }
 
-#waqbeejegr .gt_first_grand_summary_row {
+#itybipqukf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -290,11 +290,11 @@
   border-top-color: #D3D3D3;
 }
 
-#waqbeejegr .gt_striped {
+#itybipqukf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#waqbeejegr .gt_table_body {
+#itybipqukf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -303,7 +303,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#waqbeejegr .gt_footnotes {
+#itybipqukf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -317,7 +317,7 @@
   border-right-color: #D3D3D3;
 }
 
-#waqbeejegr .gt_footnote {
+#itybipqukf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -326,7 +326,7 @@
   padding-right: 5px;
 }
 
-#waqbeejegr .gt_sourcenotes {
+#itybipqukf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -340,7 +340,7 @@
   border-right-color: #D3D3D3;
 }
 
-#waqbeejegr .gt_sourcenote {
+#itybipqukf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -348,64 +348,64 @@
   padding-right: 5px;
 }
 
-#waqbeejegr .gt_left {
+#itybipqukf .gt_left {
   text-align: left;
 }
 
-#waqbeejegr .gt_center {
+#itybipqukf .gt_center {
   text-align: center;
 }
 
-#waqbeejegr .gt_right {
+#itybipqukf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#waqbeejegr .gt_font_normal {
+#itybipqukf .gt_font_normal {
   font-weight: normal;
 }
 
-#waqbeejegr .gt_font_bold {
+#itybipqukf .gt_font_bold {
   font-weight: bold;
 }
 
-#waqbeejegr .gt_font_italic {
+#itybipqukf .gt_font_italic {
   font-style: italic;
 }
 
-#waqbeejegr .gt_super {
+#itybipqukf .gt_super {
   font-size: 65%;
 }
 
-#waqbeejegr .gt_footnote_marks {
+#itybipqukf .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#waqbeejegr .gt_asterisk {
+#itybipqukf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#waqbeejegr .gt_indent_1 {
+#itybipqukf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#waqbeejegr .gt_indent_2 {
+#itybipqukf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#waqbeejegr .gt_indent_3 {
+#itybipqukf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#waqbeejegr .gt_indent_4 {
+#itybipqukf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#waqbeejegr .gt_indent_5 {
+#itybipqukf .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -414,104 +414,120 @@
   <thead class="gt_col_headings">
     <tr>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;N = 1,486,355&lt;/strong&gt;&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>N = 1,486,355</strong><sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;N = 1,176,493&lt;/strong&gt;&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>N = 1,176,493</strong><sup class="gt_footnote_marks">1</sup></th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
     <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">LongCovid</td>
-<td headers="stat_0" class="gt_row gt_center">15,582 (1.0%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">15,587 (1.3%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Immunity</td>
 <td headers="stat_0" class="gt_row gt_center"></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    _noimmunity</td>
-<td headers="stat_0" class="gt_row gt_center">430,865 (29%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">253,202 (22%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    _other</td>
-<td headers="stat_0" class="gt_row gt_center">18,912 (1.3%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">13,320 (1.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    boost_001-061</td>
-<td headers="stat_0" class="gt_row gt_center">133,091 (9.0%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">126,737 (11%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    boost_062-122</td>
-<td headers="stat_0" class="gt_row gt_center">124,741 (8.4%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">121,903 (10%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    boost_123-183</td>
-<td headers="stat_0" class="gt_row gt_center">43,009 (2.9%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">41,718 (3.5%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    boost_184-244</td>
-<td headers="stat_0" class="gt_row gt_center">49,726 (3.3%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">48,291 (4.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    boost_245-305</td>
-<td headers="stat_0" class="gt_row gt_center">38,424 (2.6%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">38,005 (3.2%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    boost_306-366</td>
-<td headers="stat_0" class="gt_row gt_center">4,948 (0.3%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">4,909 (0.4%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_001-061</td>
-<td headers="stat_0" class="gt_row gt_center">34,085 (2.3%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">23,079 (2.0%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_062-122</td>
-<td headers="stat_0" class="gt_row gt_center">38,849 (2.6%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">28,503 (2.4%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_123-183</td>
-<td headers="stat_0" class="gt_row gt_center">122,630 (8.3%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">85,332 (7.3%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_184-244</td>
-<td headers="stat_0" class="gt_row gt_center">127,476 (8.6%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">118,129 (10%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_245-305</td>
-<td headers="stat_0" class="gt_row gt_center">33,467 (2.3%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">31,911 (2.7%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_306-366</td>
-<td headers="stat_0" class="gt_row gt_center">15,266 (1.0%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">14,088 (1.2%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_367-427</td>
-<td headers="stat_0" class="gt_row gt_center">11,878 (0.8%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">11,161 (0.9%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_428-488</td>
-<td headers="stat_0" class="gt_row gt_center">3,113 (0.2%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">3,053 (0.3%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_489-549</td>
-<td headers="stat_0" class="gt_row gt_center">664 (&lt;0.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">652 (&lt;0.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridboost_001-061</td>
-<td headers="stat_0" class="gt_row gt_center">17,469 (1.2%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">17,027 (1.4%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridboost_062-122</td>
-<td headers="stat_0" class="gt_row gt_center">13,462 (0.9%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">13,256 (1.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridboost_123-183</td>
-<td headers="stat_0" class="gt_row gt_center">6,575 (0.4%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">6,418 (0.5%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridboost_184-244</td>
-<td headers="stat_0" class="gt_row gt_center">11,061 (0.7%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">10,842 (0.9%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridboost_245-305</td>
-<td headers="stat_0" class="gt_row gt_center">5,358 (0.4%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">5,312 (0.5%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridboost_306-366</td>
-<td headers="stat_0" class="gt_row gt_center">417 (&lt;0.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">415 (&lt;0.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_001-061</td>
-<td headers="stat_0" class="gt_row gt_center">4,148 (0.3%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">3,393 (0.3%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_062-122</td>
-<td headers="stat_0" class="gt_row gt_center">12,011 (0.8%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">10,710 (0.9%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_123-183</td>
-<td headers="stat_0" class="gt_row gt_center">23,154 (1.6%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">19,823 (1.7%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_184-244</td>
-<td headers="stat_0" class="gt_row gt_center">27,239 (1.8%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">25,882 (2.2%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_245-305</td>
-<td headers="stat_0" class="gt_row gt_center">10,738 (0.7%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">10,386 (0.9%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_306-366</td>
-<td headers="stat_0" class="gt_row gt_center">4,635 (0.3%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">4,448 (0.4%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_367-427</td>
-<td headers="stat_0" class="gt_row gt_center">2,905 (0.2%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">2,813 (0.2%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_428-488</td>
-<td headers="stat_0" class="gt_row gt_center">754 (&lt;0.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">749 (&lt;0.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_489-549</td>
-<td headers="stat_0" class="gt_row gt_center">142 (&lt;0.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">141 (&lt;0.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    inf_062-122</td>
-<td headers="stat_0" class="gt_row gt_center">21,364 (1.4%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">10,435 (0.9%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    inf_123-183</td>
-<td headers="stat_0" class="gt_row gt_center">9,907 (0.7%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">7,152 (0.6%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    inf_184-244</td>
-<td headers="stat_0" class="gt_row gt_center">10,159 (0.7%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">7,406 (0.6%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    inf_245-305</td>
-<td headers="stat_0" class="gt_row gt_center">9,579 (0.6%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">6,841 (0.6%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    inf_306-366</td>
-<td headers="stat_0" class="gt_row gt_center">19,148 (1.3%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">13,880 (1.2%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    inf_367-427</td>
-<td headers="stat_0" class="gt_row gt_center">18,964 (1.3%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">14,166 (1.2%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    inf_428-488</td>
-<td headers="stat_0" class="gt_row gt_center">16,958 (1.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">13,251 (1.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    inf_489-549</td>
-<td headers="stat_0" class="gt_row gt_center">7,224 (0.5%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">5,942 (0.5%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    secboost_001-061</td>
-<td headers="stat_0" class="gt_row gt_center">1,790 (0.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">1,764 (0.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    secboost_062-122</td>
-<td headers="stat_0" class="gt_row gt_center">50 (&lt;0.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">48 (&lt;0.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DCCI</td>
+<td headers="stat_0" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    0</td>
+<td headers="stat_0" class="gt_row gt_center">648,332 (55%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    1</td>
+<td headers="stat_0" class="gt_row gt_center">282,607 (24%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    2</td>
+<td headers="stat_0" class="gt_row gt_center">118,879 (10%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    3</td>
+<td headers="stat_0" class="gt_row gt_center">57,730 (4.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    4</td>
+<td headers="stat_0" class="gt_row gt_center">29,690 (2.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    5</td>
+<td headers="stat_0" class="gt_row gt_center">15,810 (1.3%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    6+</td>
+<td headers="stat_0" class="gt_row gt_center">23,445 (2.0%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Sex</td>
 <td headers="stat_0" class="gt_row gt_center"></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    F</td>
-<td headers="stat_0" class="gt_row gt_center">802,367 (54%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">649,835 (55%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    M</td>
-<td headers="stat_0" class="gt_row gt_center">683,988 (46%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">526,658 (45%)</td></tr>
   </tbody>
   
   <tfoot class="gt_footnotes">
@@ -543,12 +559,12 @@
 [39] "Immunityinf_428-488"         "Immunityinf_489-549"        
 [41] "Immunitysecboost_001-061"    "Immunitysecboost_062-122"   
 [43] "DCCI1"                       "DCCI2"                      
-[45] "DCCI3"                       "DCCI4+"                     
-[47] "AgeGr0-11"                   "AgeGr12-15"                 
-[49] "AgeGr16-17"                  "AgeGr18-24"                 
-[51] "AgeGr25-29"                  "AgeGr30-34"                 
-[53] "AgeGr35-39"                  "AgeGr45-49"                 
-[55] "AgeGr50-54"                  "AgeGr55-59"                 
-[57] "AgeGr60-64"                  "AgeGr65-69"                 
-[59] "AgeGr70-74"                  "AgeGr75-79"                 
-[61] "AgeGr80+"                    "SexM"                       
+[45] "DCCI3"                       "DCCI4"                      
+[47] "DCCI5"                       "DCCI6+"                     
+[49] "AgeGr18-24"                  "AgeGr25-29"                 
+[51] "AgeGr30-34"                  "AgeGr35-39"                 
+[53] "AgeGr45-49"                  "AgeGr50-54"                 
+[55] "AgeGr55-59"                  "AgeGr60-64"                 
+[57] "AgeGr65-69"                  "AgeGr70-74"                 
+[59] "AgeGr75-79"                  "AgeGr80+"                   
+[61] "SexM"                       

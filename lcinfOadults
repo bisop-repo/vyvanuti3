@@ -1,0 +1,4 @@
+#!/bin/bash
+
+./coxadults LCinfOadults cO-icb 2021-12-01 2022-09-30 LCINF 
+

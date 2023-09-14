@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cp v3/ProxyBA12adults/$1.$2 v3/reportadults/results/ProxyBA12$3.$2
+cp v3/ProxyNewadults/$1.$2 v3/reportadults/results/ProxyNew$3.$2
+cp v3/LCinfOadults/$1.$2 v3/reportadults/results/LCInf$3.$2
+
+
+

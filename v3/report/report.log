@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2022.2.17)  4 JUL 2023 15:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2022.2.17)  29 AUG 2023 11:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -212,18 +212,18 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 5.
 
-Overfull \hbox (44.31436pt too wide) in paragraph at lines 5--57
+Overfull \hbox (36.8421pt too wide) in paragraph at lines 5--62
  [][] 
  []
 
 )
-<../ProxyBA12/sum_tab.png, id=9, 660.4675pt x 2810.5pt>
+<../ProxyBA12/sum_tab.png, id=9, 660.4675pt x 2661.945pt>
 File: ../ProxyBA12/sum_tab.png Graphic file (type png)
 <use ../ProxyBA12/sum_tab.png>
 Package pdftex.def Info: ../ProxyBA12/sum_tab.png  used on input line 70. on in
 put line 70.
-Package pdftex.def Info: Requested size: 113.81102pt x 484.29716pt on input lin
-e 70.
+Package pdftex.def Info: Requested size: 113.81102pt x 458.6986pt on input line
+ 70.
 <../ProxyBA12/forest_plot.png, id=11, 289.08pt x 505.89pt>
 File: ../ProxyBA12/forest_plot.png Graphic file (type png)
 <use ../ProxyBA12/forest_plot.png>
@@ -239,20 +239,20 @@ Overfull \hbox (45.62408pt too wide) in paragraph at lines 70--70
 (../ProxyBA12/est_table.tex) (../ProxyBA12/r_fin_mat.tex)
 (../ProxyBA12/z_score_mat.tex) [2 <../ProxyBA12/sum_tab.png> <../ProxyBA12/fore
 st_plot.png>] [3] [4] (../ProxyNew/cox_model_summary.tex
-Overfull \hbox (54.31439pt too wide) in paragraph at lines 5--78
+Overfull \hbox (36.8421pt too wide) in paragraph at lines 5--86
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 114.38887pt on input line 79.
+LaTeX Warning: Float too large for page by 210.38887pt on input line 87.
 
 )
-<../ProxyNew/sum_tab.png, id=23, 660.4675pt x 4370.3275pt>
+<../ProxyNew/sum_tab.png, id=23, 660.4675pt x 4444.605pt>
 File: ../ProxyNew/sum_tab.png Graphic file (type png)
 <use ../ProxyNew/sum_tab.png>
 Package pdftex.def Info: ../ProxyNew/sum_tab.png  used on input line 71. on inp
 ut line 71.
-Package pdftex.def Info: Requested size: 113.81102pt x 753.08209pt on input lin
+Package pdftex.def Info: Requested size: 113.81102pt x 765.88138pt on input lin
 e 71.
 <../ProxyNew/forest_plot.png, id=24, 289.08pt x 505.89pt>
 File: ../ProxyNew/forest_plot.png Graphic file (type png)
@@ -269,53 +269,24 @@ Overfull \hbox (45.62408pt too wide) in paragraph at lines 71--71
 [5
 
 ]
-Overfull \vbox (25.3821pt too high) has occurred while \output is active []
+Overfull \vbox (38.18138pt too high) has occurred while \output is active []
 
 
 [6 <../ProxyNew/sum_tab.png> <../ProxyNew/forest_plot.png>]
 (../ProxyNew/est_table.tex) (../ProxyNew/r_fin_mat.tex)
-(../ProxyNew/z_score_mat.tex) [7] [8] (../LCallO/cox_model_summary.tex
-Overfull \hbox (26.03651pt too wide) in paragraph at lines 5--62
- [][] 
- []
+(../ProxyNew/z_score_mat.tex) [7] [8] (../LCinfO/logreg_model_summary.tex
+
+LaTeX Warning: Float too large for page by 42.38887pt on input line 73.
 
 )
-<../LCallO/sum_tab.png, id=39, 660.4675pt x 3181.8875pt>
-File: ../LCallO/sum_tab.png Graphic file (type png)
-<use ../LCallO/sum_tab.png>
-Package pdftex.def Info: ../LCallO/sum_tab.png  used on input line 72. on input
- line 72.
-Package pdftex.def Info: Requested size: 113.81102pt x 548.29358pt on input lin
-e 72.
-<../LCallO/forest_plot.png, id=40, 289.08pt x 505.89pt>
-File: ../LCallO/forest_plot.png Graphic file (type png)
-<use ../LCallO/forest_plot.png>
-Package pdftex.def Info: ../LCallO/forest_plot.png  used on input line 72. on i
-nput line 72.
-Package pdftex.def Info: Requested size: 341.43306pt x 597.5394pt on input line
- 72.
-
-Overfull \hbox (45.62408pt too wide) in paragraph at lines 72--72
- [] 
- []
-
-(../LCallO/est_table.tex) (../LCallO/r_fin_mat.tex) (../LCallO/z_score_mat.tex)
-[9
-
- <../LCallO/sum_tab.png> <../LCallO/forest_plot.png>] [10] [11]
-(../LCinfO/logreg_model_summary.tex
-
-LaTeX Warning: Float too large for page by 18.38887pt on input line 71.
-
-)
-<../LCinfO/sum_tab.png, id=51, 626.34pt x 3627.5525pt>
+<../LCinfO/sum_tab.png, id=39, 626.34pt x 4221.7725pt>
 File: ../LCinfO/sum_tab.png Graphic file (type png)
 <use ../LCinfO/sum_tab.png>
 Package pdftex.def Info: ../LCinfO/sum_tab.png  used on input line 73. on input
  line 73.
-Package pdftex.def Info: Requested size: 113.81102pt x 659.1307pt on input line
- 73.
-<../LCinfO/forest_plot.png, id=52, 505.6491pt x 505.6491pt>
+Package pdftex.def Info: Requested size: 113.81102pt x 767.10121pt on input lin
+e 73.
+<../LCinfO/forest_plot.png, id=40, 505.6491pt x 505.6491pt>
 File: ../LCinfO/forest_plot.png Graphic file (type png)
 <use ../LCinfO/forest_plot.png>
 Package pdftex.def Info: ../LCinfO/forest_plot.png  used on input line 73. on i
@@ -327,29 +298,35 @@ Overfull \hbox (45.62408pt too wide) in paragraph at lines 73--73
  [] 
  []
 
-(../LCinfO/est_table.tex) (../LCinfO/r_fin_mat.tex) (../LCinfO/z_score_mat.tex)
-[12
+[9
 
- <../LCinfO/sum_tab.png> <../LCinfO/forest_plot.png>] [13] [14]
-(./report.aux) ) 
+]
+Overfull \vbox (39.40121pt too high) has occurred while \output is active []
+
+
+[10 <../LCinfO/sum_tab.png> <../LCinfO/forest_plot.png>]
+(../LCinfO/est_table.tex) (../LCinfO/r_fin_mat.tex) (../LCinfO/z_score_mat.tex)
+[11] [12] (./out/trendtable.tex) [13
+
+] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 2070 strings out of 494917
- 30625 string characters out of 6180699
- 124750 words of memory out of 5000000
- 5336 multiletter control sequences out of 15000+600000
+ 2057 strings out of 494917
+ 30233 string characters out of 6180699
+ 128750 words of memory out of 5000000
+ 5328 multiletter control sequences out of 15000+600000
  7280 words of font info for 26 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  41i,12n,31p,273b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on report.pdf (14 pages, 2012538 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on report.pdf (13 pages, 1607166 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
+ 81 PDF objects out of 1000 (max. 8388607)
+ 50 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

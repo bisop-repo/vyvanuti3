@@ -42,7 +42,7 @@ if (args[2]=="LCINF") {
   
   sumstat <- c("LongCovid","Immunity", "Agegr", "DCCI", "Sex")
 } else  {
-  f <- as.formula(paste("Surv(T1, T2,",args[2],") ~ Immunity + DCCI  + AgeGr + Sex "))
+  f <- as.formula(paste("Surv(T1, T2,",args[2],") ~ Immunity + DCCI + AgeGr + Sex "))
   m1 <- coxph(f,  data = data)
   sumstat <- c(args[2],"Immunity", "Agegr", "Sex")
 }

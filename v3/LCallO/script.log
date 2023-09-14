@@ -1,9 +1,9 @@
-<div id="mzridickcn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="klwregalcf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#mzridickcn .gt_table {
+#klwregalcf .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -28,7 +28,7 @@
   border-left-color: #D3D3D3;
 }
 
-#mzridickcn .gt_heading {
+#klwregalcf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -40,12 +40,12 @@
   border-right-color: #D3D3D3;
 }
 
-#mzridickcn .gt_caption {
+#klwregalcf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#mzridickcn .gt_title {
+#klwregalcf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -57,7 +57,7 @@
   border-bottom-width: 0;
 }
 
-#mzridickcn .gt_subtitle {
+#klwregalcf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -69,13 +69,13 @@
   border-top-width: 0;
 }
 
-#mzridickcn .gt_bottom_border {
+#klwregalcf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#mzridickcn .gt_col_headings {
+#klwregalcf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -90,7 +90,7 @@
   border-right-color: #D3D3D3;
 }
 
-#mzridickcn .gt_col_heading {
+#klwregalcf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -110,7 +110,7 @@
   overflow-x: hidden;
 }
 
-#mzridickcn .gt_column_spanner_outer {
+#klwregalcf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -122,15 +122,15 @@
   padding-right: 4px;
 }
 
-#mzridickcn .gt_column_spanner_outer:first-child {
+#klwregalcf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mzridickcn .gt_column_spanner_outer:last-child {
+#klwregalcf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mzridickcn .gt_column_spanner {
+#klwregalcf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -142,7 +142,7 @@
   width: 100%;
 }
 
-#mzridickcn .gt_group_heading {
+#klwregalcf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -168,7 +168,7 @@
   text-align: left;
 }
 
-#mzridickcn .gt_empty_group_heading {
+#klwregalcf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -183,15 +183,15 @@
   vertical-align: middle;
 }
 
-#mzridickcn .gt_from_md > :first-child {
+#klwregalcf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mzridickcn .gt_from_md > :last-child {
+#klwregalcf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mzridickcn .gt_row {
+#klwregalcf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -210,7 +210,7 @@
   overflow-x: hidden;
 }
 
-#mzridickcn .gt_stub {
+#klwregalcf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -223,7 +223,7 @@
   padding-right: 5px;
 }
 
-#mzridickcn .gt_stub_row_group {
+#klwregalcf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -237,11 +237,11 @@
   vertical-align: top;
 }
 
-#mzridickcn .gt_row_group_first td {
+#klwregalcf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#mzridickcn .gt_summary_row {
+#klwregalcf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -251,16 +251,16 @@
   padding-right: 5px;
 }
 
-#mzridickcn .gt_first_summary_row {
+#klwregalcf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#mzridickcn .gt_first_summary_row.thick {
+#klwregalcf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#mzridickcn .gt_last_summary_row {
+#klwregalcf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -270,7 +270,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#mzridickcn .gt_grand_summary_row {
+#klwregalcf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -280,7 +280,7 @@
   padding-right: 5px;
 }
 
-#mzridickcn .gt_first_grand_summary_row {
+#klwregalcf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -290,11 +290,11 @@
   border-top-color: #D3D3D3;
 }
 
-#mzridickcn .gt_striped {
+#klwregalcf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#mzridickcn .gt_table_body {
+#klwregalcf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -303,7 +303,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#mzridickcn .gt_footnotes {
+#klwregalcf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -317,7 +317,7 @@
   border-right-color: #D3D3D3;
 }
 
-#mzridickcn .gt_footnote {
+#klwregalcf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -326,7 +326,7 @@
   padding-right: 5px;
 }
 
-#mzridickcn .gt_sourcenotes {
+#klwregalcf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -340,7 +340,7 @@
   border-right-color: #D3D3D3;
 }
 
-#mzridickcn .gt_sourcenote {
+#klwregalcf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -348,64 +348,64 @@
   padding-right: 5px;
 }
 
-#mzridickcn .gt_left {
+#klwregalcf .gt_left {
   text-align: left;
 }
 
-#mzridickcn .gt_center {
+#klwregalcf .gt_center {
   text-align: center;
 }
 
-#mzridickcn .gt_right {
+#klwregalcf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mzridickcn .gt_font_normal {
+#klwregalcf .gt_font_normal {
   font-weight: normal;
 }
 
-#mzridickcn .gt_font_bold {
+#klwregalcf .gt_font_bold {
   font-weight: bold;
 }
 
-#mzridickcn .gt_font_italic {
+#klwregalcf .gt_font_italic {
   font-style: italic;
 }
 
-#mzridickcn .gt_super {
+#klwregalcf .gt_super {
   font-size: 65%;
 }
 
-#mzridickcn .gt_footnote_marks {
+#klwregalcf .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#mzridickcn .gt_asterisk {
+#klwregalcf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#mzridickcn .gt_indent_1 {
+#klwregalcf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#mzridickcn .gt_indent_2 {
+#klwregalcf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#mzridickcn .gt_indent_3 {
+#klwregalcf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#mzridickcn .gt_indent_4 {
+#klwregalcf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#mzridickcn .gt_indent_5 {
+#klwregalcf .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -414,104 +414,104 @@
   <thead class="gt_col_headings">
     <tr>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;N = 62,095,058&lt;/strong&gt;&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>N = 62,095,058</strong><sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;N = 58,433,914&lt;/strong&gt;&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>N = 58,433,914</strong><sup class="gt_footnote_marks">1</sup></th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
     <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">LongCovid</td>
-<td headers="stat_0" class="gt_row gt_center">15,582 (&lt;0.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">15,843 (&lt;0.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Immunity</td>
 <td headers="stat_0" class="gt_row gt_center"></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    _noimmunity</td>
-<td headers="stat_0" class="gt_row gt_center">3,281,882 (5.3%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">2,740,975 (4.7%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    _other</td>
-<td headers="stat_0" class="gt_row gt_center">1,281,891 (2.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">1,169,593 (2.0%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    boost_001-061</td>
-<td headers="stat_0" class="gt_row gt_center">3,506,793 (5.6%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">3,371,054 (5.8%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    boost_062-122</td>
-<td headers="stat_0" class="gt_row gt_center">3,299,735 (5.3%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">3,174,668 (5.4%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    boost_123-183</td>
-<td headers="stat_0" class="gt_row gt_center">3,126,441 (5.0%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">3,010,035 (5.2%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    boost_184-244</td>
-<td headers="stat_0" class="gt_row gt_center">3,011,764 (4.9%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">2,903,689 (5.0%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    boost_245-305</td>
-<td headers="stat_0" class="gt_row gt_center">2,539,285 (4.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">2,462,615 (4.2%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    boost_306-366</td>
-<td headers="stat_0" class="gt_row gt_center">417,878 (0.7%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">409,674 (0.7%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_001-061</td>
-<td headers="stat_0" class="gt_row gt_center">715,324 (1.2%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">620,434 (1.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_062-122</td>
-<td headers="stat_0" class="gt_row gt_center">1,916,421 (3.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">1,709,066 (2.9%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_123-183</td>
-<td headers="stat_0" class="gt_row gt_center">4,375,158 (7.0%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">4,083,036 (7.0%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_184-244</td>
-<td headers="stat_0" class="gt_row gt_center">2,714,604 (4.4%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">2,497,276 (4.3%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_245-305</td>
-<td headers="stat_0" class="gt_row gt_center">1,569,483 (2.5%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">1,399,275 (2.4%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_306-366</td>
-<td headers="stat_0" class="gt_row gt_center">1,037,004 (1.7%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">921,137 (1.6%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_367-427</td>
-<td headers="stat_0" class="gt_row gt_center">844,648 (1.4%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">762,991 (1.3%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_428-488</td>
-<td headers="stat_0" class="gt_row gt_center">350,035 (0.6%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">328,072 (0.6%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    full_489-549</td>
-<td headers="stat_0" class="gt_row gt_center">42,791 (&lt;0.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">39,759 (&lt;0.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridboost_001-061</td>
-<td headers="stat_0" class="gt_row gt_center">2,574,235 (4.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">2,500,584 (4.3%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridboost_062-122</td>
-<td headers="stat_0" class="gt_row gt_center">2,246,135 (3.6%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">2,181,282 (3.7%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridboost_123-183</td>
-<td headers="stat_0" class="gt_row gt_center">1,964,995 (3.2%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">1,908,403 (3.3%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridboost_184-244</td>
-<td headers="stat_0" class="gt_row gt_center">1,467,947 (2.4%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">1,425,791 (2.4%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridboost_245-305</td>
-<td headers="stat_0" class="gt_row gt_center">589,526 (0.9%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">575,535 (1.0%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridboost_306-366</td>
-<td headers="stat_0" class="gt_row gt_center">50,620 (&lt;0.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">49,500 (&lt;0.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_001-061</td>
-<td headers="stat_0" class="gt_row gt_center">2,163,500 (3.5%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">2,078,512 (3.6%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_062-122</td>
-<td headers="stat_0" class="gt_row gt_center">2,526,027 (4.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">2,431,104 (4.2%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_123-183</td>
-<td headers="stat_0" class="gt_row gt_center">3,161,703 (5.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">3,054,824 (5.2%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_184-244</td>
-<td headers="stat_0" class="gt_row gt_center">2,387,658 (3.8%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">2,301,712 (3.9%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_245-305</td>
-<td headers="stat_0" class="gt_row gt_center">1,297,612 (2.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">1,251,039 (2.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_306-366</td>
-<td headers="stat_0" class="gt_row gt_center">560,338 (0.9%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">540,241 (0.9%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_367-427</td>
-<td headers="stat_0" class="gt_row gt_center">284,975 (0.5%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">274,594 (0.5%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_428-488</td>
-<td headers="stat_0" class="gt_row gt_center">82,669 (0.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">80,164 (0.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    hybridfull_489-549</td>
-<td headers="stat_0" class="gt_row gt_center">10,196 (&lt;0.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">9,791 (&lt;0.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    inf_062-122</td>
-<td headers="stat_0" class="gt_row gt_center">1,217,970 (2.0%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">1,121,655 (1.9%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    inf_123-183</td>
-<td headers="stat_0" class="gt_row gt_center">1,169,042 (1.9%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">1,076,639 (1.8%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    inf_184-244</td>
-<td headers="stat_0" class="gt_row gt_center">1,174,522 (1.9%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">1,082,536 (1.9%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    inf_245-305</td>
-<td headers="stat_0" class="gt_row gt_center">997,272 (1.6%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">921,952 (1.6%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    inf_306-366</td>
-<td headers="stat_0" class="gt_row gt_center">653,581 (1.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">604,422 (1.0%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    inf_367-427</td>
-<td headers="stat_0" class="gt_row gt_center">455,952 (0.7%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">416,007 (0.7%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    inf_428-488</td>
-<td headers="stat_0" class="gt_row gt_center">416,115 (0.7%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">376,474 (0.6%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    inf_489-549</td>
-<td headers="stat_0" class="gt_row gt_center">382,393 (0.6%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">343,677 (0.6%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    secboost_001-061</td>
-<td headers="stat_0" class="gt_row gt_center">211,775 (0.3%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">207,414 (0.4%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    secboost_062-122</td>
-<td headers="stat_0" class="gt_row gt_center">17,163 (&lt;0.1%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">16,713 (&lt;0.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Sex</td>
 <td headers="stat_0" class="gt_row gt_center"></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    F</td>
-<td headers="stat_0" class="gt_row gt_center">31,864,195 (51%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">30,302,363 (52%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    M</td>
-<td headers="stat_0" class="gt_row gt_center">30,230,863 (49%)</td></tr>
+<td headers="stat_0" class="gt_row gt_center">28,131,551 (48%)</td></tr>
   </tbody>
   
   <tfoot class="gt_footnotes">

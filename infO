@@ -1,0 +1,5 @@
+#!/bin/bash
+
+./cox InfO iO-icbm 2021-12-01 2022-09-30 Infected
+
+

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+rm v3/reportadults/results/*.*
+./copyadults df_fin txt T 
+./copyadults est_table txt E 
+./copyadults heatmap png H 
+./copyadults heatmapnk png N 
+./copyadults r_fin_mat txt M
+./copyadults z_score_fin_mat txt Z
+cp v3/ProxyBA12adults/cox_model_summary.txt v3/reportadults/results/ProxyBA12C.TXT
+cp v3/ProxyNewadults/cox_model_summary.txt v3/reportadults/results/ProxyNewC.TXT
+cp v3/LCinfOadults/logreg_model_summary.txt v3/reportadults/results/LCInfL.TXT
+cd v3
+cd reportadults
+pdflatex report.tex
+
+
+

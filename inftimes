@@ -1,8 +1,0 @@
-#!/bin/bash
-
-./coxtest InfSoon iO-icb 2021-12-01 2022-06-29 0 333 Infected
-
-./coxtest InfNow iO-icb 2022-06-30 2022-12-31 0 333 Infected
-
-./coxtest InfLate iO-icb 2023-01-01 2023-06-29 0 333 Infected
-

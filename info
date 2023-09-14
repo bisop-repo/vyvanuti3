@@ -1,5 +1,0 @@
-#!/bin/bash
-
-./coxtest InfO io-icb 2021-12-01 2023-06-29 Infected
-
-
