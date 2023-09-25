@@ -172,7 +172,7 @@ upper_of_deltas <- NA
 for (i in 1 : length(im_level)) {
   names <- names(HR[grep(im_level[i], names(HR))])
   # names
-  
+
   if (length(names) > 1) {
     
     # series of HR corresponding to a certain source of immunity (subvector of HR)
@@ -235,6 +235,7 @@ for (i in 1 : length(im_level)) {
   
 }
 
+
 immunities <- append(NA,im_level)
 # TODO tady bych potřeboval přejménovat záhlaví na $\Delta$ (nebo aspoň Delta), Lower, Upper
 est_table <- data.frame(immunities,deltas,lower_of_deltas,upper_of_deltas)[-1,] 
@@ -251,95 +252,176 @@ textable = xtable(df_fin)
 print(textable, file = "df_fin.tex", include.rownames = TRUE)
 
 
+### OU: introducing the comparison perioed
+short_t <- 3
+short_fin <- NA
+short_z_score_fin <- NA
+
 #### COMPARISON OF IMMUNITIES ####
 z_score <- NA
 z_score_fin <- NA
 r_fin <- NA
 
-for (i in 1 : length(im_level)) {
-  for (j in 1 : length(im_level)) {
-    names_h <- names(HR[grep(im_level[i], names(HR))])
-    names_k <- names(HR[grep(im_level[j], names(HR))]) 
-    names_h_num <- as.numeric(gsub("\\D", "", names_h))
-    names_k_num <- as.numeric(gsub("\\D", "", names_k))
+#OU: starting from zeros instead of 1
+for (i in 0 : length(im_level)) {
+  for (j in 0 : length(im_level)) {
     
-    sel <- names_h_num[names_h_num %in% names_k_num]
-    if (!names_h[1] %in% names_k[1]){
-      if (length(sel) > 0 & length(sel) < 2){ 
+    short_delta_t <- NA
+    short_z_score <- NA
+
+    if(i > 0 & j > 0) {
+      r <- NA
+      z_score <- NA
+      names_h <- names(HR[grep(im_level[i], names(HR))])
+      names_k <- names(HR[grep(im_level[j], names(HR))]) 
+      names_h_num <- as.numeric(gsub("\\D", "", names_h))
+      names_k_num <- as.numeric(gsub("\\D", "", names_k))
+      
+      sel <- names_h_num[names_h_num %in% names_k_num]
+      if (!names_h[1] %in% names_k[1]){
+        if (length(sel) > 0 & length(sel) < 2){ 
+          # pre sel = 1 musime matice brat ako jedno cislo
+          names_h <- names_h[names_h_num %in% sel]
+          names_k <- names_k[names_k_num %in% sel]
+          
+          h <- HR[names_h]
+          k <- HR[names_k]
+          
+          V_mat_sub2 <- V_mat[c(names_h, names_k), c(names_h, names_k)]
+          
+          #M: tady chyběl mínus                
+          #        S_mat <- cbind(h, k)
+          S_mat <- cbind(h,-k)
+          U_mat <- S_mat %*% V_mat_sub2 %*% t(S_mat)
+          
+          # n-vector of 1's
+          I_n <- rep(1, times = length(h))
+          
+          #  GLS estimator of rho
+          # inverzia z matice 1x1 je prevratena hodnota
+          # M: tadyto se vykrátí
+          # r <- (1 / (I_n %*% (1 / U_mat) %*% I_n)) %*% 
+          #  I_n %*% (1 / U_mat) %*% (h - k)
+          
+          r = h - k;
+          
+          var_r <- (1 / (I_n %*% (1 / U_mat) %*% I_n)) 
+          # corresponding z-score
+          z_score <- r / sqrt(var_r)
+          
+          # OU no sense in comparion when there is only a single point
+        } 
+        else if (length(sel) > 1) {
+          
+          names_h <- names_h[names_h_num %in% sel]
+          names_k <- names_k[names_k_num %in% sel]
+          
+          h <- HR[names_h]
+          k <- HR[names_k]
+          
+          V_mat_sub2 <- V_mat[c(names_h, names_k), c(names_h, names_k)]
+          
+          S_mat <- cbind(matrix(diag(h), ncol = length(h)), 
+                         matrix(- diag(k), ncol = length(k)))
+          U_mat <- S_mat %*% V_mat_sub2 %*% t(S_mat)
+          
+          # n-vector of 1's
+          I_n <- rep(1, times = length(h))
+          
+          #  GLS estimator of rho
+          # inverzia z matice 1x1 je prevratena hodnota
+          r <- (1 / (t(I_n) %*% inv(U_mat) %*% I_n)) %*% 
+            t(I_n) %*% inv(U_mat) %*% (h - k)
+          
+          var_r <- (1 / (t(I_n) %*% inv(U_mat) %*% I_n))
+          # corresponding z-score
+          z_score <- r / sqrt(var_r)
+          
+          #OU srovnani s trendem
+          cas <- as.numeric(gsub("\\D", "", names_h))
+          cas <-  ifelse(cas > 1000, cas %>% substring(nchar(cas) - 2, nchar(cas)) %>% 
+                           as.numeric() %>% - 30, 
+                         cas + 30)
+
+          
+          cas <- cas / 30.5
+          Z_mat <- matrix(data = c(rep(1, times = length(names_h)), cas), ncol = 2)
+
+          GLS_est <- inv(t(Z_mat) %*% inv(U_mat) %*% Z_mat) %*% 
+            t(Z_mat) %*% inv(U_mat) %*% (h - k)
+          
+          Var_est_mat <- inv(t(Z_mat) %*% inv(U_mat) %*% Z_mat)
+          
+          s <- GLS_est[1]
+          a <- GLS_est[2]
+          
+          short_delta_t <- s + a * short_t
+          short_delta_var = t(c(1,short_t)) %*% Var_est_mat %*% c(1,short_t)
+          short_z_score = short_delta_t / sqrt(short_delta_var)
+        }  
         
-        # pre sel = 1 musime matice brat ako jedno cislo
-        names_h <- names_h[names_h_num %in% sel]
-        names_k <- names_k[names_k_num %in% sel]
-        
-        h <- HR[names_h]
-        k <- HR[names_k]
-        
-        V_mat_sub2 <- V_mat[c(names_h, names_k), c(names_h, names_k)]
-        
-        #M: tady chyběl mínus                
-        #        S_mat <- cbind(h, k)
-        S_mat <- cbind(h,-k)
-        U_mat <- S_mat %*% V_mat_sub2 %*% t(S_mat)
-        
-        # n-vector of 1's
-        I_n <- rep(1, times = length(h))
-        
-        #  GLS estimator of rho
-        # inverzia z matice 1x1 je prevratena hodnota
-        # M: tadyto se vykrátí
-        # r <- (1 / (I_n %*% (1 / U_mat) %*% I_n)) %*% 
-        #  I_n %*% (1 / U_mat) %*% (h - k)
-        
-        r = h - k;
-        
-        var_r <- (1 / (I_n %*% (1 / U_mat) %*% I_n)) 
-        # corresponding z-score
-        z_score <- r / sqrt(var_r)
-      } else if (length(sel) > 1) {
-        
-        names_h <- names_h[names_h_num %in% sel]
-        names_k <- names_k[names_k_num %in% sel]
-        
-        h <- HR[names_h]
-        k <- HR[names_k]
-        
-        V_mat_sub2 <- V_mat[c(names_h, names_k), c(names_h, names_k)]
-        
-        S_mat <- cbind(matrix(diag(h), ncol = length(h)), 
-                       matrix(- diag(k), ncol = length(k)))
-        U_mat <- S_mat %*% V_mat_sub2 %*% t(S_mat)
-        
-        # n-vector of 1's
-        I_n <- rep(1, times = length(h))
-        
-        #  GLS estimator of rho
-        # inverzia z matice 1x1 je prevratena hodnota
-        r <- (1 / (t(I_n) %*% inv(U_mat) %*% I_n)) %*% 
-          t(I_n) %*% inv(U_mat) %*% (h - k)
-        
-        var_r <- (1 / (t(I_n) %*% inv(U_mat) %*% I_n))
-        # corresponding z-score
-        z_score <- r / sqrt(var_r)
-      } else { 
-        # M:tohle je pro případ, že by nebyly dvě srovnatelné
-        r = NA
-        z_score = NA
-      }  
+      }
       r_fin <- append(r_fin, r)
       z_score_fin <- append(z_score_fin, z_score)
+      
+    } 
+    else { # i>1 & j > 1
+      # OU
+      
+      if( j > 0  ) {
+        names <- names(HR[grep(im_level[j], names(HR))])
+        # names
+        
+        if (length(names) > 1){
+          # OU: here, only code from TREND is coppied
+          
+          HR_sub <- HR[names]
+          V_mat_sub <- V_mat[names, names]
+          
+          cas <- as.numeric(gsub("\\D", "", names))
+          cas <-  ifelse(cas > 1000, cas %>% substring(nchar(cas) - 2, nchar(cas)) %>% 
+                           as.numeric() %>% - 30, 
+                         cas + 30)
+          cas <- cas / 30.5
+          
+          T_mat <- matrix(diag(HR_sub), ncol = length(HR_sub))
+          
+          W_mat <- t(T_mat) %*% V_mat_sub %*% T_mat
+          
+          X_mat <- matrix(data = c(rep(1, times = length(HR_sub)), cas), ncol = 2)
+          
+          GLS_est <- inv(t(X_mat) %*% inv(W_mat) %*% X_mat) %*% 
+            t(X_mat) %*% inv(W_mat) %*% HR_sub
+          
+          Var_est_mat <- inv(t(X_mat) %*% inv(W_mat) %*% X_mat)
+          
+          v <- GLS_est[1]
+          d <- GLS_est[2]
+
+          short_delta_t <- v + d * short_t
+          short_delta_var <- t(c(1,short_t)) %*% Var_est_mat %*% c(1,short_t)
+          short_z_score <- short_delta_t / sqrt(short_delta_var)
+
+        }
+      }
     }
-    else { # M: pak nemusíme dělat tu brutální věc
-      r_fin <- append(r_fin, NA)
-      z_score_fin <- append(z_score_fin, NA)
-    }
+    short_fin <- append(short_fin,short_delta_t)
+    short_z_score_fin <- append(short_z_score_fin,short_z_score)
   }
 }
+
+
 
 # M: pak ale tohle musíme udělat jinak
 #r_fin <- r_fin[!is.na(r_fin)]
 #z_score_fin <- z_score_fin[!is.na(z_score_fin)]
 r_fin <- r_fin[-1]
 z_score_fin  <- z_score_fin[-1]
+#OU
+short_fin <- short_fin[-1]
+short_z_score_fin <- short_z_score_fin[-1]
+
+
 
 # M: tohle by ale pak ty všechny NA smrsklo (stejně jako hodnoty, kdyby
 # náhodou byly stejné... nebo mi něco nedochází)
@@ -372,8 +454,9 @@ z_score_fin2 <- z_score_fin
 #M moje náhrada:
 r_fin_mat <- matrix(label_percent(accuracy = 0.01)(r_fin2), ncol = length(im_level), byrow = T)
 
-
 write.table(r_fin_mat,"r_fin_mat.txt")
+
+
 
 # TODO sem bych potřeboval nějaké zktratky těch imunit (zkratky dodám)
 textable <- xtable(r_fin_mat, caption="Effectiveness/protection differences")
@@ -398,12 +481,35 @@ print(textable, file = "z_score_mat.tex", include.rownames = FALSE)
 lowerTriangle(z_score_fin_mat, diag = FALSE, byrow = FALSE) <- NA
 lowerTriangle(r_fin_mat, diag = FALSE, byrow = FALSE) <- NA
 
-breaks=c(-2.8,-2.58, -1.96, -1.64, 1.64, 1.96, 2.58, 2.8)
-mycol <- colorpanel(n=length(breaks)-1,low="red",mid="lightgrey",high="darkgreen")
+#breaks=c(-2.8,-2.58, -1.96, -1.64, 1.64, 1.96, 2.58, 2.8)
+#mycol <- colorpanel(n=length(breaks)-1,low="red",mid="lightgrey",high="darkgreen")
+
+#OU
+im_level_trend = append("Immunitynone", im_level)
+
+short_fin_mat <- matrix(label_percent(accuracy = 0.01)(short_fin), ncol = length(im_level_trend), byrow = T)
+write.table(short_fin_mat,"short_fin_mat.txt")
+textable <- xtable(short_fin_mat, caption=paste("Effectiveness/protection differences in ", short_t))
+print(textable, file = "short_fin_mat.tex", include.rownames = TRUE)
+
+
+short_z_score_fin_mat <- matrix(short_z_score_fin, ncol = length(im_level_trend), byrow = T)
+
+write.table(short_z_score_fin_mat,"short_z_score_fin_mat.txt")
+textable <- xtable(z_score_fin_mat, caption=paste("Z-scores of effectiveness/protection differences in ",short_t))
+print(textable, file = "short_z_score_mat.tex", include.rownames = FALSE)
+
+lowerTriangle(short_z_score_fin_mat, diag = FALSE, byrow = FALSE) <- NA
+lowerTriangle(short_fin_mat, diag = FALSE, byrow = FALSE) <- NA
 
 #we will need heatmap both with and without the color key
 for (i in 0 : 1) {
 
+# https://www.biostars.org/p/73644/
+breaks=c(-2.8,-2.58, -1.96, -1.64, 1.64, 1.96, 2.58, 2.8)
+mycol <- colorpanel(n=length(breaks)-1,low="red",mid="lightgrey",high="darkgreen")
+  
+  
 if(i == 0)
   png(file="heatmapnk.png", height = 325)
 else  
@@ -411,10 +517,6 @@ else
 
 # https://www.biostars.org/p/73644/
 
-
-# https://www.biostars.org/p/73644/
-breaks=c(-2.8,-2.58, -1.96, -1.64, 1.64, 1.96, 2.58, 2.8)
-mycol <- colorpanel(n=length(breaks)-1,low="red",mid="lightgrey",high="darkgreen")
 
 
 heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F, 
@@ -437,6 +539,36 @@ heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F,
           key = i)
 
 dev.off()
+
+#OU
+if(i == 0)
+  png(file="heatmapshortnk.png", height = 325)
+else  
+  png(file="heatmapshort.png", height = 325)
+
+
+heatmap.2(short_z_score_fin_mat, cellnote = short_fin_mat, dendrogram = "none", Rowv = F, 
+          Colv = F, notecol="black", 
+          trace = "none",
+          notecex = 0.8, # velkost cislicek
+          # key=FALSE, 
+          density.info = "none",
+          # keysize = 0.25,
+          key.title = "Z-score",
+          key.xlab = "critical value",
+          margins = c(1, 10),
+          srtCol = 270,
+          offsetCol = -30, # toto je trochu hruba sila
+          labRow = substr(im_level_trend[-length(im_level)], 9, 20),
+          labCol = substr(im_level_trend, 9, 20), 
+          # labCol = F,
+          col = mycol,
+          breaks = breaks,
+          key = i)
+
+dev.off()
+
+
 }
 # we put this here as it takes much time
 if(args[2] == "LCINF")
