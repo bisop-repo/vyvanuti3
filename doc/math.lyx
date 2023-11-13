@@ -370,7 +370,7 @@ the same
  This implies that 
 \begin_inset Formula 
 \[
-h_{t_{i}}-k_{t_{i}}=\rho+\alpha t_{i}+e_{i},\qquad i=1,\dots,n,\qquad\mathrm{var}(e)=U:=SV^{\star*}S',
+h_{t_{i}}-k_{t_{i}}=\sigma+\alpha t_{i}+e_{i},\qquad i=1,\dots,n,\qquad\mathrm{var}(e)=U:=SV^{\star*}S',
 \]
 
 \end_inset
@@ -407,7 +407,7 @@ The GLS estimator of
  is 
 \begin_inset Formula 
 \[
-(r,a)'=(T'U^{-1}T)^{-1}T'U^{-1}(h-k)
+(s,a)'=(Z'U^{-1}Z)^{-1}Z'U^{-1}(h-k)
 \]
 
 \end_inset
@@ -415,7 +415,7 @@ The GLS estimator of
 where 
 \begin_inset Formula 
 \[
-T=\left[\begin{array}{cc}
+Z=\left[\begin{array}{cc}
 1 & t_{1}\\
 \\
 1 & t_{n}
@@ -430,9 +430,33 @@ T=\left[\begin{array}{cc}
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\mathrm{var}([r,a]')\text{=}(T'U^{-1}T)^{-1}
+M:=\mathrm{var}([s,a]')\text{=}(Z'U^{-1}Z)^{-1}
 \]
 
+\end_inset
+
+Thus, being interested in difference of immunities 
+\begin_inset Formula $h$
+\end_inset
+
+ and 
+\begin_inset Formula $k$
+\end_inset
+
+ at a specific time 
+\begin_inset Formula $t,$
+\end_inset
+
+we can estimate it as
+\begin_inset Formula 
+\[
+\Delta_{t}=s+ta
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathrm{var}(\Delta_{t})=[1,t]M[1,t]'$
 \end_inset
 
 
@@ -446,7 +470,7 @@ TBD The corresponding
 -score is 
 \begin_inset Formula 
 \[
-z=\frac{r}{\sqrt{\mathrm{var}(r)}}.
+z=\frac{\Delta_{t}}{\sqrt{\mathrm{var}(\Delta_{})}}.
 \]
 
 \end_inset

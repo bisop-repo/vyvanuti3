@@ -1,8 +1,8 @@
 #### VOLBA PARAMETROV SKRIPTU ####
 rm(list = ls())
 
- args <-  commandArgs(trailingOnly=TRUE)
-# args <- c("rinput.csv", "SeriousCovidProxy")
+# args <-  commandArgs(trailingOnly=TRUE)
+ args <- c("rinput.csv", "SeriousCovidProxy")
 # args <- c("LCInf.csv", "LCINF")
 # 1. Input: zdrojovej csv soubor 
 # 2. Outcome: Infected nebo SeriousCovidProxy nebo LongCovid nebo Hospitalized 
@@ -257,6 +257,11 @@ short_t <- 3
 short_fin <- NA
 short_z_score_fin <- NA
 
+long_t <- 6
+long_fin <- NA
+long_z_score_fin <- NA
+
+
 #### COMPARISON OF IMMUNITIES ####
 z_score <- NA
 z_score_fin <- NA
@@ -268,7 +273,9 @@ for (i in 0 : length(im_level)) {
     
     short_delta_t <- NA
     short_z_score <- NA
-
+    long_delta_t <- NA
+    long_z_score <- NA
+    
     if(i > 0 & j > 0) {
       r <- NA
       z_score <- NA
@@ -308,6 +315,20 @@ for (i in 0 : length(im_level)) {
           var_r <- (1 / (I_n %*% (1 / U_mat) %*% I_n)) 
           # corresponding z-score
           z_score <- r / sqrt(var_r)
+
+          t <-  as.numeric(gsub("\\D", "", names_h_num[names_h_num %in% sel]))
+          t <-  ifelse(t > 1000, t %>% substring(nchar(t) - 2, nchar(t)) %>% 
+                           as.numeric() %>% - 30, t + 30) / 30.5
+
+          if(abs(short_t - t) < 1.1) {
+            short_delta_t <- r
+            short_z_score = z_score
+          }
+          if(abs(long_t - t) < 1.1)
+          {
+            long_delta_t <- r
+            long_z_score = z_score
+          }
           
           # OU no sense in comparion when there is only a single point
         } 
@@ -358,6 +379,13 @@ for (i in 0 : length(im_level)) {
           short_delta_t <- s + a * short_t
           short_delta_var = t(c(1,short_t)) %*% Var_est_mat %*% c(1,short_t)
           short_z_score = short_delta_t / sqrt(short_delta_var)
+        
+          if(long_t <= max(cas))
+          {
+            long_delta_t <- s + a * long_t
+            long_delta_var = t(c(1,long_t)) %*% Var_est_mat %*% c(1,long_t)
+            long_z_score = long_delta_t / sqrt(long_delta_var)
+          }
         }  
         
       }
@@ -398,15 +426,23 @@ for (i in 0 : length(im_level)) {
           v <- GLS_est[1]
           d <- GLS_est[2]
 
-          short_delta_t <- v + d * short_t
+          short_delta_t <- 1 - (v + d * short_t)
           short_delta_var <- t(c(1,short_t)) %*% Var_est_mat %*% c(1,short_t)
           short_z_score <- short_delta_t / sqrt(short_delta_var)
-
+          if(long_t <= max(cas))
+          {
+            long_delta_t <- 1-(v + d * long_t)
+            long_delta_var = t(c(1,long_t)) %*% Var_est_mat %*% c(1,long_t)
+            long_z_score = long_delta_t / sqrt(long_delta_var)
+          }
+          
         }
       }
     }
     short_fin <- append(short_fin,short_delta_t)
     short_z_score_fin <- append(short_z_score_fin,short_z_score)
+    long_fin <- append(long_fin,long_delta_t)
+    long_z_score_fin <- append(long_z_score_fin,long_z_score)
   }
 }
 
@@ -421,7 +457,8 @@ z_score_fin  <- z_score_fin[-1]
 short_fin <- short_fin[-1]
 short_z_score_fin <- short_z_score_fin[-1]
 
-
+long_fin <- long_fin[-1]
+long_z_score_fin <- long_z_score_fin[-1]
 
 # M: tohle by ale pak ty všechny NA smrsklo (stejně jako hodnoty, kdyby
 # náhodou byly stejné... nebo mi něco nedochází)
@@ -496,11 +533,27 @@ print(textable, file = "short_fin_mat.tex", include.rownames = TRUE)
 short_z_score_fin_mat <- matrix(short_z_score_fin, ncol = length(im_level_trend), byrow = T)
 
 write.table(short_z_score_fin_mat,"short_z_score_fin_mat.txt")
-textable <- xtable(z_score_fin_mat, caption=paste("Z-scores of effectiveness/protection differences in ",short_t))
+textable <- xtable(short_z_score_fin_mat, caption=paste("Z-scores of effectiveness/protection differences in ",short_t))
 print(textable, file = "short_z_score_mat.tex", include.rownames = FALSE)
 
 lowerTriangle(short_z_score_fin_mat, diag = FALSE, byrow = FALSE) <- NA
 lowerTriangle(short_fin_mat, diag = FALSE, byrow = FALSE) <- NA
+
+long_fin_mat <- matrix(label_percent(accuracy = 0.01)(long_fin), ncol = length(im_level_trend), byrow = T)
+write.table(long_fin_mat,"long_fin_mat.txt")
+textable <- xtable(long_fin_mat, caption=paste("Effectiveness/protection differences in ", long_t))
+print(textable, file = "long_fin_mat.tex", include.rownames = TRUE)
+
+
+long_z_score_fin_mat <- matrix(long_z_score_fin, ncol = length(im_level_trend), byrow = T)
+
+write.table(long_z_score_fin_mat,"long_z_score_fin_mat.txt")
+textable <- xtable(long_z_score_fin_mat, caption=paste("Z-scores of effectiveness/protection differences in ",long_t))
+print(textable, file = "long_z_score_mat.tex", include.rownames = FALSE)
+
+lowerTriangle(long_z_score_fin_mat, diag = FALSE, byrow = FALSE) <- NA
+lowerTriangle(long_fin_mat, diag = FALSE, byrow = FALSE) <- NA
+
 
 #we will need heatmap both with and without the color key
 for (i in 0 : 1) {
@@ -559,7 +612,7 @@ heatmap.2(short_z_score_fin_mat, cellnote = short_fin_mat, dendrogram = "none", 
           margins = c(1, 10),
           srtCol = 270,
           offsetCol = -30, # toto je trochu hruba sila
-          labRow = substr(im_level_trend[-length(im_level)], 9, 20),
+          labRow = substr(im_level_trend[-length(im_level_trend)], 9, 20),
           labCol = substr(im_level_trend, 9, 20), 
           # labCol = F,
           col = mycol,
@@ -568,6 +621,32 @@ heatmap.2(short_z_score_fin_mat, cellnote = short_fin_mat, dendrogram = "none", 
 
 dev.off()
 
+if(i == 0)
+  png(file="heatmaplongnk.png", height = 325)
+else  
+  png(file="heatmaplong.png", height = 325)
+
+
+heatmap.2(long_z_score_fin_mat, cellnote = long_fin_mat, dendrogram = "none", Rowv = F, 
+          Colv = F, notecol="black", 
+          trace = "none",
+          notecex = 0.8, # velkost cislicek
+          # key=FALSE, 
+          density.info = "none",
+          # keysize = 0.25,
+          key.title = "Z-score",
+          key.xlab = "critical value",
+          margins = c(1, 10),
+          srtCol = 270,
+          offsetCol = -30, # toto je trochu hruba sila
+          labRow = substr(im_level_trend[-length(im_level_trend)], 9, 20),
+          labCol = substr(im_level_trend, 9, 20), 
+          # labCol = F,
+          col = mycol,
+          breaks = breaks,
+          key = i)
+
+dev.off()
 
 }
 # we put this here as it takes much time

@@ -1,0 +1,9 @@
+"V1" "V2" "V3" "V4" "V5" "V6" "V7" "V8"
+"1" NA "1.29%" "1.48%" NA NA NA NA "0.42%"
+"2" NA NA "1.26%" NA NA NA NA "7.06%"
+"3" NA "-1.26%" NA NA NA NA NA "1.08%"
+"4" NA NA NA NA NA NA NA NA
+"5" NA NA NA NA NA NA NA NA
+"6" NA NA NA NA NA NA NA NA
+"7" NA NA NA NA NA NA NA NA
+"8" NA "-7.06%" "-1.08%" NA NA NA NA NA
