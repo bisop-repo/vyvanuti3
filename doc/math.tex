@@ -1,0 +1,187 @@
+%% LyX 2.3.6 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[latin9]{inputenc}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{babel}
+\begin{document}
+Consider a Cox model
+
+\[
+\lambda(t|X)=\lambda_{0}(t)\exp\{-X\beta\}
+\]
+and the estimate $b$ of $\beta$ having variance matrix $V$. It
+is well knonw that, asymptotically, $b\sim\mathcal{N}(\beta,V)$.
+
+\subsubsection*{Trend in Immunities }
+
+Let $h_{t_{1}},\dots,h_{t_{n}}$ be a series of HR's corresponding
+to a certain source of immunity, where the index stands for the time
+since obtaining the immunity. Asymptotically, by Delta Theorem\footnote{https://www.jepusto.com/multivariate-delta-method/)}
+and Continuous mapping Theorem, 
+\[
+\mathrm{var}(h)\doteq W:=T'V^{\star}T,\qquad T=\mathrm{\mathrm{diag}}(\exp\{b_{(1)}\},\dots,\exp\{b_{(n)}\})
+\]
+where $(b_{(1)},\dots,b_{(n)})'$ is the vector of $b$'s corresponding
+to $h$ and $V^{\star}$ is the corresponding sub-matrix of $V$. 
+
+We assume a linear trend in $h$, i.e. 
+\[
+h_{t_{i}}=\eta+\delta t_{i}+\epsilon_{i},\qquad i=1,\dots,n,\qquad\mathrm{var}(\epsilon)\doteq W.
+\]
+The GLS estimate of ($\eta,\delta)$' is given by 
+\[
+\left[\begin{array}{c}
+v\\
+d
+\end{array}\right]=(X'W^{-1}X)^{-1}X'W^{-1}h,\qquad X=\left[\begin{array}{cc}
+1 & t_{1}\\
+1 & t_{2}\\
+\vdots & \vdots\\
+1 & t_{n}
+\end{array}\right]
+\]
+having 
+\[
+\mathrm{var}\left[\begin{array}{c}
+v\\
+d
+\end{array}\right]=(X'W^{-1}X)^{-1};
+\]
+the estimate of the trend is then 
+\[
+\tau(t)=v+dt,\qquad t\geq0.
+\]
+
+
+\subsubsection*{Comparison of Immunities}
+
+The goal is to compare HR's $h=(h_{t_{1}},\dots,h_{t_{n}})'$ with
+another vector of HR's, say $k=(k_{t_{1}},\dots,k_{t_{n}})'$ assuming
+both to follow a (each their own) linear trend, which implies that
+\[
+h_{t_{i}}-k_{t_{i}}=\sigma+\alpha t_{i}+e_{i},\qquad i=1,\dots,n,\qquad\mathrm{var}(e)=U:=SV^{\star*}S',
+\]
+
+\[
+S=\left[\begin{array}{cccccc}
+\exp\{b_{[1]}\} & \cdots & 0 & -\exp\{b_{[n+1]}\} & \cdots & 0\\
+\vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
+0 & \cdots & \exp\{b_{[n]}\} & 0 & \cdots & -\exp\{b_{[2n]}\}
+\end{array}\right]
+\]
+where $(b_{[1]},\dots,b_{[2n]})'$ is the vector of $b$'s corresponding
+to $(h,k)'$ and $V^{\star*}$is a corresponding sub-matrix of $V$. 
+
+The GLS estimator of $(\sigma,\alpha)'$ is 
+\[
+(s,a)'=(Z'U^{-1}Z)^{-1}Z'U^{-1}(h-k),\qquad Z=\left[\begin{array}{cc}
+1 & t_{1}\\
+\vdots & \vdots\\
+1 & t_{n}
+\end{array}\right],
+\]
+having the variance
+
+\[
+M:=\mathrm{var}([s,a]')\text{=}(Z'U^{-1}Z)^{-1}
+\]
+Thus, being interested in the difference of immunities $h$ and $k$
+at a specific time $t,$we can estimate it as
+\[
+\Delta_{t}=s+ta,
+\]
+having $\mathrm{var}(\Delta_{t})=[1,t]M[1,t]'$
+
+The corresponding $Z$-score is then 
+\[
+z=\frac{\Delta_{t}}{\sqrt{\mathrm{var}(\Delta_{})}}.
+\]
+
+\end{document}
+
+\subsubsection*{3. Comparison of immunities with different trends}
+
+Say that we want to compare HR's $h_{t_{1}},\dots,h_{t_{n}}$ with
+another vector, say $k_{t_{1}},\dots,k_{t_{n}}$ and assume both follow
+a linear trend as above, implying that 
+\[
+h_{t_{i}}-k_{t_{i}}=\omega+\alpha t_{i}+\epsilon,
+\]
+Our goal is the estimate $\Delta=\frac{1}{n}\sum_{i=1}^{n}(\mathbb{E}h_{t_{i}}-\mathbb{E}k_{t_{i}})=\omega+\frac{1}{n}\sum_{t=1}^{n}\alpha t_{i}=\omega+\frac{1}{n}\alpha\sum_{t=1}^{n}t_{i}$.
+Denote $r=\left[\begin{array}{c}
+h_{1}-h_{n+1}\\
+\vdots\\
+h_{n}-h_{2n}
+\end{array}\right].$ As $r=T\left[\begin{array}{c}
+h_{1}\\
+\vdots\\
+h_{2n}
+\end{array}\right]$, where $T=\left[\begin{array}{cccccc}
+1 & \cdots & 0 & -1 & \cdots & 0\\
+\vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
+0 & \cdots & 1 & 0 & \cdots & -1
+\end{array}\right]$
+\[
+\mathrm{var}(r)=U:=TWT',
+\]
+ we have that the GLS estimate $(g,a)$ of $(\omega,\alpha)$ is 
+\[
+\left[\begin{array}{c}
+g\\
+a
+\end{array}\right]=(X'U^{-1}X)^{-1}XU^{-1}r,
+\]
+with 
+\[
+\mathrm{var}\left[\begin{array}{c}
+g\\
+a
+\end{array}\right]=(X'U^{-1}X)^{-1}
+\]
+ hence the estimate of $D$ of $\Delta$ is 
+\[
+D=g+\frac{1}{n}a\sum_{t=1}^{n}t,\qquad\mathrm{var}(D)=Z(X'U^{-1}X)^{-1}Z',\qquad Z=\left[\begin{array}{cc}
+1, & \frac{1}{n}\sum_{t=1}^{n}t\end{array}\right]
+\]
+
+
+\subsubsection*{Comparison of immunities with the same trend}
+
+Say that we want to compare HR's $h=(h_{t_{1}},\dots,h_{t_{n}})'$
+with another vector of HR's, say $k=(k_{t_{1}},\dots,k_{t_{n}})'$
+and assume both to follow \emph{the same} linear trend. This implies
+that 
+\[
+h_{t_{i}}-k_{t_{i}}=\rho+e_{i},\qquad i=1,\dots,n,\qquad\mathrm{var}(e)=U:=SV^{\star*}S',
+\]
+
+{[}tBd better to explain via transformation{]}
+
+\[
+S=\left[\begin{array}{cccccc}
+\exp\{b_{[1]}\} & \cdots & 0 & -\exp\{b_{[n+1]}\} & \cdots & 0\\
+\vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
+0 & \cdots & \exp\{b_{[n]}\} & 0 & \cdots & -\exp\{b_{[2n]}\}
+\end{array}\right]
+\]
+where $(b_{[1]},\dots,b_{[2n]})'$ is the vector of $b$'s corresponding
+to $(h,k)'$ and $V^{\star*}$is a corresponding sub-matrix of $V$. 
+
+The GLS estimator of $\rho$ is 
+\[
+r=(1_{n}'U^{-1}1_{n})^{-1}1'_{n}U^{-1}(h-k)
+\]
+where $1_{n}$ is an $n$-vector of $1$'s. We have
+
+\[
+\mathrm{var}(r)\text{=}(1_{n}'U^{-1}1_{n})^{-1}
+\]
+
+The corresponding $Z$-score is 
+\[
+z=\frac{r}{\sqrt{\mathrm{var}(r)}}.
+\]
+
+\end{document}

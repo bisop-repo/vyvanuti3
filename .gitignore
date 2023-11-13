@@ -12,6 +12,12 @@ convertool/CMakeLists.txt.user
 *.Rhistory
 workspace.RData
 rinput.csv
+rinput.csv.persons.csv
+rinput.csv.unprocessed.csv
+rinput.csv.events.csv
+rinput.csv_variants.csv
+infections.csv
+vaccines.csv
 temporary*.csv
 FebWorkshop/Ukol 1/*.csv
 v3/infvacc/*.csv

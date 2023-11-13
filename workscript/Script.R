@@ -1,12 +1,13 @@
 #### VOLBA PARAMETROV SKRIPTU ####
 rm(list = ls())
 
-# args <-  commandArgs(trailingOnly=TRUE)
- args <- c("rinput.csv", "SeriousCovidProxy")
+args <-  commandArgs(trailingOnly=TRUE)
+# args <- c("rinput.csv", "SeriousCovidProxy")
 # args <- c("LCInf.csv", "LCINF")
 # 1. Input: zdrojovej csv soubor 
 # 2. Outcome: Infected nebo SeriousCovidProxy nebo LongCovid nebo Hospitalized 
 # 3. Covariates: InfPrior + VaccStatus nebo Immunity
+#### VOLBA PARAMETROV SKRIPTU ####
 
 #### NACITANIE BALICKOV ####
 
@@ -657,3 +658,4 @@ if(args[2] == "LCINF")
 }
 
 save.image("workspace.RData")
+

@@ -75,12 +75,8 @@
 
 \begin_body
 
-\begin_layout Title
-Trends and comparison in HR's
-\end_layout
-
 \begin_layout Standard
-Let us have a Cox model
+Consider a Cox model
 \end_layout
 
 \begin_layout Standard
@@ -99,12 +95,12 @@ and the estimate
 \begin_inset Formula $\beta$
 \end_inset
 
- with variance matrix 
+ having variance matrix 
 \begin_inset Formula $V$
 \end_inset
 
 .
- Asymptotically, 
+ It is well knonw that, asymptotically, 
 \begin_inset Formula $b\sim\mathcal{N}(\beta,V)$
 \end_inset
 
@@ -132,7 +128,7 @@ https://www.jepusto.com/multivariate-delta-method/)
 
 \end_inset
 
- and Continuous mapping theorem, 
+ and Continuous mapping Theorem, 
 \begin_inset Formula 
 \[
 \mathrm{var}(h)\doteq W:=T'V^{\star}T,\qquad T=\mathrm{\mathrm{diag}}(\exp\{b_{(1)}\},\dots,\exp\{b_{(n)}\})
@@ -178,7 +174,7 @@ h_{t_{i}}=\eta_{0}+\delta t_{i}+\epsilon_{i},\qquad i=1,\dots,n,\qquad\mathrm{va
 
 \end_inset
 
-Teh GLS estimate of (
+The GLS estimate of (
 \begin_inset Formula $\eta_{0},\delta)$
 \end_inset
 
@@ -225,11 +221,11 @@ The estimate of the trend is then
 \end_layout
 
 \begin_layout Subsubsection*
-Comparison of immunities with the same trend
+Comparison of immunities
 \end_layout
 
 \begin_layout Standard
-Say that we want to compare HR's 
+The goal is to compare HR's 
 \begin_inset Formula $h=(h_{t_{1}},\dots,h_{t_{n}})'$
 \end_inset
 
@@ -237,24 +233,16 @@ Say that we want to compare HR's
 \begin_inset Formula $k=(k_{t_{1}},\dots,k_{t_{n}})'$
 \end_inset
 
- and assume both to follow 
-\emph on
-the same
-\emph default
- linear trend.
+ assuming both to follow a (different) linear trend.
  This implies that 
 \begin_inset Formula 
 \[
-h_{t_{i}}-k_{t_{i}}=\rho+e_{i},\qquad i=1,\dots,n,\qquad\mathrm{var}(e)=U:=SV^{\star*}S',
+h_{t_{i}}-k_{t_{i}}=\sigma+\alpha t_{i}+e_{i},\qquad i=1,\dots,n,\qquad\mathrm{var}(e)=U:=SV^{\star*}S';
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-[tBd better to explain via transformation]
+Here,
 \end_layout
 
 \begin_layout Standard
@@ -295,39 +283,62 @@ is a corresponding sub-matrix of
 
 \begin_layout Standard
 The GLS estimator of 
-\begin_inset Formula $\rho$
+\begin_inset Formula $(\sigma,\alpha)'$
 \end_inset
 
  is 
 \begin_inset Formula 
 \[
-r=(1_{n}'U^{-1}1_{n})^{-1}1'_{n}U^{-1}(h-k)
+(s,a)'=(Z'U^{-1}Z)^{-1}Z'U^{-1}(h-k)
 \]
 
 \end_inset
 
 where 
-\begin_inset Formula $1_{n}$
+\begin_inset Formula 
+\[
+Z=\left[\begin{array}{cc}
+1 & t_{1}\\
+\\
+1 & t_{n}
+\end{array}\right].
+\]
+
 \end_inset
 
- is an 
-\begin_inset Formula $n$
-\end_inset
-
--vector of 
-\begin_inset Formula $1$
-\end_inset
-
-'s.
- We have
+We have
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\mathrm{var}(r)\text{=}(1_{n}'U^{-1}1_{n})^{-1}
+M:=\mathrm{var}([s,a]')\text{=}(Z'U^{-1}Z)^{-1}
 \]
 
+\end_inset
+
+Thus, being interested in the difference of immunities 
+\begin_inset Formula $h$
+\end_inset
+
+ and 
+\begin_inset Formula $k$
+\end_inset
+
+ at a specific time 
+\begin_inset Formula $t,$
+\end_inset
+
+we can estimate it as
+\begin_inset Formula 
+\[
+\Delta_{t}=s+ta
+\]
+
+\end_inset
+
+Note that 
+\begin_inset Formula $\mathrm{var}(\Delta_{t})=[1,t]M[1,t]'$
 \end_inset
 
 
@@ -341,112 +352,7 @@ The corresponding
 -score is 
 \begin_inset Formula 
 \[
-z=\frac{r}{\sqrt{\mathrm{var}(r)}}.
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-Comparison of immunities with different trends
-\end_layout
-
-\begin_layout Standard
-Say that we want to compare HR's 
-\begin_inset Formula $h=(h_{t_{1}},\dots,h_{t_{n}})'$
-\end_inset
-
- with another vector of HR's, say 
-\begin_inset Formula $k=(k_{t_{1}},\dots,k_{t_{n}})'$
-\end_inset
-
- and assume both to follow 
-\emph on
-the same
-\emph default
- linear trend.
- This implies that 
-\begin_inset Formula 
-\[
-h_{t_{i}}-k_{t_{i}}=\rho+\alpha t_{i}+e_{i},\qquad i=1,\dots,n,\qquad\mathrm{var}(e)=U:=SV^{\star*}S',
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula $(b_{[1]},\dots,b_{[2n]})'$
-\end_inset
-
- is the vector of 
-\begin_inset Formula $b$
-\end_inset
-
-'s corresponding to 
-\begin_inset Formula $(h,k)'$
-\end_inset
-
- and 
-\begin_inset Formula $V^{\star*}$
-\end_inset
-
-is a corresponding sub-matrix of 
-\begin_inset Formula $V$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-The GLS estimator of 
-\begin_inset Formula $\rho$
-\end_inset
-
- is 
-\begin_inset Formula 
-\[
-(r,a)'=(T'U^{-1}T)^{-1}T'U^{-1}(h-k)
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula 
-\[
-T=\left[\begin{array}{cc}
-1 & t_{1}\\
-\\
-1 & t_{n}
-\end{array}\right]
-\]
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\mathrm{var}([r,a]')\text{=}(T'U^{-1}T)^{-1}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-TBD The corresponding 
-\begin_inset Formula $Z$
-\end_inset
-
--score is 
-\begin_inset Formula 
-\[
-z=\frac{r}{\sqrt{\mathrm{var}(r)}}.
+z=\frac{\Delta_{t}}{\sqrt{\mathrm{var}(\Delta_{})}}.
 \]
 
 \end_inset
@@ -572,6 +478,131 @@ a
 \[
 D=g+\frac{1}{n}a\sum_{t=1}^{n}t,\qquad\mathrm{var}(D)=Z(X'U^{-1}X)^{-1}Z',\qquad Z=\left[\begin{array}{cc}
 1, & \frac{1}{n}\sum_{t=1}^{n}t\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Comparison of immunities with the same trend
+\end_layout
+
+\begin_layout Standard
+Say that we want to compare HR's 
+\begin_inset Formula $h=(h_{t_{1}},\dots,h_{t_{n}})'$
+\end_inset
+
+ with another vector of HR's, say 
+\begin_inset Formula $k=(k_{t_{1}},\dots,k_{t_{n}})'$
+\end_inset
+
+ and assume both to follow 
+\emph on
+the same
+\emph default
+ linear trend.
+ This implies that 
+\begin_inset Formula 
+\[
+h_{t_{i}}-k_{t_{i}}=\rho+e_{i},\qquad i=1,\dots,n,\qquad\mathrm{var}(e)=U:=SV^{\star*}S',
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+[tBd better to explain via transformation]
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S=\left[\begin{array}{cccccc}
+\exp\{b_{[1]}\} & \cdots & 0 & -\exp\{b_{[n+1]}\} & \cdots & 0\\
+\vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
+0 & \cdots & \exp\{b_{[n]}\} & 0 & \cdots & -\exp\{b_{[2n]}\}
+\end{array}\right]
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $(b_{[1]},\dots,b_{[2n]})'$
+\end_inset
+
+ is the vector of 
+\begin_inset Formula $b$
+\end_inset
+
+'s corresponding to 
+\begin_inset Formula $(h,k)'$
+\end_inset
+
+ and 
+\begin_inset Formula $V^{\star*}$
+\end_inset
+
+is a corresponding sub-matrix of 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The GLS estimator of 
+\begin_inset Formula $\rho$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+r=(1_{n}'U^{-1}1_{n})^{-1}1'_{n}U^{-1}(h-k)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $1_{n}$
+\end_inset
+
+ is an 
+\begin_inset Formula $n$
+\end_inset
+
+-vector of 
+\begin_inset Formula $1$
+\end_inset
+
+'s.
+ We have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathrm{var}(r)\text{=}(1_{n}'U^{-1}1_{n})^{-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The corresponding 
+\begin_inset Formula $Z$
+\end_inset
+
+-score is 
+\begin_inset Formula 
+\[
+z=\frac{r}{\sqrt{\mathrm{var}(r)}}.
 \]
 
 \end_inset

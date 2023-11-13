@@ -1,163 +1,135 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2022.2.17)  29 AUG 2023 11:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.6.10)  13 NOV 2023 16:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **report.tex
 (./report.tex
-LaTeX2e <2017-04-15>
-Babel <3.17> and hyphenation patterns for 3 language(s) loaded.
-(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-01-21>
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2021/10/04 v1.4n Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count79
-\c@section=\count80
-\c@subsection=\count81
-\c@subsubsection=\count82
-\c@paragraph=\count83
-\c@subparagraph=\count84
-\c@figure=\count85
-\c@table=\count86
-\abovecaptionskip=\skip41
-\belowcaptionskip=\skip42
-\bibindent=\dimen102
+\c@part=\count185
+\c@chapter=\count186
+\c@section=\count187
+\c@subsection=\count188
+\c@subsubsection=\count189
+\c@paragraph=\count190
+\c@subparagraph=\count191
+\c@figure=\count192
+\c@table=\count193
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
 )
 (/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
 )
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count87
-\float@exts=\toks14
-\float@box=\box26
-\@float@everytoks=\toks15
-\@floatcapt=\box27
+\c@float@type=\count194
+\float@exts=\toks16
+\float@box=\box50
+\@float@everytoks=\toks17
+\@floatcapt=\box51
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks18
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks16
+\KV@toks@=\toks19
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 99.
+Package graphics Info: Driver file: pdftex.def on input line 107.
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen103
-\Gin@req@width=\dimen104
+\Gin@req@height=\dimen139
+\Gin@req@width=\dimen140
 )
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2010/09/12 v5.6 Page Geometry
+Package: geometry 2020/01/02 v5.9 Page Geometry
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count195
+\Gm@cntv=\count196
+\c@Gm@tempcnt=\count197
+\Gm@bindingoffset=\dimen141
+\Gm@wd@mp=\dimen142
+\Gm@odd@mp=\dimen143
+\Gm@even@mp=\dimen144
+\Gm@layoutwidth=\dimen145
+\Gm@layoutheight=\dimen146
+\Gm@layouthoffset=\dimen147
+\Gm@layoutvoffset=\dimen148
+\Gm@dimlist=\toks20
 )
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
-Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
-Package ifvtex Info: VTeX not detected.
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count198
+\l__pdf_internal_box=\box52
 )
-(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
-Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
-)
-\Gm@cnth=\count88
-\Gm@cntv=\count89
-\c@Gm@tempcnt=\count90
-\Gm@bindingoffset=\dimen105
-\Gm@wd@mp=\dimen106
-\Gm@odd@mp=\dimen107
-\Gm@even@mp=\dimen108
-\Gm@layoutwidth=\dimen109
-\Gm@layoutheight=\dimen110
-\Gm@layouthoffset=\dimen111
-\Gm@layoutvoffset=\dimen112
-\Gm@dimlist=\toks17
-) (./report.aux)
+(./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count91
-\scratchdimen=\dimen113
-\scratchbox=\box28
-\nofMPsegments=\count92
-\nofMParguments=\count93
-\everyMPshowfont=\toks18
-\MPscratchCnt=\count94
-\MPscratchDim=\dimen114
-\MPnumerator=\count95
-\makeMPintoPDFobject=\count96
-\everyMPtoPDFconversion=\toks19
-) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)))
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
+\scratchcounter=\count199
+\scratchdimen=\dimen149
+\scratchbox=\box53
+\nofMPsegments=\count266
+\nofMParguments=\count267
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count268
+\MPscratchDim=\dimen150
+\MPnumerator=\count269
+\makeMPintoPDFobject=\count270
+\everyMPtoPDFconversion=\toks22
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-38.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
+85.
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
@@ -167,19 +139,19 @@ e
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
 * driver: pdftex
-* paper: a4paper
+* paper: b4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(81.94394pt, 433.62pt, 81.94394pt)
-* v-part:(T,H,B)=(48.93872pt, 722.7pt, 73.40813pt)
-* \paperwidth=597.50787pt
-* \paperheight=845.04684pt
-* \textwidth=433.62pt
-* \textheight=722.7pt
-* \oddsidemargin=9.67395pt
-* \evensidemargin=9.67395pt
-* \topmargin=-60.33127pt
+* h-part:(L,W,R)=(66.57945pt, 578.15999pt, 66.57945pt)
+* v-part:(T,H,B)=(34.6214pt, 917.82877pt, 51.93211pt)
+* \paperwidth=711.3189pt
+* \paperheight=1004.38228pt
+* \textwidth=578.15999pt
+* \textheight=917.82877pt
+* \oddsidemargin=-5.69054pt
+* \evensidemargin=-5.69054pt
+* \topmargin=-74.64859pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -197,136 +169,100 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 62.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 62.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 62.
-[1
+LaTeX Font Info:    Trying to load font information for U+msa on input line 79.
 
-{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}]
-(../ProxyBA12/cox_model_summary.tex
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 5.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 5.
-
-Overfull \hbox (36.8421pt too wide) in paragraph at lines 5--62
- [][] 
- []
-
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-<../ProxyBA12/sum_tab.png, id=9, 660.4675pt x 2661.945pt>
-File: ../ProxyBA12/sum_tab.png Graphic file (type png)
-<use ../ProxyBA12/sum_tab.png>
-Package pdftex.def Info: ../ProxyBA12/sum_tab.png  used on input line 70. on in
-put line 70.
-Package pdftex.def Info: Requested size: 113.81102pt x 458.6986pt on input line
- 70.
-<../ProxyBA12/forest_plot.png, id=11, 289.08pt x 505.89pt>
-File: ../ProxyBA12/forest_plot.png Graphic file (type png)
-<use ../ProxyBA12/forest_plot.png>
-Package pdftex.def Info: ../ProxyBA12/forest_plot.png  used on input line 70. o
-n input line 70.
-Package pdftex.def Info: Requested size: 341.43306pt x 597.5394pt on input line
- 70.
-
-Overfull \hbox (45.62408pt too wide) in paragraph at lines 70--70
- [] 
- []
-
-(../ProxyBA12/est_table.tex) (../ProxyBA12/r_fin_mat.tex)
-(../ProxyBA12/z_score_mat.tex) [2 <../ProxyBA12/sum_tab.png> <../ProxyBA12/fore
-st_plot.png>] [3] [4] (../ProxyNew/cox_model_summary.tex
-Overfull \hbox (36.8421pt too wide) in paragraph at lines 5--86
- [][] 
- []
+LaTeX Font Info:    Trying to load font information for U+msb on input line 79.
 
 
-LaTeX Warning: Float too large for page by 210.38887pt on input line 87.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
 
-)
-<../ProxyNew/sum_tab.png, id=23, 660.4675pt x 4444.605pt>
-File: ../ProxyNew/sum_tab.png Graphic file (type png)
-<use ../ProxyNew/sum_tab.png>
-Package pdftex.def Info: ../ProxyNew/sum_tab.png  used on input line 71. on inp
-ut line 71.
-Package pdftex.def Info: Requested size: 113.81102pt x 765.88138pt on input lin
-e 71.
-<../ProxyNew/forest_plot.png, id=24, 289.08pt x 505.89pt>
-File: ../ProxyNew/forest_plot.png Graphic file (type png)
-<use ../ProxyNew/forest_plot.png>
-Package pdftex.def Info: ../ProxyNew/forest_plot.png  used on input line 71. on
- input line 71.
-Package pdftex.def Info: Requested size: 341.43306pt x 597.5394pt on input line
- 71.
-
-Overfull \hbox (45.62408pt too wide) in paragraph at lines 71--71
- [] 
- []
-
-[5
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [1
 
 ]
-Overfull \vbox (38.18138pt too high) has occurred while \output is active []
+<../ProxyBA12/sum_tab.png, id=13, 660.4675pt x 2661.945pt>
+File: ../ProxyBA12/sum_tab.png Graphic file (type png)
+<use ../ProxyBA12/sum_tab.png>
+Package pdftex.def Info: ../ProxyBA12/sum_tab.png  used on input line 88.
+(pdftex.def)             Requested size: 102.43008pt x 412.80031pt.
+<../ProxyBA12/forest_plot.png, id=15, 289.08pt x 505.89pt>
+File: ../ProxyBA12/forest_plot.png Graphic file (type png)
+<use ../ProxyBA12/forest_plot.png>
+Package pdftex.def Info: ../ProxyBA12/forest_plot.png  used on input line 88.
+(pdftex.def)             Requested size: 341.43306pt x 597.5394pt.
+ (../ProxyBA12/cox_model_summary.tex)
+(../ProxyBA12/est_table.tex) (../ProxyBA12/short_fin_mat.tex)
+(../ProxyBA12/short_z_score_mat.tex) (../ProxyBA12/long_fin_mat.tex)
+(../ProxyBA12/long_z_score_mat.tex) [2
 
+ <../ProxyBA12/sum_tab.png> <../ProxyBA12/forest_plot.png>] [3] [4]
+<../ProxyNew/sum_tab.png, id=26, 660.4675pt x 4444.605pt>
+File: ../ProxyNew/sum_tab.png Graphic file (type png)
+<use ../ProxyNew/sum_tab.png>
+Package pdftex.def Info: ../ProxyNew/sum_tab.png  used on input line 89.
+(pdftex.def)             Requested size: 102.43008pt x 689.24576pt.
+<../ProxyNew/forest_plot.png, id=27, 289.08pt x 505.89pt>
+File: ../ProxyNew/forest_plot.png Graphic file (type png)
+<use ../ProxyNew/forest_plot.png>
+Package pdftex.def Info: ../ProxyNew/forest_plot.png  used on input line 89.
+(pdftex.def)             Requested size: 341.43306pt x 597.5394pt.
+ (../ProxyNew/cox_model_summary.tex
 
-[6 <../ProxyNew/sum_tab.png> <../ProxyNew/forest_plot.png>]
-(../ProxyNew/est_table.tex) (../ProxyNew/r_fin_mat.tex)
-(../ProxyNew/z_score_mat.tex) [7] [8] (../LCinfO/logreg_model_summary.tex
+LaTeX Warning: Float too large for page by 15.2601pt on input line 87.
 
-LaTeX Warning: Float too large for page by 42.38887pt on input line 73.
+) (../ProxyNew/est_table.tex) (../ProxyNew/short_fin_mat.tex)
+(../ProxyNew/short_z_score_mat.tex) (../ProxyNew/long_fin_mat.tex)
+(../ProxyNew/long_z_score_mat.tex) [5
 
-)
+ <../ProxyNew/sum_tab.png> <../ProxyNew/forest_plot.png>] [6] [7]
 <../LCinfO/sum_tab.png, id=39, 626.34pt x 4221.7725pt>
 File: ../LCinfO/sum_tab.png Graphic file (type png)
 <use ../LCinfO/sum_tab.png>
-Package pdftex.def Info: ../LCinfO/sum_tab.png  used on input line 73. on input
- line 73.
-Package pdftex.def Info: Requested size: 113.81102pt x 767.10121pt on input lin
-e 73.
+Package pdftex.def Info: ../LCinfO/sum_tab.png  used on input line 91.
+(pdftex.def)             Requested size: 102.43008pt x 690.3782pt.
 <../LCinfO/forest_plot.png, id=40, 505.6491pt x 505.6491pt>
 File: ../LCinfO/forest_plot.png Graphic file (type png)
 <use ../LCinfO/forest_plot.png>
-Package pdftex.def Info: ../LCinfO/forest_plot.png  used on input line 73. on i
-nput line 73.
-Package pdftex.def Info: Requested size: 341.43306pt x 341.44499pt on input lin
-e 73.
+Package pdftex.def Info: ../LCinfO/forest_plot.png  used on input line 91.
+(pdftex.def)             Requested size: 341.43306pt x 341.44499pt.
+ (../LCinfO/logreg_model_summary.tex)
+(../LCinfO/est_table.tex) (../LCinfO/short_fin_mat.tex)
+(../LCinfO/short_z_score_mat.tex) (../LCinfO/long_fin_mat.tex)
+(../LCinfO/long_z_score_mat.tex) [8
 
-Overfull \hbox (45.62408pt too wide) in paragraph at lines 73--73
- [] 
- []
-
-[9
-
-]
-Overfull \vbox (39.40121pt too high) has occurred while \output is active []
-
-
-[10 <../LCinfO/sum_tab.png> <../LCinfO/forest_plot.png>]
-(../LCinfO/est_table.tex) (../LCinfO/r_fin_mat.tex) (../LCinfO/z_score_mat.tex)
-[11] [12] (./out/trendtable.tex) [13
+ <../LCinfO/sum_tab.png> <../LCinfO/forest_plot.png>] [9] [10] [11
 
 ] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 2057 strings out of 494917
- 30233 string characters out of 6180699
- 128750 words of memory out of 5000000
- 5328 multiletter control sequences out of 15000+600000
- 7280 words of font info for 26 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 41i,12n,31p,273b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 2207 strings out of 479342
+ 37201 string characters out of 5869178
+ 405105 words of memory out of 5000000
+ 20186 multiletter control sequences out of 15000+600000
+ 476816 words of font info for 58 fonts, out of 8000000 for 9000
+ 473 hyphenation exceptions out of 8191
+ 55i,14n,62p,296b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on report.pdf (13 pages, 1607166 bytes).
+/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
+2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on report.pdf (12 pages, 1714758 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 128 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

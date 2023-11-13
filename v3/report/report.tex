@@ -1,12 +1,12 @@
 
 %% LyX 2.3.4.2 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[10pt]{article}
+\documentclass[10pt]{report}
 \usepackage[section]{placeins}
 \usepackage{float}
 %\usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\usepackage[a4paper, total={6in,10in}]{geometry}
+\usepackage[b4paper, total={8in,12.7in}]{geometry}
 
 \def\@makechapterhead#1{%
   \vspace*{50\p@}%                                 % Insert 50pt (vertical) space
@@ -23,29 +23,48 @@
     \vskip 40\p@                                   % Insert 40pt (vertical) space
   }}
 
-\newcommand{\common}[2]{
+\newcommand{\capv}[1]{
+{\bf #1 }
+}
+
+\newcommand{\forests}[2]{
+\begin{table}[ht]
 \begin{center}
-\begin{tabular}{cc}
-\begin{minipage}{4cm}
-\includegraphics[width=4cm]{../#1/sum_tab.png}
+\begin{tabular}{c|c}
+\begin{minipage}{3.6cm}
+\includegraphics[width=3.6cm]{../#1/sum_tab.png}
 \end{minipage}
 &
 \begin{minipage}{12cm}
 \includegraphics[width=12cm]{../#1/forest_plot.png}
-\end{minipage}
+\end{minipage} 
 \end{tabular}
+\caption{Input Summary (left), Forest Plot (right)}
 \end{center}
-\input{../#1/est_table.tex}
-\input{../#1/r_fin_mat.tex}
-\input{../#1/z_score_mat.tex}
+\end{table}
 }
 
-\newcommand{\coxresult}[2]{\section{#2} 
+\newcommand{\common}[2]{
+\input{../#1/est_table.tex}
+\newpage
+\input{../#1/r_fin_mat.tex}
+\input{../#1/z_score_mat.tex}
+\input{../#1/short_fin_mat.tex}
+\input{../#1/short_z_score_mat.tex}
+\input{../#1/long_fin_mat.tex}
+\input{../#1/long_z_score_mat.tex}
+}
+
+\newcommand{\coxresult}[2]{\chapter*{#2 -- Detailed Results} 
+{ 
+\forests{#1}{#2}
 \input{../#1/cox_model_summary.tex}
+}
 \common{#1}{#2}
 }
 
-\newcommand{\lrresult}[2]{\section{#2} 
+\newcommand{\lrresult}[2]{\chapter*{#2 -- Detailed Results} 
+\forests{#1}{#2}
 \input{../#1/logreg_model_summary.tex}
 \common{#1}{#2}
 }
@@ -55,36 +74,116 @@
 \begin{document}
 
 
-\title{Vyvanuti III}
+\title{Post-vaccination, post-infection and hybrid immunity against severe cases of omicron subvariants of covid-19 and long covid: Czech Republic population study}
 
-\author{Results of Statistical Estimation}
+\author{Supplementary material}
 
 \maketitle
 
 
-\newpage
-
 % \coxresult{../workscript}{Test Cox}
 % \lrresult{../workscript}{Test Logreg}
+%\section{Detailed Results}
 
 \coxresult{ProxyBA12}{Serious Course BA12}
 \coxresult{ProxyNew}{Serious Course BA45+}
 % \coxresult{LCallO}{Long Covid BA12 - Population}
 \lrresult{LCinfO}{Long Covid BA12 - Infected}
 
-\section*{Trends}
+\chapter*{Methodology of Effectiveness Comparison}
 
-\begin{tabular}{ccc}
-\input{out/trendtable.tex}
-\end{tabular}
+Consider a Cox model
+
+\[
+\lambda(t|X)=\lambda_{0}(t)\exp\{-X\beta\}
+\]
+and the estimate $b$ of $\beta$ having variance matrix $V$. It
+is well knonw that, asymptotically, $b\sim\mathcal{N}(\beta,V)$.
+
+\subsubsection*{Trend in Immunities }
+
+Let $h_{t_{1}},\dots,h_{t_{n}}$ be a series of HR's corresponding
+to a certain source of immunity, where the index stands for the time
+since obtaining the immunity. Asymptotically, by Delta Theorem\footnote{https://www.jepusto.com/multivariate-delta-method/)}
+and Continuous mapping Theorem, 
+\[
+\mathrm{var}(h)\doteq W:=T'V^{\star}T,\qquad T=\mathrm{\mathrm{diag}}(\exp\{b_{(1)}\},\dots,\exp\{b_{(n)}\})
+\]
+where $(b_{(1)},\dots,b_{(n)})'$ is the vector of $b$'s corresponding
+to $h$ and $V^{\star}$ is the corresponding sub-matrix of $V$. 
+
+We assume a linear trend in $h$, i.e. 
+\[
+h_{t_{i}}=\eta+\delta t_{i}+\epsilon_{i},\qquad i=1,\dots,n,\qquad\mathrm{var}(\epsilon)\doteq W.
+\]
+The GLS estimate of ($\eta,\delta)$' is given by 
+\[
+\left[\begin{array}{c}
+v\\
+d
+\end{array}\right]=(X'W^{-1}X)^{-1}X'W^{-1}h,\qquad X=\left[\begin{array}{cc}
+1 & t_{1}\\
+1 & t_{2}\\
+\vdots & \vdots\\
+1 & t_{n}
+\end{array}\right]
+\]
+having 
+\[
+\mathrm{var}\left[\begin{array}{c}
+v\\
+d
+\end{array}\right]=(X'W^{-1}X)^{-1};
+\]
+the estimate of the trend is then 
+\[
+\tau(t)=v+dt,\qquad t\geq0.
+\]
+
+
+\subsubsection*{Comparison of Immunities}
+
+The goal is to compare HR's $h=(h_{t_{1}},\dots,h_{t_{n}})'$ with
+another vector of HR's, say $k=(k_{t_{1}},\dots,k_{t_{n}})'$ assuming
+both to follow a (each their own) linear trend, which implies that
+\[
+h_{t_{i}}-k_{t_{i}}=\sigma+\alpha t_{i}+e_{i},\qquad i=1,\dots,n,\qquad\mathrm{var}(e)=U:=SV^{\star*}S',
+\]
+
+\[
+S=\left[\begin{array}{cccccc}
+\exp\{b_{[1]}\} & \cdots & 0 & -\exp\{b_{[n+1]}\} & \cdots & 0\\
+\vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
+0 & \cdots & \exp\{b_{[n]}\} & 0 & \cdots & -\exp\{b_{[2n]}\}
+\end{array}\right]
+\]
+where $(b_{[1]},\dots,b_{[2n]})'$ is the vector of $b$'s corresponding
+to $(h,k)'$ and $V^{\star*}$is a corresponding sub-matrix of $V$. 
+
+The GLS estimator of $(\sigma,\alpha)'$ is 
+\[
+(s,a)'=(Z'U^{-1}Z)^{-1}Z'U^{-1}(h-k),\qquad Z=\left[\begin{array}{cc}
+1 & t_{1}\\
+\vdots & \vdots\\
+1 & t_{n}
+\end{array}\right],
+\]
+having the variance
+
+\[
+M:=\mathrm{var}([s,a]')\text{=}(Z'U^{-1}Z)^{-1}
+\]
+Thus, being interested in the difference of immunities $h$ and $k$
+at a specific time $t,$we can estimate it as
+\[
+\Delta_{t}=s+ta,
+\]
+having $\mathrm{var}(\Delta_{t})=[1,t]M[1,t]'$
+
+The corresponding $Z$-score is then 
+\[
+z=\frac{\Delta_{t}}{\sqrt{\mathrm{var}(\Delta_{})}}.
+\]
 
 \end{document}
 
-\coxresultii{LongOmicron}{Long covid -- Omicron}
-
-\coxresult{InfOmicron}{Infections -- Omicron}
-
-\newpage
-
-\section*{Serious Course Given Infection}
-\end{document}
