@@ -1,0 +1,9 @@
+"V1" "V2" "V3" "V4" "V5" "V6" "V7" "V8"
+"1" NA "36.34%" "71.97%" NA NA "92.94%" "96.49%" NA
+"2" NA NA "30.62%" NA NA "64.26%" "59.00%" NA
+"3" NA "-30.62%" NA NA NA NA "23.05%" NA
+"4" NA NA NA NA NA NA NA NA
+"5" NA NA NA NA NA NA NA NA
+"6" NA "-64.26%" NA NA NA NA "2.74%" NA
+"7" NA "-59.00%" "-23.05%" NA NA "-2.74%" NA NA
+"8" NA NA NA NA NA NA NA NA

@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2022.2.17)  29 AUG 2023 11:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2022.2.17)  27 SEP 2023 10:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**report.tex
+**report
 (./report.tex
 LaTeX2e <2017-04-15>
 Babel <3.17> and hyphenation patterns for 3 language(s) loaded.
@@ -86,18 +86,18 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 ) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count91
@@ -198,11 +198,11 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 62.
+(Font)              <12> on input line 66.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 62.
+(Font)              <8> on input line 66.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 62.
+(Font)              <6> on input line 66.
 [1
 
 {/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}]
@@ -220,25 +220,27 @@ Overfull \hbox (36.8421pt too wide) in paragraph at lines 5--62
 <../ProxyBA12/sum_tab.png, id=9, 660.4675pt x 2661.945pt>
 File: ../ProxyBA12/sum_tab.png Graphic file (type png)
 <use ../ProxyBA12/sum_tab.png>
-Package pdftex.def Info: ../ProxyBA12/sum_tab.png  used on input line 70. on in
-put line 70.
+Package pdftex.def Info: ../ProxyBA12/sum_tab.png  used on input line 74. on in
+put line 74.
 Package pdftex.def Info: Requested size: 113.81102pt x 458.6986pt on input line
- 70.
+ 74.
 <../ProxyBA12/forest_plot.png, id=11, 289.08pt x 505.89pt>
 File: ../ProxyBA12/forest_plot.png Graphic file (type png)
 <use ../ProxyBA12/forest_plot.png>
-Package pdftex.def Info: ../ProxyBA12/forest_plot.png  used on input line 70. o
-n input line 70.
+Package pdftex.def Info: ../ProxyBA12/forest_plot.png  used on input line 74. o
+n input line 74.
 Package pdftex.def Info: Requested size: 341.43306pt x 597.5394pt on input line
- 70.
+ 74.
 
-Overfull \hbox (45.62408pt too wide) in paragraph at lines 70--70
+Overfull \hbox (45.62408pt too wide) in paragraph at lines 74--74
  [] 
  []
 
 (../ProxyBA12/est_table.tex) (../ProxyBA12/r_fin_mat.tex)
-(../ProxyBA12/z_score_mat.tex) [2 <../ProxyBA12/sum_tab.png> <../ProxyBA12/fore
-st_plot.png>] [3] [4] (../ProxyNew/cox_model_summary.tex
+(../ProxyBA12/z_score_mat.tex) (../ProxyBA12/short_fin_mat.tex)
+(../ProxyBA12/short_z_score_mat.tex) (../ProxyBA12/long_fin_mat.tex)
+(../ProxyBA12/long_z_score_mat.tex) [2 <../ProxyBA12/sum_tab.png> <../ProxyBA12
+/forest_plot.png>] [3] [4] [5] (../ProxyNew/cox_model_summary.tex
 Overfull \hbox (36.8421pt too wide) in paragraph at lines 5--86
  [][] 
  []
@@ -247,86 +249,89 @@ Overfull \hbox (36.8421pt too wide) in paragraph at lines 5--86
 LaTeX Warning: Float too large for page by 210.38887pt on input line 87.
 
 )
-<../ProxyNew/sum_tab.png, id=23, 660.4675pt x 4444.605pt>
+<../ProxyNew/sum_tab.png, id=26, 660.4675pt x 4444.605pt>
 File: ../ProxyNew/sum_tab.png Graphic file (type png)
 <use ../ProxyNew/sum_tab.png>
-Package pdftex.def Info: ../ProxyNew/sum_tab.png  used on input line 71. on inp
-ut line 71.
+Package pdftex.def Info: ../ProxyNew/sum_tab.png  used on input line 75. on inp
+ut line 75.
 Package pdftex.def Info: Requested size: 113.81102pt x 765.88138pt on input lin
-e 71.
-<../ProxyNew/forest_plot.png, id=24, 289.08pt x 505.89pt>
+e 75.
+<../ProxyNew/forest_plot.png, id=27, 289.08pt x 505.89pt>
 File: ../ProxyNew/forest_plot.png Graphic file (type png)
 <use ../ProxyNew/forest_plot.png>
-Package pdftex.def Info: ../ProxyNew/forest_plot.png  used on input line 71. on
- input line 71.
+Package pdftex.def Info: ../ProxyNew/forest_plot.png  used on input line 75. on
+ input line 75.
 Package pdftex.def Info: Requested size: 341.43306pt x 597.5394pt on input line
- 71.
+ 75.
 
-Overfull \hbox (45.62408pt too wide) in paragraph at lines 71--71
+Overfull \hbox (45.62408pt too wide) in paragraph at lines 75--75
  [] 
  []
 
-[5
+[6
 
 ]
 Overfull \vbox (38.18138pt too high) has occurred while \output is active []
 
 
-[6 <../ProxyNew/sum_tab.png> <../ProxyNew/forest_plot.png>]
+[7 <../ProxyNew/sum_tab.png> <../ProxyNew/forest_plot.png>]
 (../ProxyNew/est_table.tex) (../ProxyNew/r_fin_mat.tex)
-(../ProxyNew/z_score_mat.tex) [7] [8] (../LCinfO/logreg_model_summary.tex
+(../ProxyNew/z_score_mat.tex) (../ProxyNew/short_fin_mat.tex)
+(../ProxyNew/short_z_score_mat.tex) (../ProxyNew/long_fin_mat.tex)
+(../ProxyNew/long_z_score_mat.tex) [8] [9] [10]
+(../LCinfO/logreg_model_summary.tex
 
 LaTeX Warning: Float too large for page by 42.38887pt on input line 73.
 
 )
-<../LCinfO/sum_tab.png, id=39, 626.34pt x 4221.7725pt>
+<../LCinfO/sum_tab.png, id=45, 626.34pt x 4221.7725pt>
 File: ../LCinfO/sum_tab.png Graphic file (type png)
 <use ../LCinfO/sum_tab.png>
-Package pdftex.def Info: ../LCinfO/sum_tab.png  used on input line 73. on input
- line 73.
+Package pdftex.def Info: ../LCinfO/sum_tab.png  used on input line 77. on input
+ line 77.
 Package pdftex.def Info: Requested size: 113.81102pt x 767.10121pt on input lin
-e 73.
-<../LCinfO/forest_plot.png, id=40, 505.6491pt x 505.6491pt>
+e 77.
+<../LCinfO/forest_plot.png, id=46, 505.6491pt x 505.6491pt>
 File: ../LCinfO/forest_plot.png Graphic file (type png)
 <use ../LCinfO/forest_plot.png>
-Package pdftex.def Info: ../LCinfO/forest_plot.png  used on input line 73. on i
-nput line 73.
+Package pdftex.def Info: ../LCinfO/forest_plot.png  used on input line 77. on i
+nput line 77.
 Package pdftex.def Info: Requested size: 341.43306pt x 341.44499pt on input lin
-e 73.
+e 77.
 
-Overfull \hbox (45.62408pt too wide) in paragraph at lines 73--73
+Overfull \hbox (45.62408pt too wide) in paragraph at lines 77--77
  [] 
  []
 
-[9
+[11
 
 ]
 Overfull \vbox (39.40121pt too high) has occurred while \output is active []
 
 
-[10 <../LCinfO/sum_tab.png> <../LCinfO/forest_plot.png>]
+[12 <../LCinfO/sum_tab.png> <../LCinfO/forest_plot.png>]
 (../LCinfO/est_table.tex) (../LCinfO/r_fin_mat.tex) (../LCinfO/z_score_mat.tex)
-[11] [12] (./out/trendtable.tex) [13
-
-] (./report.aux) ) 
+(../LCinfO/short_fin_mat.tex) (../LCinfO/short_z_score_mat.tex)
+(../LCinfO/long_fin_mat.tex) (../LCinfO/long_z_score_mat.tex) [13] [14]
+[15] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 2057 strings out of 494917
- 30233 string characters out of 6180699
- 128750 words of memory out of 5000000
+ 2081 strings out of 494917
+ 30963 string characters out of 6180699
+ 141860 words of memory out of 5000000
  5328 multiletter control sequences out of 15000+600000
  7280 words of font info for 26 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 41i,12n,31p,273b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on report.pdf (13 pages, 1607166 bytes).
+ 41i,12n,31p,269b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on report.pdf (15 pages, 1609443 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 87 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
