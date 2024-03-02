@@ -337,7 +337,7 @@ void addto(vector<string>& labels, vector<unsigned>& counts, const string lbl)
 }*/
 
 
-enum o2rmodes { einfections, eseriouscovidproxy, ehospitalization, elongcovidevent, elongcovidinfection,
+enum o2rmodes { einfections, eseriouscovidproxy, ehospitalization, elongcovidevent, elongcovidinfection, eoveralldeath,
                 elccomparison, enumo2rmodes };
 
 vector<string> mdelabels = { "infections", "seriouscovidproxy",
@@ -462,9 +462,9 @@ void ockodata2R(csv<';'>& data, string outputlabel,
 
     ostringstream header;
 
-    header << "ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOther,";
+    header << "ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,Dead,";
     header << "VariantOfInf,InfPrior,VaccStatus,Immunity,DCCI,Age,AgeGr,Sex";
-    header << ",InfPriorTime,LastVaccTime";
+    header << ",InfPriorTime,LastVaccTime,DeadByOther";
 
     o << header.str() << endl;
     oe << header.str();
@@ -804,6 +804,13 @@ vector<statcounter> lccounts(numweeks);
             }
             unsigned j = is[k];
 
+            string deathotherdatestr = data(j,DatumUmrtiLPZ);
+            if(deathotherdatestr != "")
+            {
+                GETDATE(deathotherdate,deathotherdatestr,break);
+            }
+
+
             reldate infdate;
             string infdatestr = data(j,Datum_pozitivity);
 
@@ -1078,6 +1085,20 @@ records ++;
                 if(deathcoviddatestr != "")
                 {
                     GETDATE(deathcoviddate,deathcoviddatestr,break);
+                    if(deathotherdate < maxreldate)
+                    {
+                        if(abs(deathotherdate-deathcoviddate) > 20)
+                        {
+                            THROW("Too large difference between LPZ death and covid death",break);
+                        }
+                        else
+                            deathcoviddate = deathotherdate;
+                    }
+                    else
+                    {
+                        // tbd resolve these issues with JJ
+                        deathotherdate = deathcoviddate;
+                    }
                 }
                 if((mode == einfections) ||
                     (mode == eseriouscovidproxy && proxy) ||
@@ -1091,11 +1112,6 @@ records ++;
                     throw "death without infection";
             }
 
-            string deathotherdatestr = data(j,DatumUmrtiLPZ);
-            if(deathotherdatestr != "")
-            {
-                GETDATE(deathotherdate,deathotherdatestr,break);
-            }
 
             reldate relevantdate = emptyfound ?
                 relevantvaccdate : infdate;
@@ -1200,7 +1216,8 @@ records ++;
 
         if(mode == elongcovidevent)
             enddate = min(enddate,longcoviddate);
-
+if(idstr=="441")
+    idstr = "441";
         enddate = min(min(deathcoviddate,deathotherdate),enddate);
         if(enddate <= 0)
         {
@@ -1526,6 +1543,7 @@ records ++;
                  isevent = false;
              }
 
+
              if(mode==elongcovidevent)
              {
                  if(t2==longcoviddate) // == enddate if less than the horizon
@@ -1542,6 +1560,14 @@ records ++;
 
              int deadbycovid = t2==deathcoviddate;
              int deadbyother = t2==deathotherdate;
+
+             if(mode == eoveralldeath)
+             {
+                 if(deadbyother)
+                     isevent = true;
+                 else
+                     isevent = false;
+             }
 
 
              string dccistring;
@@ -1839,7 +1865,8 @@ records ++;
                         << age << "," << grouplabel(agegroup) << ","
                         << gender2str(male) << ","
                         << infpriortimestr << ","
-                        << vacctimestr;
+                        << vacctimestr << ","
+                        << (deadbyother && !deadbycovid ? 1 : 0);
                      if(os.str().size()>1000)
                      {
                          cout << "Invalid output line" << endl;
@@ -1848,7 +1875,7 @@ records ++;
                      }
                      o << os.str() << endl;
 
-                     if(isevent)
+                        if(isevent)
                      {
                          pr.event = true;
                          oe << os.str();
@@ -2026,7 +2053,7 @@ records ++;
 		                      << nodccilabel << ","
 		                      << a << ","
 		                      << agelabel << "," << gender2str(m)
-		                      << ",_none,_none" << endl;
+                              << ",_none,_none,0" << endl;
 		                    if(dostat)
 		                    {
 		                        recordcov(uninflabel,0, stat.infprior);
@@ -2216,6 +2243,10 @@ int _main(int argc, char *argv[], bool testrun = false)
     case 'e':
         mode = elongcovidevent;
         cout << "long covid as event" << endl;
+        break;
+    case 'D':
+        mode = eoveralldeath;
+        cout << "overall death es event" << endl;
         break;
     case 'c':
         mode = elccomparison;
@@ -2466,7 +2497,7 @@ int main(int argc, char *argv[])
     {
         int testno = 0;
         if(argc == 1)
-            testno = 3;
+            testno = 6;
         if(argc == 2)
         {
             testno = argv[1][0] - '1' + 1;
@@ -2503,6 +2534,11 @@ int main(int argc, char *argv[])
             char *as[6] ={"foo", "test_input_long_1.csv","test5_output.csv","cE",
                           "2021-12-01","2022-02-13"};
             _main(6,as,true);
+        } else if(testno == 6)
+        {
+            char *as[8] ={"foo", "/home/martin/tmp/ppp/xaa.csv","test6_output.csv","D!",
+                          "2021-01-01","2022-12-31","80","333"};
+            _main(8,as,true);
         }
 
     }

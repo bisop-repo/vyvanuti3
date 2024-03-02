@@ -1,8 +1,8 @@
 #### VOLBA PARAMETROV SKRIPTU ####
 rm(list = ls())
 
-args <-  commandArgs(trailingOnly=TRUE)
-# args <- c("rinput.csv", "SeriousCovidProxy")
+# args <-  commandArgs(trailingOnly=TRUE)
+ args <- c("rinput.csv", "DeadByOther")
 # args <- c("LCInf.csv", "LCINF")
 # 1. Input: zdrojovej csv soubor 
 # 2. Outcome: Infected nebo SeriousCovidProxy nebo LongCovid nebo Hospitalized 
@@ -42,7 +42,11 @@ if (args[2]=="LCINF") {
   summary(m1)
   
   sumstat <- c("LongCovid","Immunity", "Agegr", "DCCI", "Sex")
-} else  {
+} else if(args[2]=="Dead" || args[2]=="DeadByOther") {
+  f <- as.formula(paste("Surv(T1, T2,",args[2],") ~ VaccStatus + DCCI"))
+  m1 <- coxph(f,  data = data)
+  sumstat <- c(args[2],"VaccStatus", "DCCI")
+} else {
   f <- as.formula(paste("Surv(T1, T2,",args[2],") ~ Immunity + DCCI + AgeGr + Sex "))
   m1 <- coxph(f,  data = data)
   sumstat <- c(args[2],"Immunity", "Agegr", "Sex")
