@@ -500,6 +500,8 @@ write.table(r_fin_mat,"r_fin_mat.txt")
 textable <- xtable(r_fin_mat, caption="Effectiveness/protection differences")
 print(textable, file = "r_fin_mat.tex", include.rownames = TRUE)
 
+# zakruhlenie matic, ktore pouzivame do heat mapy na cele cisla
+r_fin_mat <- matrix(label_percent(accuracy = 1)(r_fin2), ncol = length(im_level), byrow = T)
 
 # M: viz výše
 #z_score_fin3 <- c(NA, z_score_fin2[1:7], NA, z_score_fin2[8:14], NA, 
@@ -530,6 +532,8 @@ write.table(short_fin_mat,"short_fin_mat.txt")
 textable <- xtable(short_fin_mat, caption=paste("Effectiveness/protection differences in ", short_t))
 print(textable, file = "short_fin_mat.tex", include.rownames = TRUE)
 
+# zakruhlenie matic, ktore pouzivame do heat mapy na cele cisla
+short_fin_mat <- matrix(label_percent(accuracy = 1)(short_fin), ncol = length(im_level_trend), byrow = T)
 
 short_z_score_fin_mat <- matrix(short_z_score_fin, ncol = length(im_level_trend), byrow = T)
 
@@ -545,6 +549,8 @@ write.table(long_fin_mat,"long_fin_mat.txt")
 textable <- xtable(long_fin_mat, caption=paste("Effectiveness/protection differences in ", long_t))
 print(textable, file = "long_fin_mat.tex", include.rownames = TRUE)
 
+# zakruhlenie matic, ktore pouzivame do heat mapy na cele cisla
+long_fin_mat <- matrix(label_percent(accuracy = 1)(long_fin), ncol = length(im_level_trend), byrow = T)
 
 long_z_score_fin_mat <- matrix(long_z_score_fin, ncol = length(im_level_trend), byrow = T)
 
@@ -573,7 +579,7 @@ else
 
 
 
-heatmap.2(z_score_fin_mat, cellnote = r_fin_mat %>% round(0), dendrogram = "none", Rowv = F, 
+heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F, 
           Colv = F, notecol="black", 
           trace = "none",
           # notecex = 0.8, # velkost cislicek, default je 1
@@ -601,7 +607,7 @@ else
   png(file="heatmapshort.png", height = 325)
 
 
-heatmap.2(short_z_score_fin_mat, cellnote = short_fin_mat %>% round(0), dendrogram = "none", Rowv = F, 
+heatmap.2(short_z_score_fin_mat, cellnote = short_fin_mat, dendrogram = "none", Rowv = F, 
           Colv = F, notecol="black", 
           trace = "none",
           # notecex = 0.8, # velkost cislicek
@@ -628,7 +634,7 @@ else
   png(file="heatmaplong.png", height = 325)
 ?heatmap.2
 
-heatmap.2(long_z_score_fin_mat, cellnote = long_fin_mat %>% round(0), dendrogram = "none", Rowv = F, 
+heatmap.2(long_z_score_fin_mat, cellnote = long_fin_mat, dendrogram = "none", Rowv = F, 
           Colv = F, notecol="black", 
           trace = "none",
           # notecex = 0.8, # velkost cislicek
