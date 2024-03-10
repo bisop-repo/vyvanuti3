@@ -573,10 +573,10 @@ else
 
 
 
-heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F, 
+heatmap.2(z_score_fin_mat, cellnote = r_fin_mat %>% round(0), dendrogram = "none", Rowv = F, 
           Colv = F, notecol="black", 
           trace = "none",
-          notecex = 0.8, # velkost cislicek
+          # notecex = 0.8, # velkost cislicek, default je 1
           # key=FALSE, 
           density.info = "none",
           # keysize = 0.25,
@@ -601,10 +601,10 @@ else
   png(file="heatmapshort.png", height = 325)
 
 
-heatmap.2(short_z_score_fin_mat, cellnote = short_fin_mat, dendrogram = "none", Rowv = F, 
+heatmap.2(short_z_score_fin_mat, cellnote = short_fin_mat %>% round(0), dendrogram = "none", Rowv = F, 
           Colv = F, notecol="black", 
           trace = "none",
-          notecex = 0.8, # velkost cislicek
+          # notecex = 0.8, # velkost cislicek
           # key=FALSE, 
           density.info = "none",
           # keysize = 0.25,
@@ -626,12 +626,12 @@ if(i == 0)
   png(file="heatmaplongnk.png", height = 325)
 else  
   png(file="heatmaplong.png", height = 325)
+?heatmap.2
 
-
-heatmap.2(long_z_score_fin_mat, cellnote = long_fin_mat, dendrogram = "none", Rowv = F, 
+heatmap.2(long_z_score_fin_mat, cellnote = long_fin_mat %>% round(0), dendrogram = "none", Rowv = F, 
           Colv = F, notecol="black", 
           trace = "none",
-          notecex = 0.8, # velkost cislicek
+          # notecex = 0.8, # velkost cislicek
           # key=FALSE, 
           density.info = "none",
           # keysize = 0.25,
