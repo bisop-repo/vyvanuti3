@@ -337,12 +337,12 @@ void addto(vector<string>& labels, vector<unsigned>& counts, const string lbl)
 }*/
 
 
-enum o2rmodes { einfections, eseriouscovidproxy, ehospitalization, elongcovidevent, elongcovidinfection,
+enum o2rmodes { einfections, eseriouscovidproxy, ehospitalization, elongcovidevent, elongcovidinfection, eoveralldeath,
                 elccomparison, enumo2rmodes };
 
 vector<string> mdelabels = { "infections", "seriouscovidproxy",
                              "hospitalization", "longcovidevent",
-                             "longcovidinfection","comparison" };
+                             "longcovidinfection","deathbyother","comparison" };
 
 struct covstatrecord
 {
@@ -462,9 +462,9 @@ void ockodata2R(csv<';'>& data, string outputlabel,
 
     ostringstream header;
 
-    header << "ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,DeadByOther,";
+    header << "ID,T1,T2,Infected,Hospitalized,SeriousCovidProxy,LongCovid,DeadByCovid,Dead,";
     header << "VariantOfInf,InfPrior,VaccStatus,Immunity,DCCI,Age,AgeGr,Sex";
-    header << ",InfPriorTime,LastVaccTime";
+    header << ",InfPriorTime,LastVaccTime,DeadByOther";
 
     o << header.str() << endl;
     oe << header.str();
@@ -613,6 +613,9 @@ vector<statcounter> lccounts(numweeks);
         bool event = false;
         bool excluded = true;
         bool agefiltered = false;
+        string vaccstatus = "";
+        string infprior = "";
+        string immunity = "";
     };
 
     vector<personrecord> persons;
@@ -803,6 +806,13 @@ vector<statcounter> lccounts(numweeks);
                 THROW("Extra line after a death record",break);
             }
             unsigned j = is[k];
+
+            string deathotherdatestr = data(j,DatumUmrtiLPZ);
+            if(deathotherdatestr != "")
+            {
+                GETDATE(deathotherdate,deathotherdatestr,break);
+            }
+
 
             reldate infdate;
             string infdatestr = data(j,Datum_pozitivity);
@@ -1078,6 +1088,20 @@ records ++;
                 if(deathcoviddatestr != "")
                 {
                     GETDATE(deathcoviddate,deathcoviddatestr,break);
+                    if(deathotherdate < maxreldate)
+                    {
+                        if(abs(deathotherdate-deathcoviddate) > 20)
+                        {
+                            THROW("Too large difference between LPZ death and covid death",break);
+                        }
+                        else
+                            deathcoviddate = deathotherdate;
+                    }
+                    else
+                    {
+                        // tbd resolve these issues with JJ
+                        deathotherdate = deathcoviddate;
+                    }
                 }
                 if((mode == einfections) ||
                     (mode == eseriouscovidproxy && proxy) ||
@@ -1091,11 +1115,6 @@ records ++;
                     throw "death without infection";
             }
 
-            string deathotherdatestr = data(j,DatumUmrtiLPZ);
-            if(deathotherdatestr != "")
-            {
-                GETDATE(deathotherdate,deathotherdatestr,break);
-            }
 
             reldate relevantdate = emptyfound ?
                 relevantvaccdate : infdate;
@@ -1526,6 +1545,7 @@ records ++;
                  isevent = false;
              }
 
+
              if(mode==elongcovidevent)
              {
                  if(t2==longcoviddate) // == enddate if less than the horizon
@@ -1542,6 +1562,14 @@ records ++;
 
              int deadbycovid = t2==deathcoviddate;
              int deadbyother = t2==deathotherdate;
+
+             if(mode == eoveralldeath)
+             {
+                 if(deadbyother)
+                     isevent = true;
+                 else
+                     isevent = false;
+             }
 
 
              string dccistring;
@@ -1730,6 +1758,13 @@ records ++;
              }
              if(t2>0)
              {
+                 if(pr.vaccstatus == "")
+                 {
+                     pr.vaccstatus= vaccstring;
+                     pr.infprior = infpriorstr;
+                     pr.immunity = immunitystring;
+                 }
+
                  int t1nonneg = max(0,t1);
 
                  bool dooutput = true;
@@ -1839,7 +1874,8 @@ records ++;
                         << age << "," << grouplabel(agegroup) << ","
                         << gender2str(male) << ","
                         << infpriortimestr << ","
-                        << vacctimestr;
+                        << vacctimestr << ","
+                        << (deadbyother && !deadbycovid ? 1 : 0);
                      if(os.str().size()>1000)
                      {
                          cout << "Invalid output line" << endl;
@@ -1848,7 +1884,7 @@ records ++;
                      }
                      o << os.str() << endl;
 
-                     if(isevent)
+                        if(isevent)
                      {
                          pr.event = true;
                          oe << os.str();
@@ -1967,7 +2003,7 @@ records ++;
                             dooutput = false;
                     }
 
- 
+
                     if(dooutput)
                     {
                         int n = numpeopleofage(a,m,czsohalfyear)-vs[a] * ppp.everyn;
@@ -1977,64 +2013,64 @@ records ++;
 
                         if(ppp.addfromczso)
                         {
-		                if(n < 0)
-		                {
-		                    cout << "More of " << (m ? "men" : "women") << " ( " << vs[a]
-		                            << ") treated then exist of age " << a
-		                            << " (" << numpeopleofage(a,m,czsohalfyear) << ")" << endl;
+                        if(n < 0)
+                        {
+                            cout << "More of " << (m ? "men" : "women") << " ( " << vs[a]
+                                    << ") treated then exist of age " << a
+                                    << " (" << numpeopleofage(a,m,czsohalfyear) << ")" << endl;
 
-		                }
-		                else
-		                {
-		                  // cout << "Having " << vs[a] << " " << (m ? "men" : "women") << " of age " << a << ", we add " << n << endl;
-		                   if(m)
-		                       addedmen[g] += n;
-		                    else
-		                       addedwomen[g] += n;
-		                }
-
-
-		                //of course we do note guarantee ids to follow the "true ones". (maybe we should check whether we do not duplicate ids)
+                        }
+                        else
+                        {
+                          // cout << "Having " << vs[a] << " " << (m ? "men" : "women") << " of age " << a << ", we add " << n << endl;
+                           if(m)
+                               addedmen[g] += n;
+                            else
+                               addedwomen[g] += n;
+                        }
 
 
-		                for(int j=0; j<n; j++,i++)
-		                {
-		                    if(++outputcounter % ppp.everyn)
-		                        continue;
-		                    peopleexported++;
-	    //                        "ID,T1,T2,Infected,hospitalized,seriouscovidproxy,longcovid,DeadByCovid, DeadByOther, VariantComp";
-		                    o << i << "," << 0 << "," << T << ",0,";
-		                    if(mode == ehospitalization)
-		                        o << "0,";
-		                    else
-		                        o << ",";
-		                    if(mode == eseriouscovidproxy)
-		                        o << "0,";
-		                    else
-		                        o << ",";
-		                    if(mode == elongcovidevent || mode == elongcovidinfection)
-		                        o << "0,";
-		                    else
-		                        o << ",";
-		                    o << "0,0,,";
+                        //of course we do note guarantee ids to follow the "true ones". (maybe we should check whether we do not duplicate ids)
 
 
-	    //                         header << " InfPrior,VaccStatus,Immunity,Age,AgeGr,Sex";
+                        for(int j=0; j<n; j++,i++)
+                        {
+                            if(++outputcounter % ppp.everyn)
+                                continue;
+                            peopleexported++;
+        //                        "ID,T1,T2,Infected,hospitalized,seriouscovidproxy,longcovid,DeadByCovid, DeadByOther, VariantComp";
+                            o << i << "," << 0 << "," << T << ",0,";
+                            if(mode == ehospitalization)
+                                o << "0,";
+                            else
+                                o << ",";
+                            if(mode == eseriouscovidproxy)
+                                o << "0,";
+                            else
+                                o << ",";
+                            if(mode == elongcovidevent || mode == elongcovidinfection)
+                                o << "0,";
+                            else
+                                o << ",";
+                            o << "0,0,,";
 
-		                    o << uninflabel << "," << unvacclabel << ","
-		                      << (mode == elongcovidevent ? "" : noimmunitylabel) << ","
-		                      << nodccilabel << ","
-		                      << a << ","
-		                      << agelabel << "," << gender2str(m)
-		                      << ",_none,_none" << endl;
-		                    if(dostat)
-		                    {
-		                        recordcov(uninflabel,0, stat.infprior);
-		                        recordcov(unvacclabel,0,stat.vaccstatus);
-		                        recordcov(agelabel,0,stat.agegroup);
-		                    }
-		                 }
-		           }
+
+        //                         header << " InfPrior,VaccStatus,Immunity,Age,AgeGr,Sex";
+
+                            o << uninflabel << "," << unvacclabel << ","
+                              << (mode == elongcovidevent ? "" : noimmunitylabel) << ","
+                              << nodccilabel << ","
+                              << a << ","
+                              << agelabel << "," << gender2str(m)
+                              << ",_none,_none,0" << endl;
+                            if(dostat)
+                            {
+                                recordcov(uninflabel,0, stat.infprior);
+                                recordcov(unvacclabel,0,stat.vaccstatus);
+                                recordcov(agelabel,0,stat.agegroup);
+                            }
+                         }
+                   }
                      }
                  }
             }
@@ -2101,13 +2137,15 @@ records ++;
     cout << endl;
 
 
-    op << "ybirth,agegr,gender,orp,lastdcci,event,excluded,agefiltered"  << endl;
+    op << "ybirth,agegr,gender,orp,lastdcci,event,excluded,agefiltered,vaccstatus,infprior,immunity"  << endl;
     for(unsigned j=0; j<persons.size(); j++)
     {
         auto& pr = persons[j];
         op << pr.ybirth << "," << pr.agegr << "," << pr.gender << "," << pr.orp << ","
-           << pr.lastdcci << "," << (pr.event ? 1 : 0) << "," << (pr.excluded ? 1: 0) 
-           << "," << (pr.agefiltered ? 1: 0) << endl;
+           << pr.lastdcci << "," << (pr.event ? 1 : 0) << "," << (pr.excluded ? 1: 0)
+           << "," << (pr.agefiltered ? 1: 0) << ","
+           << pr.vaccstatus << "," << pr.infprior << ","
+           << pr.immunity<< endl;
     }
 
 
@@ -2216,6 +2254,10 @@ int _main(int argc, char *argv[], bool testrun = false)
     case 'e':
         mode = elongcovidevent;
         cout << "long covid as event" << endl;
+        break;
+    case 'D':
+        mode = eoveralldeath;
+        cout << "overall death es event" << endl;
         break;
     case 'c':
         mode = elccomparison;
@@ -2466,7 +2508,7 @@ int main(int argc, char *argv[])
     {
         int testno = 0;
         if(argc == 1)
-            testno = 3;
+            testno = 6;
         if(argc == 2)
         {
             testno = argv[1][0] - '1' + 1;
@@ -2503,6 +2545,12 @@ int main(int argc, char *argv[])
             char *as[6] ={"foo", "test_input_long_1.csv","test5_output.csv","cE",
                           "2021-12-01","2022-02-13"};
             _main(6,as,true);
+        } else if(testno == 6)
+        {
+            char *as[8] ={"foo", "/home/martin/tmp/ppp/xaa.csv","test6_output.csv",
+                          "cO-icb",
+                          "2021-01-01","2022-12-31","80","333"};
+            _main(8,as,true);
         }
 
     }
@@ -2532,6 +2580,7 @@ int main(int argc, char *argv[])
     return 0;
 
 }
+
 
 
 

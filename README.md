@@ -1,4 +1,4 @@
-# Abakyses
+# Analyses
 
 ## Serious course, BA12
 

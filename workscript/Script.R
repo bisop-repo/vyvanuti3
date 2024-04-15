@@ -1,7 +1,7 @@
 #### VOLBA PARAMETROV SKRIPTU ####
 rm(list = ls())
 
-args <-  commandArgs(trailingOnly=TRUE)
+ args <-  commandArgs(trailingOnly=TRUE)
 # args <- c("rinput.csv", "SeriousCovidProxy")
 # args <- c("LCInf.csv", "LCINF")
 # 1. Input: zdrojovej csv soubor 
@@ -14,7 +14,7 @@ args <-  commandArgs(trailingOnly=TRUE)
 # Mena balickov
 packages <- c("readr", "tidyverse", "survival", "gtsummary", "expss", "plotrix", 
               "gt", "forestmodel", "survminer", "webshot2", "ggstats", "wesanderson", 
-              "matlib", "scales", "gdata", "gplots", "xtable")
+              "matlib", "scales", "gdata", "gplots", "xtable", "R.utils")
 
 # Nainstalovanie doteraz nenainstalovanych balickov 
 installed_packages <- packages %in% rownames(installed.packages())
@@ -571,18 +571,24 @@ mycol <- colorpanel(n=length(breaks)-1,low="red",mid="lightgrey",high="darkgreen
   
   
 if(i == 0)
-  png(file="heatmapnk.png", height = 325)
+#  postscript("heatmapnk.eps", height = 325)
+#  svg("heatmapnk.svg")
+  pdf("heatmapnk.pdf", height = 6, width = 7)
 else  
-  png(file="heatmap.png", height = 325)
+#  postscript("heatmap.eps", height = 325)
+#  svg("heatmap.svg")
+  pdf("heatmap.pdf", height = 6, width = 7)
 
 # https://www.biostars.org/p/73644/
 
 
 
 heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F, 
-          Colv = F, notecol="black", 
+#          Colv = F, notecol="darkorange",
+          Colv = F, notecol="black",
           trace = "none",
           # notecex = 0.8, # velkost cislicek, default je 1
+          notecex = 1.1,
           # key=FALSE, 
           density.info = "none",
           # keysize = 0.25,
@@ -590,7 +596,8 @@ heatmap.2(z_score_fin_mat, cellnote = r_fin_mat, dendrogram = "none", Rowv = F,
           key.xlab = "critical value",
           margins = c(1, 10),
           srtCol = 270,
-          offsetCol = -30, # toto je trochu hruba sila
+#          offsetCol = -30, # toto je trochu hruba sila
+          offsetCol = -45, # toto je trochu hruba sila
           labRow = substr(im_level[-length(im_level)], 9, 20),
           labCol = substr(im_level, 9, 20), 
           # labCol = F,
@@ -602,15 +609,17 @@ dev.off()
 
 #OU
 if(i == 0)
-  png(file="heatmapshortnk.png", height = 325)
+#  png(file="heatmapshortnk.png", height = 325)
+  pdf("heatmapshortnk.pdf", height = 6, width = 7)
 else  
-  png(file="heatmapshort.png", height = 325)
-
+#  png(file="heatmapshort.png", height = 325)
+  pdf("heatmapshort.pdf", height = 6, width = 7)
 
 heatmap.2(short_z_score_fin_mat, cellnote = short_fin_mat, dendrogram = "none", Rowv = F, 
           Colv = F, notecol="black", 
           trace = "none",
           # notecex = 0.8, # velkost cislicek
+          notecex = 1.1,
           # key=FALSE, 
           density.info = "none",
           # keysize = 0.25,
@@ -618,7 +627,8 @@ heatmap.2(short_z_score_fin_mat, cellnote = short_fin_mat, dendrogram = "none", 
           key.xlab = "critical value",
           margins = c(1, 10),
           srtCol = 270,
-          offsetCol = -30, # toto je trochu hruba sila
+#          offsetCol = -30, # toto je trochu hruba sila
+          offsetCol = -45, # toto je trochu hruba sila
           labRow = substr(im_level_trend[-length(im_level_trend)], 9, 20),
           labCol = substr(im_level_trend, 9, 20), 
           # labCol = F,
@@ -629,15 +639,17 @@ heatmap.2(short_z_score_fin_mat, cellnote = short_fin_mat, dendrogram = "none", 
 dev.off()
 
 if(i == 0)
-  png(file="heatmaplongnk.png", height = 325)
+#  png(file="heatmaplongnk.png", height = 325)
+   pdf("heatmaplongnk.pdf", height = 6, width = 7)
 else  
-  png(file="heatmaplong.png", height = 325)
-?heatmap.2
+#  png(file="heatmaplong.png", height = 325)
+   pdf("heatmaplong.pdf", height = 6, width = 7)
 
 heatmap.2(long_z_score_fin_mat, cellnote = long_fin_mat, dendrogram = "none", Rowv = F, 
           Colv = F, notecol="black", 
           trace = "none",
           # notecex = 0.8, # velkost cislicek
+          notecex = 1.1,
           # key=FALSE, 
           density.info = "none",
           # keysize = 0.25,
@@ -645,7 +657,8 @@ heatmap.2(long_z_score_fin_mat, cellnote = long_fin_mat, dendrogram = "none", Ro
           key.xlab = "critical value",
           margins = c(1, 10),
           srtCol = 270,
-          offsetCol = -30, # toto je trochu hruba sila
+#          offsetCol = -30, # toto je trochu hruba sila
+          offsetCol = -45, # toto je trochu hruba sila
           labRow = substr(im_level_trend[-length(im_level_trend)], 9, 20),
           labCol = substr(im_level_trend, 9, 20), 
           # labCol = F,

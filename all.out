@@ -10,7 +10,7 @@ mkdir: cannot create directory ‘ProxyNew’: File exists
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 Loading required package: maditr
 
-To get total summary skip 'by' argument: take_all(mtcars, mean)
+To select rows from data: rows(mtcars, am==0)
 
 
 Attaching package: ‘maditr’
@@ -143,164 +143,61 @@ The following object is masked from ‘package:stats’:
 
     lowess
 
-file:////tmp/Rtmpd5IOgP/file38305e7cc40831.html screenshot completed
+Loading required package: R.oo
+Loading required package: R.methodsS3
+R.methodsS3 v1.8.2 (2022-06-13 22:00:14 UTC) successfully loaded. See ?R.methodsS3 for help.
+R.oo v1.26.0 (2024-01-24 05:12:50 UTC) successfully loaded. See ?R.oo for help.
+
+Attaching package: ‘R.oo’
+
+The following object is masked from ‘package:R.methodsS3’:
+
+    throw
+
+The following objects are masked from ‘package:gdata’:
+
+    ll, trim
+
+The following object is masked from ‘package:expss’:
+
+    equals
+
+The following objects are masked from ‘package:methods’:
+
+    getClasses, getMethods
+
+The following objects are masked from ‘package:base’:
+
+    attach, detach, load, save
+
+R.utils v2.12.3 (2023-11-18 01:00:02 UTC) successfully loaded. See ?R.utils for help.
+
+Attaching package: ‘R.utils’
+
+The following objects are masked from ‘package:gdata’:
+
+    env, resample
+
+The following object is masked from ‘package:expss’:
+
+    less
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+The following object is masked from ‘package:utils’:
+
+    timestamp
+
+The following objects are masked from ‘package:base’:
+
+    cat, commandArgs, getOption, isOpen, nullfile, parse, warnings
+
+file:////tmp/RtmpX4gGM1/filebd0a8438b5767.html screenshot completed
 Saving 4 x 7 in image
-Warning message:
-system call failed: Cannot allocate memory 
 Group done
 mkdir: cannot create directory ‘ProxyBA12’: File exists
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.0     ✔ purrr     1.0.1
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.1     ✔ tibble    3.1.8
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: maditr
-
-To aggregate all non-grouping columns: take_all(mtcars, mean, by = am)
-
-
-Attaching package: ‘maditr’
-
-The following objects are masked from ‘package:dplyr’:
-
-    between, coalesce, first, last
-
-The following object is masked from ‘package:purrr’:
-
-    transpose
-
-The following object is masked from ‘package:readr’:
-
-    cols
-
-
-Use 'expss_output_rnotebook()' to display tables inside R Notebooks.
- To return to the console output, use 'expss_output_default()'.
-
-
-Attaching package: ‘expss’
-
-The following objects are masked from ‘package:gtsummary’:
-
-    contains, vars
-
-The following objects are masked from ‘package:stringr’:
-
-    fixed, regex
-
-The following objects are masked from ‘package:dplyr’:
-
-    compute, contains, na_if, recode, vars, where
-
-The following objects are masked from ‘package:purrr’:
-
-    keep, modify, modify_if, when
-
-The following objects are masked from ‘package:tidyr’:
-
-    contains, nest
-
-The following object is masked from ‘package:ggplot2’:
-
-    vars
-
-
-Attaching package: ‘gt’
-
-The following objects are masked from ‘package:expss’:
-
-    contains, gt, tab_caption, vars
-
-Loading required package: ggpubr
-
-Attaching package: ‘ggpubr’
-
-The following object is masked from ‘package:expss’:
-
-    compare_means
-
-
-Attaching package: ‘survminer’
-
-The following object is masked from ‘package:survival’:
-
-    myeloma
-
-
-Attaching package: ‘scales’
-
-The following object is masked from ‘package:plotrix’:
-
-    rescale
-
-The following object is masked from ‘package:purrr’:
-
-    discard
-
-The following object is masked from ‘package:readr’:
-
-    col_factor
-
-gdata: read.xls support for 'XLS' (Excel 97-2004) files ENABLED.
-
-gdata: read.xls support for 'XLSX' (Excel 2007+) files ENABLED.
-
-Attaching package: ‘gdata’
-
-The following object is masked from ‘package:expss’:
-
-    keep
-
-The following objects are masked from ‘package:maditr’:
-
-    first, last
-
-The following objects are masked from ‘package:dplyr’:
-
-    combine, first, last
-
-The following object is masked from ‘package:purrr’:
-
-    keep
-
-The following object is masked from ‘package:stats’:
-
-    nobs
-
-The following object is masked from ‘package:utils’:
-
-    object.size
-
-The following object is masked from ‘package:base’:
-
-    startsWith
-
-Registered S3 method overwritten by 'gplots':
-  method         from 
-  reorder.factor gdata
-
-Attaching package: ‘gplots’
-
-The following object is masked from ‘package:gdata’:
-
-    reorder.factor
-
-The following object is masked from ‘package:plotrix’:
-
-    plotCI
-
-The following object is masked from ‘package:stats’:
-
-    lowess
-
-file:////tmp/RtmpCycZKu/file38a9497a1a8ede.html screenshot completed
-Saving 4 x 7 in image
-Group done
-mkdir: cannot create directory ‘LCinfO’: File exists
 ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.0     ✔ purrr     1.0.1
 ✔ forcats   1.0.0     ✔ stringr   1.5.0
@@ -446,25 +343,288 @@ The following object is masked from ‘package:stats’:
 
     lowess
 
-file:////tmp/RtmpZ3IrgD/file38e1ce2a6be291.html screenshot completed
-Saving 7 x 7 in image
+Loading required package: R.oo
+Loading required package: R.methodsS3
+R.methodsS3 v1.8.2 (2022-06-13 22:00:14 UTC) successfully loaded. See ?R.methodsS3 for help.
+R.oo v1.26.0 (2024-01-24 05:12:50 UTC) successfully loaded. See ?R.oo for help.
+
+Attaching package: ‘R.oo’
+
+The following object is masked from ‘package:R.methodsS3’:
+
+    throw
+
+The following objects are masked from ‘package:gdata’:
+
+    ll, trim
+
+The following object is masked from ‘package:expss’:
+
+    equals
+
+The following objects are masked from ‘package:methods’:
+
+    getClasses, getMethods
+
+The following objects are masked from ‘package:base’:
+
+    attach, detach, load, save
+
+R.utils v2.12.3 (2023-11-18 01:00:02 UTC) successfully loaded. See ?R.utils for help.
+
+Attaching package: ‘R.utils’
+
+The following objects are masked from ‘package:gdata’:
+
+    env, resample
+
+The following object is masked from ‘package:expss’:
+
+    less
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+The following object is masked from ‘package:utils’:
+
+    timestamp
+
+The following objects are masked from ‘package:base’:
+
+    cat, commandArgs, getOption, isOpen, nullfile, parse, warnings
+
+file:////tmp/Rtmp1hXH1w/filec491a239e87ec.html screenshot completed
+Saving 4 x 7 in image
 Group done
-cp: cannot stat 'v3/LCallO/heatmapshort.png': No such file or directory
-cp: cannot stat 'v3/LCallO/heatmapshortnk.png': No such file or directory
-cp: cannot stat 'v3/LCallO/heatmaplong.png': No such file or directory
-cp: cannot stat 'v3/LCallO/heatmaplongnk.png': No such file or directory
-cp: cannot stat 'v3/LCallO/short_fin_mat.txt': No such file or directory
-cp: cannot stat 'v3/LCallO/short_z_score_fin_mat.txt': No such file or directory
-cp: cannot stat 'v3/LCallO/long_fin_mat.txt': No such file or directory
-cp: cannot stat 'v3/LCallO/long_z_score_fin_mat.txt': No such file or directory
+mkdir: cannot create directory ‘LCinfO’: File exists
+./coxadults: line 15: 818444 Segmentation fault      (core dumped) ../../convertool/bin/convertool $INPUT_FILE rinput.csv $2 $3 $4 19 333 > convertool.log
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.0     ✔ purrr     1.0.1
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.1     ✔ tibble    3.1.8
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Loading required package: maditr
+
+To aggregate several columns with one summary: take(mtcars, mpg, hp, fun = mean, by = am)
+
+
+Attaching package: ‘maditr’
+
+The following objects are masked from ‘package:dplyr’:
+
+    between, coalesce, first, last
+
+The following object is masked from ‘package:purrr’:
+
+    transpose
+
+The following object is masked from ‘package:readr’:
+
+    cols
+
+
+Attaching package: ‘expss’
+
+The following objects are masked from ‘package:gtsummary’:
+
+    contains, vars
+
+The following objects are masked from ‘package:stringr’:
+
+    fixed, regex
+
+The following objects are masked from ‘package:dplyr’:
+
+    compute, contains, na_if, recode, vars, where
+
+The following objects are masked from ‘package:purrr’:
+
+    keep, modify, modify_if, when
+
+The following objects are masked from ‘package:tidyr’:
+
+    contains, nest
+
+The following object is masked from ‘package:ggplot2’:
+
+    vars
+
+
+Attaching package: ‘gt’
+
+The following objects are masked from ‘package:expss’:
+
+    contains, gt, tab_caption, vars
+
+Loading required package: ggpubr
+
+Attaching package: ‘ggpubr’
+
+The following object is masked from ‘package:expss’:
+
+    compare_means
+
+
+Attaching package: ‘survminer’
+
+The following object is masked from ‘package:survival’:
+
+    myeloma
+
+
+Attaching package: ‘scales’
+
+The following object is masked from ‘package:plotrix’:
+
+    rescale
+
+The following object is masked from ‘package:purrr’:
+
+    discard
+
+The following object is masked from ‘package:readr’:
+
+    col_factor
+
+gdata: read.xls support for 'XLS' (Excel 97-2004) files ENABLED.
+
+gdata: read.xls support for 'XLSX' (Excel 2007+) files ENABLED.
+
+Attaching package: ‘gdata’
+
+The following object is masked from ‘package:expss’:
+
+    keep
+
+The following objects are masked from ‘package:maditr’:
+
+    first, last
+
+The following objects are masked from ‘package:dplyr’:
+
+    combine, first, last
+
+The following object is masked from ‘package:purrr’:
+
+    keep
+
+The following object is masked from ‘package:stats’:
+
+    nobs
+
+The following object is masked from ‘package:utils’:
+
+    object.size
+
+The following object is masked from ‘package:base’:
+
+    startsWith
+
+Registered S3 method overwritten by 'gplots':
+  method         from 
+  reorder.factor gdata
+
+Attaching package: ‘gplots’
+
+The following object is masked from ‘package:gdata’:
+
+    reorder.factor
+
+The following object is masked from ‘package:plotrix’:
+
+    plotCI
+
+The following object is masked from ‘package:stats’:
+
+    lowess
+
+Loading required package: R.oo
+Loading required package: R.methodsS3
+R.methodsS3 v1.8.2 (2022-06-13 22:00:14 UTC) successfully loaded. See ?R.methodsS3 for help.
+R.oo v1.26.0 (2024-01-24 05:12:50 UTC) successfully loaded. See ?R.oo for help.
+
+Attaching package: ‘R.oo’
+
+The following object is masked from ‘package:R.methodsS3’:
+
+    throw
+
+The following objects are masked from ‘package:gdata’:
+
+    ll, trim
+
+The following object is masked from ‘package:expss’:
+
+    equals
+
+The following objects are masked from ‘package:methods’:
+
+    getClasses, getMethods
+
+The following objects are masked from ‘package:base’:
+
+    attach, detach, load, save
+
+R.utils v2.12.3 (2023-11-18 01:00:02 UTC) successfully loaded. See ?R.utils for help.
+
+Attaching package: ‘R.utils’
+
+The following objects are masked from ‘package:gdata’:
+
+    env, resample
+
+The following object is masked from ‘package:expss’:
+
+    less
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+The following object is masked from ‘package:utils’:
+
+    timestamp
+
+The following objects are masked from ‘package:base’:
+
+    cat, commandArgs, getOption, isOpen, nullfile, parse, warnings
+
+Error in fread(filename, nrows = 1, sep = NULL, header = FALSE) : 
+  File 'rinput.csv' does not exist or is non-readable. getwd()=='/home/SANDBOX/vyvanuti3/v3/LCinfO'
+Calls: read_labelled_csv -> extract_dictionary -> fread
+Execution halted
+rm: cannot remove 'rinput.csv': No such file or directory
+Group done
+cp: cannot stat 'v3/LCinfO/df_fin.txt': No such file or directory
+cp: cannot stat 'v3/LCinfO/est_table.txt': No such file or directory
+cp: cannot stat 'v3/LCinfO/heatmap.pdf': No such file or directory
+cp: cannot stat 'v3/LCinfO/heatmapnk.pdf': No such file or directory
+cp: cannot stat 'v3/LCinfO/heatmapshort.pdf': No such file or directory
+cp: cannot stat 'v3/LCinfO/heatmapshortnk.pdf': No such file or directory
+cp: cannot stat 'v3/LCinfO/heatmaplong.pdf': No such file or directory
+cp: cannot stat 'v3/ProxyBA12/heatmaplongnk.pdf': No such file or directory
+cp: cannot stat 'v3/ProxyNew/heatmaplongnk.pdf': No such file or directory
+cp: cannot stat 'v3/LCinfO/heatmaplongnk.pdf': No such file or directory
+cp: cannot stat 'v3/LCinfO/r_fin_mat.txt': No such file or directory
+cp: cannot stat 'v3/LCinfO/z_score_fin_mat.txt': No such file or directory
+cp: cannot stat 'v3/LCinfO/short_fin_mat.txt': No such file or directory
+cp: cannot stat 'v3/LCinfO/short_z_score_fin_mat.txt': No such file or directory
+cp: cannot stat 'v3/LCinfO/long_fin_mat.txt': No such file or directory
+cp: cannot stat 'v3/LCinfO/long_z_score_fin_mat.txt': No such file or directory
+cp: cannot stat 'v3/LCinfO/logreg_model_summary.txt': No such file or directory
 This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex)
  restricted \write18 enabled.
 entering extended mode
 (./report.tex
 LaTeX2e <2017-04-15>
 Babel <3.17> and hyphenation patterns for 3 language(s) loaded.
-(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo))
 (/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty)
@@ -494,25 +654,37 @@ Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 [1{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}]
-(../ProxyBA12/cox_model_summary.tex
-Overfull \hbox (36.8421pt too wide) in paragraph at lines 5--62
- [][] 
-)
-Overfull \hbox (45.62408pt too wide) in paragraph at lines 74--74
- [] 
-(../ProxyBA12/est_table.tex) (../ProxyBA12/r_fin_mat.tex)
+(../ProxyBA12/cox_model_summary.tex) (../ProxyBA12/est_table.tex) [1 <../ProxyB
+A12/sum_tab.png> <../ProxyBA12/forest_plot.png>] (../ProxyBA12/r_fin_mat.tex)
 (../ProxyBA12/z_score_mat.tex) (../ProxyBA12/short_fin_mat.tex)
+(../ProxyBA12/short_z_score_mat.tex) (../ProxyBA12/long_fin_mat.tex)
+(../ProxyBA12/long_z_score_mat.tex) [2] [3] (../ProxyNew/cox_model_summary.tex
 
-! LaTeX Error: File `../ProxyBA12/short_score_mat.tex' not found.
+LaTeX Warning: Float too large for page by 15.2601pt on input line 87.
 
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: tex)
+) (../ProxyNew/est_table.tex) [4 <../ProxyNew/sum_tab.png> <../ProxyNew/forest_
+plot.png>] (../ProxyNew/r_fin_mat.tex) (../ProxyNew/z_score_mat.tex)
+(../ProxyNew/short_fin_mat.tex) (../ProxyNew/short_z_score_mat.tex)
+(../ProxyNew/long_fin_mat.tex) (../ProxyNew/long_z_score_mat.tex) [5] [6]
+[7]
 
-Enter file name: 
+LaTeX Warning: File `../LCinfO/sum_tab.png' not found on input line 91.
+
+
+! Package pdftex.def Error: File `../LCinfO/sum_tab.png' not found: using draft
+ setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.91 \lrresult{LCinfO}{Long Covid BA12 - Infected}
+                                                  
+? 
 ! Emergency stop.
-<read *> 
-         
-l.74 \coxresult{ProxyBA12}{Serious Course BA12}
-                                               ^^M
+ ...                                              
+                                                  
+l.91 \lrresult{LCinfO}{Long Covid BA12 - Infected}
+                                                  
 !  ==> Fatal error occurred, no output PDF file produced!
 Transcript written on report.log.
