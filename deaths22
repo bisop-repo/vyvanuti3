@@ -1,0 +1,13 @@
+#!/bin/bash
+
+./coxd Deaths1_22s d!- 2022-01-01 2022-12-31 DeadByOther 18 59 
+./coxd Deaths2_22s d!- 2022-01-01 2022-12-31 DeadByOther 60 69 
+./coxd Deaths3_22s d!- 2022-01-01 2022-12-31 DeadByOther 70 79 
+./coxd Deaths4_22s d!- 2022-01-01 2022-12-31 DeadByOther 80 333 
+./coxd Deaths1q_22s q!- 2022-01-01 2022-12-31 DeadByOther 18 59 
+./coxd Deaths2q_22s q!- 2022-01-01 2022-12-31 DeadByOther 60 69 
+./coxd Deaths3q_22s q!- 2022-01-01 2022-12-31 DeadByOther 70 79 
+./coxd Deaths4q_22s q!- 2022-01-01 2022-12-31 DeadByOther 80 333 
+
+
+

@@ -11,22 +11,17 @@ string uninflabel = "_uninfected";
 string noimmunitylabel = "_noimmunity";
 string nodccilabel = "nodcci";
 
-string dcci2str(int dcci)
+string dcci2str(int dcci, bool truncate)
 {
     assert(dcci>=0);
     if(dcci==0)
-        return "0";
-    if(dcci==1)
-        return "1";
-    if(dcci==2)
-        return "2";
-    if(dcci==3)
-        return "3";
-    if(dcci==4)
-        return "4";
-    if(dcci==5)
-        return "5";
-    return "6+";
+	    return "_0";
+    if(truncate && dcci >= 6)
+       return "6+";
+
+    ostringstream o;
+    o << dcci;
+    return o.str();
 }
 
 string gender2str(bool male)
@@ -313,6 +308,7 @@ struct preprocessparams
     ///
     bool descstat = false;
 
+    bool truncatedcci = true;
     ///
     vector<bool> conditioning = vector<bool>(enumvariants,true);
     vector<bool> isoutcome = vector<bool>(enumvariants,true);
@@ -484,14 +480,14 @@ void ockodata2R(csv<';'>& data, string outputlabel,
     static vector<string> labels = {
        "PripadId",   "ID", "NovyHash",	"infekce",	"pohlavi",	"RokNarozeni",	"Kraj_bydliste",	"ORP_bydliste",	"Datum_pozitivity",	"DatumVysledku",	"Vylecen",	"Umrti",	"symptom",	"typ_testu",	"PrvniDavka",	"DruhaDavka",	"Ukoncene_ockovani",	"Extra_davka",	"Druha_extra_davka",	"OckovaciLatkaKod1",	"OckovaciLatkaKod2",	"OckovaciLatkaKod3",	"OckovaciLatkaKod4", "PrimPricinaHospCOVID",
        "bin_Hospitalizace",	"min_Hospitalizace",	"dni_Hospitalizace",	"max_Hospitalizace",	"bin_JIP",	"min_JIP",	"dni_JIP",	"max_JIP",	"bin_STAN",	"min_STAN",	"dni_STAN",	"max_STAN",	"bin_Kyslik",	"min_Kyslik",	"dni_Kyslik",	"max_Kyslik",	"bin_HFNO",	"min_HFNO",	"dni_HFNO",	"max_HFNO",	"bin_UPV_ECMO",	"min_UPV_ECMO",	"dni_UPV_ECMO",	"max_UPV_ECMO",	"Mutace",	"DatumUmrtiLPZ", "Long_COVID",
-       "ODB_Long_COVID","kraj_icz_Long_COVID","kraj_pacient_Long_COVID","DCCI_r2010","DCCI_r2011","DCCI_r2012","DCCI_r2013","DCCI_r2014","DCCI_r2015","DCCI_r2016","DCCI_r2017","DCCI_r2018","DCCI_r2019","DCCI_r2020","DCCI_r2021","DCCI_r2022"
+       "ODB_Long_COVID","kraj_icz_Long_COVID","kraj_pacient_Long_COVID","DCCI_r2014","DCCI_r2015","DCCI_r2016","DCCI_r2017","DCCI_r2018","DCCI_r2019","DCCI_r2020","DCCI_r2021","DCCI_r2022"
 
     };
 
 
     enum elabels {PripadId, ID,	NovyHash, infekce,	pohlavi,	RokNarozeni,	Kraj_bydliste,	ORP_Bydliste,	Datum_pozitivity,	DatumVysledku,	Vylecen,	Umrti,	symptom,	typ_testu,	PrvniDavka,	DruhaDavka,	Ukoncene_ockovani,	Extra_davka,	Druha_extra_davka,	OckovaciLatkaKod1,	OckovaciLatkaKod2,	OckovaciLatkaKod3,	OckovaciLatkaKod4,	PrimPricinaHospCOVID, bin_Hospitalizace,	min_Hospitalizace,	dni_Hospitalizace,	max_Hospitalizace,	bin_JIP,	min_JIP,	dni_JIP,	max_JIP,	bin_STAN,	min_STAN,	dni_STAN,	max_STAN,	bin_Kyslik,	min_Kyslik,	dni_Kyslik,	max_Kyslik,	bin_HFNO,	min_HFNO,	dni_HFNO,	max_HFNO,	bin_UPV_ECMO,	min_UPV_ECMO,	dni_UPV_ECMO,	max_UPV_ECMO,	Mutace,	DatumUmrtiLPZ, Long_COVID,
-                  ODB_Long_COVID,kraj_icz_Long_COVID,kraj_pacient_Long_COVID,DCCI_r2010,
-                  DCCI_r2011,DCCI_r2012,DCCI_r2013,DCCI_r2014,DCCI_r2015,DCCI_r2016,DCCI_r2017,DCCI_r2018,DCCI_r2019,
+                  ODB_Long_COVID,kraj_icz_Long_COVID,kraj_pacient_Long_COVID,
+                  DCCI_r2014,DCCI_r2015,DCCI_r2016,DCCI_r2017,DCCI_r2018,DCCI_r2019,
                   firstDCCI = DCCI_r2019,
                   DCCI_r2020,DCCI_r2021,DCCI_r2022, lastDCCI = DCCI_r2022,
                   enumlabels};
@@ -1580,7 +1576,7 @@ records ++;
                  assert(currentdcciindex >= 0);
                  assert(currentdcciindex < dccis.size());
                  ostringstream os;
-                 dccistring = dcci2str(dccis[currentdcciindex]);
+                 dccistring = dcci2str(dccis[currentdcciindex],ppp.truncatedcci);
              }
 
 
@@ -2213,7 +2209,7 @@ int _main(int argc, char *argv[], bool testrun = false)
 //    bool onlyfirst = argv[2][0] == '-';
     cout << "version 2.0" << endl;
     cout << "Usage convertool input output whattodo(DVRW) firstdate(rrrr-mm-dd) lastdate(rrrr-mm-dd) [minage maxage everyn]" << endl;
-    cout << "D=i-infection/x-covidproxy/h-hospitalization/l-longcovid" << endl;
+    cout << "D=i-infection/x-covidproxy/h-hospitalization/l-longcovid/d-overalldeath/q-overalldeathnovacints" << endl;
     cout << "V=!-all variants/O-all Omicrons/E-O+Delta/x-variant x" << endl;
     cout << "R=-variants... --not discerned in InfPrior/a all discerned/g general discerned" << endl;
     cout << "W=i-intervals uded for variant determination/--not used" << endl;
@@ -2255,9 +2251,18 @@ int _main(int argc, char *argv[], bool testrun = false)
         mode = elongcovidevent;
         cout << "long covid as event" << endl;
         break;
-    case 'D':
+    case 'd':
+    case 'q':
         mode = eoveralldeath;
         cout << "overall death es event" << endl;
+        ppp.regulardelay = 0;
+        ppp.boostdelay = 0;
+        ppp.numinfcovariates = 1;
+        ppp.firstcovreinfduration = 365;
+        ppp.truncatedcci = false;
+        if(argv[3][0] == 'q')
+            ppp.regularcovvaccduration = 2*365;
+
         break;
     case 'c':
         mode = elccomparison;
@@ -2547,9 +2552,9 @@ int main(int argc, char *argv[])
             _main(6,as,true);
         } else if(testno == 6)
         {
-            char *as[8] ={"foo", "/home/martin/tmp/ppp/xaa.csv","test6_output.csv",
-                          "cO-icb",
-                          "2021-01-01","2022-12-31","80","333"};
+            char *as[8] ={"foo", "/home/martin/tmp/daman/xaa.csv","test6_output.csv",
+                          "q!-",
+                          "2021-01-01","2022-12-31","0","333"};
             _main(8,as,true);
         }
 
@@ -2580,6 +2585,8 @@ int main(int argc, char *argv[])
     return 0;
 
 }
+
+
 
 
 

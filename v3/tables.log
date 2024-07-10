@@ -1,0 +1,322 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2022.2.17)  20 JUN 2024 23:14
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**tables
+(./tables.tex
+LaTeX2e <2017-04-15>
+Babel <3.17> and hyphenation patterns for 3 language(s) loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count87
+\Gm@cntv=\count88
+\c@Gm@tempcnt=\count89
+\Gm@bindingoffset=\dimen105
+\Gm@wd@mp=\dimen106
+\Gm@odd@mp=\dimen107
+\Gm@even@mp=\dimen108
+\Gm@layoutwidth=\dimen109
+\Gm@layoutheight=\dimen110
+\Gm@layouthoffset=\dimen111
+\Gm@layoutvoffset=\dimen112
+\Gm@dimlist=\toks15
+) (./tables.aux)
+\openout1 = `tables.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count90
+\scratchdimen=\dimen113
+\scratchbox=\box26
+\nofMPsegments=\count91
+\nofMParguments=\count92
+\everyMPshowfont=\toks16
+\MPscratchCnt=\count93
+\MPscratchDim=\dimen114
+\MPnumerator=\count94
+\makeMPintoPDFobject=\count95
+\everyMPtoPDFconversion=\toks17
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(45.80893pt, 505.89pt, 45.80894pt)
+* v-part:(T,H,B)=(28.70322pt, 773.28877pt, 43.05486pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=505.89pt
+* \textheight=773.28877pt
+* \oddsidemargin=-26.46106pt
+* \evensidemargin=-26.46106pt
+* \topmargin=-80.56677pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(./Deaths1/cox_model_summary.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 5.
+)
+<Deaths1/forest_plot.png, id=1, 289.08pt x 505.6491pt>
+File: Deaths1/forest_plot.png Graphic file (type png)
+<use Deaths1/forest_plot.png>
+Package pdftex.def Info: Deaths1/forest_plot.png  used on input line 10. on inp
+ut line 10.
+Package pdftex.def Info: Requested size: 404.71353pt x 707.95018pt on input lin
+e 10.
+ [1
+
+{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}] [2 <./Death
+s1/forest_plot.png>]
+(./Deaths2/cox_model_summary.tex)
+<Deaths2/forest_plot.png, id=12, 289.08pt x 505.6491pt>
+File: Deaths2/forest_plot.png Graphic file (type png)
+<use Deaths2/forest_plot.png>
+Package pdftex.def Info: Deaths2/forest_plot.png  used on input line 13. on inp
+ut line 13.
+Package pdftex.def Info: Requested size: 404.71353pt x 707.95018pt on input lin
+e 13.
+ [3] [4 <./Deaths2/forest_plot.png>]
+(./Deaths3/cox_model_summary.tex)
+<Deaths3/forest_plot.png, id=19, 289.08pt x 505.6491pt>
+File: Deaths3/forest_plot.png Graphic file (type png)
+<use Deaths3/forest_plot.png>
+Package pdftex.def Info: Deaths3/forest_plot.png  used on input line 16. on inp
+ut line 16.
+Package pdftex.def Info: Requested size: 404.71353pt x 707.95018pt on input lin
+e 16.
+ [5] [6 <./Deaths3/forest_plot.png>]
+(./Deaths4/cox_model_summary.tex)
+<Deaths4/forest_plot.png, id=26, 289.08pt x 505.6491pt>
+File: Deaths4/forest_plot.png Graphic file (type png)
+<use Deaths4/forest_plot.png>
+Package pdftex.def Info: Deaths4/forest_plot.png  used on input line 20. on inp
+ut line 20.
+Package pdftex.def Info: Requested size: 404.71353pt x 707.95018pt on input lin
+e 20.
+ [7] [8 <./Deaths4/forest_plot.png>]
+(./Deaths1_22/cox_model_summary.tex)
+<Deaths1_22/forest_plot.png, id=34, 289.08pt x 505.6491pt>
+File: Deaths1_22/forest_plot.png Graphic file (type png)
+<use Deaths1_22/forest_plot.png>
+Package pdftex.def Info: Deaths1_22/forest_plot.png  used on input line 23. on 
+input line 23.
+Package pdftex.def Info: Requested size: 404.71353pt x 707.95018pt on input lin
+e 23.
+ [9] [10 <./Deaths1_22/forest_plot.png>]
+(./Deaths2_22/cox_model_summary.tex)
+<Deaths2_22/forest_plot.png, id=41, 289.08pt x 505.6491pt>
+File: Deaths2_22/forest_plot.png Graphic file (type png)
+<use Deaths2_22/forest_plot.png>
+Package pdftex.def Info: Deaths2_22/forest_plot.png  used on input line 26. on 
+input line 26.
+Package pdftex.def Info: Requested size: 404.71353pt x 707.95018pt on input lin
+e 26.
+ [11] [12 <./Deaths2_22/forest_plot.png>]
+(./Deaths3_22/cox_model_summary.tex)
+<Deaths3_22/forest_plot.png, id=48, 289.08pt x 505.6491pt>
+File: Deaths3_22/forest_plot.png Graphic file (type png)
+<use Deaths3_22/forest_plot.png>
+Package pdftex.def Info: Deaths3_22/forest_plot.png  used on input line 29. on 
+input line 29.
+Package pdftex.def Info: Requested size: 404.71353pt x 707.95018pt on input lin
+e 29.
+ [13] [14 <./Deaths3_22/forest_plot.png>]
+(./Deaths4_22/cox_model_summary.tex)
+<Deaths4_22/forest_plot.png, id=56, 289.08pt x 505.6491pt>
+File: Deaths4_22/forest_plot.png Graphic file (type png)
+<use Deaths4_22/forest_plot.png>
+Package pdftex.def Info: Deaths4_22/forest_plot.png  used on input line 33. on 
+input line 33.
+Package pdftex.def Info: Requested size: 404.71353pt x 707.95018pt on input lin
+e 33.
+ [15] [16 <./Deaths4_22/forest_plot.png>]
+(./Deaths1_22s/cox_model_summary.tex)
+<Deaths1_22s/forest_plot.png, id=63, 289.08pt x 505.6491pt>
+File: Deaths1_22s/forest_plot.png Graphic file (type png)
+<use Deaths1_22s/forest_plot.png>
+Package pdftex.def Info: Deaths1_22s/forest_plot.png  used on input line 36. on
+ input line 36.
+Package pdftex.def Info: Requested size: 404.71353pt x 707.95018pt on input lin
+e 36.
+ [17] [18 <./Deaths1_22s/forest_plot.png>] (./Deaths2_22s/cox_model_summary.tex
+)
+<Deaths2_22s/forest_plot.png, id=70, 289.08pt x 505.6491pt>
+File: Deaths2_22s/forest_plot.png Graphic file (type png)
+<use Deaths2_22s/forest_plot.png>
+Package pdftex.def Info: Deaths2_22s/forest_plot.png  used on input line 39. on
+ input line 39.
+Package pdftex.def Info: Requested size: 404.71353pt x 707.95018pt on input lin
+e 39.
+ [19] [20 <./Deaths2_22s/forest_plot.png>] (./Deaths3_22s/cox_model_summary.tex
+)
+<Deaths3_22s/forest_plot.png, id=78, 289.08pt x 505.6491pt>
+File: Deaths3_22s/forest_plot.png Graphic file (type png)
+<use Deaths3_22s/forest_plot.png>
+Package pdftex.def Info: Deaths3_22s/forest_plot.png  used on input line 42. on
+ input line 42.
+Package pdftex.def Info: Requested size: 404.71353pt x 707.95018pt on input lin
+e 42.
+ [21] [22 <./Deaths3_22s/forest_plot.png>] (./Deaths4_22s/cox_model_summary.tex
+)
+<Deaths4_22s/forest_plot.png, id=85, 289.08pt x 505.6491pt>
+File: Deaths4_22s/forest_plot.png Graphic file (type png)
+<use Deaths4_22s/forest_plot.png>
+Package pdftex.def Info: Deaths4_22s/forest_plot.png  used on input line 46. on
+ input line 46.
+Package pdftex.def Info: Requested size: 404.71353pt x 707.95018pt on input lin
+e 46.
+ [23] [24 <./Deaths4_22s/forest_plot.png>] (./tables.aux) ) 
+Here is how much of TeX's memory you used:
+ 1980 strings out of 494917
+ 29738 string characters out of 6180699
+ 99880 words of memory out of 5000000
+ 5267 multiletter control sequences out of 15000+600000
+ 4245 words of font info for 16 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 41i,8n,31p,269b,190s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on tables.pdf (24 pages, 1502271 bytes).
+PDF statistics:
+ 101 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+

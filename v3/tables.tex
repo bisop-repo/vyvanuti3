@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[a4paper, total={7in,10.7in}]{geometry}
+
+\newcommand{\tabgraf}[1]{\input{Deaths#1/cox_model_summary.tex}\includegraphics[width=0.8\textwidth]{Deaths#1/forest_plot.png}\newpage}
+
+\begin{document}
+
+\section*{18-59}
+\tabgraf{1}
+
+\section*{60-69}
+\tabgraf{2}
+
+\section*{70-79} 
+\tabgraf{3}
+
+
+\section*{80+}
+\tabgraf{4}
+
+\section*{18-59 2022}
+\tabgraf{1_22}
+
+\section*{60-69 2022}
+\tabgraf{2_22}
+
+\section*{70-79 2022} 
+\tabgraf{3_22}
+
+
+\section*{80+ 2022}
+\tabgraf{4_22}
+
+\section*{18-59 2022 S}
+\tabgraf{1_22s}
+
+\section*{60-69 2022 S}
+\tabgraf{2_22s}
+
+\section*{70-79 2022 S} 
+\tabgraf{3_22s}
+
+
+\section*{80+ 2022 S}
+\tabgraf{4_22s}
+
+
+
+\end{document}
